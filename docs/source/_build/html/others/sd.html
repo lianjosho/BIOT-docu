@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.- Guardado en memoria SD &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.- Comunicación con el servidor" href="server.html" />
+    <link rel="prev" title="5.- Comunicación con la APP" href="app.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html"><span class="sectnum">3.- </span>Información sobre el firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">6.- </span>Guardado en memoria SD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#archivo-regall-txt"><span class="sectnum">6.1.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#archivo-register-txt"><span class="sectnum">6.2.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#archivo-battery-txt"><span class="sectnum">6.3.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#archivos-monitor-year-month-day-txt"><span class="sectnum">6.4.- </span>Archivos <code class="docutils literal notranslate"><span class="pre">monitor/&lt;year&gt;&lt;month&gt;&lt;day&gt;.txt</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">6.- </span>Guardado en memoria SD</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/sd.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guardado-en-memoria-sd">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="sectnum">6.- </span>Guardado en memoria SD</a><a class="headerlink" href="#guardado-en-memoria-sd" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#guardado-en-memoria-sd" id="id1"><span class="sectnum">6.- </span>Guardado en memoria SD</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#archivo-regall-txt" id="id2"><span class="sectnum">6.1.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code></a></p></li>
+<li><p><a class="reference internal" href="#archivo-register-txt" id="id3"><span class="sectnum">6.2.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code></a></p></li>
+<li><p><a class="reference internal" href="#archivo-battery-txt" id="id4"><span class="sectnum">6.3.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code></a></p></li>
+<li><p><a class="reference internal" href="#archivos-monitor-year-month-day-txt" id="id5"><span class="sectnum">6.4.- </span>Archivos <code class="docutils literal notranslate"><span class="pre">monitor/&lt;year&gt;&lt;month&gt;&lt;day&gt;.txt</span></code></a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p class="linemarker linemarker-10">La memoria SD contiene varios archivos .txt:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-12"><code class="docutils literal notranslate"><span class="pre">regall.txt</span></code>: se guardan aquí <strong>TODOS</strong> los paquetes
+de mediciones que se han hecho.</p></li>
+<li><p class="linemarker linemarker-14"><code class="docutils literal notranslate"><span class="pre">register.txt</span></code>: se guardan aquí los paquetes que no
+se pudieron enviar.</p></li>
+<li><p class="linemarker linemarker-16"><code class="docutils literal notranslate"><span class="pre">battery.txt</span></code>: se guarda el registro de actividad
+del equipo.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-21">Todos estos archivos se borran con la instrucción o
+palabra clave <code class="docutils literal notranslate"><span class="pre">recrear</span></code> y se vuelven a crear.</p>
+</div>
+<p class="linemarker linemarker-24">Los paquetes de medición se llaman <code class="docutils literal notranslate"><span class="pre">json_measure</span></code> y
+tienen la siguiente forma.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-1234&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-12-23-21-58-08&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;number_sent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-31">Donde:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-33"><code class="docutils literal notranslate"><span class="pre">id</span></code>: es el identificador del equipo.</p></li>
+<li><p class="linemarker linemarker-34"><code class="docutils literal notranslate"><span class="pre">timestamp</span></code>: es la fecha y hora en que se hizo la
+medición.</p></li>
+<li><p class="linemarker linemarker-36"><code class="docutils literal notranslate"><span class="pre">level_bat</span></code>: es el nivel de batería al momento de
+realizar la medición.</p></li>
+<li><p class="linemarker linemarker-38"><code class="docutils literal notranslate"><span class="pre">sn</span></code>: es la salida en donde está conectado el sensor,
+puede ir desde 0 hasta 3.</p></li>
+<li><p class="linemarker linemarker-40"><code class="docutils literal notranslate"><span class="pre">number_sent</span></code>: es la cantidad de veces que se ha
+intentado enviar el paquete al servidor sin éxito.
+Cuando supera los 3 intentos, el paquete se borra del
+archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>.</p></li>
+<li><p class="linemarker linemarker-44"><code class="docutils literal notranslate"><span class="pre">value</span></code>: es el array de Strings compuesto de las
+respuestas a cada comando.</p></li>
+</ul>
+<p class="linemarker linemarker-47">Este array depende del tipo de sensor:</p>
+<p class="linemarker linemarker-49">Para un sensor tipo THE:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-55">Para un sensor tipo NPK:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-61">Para un sensor tipo LEVEL:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-67">Para un sensor tipo STEVENS:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;062+28.9,+84.0,+0.517&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="archivo-regall-txt">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="sectnum">6.1.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code></a><a class="headerlink" href="#archivo-regall-txt" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-76">Se guardan los paquetes de forma lineal y con un salto
+de línea:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{json_measure_0}</span>
+<span class="go">{json_measure_1}</span>
+<span class="go">{json_measure_2}</span>
+<span class="go">...</span>
+<span class="go">{json_measure_n}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-87">Es lo que se ve cuando se coloca la SD en una laptop y se
+abre el archivo en un procesador de texto.</p>
+</section>
+<section id="archivo-register-txt">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">6.2.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code></a><a class="headerlink" href="#archivo-register-txt" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-93">Ídem al archivo anterior, pero <strong>SOLO</strong> se guardan los paquetes
+que no se han podido enviar al servidor un número igual o
+menor a 3 intentos; luego de eso se borra.</p>
+</section>
+<section id="archivo-battery-txt">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">6.3.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code></a><a class="headerlink" href="#archivo-battery-txt" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-100">Se guarda en este archivo toda la actividad del equipo, se
+conforma también de paquetes json como los otros dos
+archivos, pero se conforman de la siguiente manera:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;timeStamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-07-05-12-53-30&quot;</span><span class="p">,</span><span class="w"> </span><span class="cm">/* Fecha y hora de la medición */</span>
+<span class="w">  </span><span class="nt">&quot;dur&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">26.775</span><span class="p">,</span><span class="w">                      </span><span class="cm">/* Segundos que dura la medición y envío */</span>
+<span class="w">  </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.028205128</span><span class="p">,</span><span class="w">           </span><span class="cm">/* Nivel de batería */</span>
+<span class="w">  </span><span class="nt">&quot;med&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">          </span><span class="cm">/* Resultado de mediciones */</span>
+<span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span><span class="p">,</span><span class="w">     </span><span class="cm">/* Medición ok */</span>
+<span class="w">    </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w">  </span><span class="cm">/* Error en la merición */</span>
+<span class="w">    </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="w">      </span><span class="cm">/* Salida no configurada */</span>
+<span class="w">    </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">          </span><span class="cm">/* Resultado del envío */</span>
+<span class="w">    </span><span class="nt">&quot;int&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">   </span><span class="cm">/* Conexión a internet */</span>
+<span class="w">    </span><span class="nt">&quot;med&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">       </span><span class="cm">/* Resultado de los envíos */</span>
+<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OK&quot;</span><span class="p">,</span><span class="w">  </span><span class="cm">/* Envío ok */</span>
+<span class="w">      </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;400&quot;</span><span class="p">,</span><span class="w"> </span><span class="cm">/* (Código de error) Problemas con el envío  */</span>
+<span class="w">      </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="w">   </span><span class="cm">/* Salida no configurada */</span>
+<span class="w">      </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;antes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">    </span><span class="cm">/* Paquetes que había en &quot;register.txt&quot; antes */</span>
+<span class="w">    </span><span class="nt">&quot;envi&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">      </span><span class="cm">/* Paquetes que se envían de dichos paquetes */</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="archivos-monitor-year-month-day-txt">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">6.4.- </span>Archivos <code class="docutils literal notranslate"><span class="pre">monitor/&lt;year&gt;&lt;month&gt;&lt;day&gt;.txt</span></code></a><a class="headerlink" href="#archivos-monitor-year-month-day-txt" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-111">En estos archivos se planea por todo lo que se imprime
+en el monitor serial en un día.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="app.html" class="btn btn-neutral float-left" title="5.- Comunicación con la APP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="server.html" class="btn btn-neutral float-right" title="7.- Comunicación con el servidor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

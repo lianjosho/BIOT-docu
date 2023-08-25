@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Versionado &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="8.- Desarrollador" href="developer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html"><span class="sectnum">3.- </span>Información sobre el firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Versionado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nomenclatura">Nomenclatura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tipos-de-cambios">Tipos de cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-6">Versión 6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v6-3-0-08-08-2023">V6.3.0 - 08/08/2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v6-2-0-28-07-2023">V6.2.0 - 28/07/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#changed">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v6-1-1-28-07-2023">V6.1.1 - 28/07/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v6-1-0-26-07-2023">V6.1.0 - 26/07/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v6-0-0-14-07-2023">V6.0.0 - 14/07/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Changed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-5">Versión 5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v5-1-0-24-08-2023">V5.1.0 - 24/08/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v5-0-1-30-06-2023">V5.0.1 - 30/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v5-0-0-29-06-2023">V5.0.0 - 29/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-4">Versión 4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v4-2-2-27-06-2023">V4.2.2 - 27/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-2-1-27-06-2023">V4.2.1 - 27/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-2-0-27-06-2023">V4.2.0 - 27/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-1-6-23-06-2023">V4.1.6 - 23/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-1-5-23-06-2023">V4.1.5 - 23/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-1-4-23-06-2023">V4.1.4 - 23/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-1-3-23-06-2023">V4.1.3 - 23/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-1-2-22-06-2023">V4.1.2 - 22/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-1-1-22-06-2023">V4.1.1 - 22/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-1-0-21-06-2023">V4.1.0 - 21/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-0-2-21-06-2023">V4.0.2 - 21/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-0-1-21-06-2023">V4.0.1 - 21/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v4-0-0-21-06-2023">V4.0.0 - 21/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id20">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-3">Versión 3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v3-1-4-16-06-2023">V3.1.4 - 16/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v3-1-3-16-06-2023">V3.1.3 - 16/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v3-1-2-16-06-2023">V3.1.2 - 16/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v3-1-1-14-06-2023">V3.1.1 - 14/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id24">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v3-1-0-13-06-2023">V3.1.0 - 13/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id25">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v3-0-0-13-06-2023">V3.0.0 - 13/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id26">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-2">Versión 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v2-0-2-13-06-2023">V2.0.2 - 13/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#removed">Removed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v2-0-1-12-06-2023">V2.0.1 - 12/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id27">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#v2-0-0-12-06-2023">V2.0.0 - 12/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id28">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-1">Versión 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v1-0-0-12-06-2023">V1.0.0 - 12/06/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Versionado</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/changelog.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="versionado">
+<h1>Versionado<a class="headerlink" href="#versionado" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p class="linemarker linemarker-4">Todos los cambios notables en este proyecto van a ser documentados aquí.</p></li>
+<li><p class="linemarker linemarker-5">Las entradas más recientes se colocan arriba.</p></li>
+<li><p class="linemarker linemarker-6">Este proyecto adhiere a <a class="reference external" href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p></li>
+</ul>
+<section id="nomenclatura">
+<h2>Nomenclatura<a class="headerlink" href="#nomenclatura" title="Permalink to this heading"></a></h2>
+<div style="background-color: brown; color: white; padding: 10px; border-radius: 5px; width: 300px; text-align: center;">
+   V<span>&lt;major&gt;</span><span>&lt;minor&gt;</span><span>&lt;patch&gt;</span>
+</div><ul class="simple">
+<li><p class="linemarker linemarker-18"><code class="docutils literal notranslate"><span class="pre">Major</span></code>: se incrementa cuando se hacen cambios incompatibles con versiones anteriores.</p></li>
+<li><p class="linemarker linemarker-19"><code class="docutils literal notranslate"><span class="pre">Minor</span></code>: se incrementa cuando se agregan nuevas funcionalidades de forma compatible con versiones anteriores.</p></li>
+<li><p class="linemarker linemarker-20"><code class="docutils literal notranslate"><span class="pre">Patch</span></code>: se incrementa cuando se realizan correcciones de errores o cambios menores de forma compatible con versiones anteriores.</p></li>
+</ul>
+</section>
+<section id="tipos-de-cambios">
+<h2>Tipos de cambios<a class="headerlink" href="#tipos-de-cambios" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p class="linemarker linemarker-25"><code class="docutils literal notranslate"><span class="pre">Added</span></code> para funcionalidades nuevas.</p></li>
+<li><p class="linemarker linemarker-26"><code class="docutils literal notranslate"><span class="pre">Changed</span></code> para los cambios en las funcionalidades existentes.</p></li>
+<li><p class="linemarker linemarker-27"><code class="docutils literal notranslate"><span class="pre">Removed</span></code> para las características en desuso que se eliminaron en esta versión.</p></li>
+<li><p class="linemarker linemarker-28"><code class="docutils literal notranslate"><span class="pre">Fixed</span></code> para corrección de errores.</p></li>
+</ul>
+</section>
+<section id="version-6">
+<h2>Versión 6<a class="headerlink" href="#version-6" title="Permalink to this heading"></a></h2>
+<section id="v6-3-0-08-08-2023">
+<h3>V6.3.0 - 08/08/2023<a class="headerlink" href="#v6-3-0-08-08-2023" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p class="linemarker linemarker-36"><strong>HTTP response de keyword “check”</strong>: antes era:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
+Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
+
+Chequeo:
+<span class="o">========</span>
+-<span class="w"> </span>Memoria<span class="w"> </span>SD:<span class="w"> </span>ok
+-<span class="w"> </span>Módulo<span class="w"> </span>de<span class="w"> </span>hora:<span class="w"> </span>ok
+-<span class="w"> </span>Sensores:<span class="w"> </span>ok
+</pre></div>
+</div>
+<p class="linemarker linemarker-50">y ahora es:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
+Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
+
+<span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;01030608D500880000ADC5&quot;</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.000,+0.001,+22.4,+72.3,+0.001,+0.697,+0.354,+0.708,+0.368\r\n&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+22.4,+72.3,+0.508\r\n&quot;</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;other&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;sdcard&quot;</span>:<span class="w"> </span>true,
+<span class="w">        </span><span class="s2">&quot;rtc&quot;</span>:<span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="v6-2-0-28-07-2023">
+<h3>V6.2.0 - 28/07/2023<a class="headerlink" href="#v6-2-0-28-07-2023" title="Permalink to this heading"></a></h3>
+<section id="changed">
+<h4>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-78"><strong>HTTP response de configuración</strong>: antes era:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
+Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
+
+Equipo<span class="w"> </span>configurado:
+<span class="o">===================</span>
+<span class="m">1</span><span class="o">)</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>cm<span class="w"> </span><span class="o">(</span>the<span class="o">)</span>
+<span class="m">2</span><span class="o">)</span><span class="w"> </span><span class="m">20</span><span class="w"> </span>cm<span class="w"> </span><span class="o">(</span>npk<span class="o">)</span>
+<span class="m">3</span><span class="o">)</span><span class="w"> </span>No<span class="w"> </span>configurado
+<span class="m">4</span><span class="o">)</span><span class="w"> </span>No<span class="w"> </span>configurado
+</pre></div>
+</div>
+<p class="linemarker linemarker-92">y ahora es:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
+Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
+
+Configuración<span class="w"> </span>hecha
+</pre></div>
+</div>
+</section>
+</section>
+<section id="v6-1-1-28-07-2023">
+<h3>V6.1.1 - 28/07/2023<a class="headerlink" href="#v6-1-1-28-07-2023" title="Permalink to this heading"></a></h3>
+<section id="fixed">
+<h4>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-107"><strong>Problema de sensor tipo hex no conectado</strong>: cuando el sensor
+tipo hex no está conectado, no devuelve respuesta. Esa respuesta
+se estaba guardando en un array nulo que después se convertía en
+un String “000…”; cuando en realidad debería ser “”. Corregido.</p></li>
+</ul>
+</section>
+</section>
+<section id="v6-1-0-26-07-2023">
+<h3>V6.1.0 - 26/07/2023<a class="headerlink" href="#v6-1-0-26-07-2023" title="Permalink to this heading"></a></h3>
+<section id="added">
+<h4>Added<a class="headerlink" href="#added" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-118"><strong>Funcionalidad keyword: erase</strong>: se atiende la petición POST
+de palabra clave que pide borrar la configuración.</p></li>
+<li><p class="linemarker linemarker-121"><strong>Funcionalidad keyword: eeprom</strong>: se atiende la petición POST
+que pide la configuración guardada.</p></li>
+<li><p class="linemarker linemarker-124"><strong>Funcionalidad keyword: check</strong>: chequea los módulos del equipo.</p></li>
+<li><p class="linemarker linemarker-126"><strong>Funcionalidad keyword: voltaje</strong>: setea el coeficiente de
+voltaje.</p></li>
+<li><p class="linemarker linemarker-129"><strong>Funcionalidad keyword: modo12</strong>: des/activa el modo 12.</p></li>
+<li><p class="linemarker linemarker-131"><strong>Funcionalidad keyword: offline</strong>: des/activa el modo offline.</p></li>
+<li><p class="linemarker linemarker-133"><strong>Funcionalidad keyword: bat</strong>: devuelve el archivo “battery.txt”.</p></li>
+<li><p class="linemarker linemarker-135"><strong>Funcionalidad keyword: regall</strong>: devuelve el archivo
+“regall.txt”.</p></li>
+</ul>
+</section>
+</section>
+<section id="v6-0-0-14-07-2023">
+<h3>V6.0.0 - 14/07/2023<a class="headerlink" href="#v6-0-0-14-07-2023" title="Permalink to this heading"></a></h3>
+<section id="id1">
+<h4>Changed<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-144"><strong>Cambios en el json_app</strong>: se cambió el json que manda la app
+para configurar el equipo. Antes era:</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arcilloso&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Salida 2 (o2)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nivel&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.4403103</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.2040562</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-164">Y ahora es:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;01040000000271CB&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///TR\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T0\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T1\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="linemarker linemarker-186"><strong>Cambios en el json_measure</strong>: se cambió el paquete json de
+de medición. Antes era:</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-7BF4&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THSST&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-04-20-12-18-42&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.39167023</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.22102356</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00000000001&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">22.08</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BIOT-&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;loss_tangent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;electrical_conductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;electrical_conductivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;real_dielectric_permittivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;real_dielectric_permittivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;imag_dielectric_permittivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;imag_dielectric_permittivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.000</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;verFirm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V1.0.15&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;verHard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V1.0.0&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;number_sent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-220">Y ahora es:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-1234&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-12-23-21-58-08&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.2</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;number_sent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-233">Donde el campo <code class="docutils literal notranslate"><span class="pre">value</span></code> es depende del tipo de sensor.</p>
+<p class="linemarker linemarker-235">Para un sensor tipo THE:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-241">Para un sensor tipo NPK:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-247">Para un sensor tipo LEVEL:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-253">Para un sensor tipo STEVENS:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">   </span><span class="s2">&quot;062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;062+28.9,+84.0,+0.517&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="version-5">
+<h2>Versión 5<a class="headerlink" href="#version-5" title="Permalink to this heading"></a></h2>
+<section id="v5-1-0-24-08-2023">
+<h3>V5.1.0 - 24/08/2023<a class="headerlink" href="#v5-1-0-24-08-2023" title="Permalink to this heading"></a></h3>
+<section id="id2">
+<h4>Added<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-271">Respuesta a la palabra clave “modulo”: se elimina y se
+recrea el archivo “register.txt”, que es en donde se guardan
+las mediciones no enviadas. La HTTP response es:</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="mi">-8</span>
+
+<span class="n">Memoria</span><span class="w"> </span><span class="n">SD</span><span class="w"> </span><span class="n">formateada</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p class="linemarker linemarker-282">Respuesta a configuración en offline: cuando el equipo está
+en modo offline y la app manda la petición para configurarlo,
+la configuración se hace pero no se envía el metadata al
+servidor. La HTTP response es:</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">OK</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span><span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="mi">-8</span>
+
+<span class="n">Configuración</span><span class="w"> </span><span class="n">hecha</span><span class="w"> </span><span class="n">pero</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">enviada</span><span class="p">,</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="n">equipo</span><span class="w"> </span><span class="n">está</span>
+<span class="n">en</span><span class="w"> </span><span class="n">modo</span><span class="w"> </span><span class="n">offline</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="v5-0-1-30-06-2023">
+<h3>V5.0.1 - 30/06/2023<a class="headerlink" href="#v5-0-1-30-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id3">
+<h4>Fixed<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-301"><strong>Respuesta al modo12</strong>: se cambia el mensaje cuando el modo12 está
+activado. Pasa de ser:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;Modo Ledesma: se mide cada 1...&quot;</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-308">a ser:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;Modo 12: se mide cada 1...&quot;</span>
+</pre></div>
+</div>
+<section id="id4">
+<h5>Added<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h5>
+<ul class="simple">
+<li><p class="linemarker linemarker-317">Se muestra tipo de sensor en respuesta a “eeprom”: cuando se
+responde a la palabra clave “eeprom”, ahora se muestra el
+tipo de sensor, y si es de tipo “nivel”, se muestran metros
+en lugar de cm. La respuesta pasa de ser:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">O2) 12.00 cm</span>
+<span class="go">O3) 2.00 cm</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-327">a ser:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">O2) 14.00 cm (the)</span>
+<span class="go">O3) 2.00 m (nivel)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="v5-0-0-29-06-2023">
+<h3>V5.0.0 - 29/06/2023<a class="headerlink" href="#v5-0-0-29-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id5">
+<h4>Changed<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-341"><strong>Json que la app manda al equipo</strong>: se cambia el json que la app le
+manda al equipo para configurarlo. En particular, se eliminan los
+espacios en el nombre del siguiente campo:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;Salida 1 (o1)&quot;: 100,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-349">ahora es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;Salida1(o1)&quot;: 100,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-355">El json entonces pasa de ser:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arcilloso&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Salida 2 (o2)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nivel&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.4403103</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.2040562</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-374">a ser:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arcilloso&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Salida2(o2)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nivel&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.4403103</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.2040562</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-393">El siguiente gráfico muestra resaltado el campo modificado.</p>
+<img alt="../_images/changelog-01.png" src="../_images/changelog-01.png" />
+<img alt="../_images/changelog-02.png" src="../_images/changelog-02.png" />
+</section>
+<section id="id6">
+<h4>Added<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-401"><strong>Documentación “modo12” y “modooffline”</strong>: faltaba documentar lo que
+significaban estos modos.</p></li>
+</ul>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-text">Modos 12 y offline</span><a class="headerlink" href="#id30" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Modo</p></th>
+<th class="head"><p class="linemarker linemarker-1">Intervalo de medición (hs)</p></th>
+<th class="head"><p class="linemarker linemarker-1">Intervalo de envío (hs)</p></th>
+<th class="head"><p class="linemarker linemarker-1">Hora de envío</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">12</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">12</p></td>
+<td><p class="linemarker linemarker-1">0:00 y 12:00</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Normal</p></td>
+<td><p class="linemarker linemarker-1">24</p></td>
+<td><p class="linemarker linemarker-1">24</p></td>
+<td><p class="linemarker linemarker-1">12:00</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-412">Cuando el modo offline está activo, el equipo no enciende el módulo SIM808 para enviar datos, así que solamente los guarda en la memoria SD.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="version-4">
+<h2>Versión 4<a class="headerlink" href="#version-4" title="Permalink to this heading"></a></h2>
+<section id="v4-2-2-27-06-2023">
+<h3>V4.2.2 - 27/06/2023<a class="headerlink" href="#v4-2-2-27-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id7">
+<h4>Fixed<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-421"><strong>Modo12 y modooffline</strong>: había un problema en la declaración de una variable que no permitía que las variables booleanas relacionadas a esos modos se guardaran de forma correcta. Corregido.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-2-1-27-06-2023">
+<h3>V4.2.1 - 27/06/2023<a class="headerlink" href="#v4-2-1-27-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id8">
+<h4>Fixed<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-427"><strong>Modo ledesma</strong>: había errores en el enviado de las mediciones.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-2-0-27-06-2023">
+<h3>V4.2.0 - 27/06/2023<a class="headerlink" href="#v4-2-0-27-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id9">
+<h4>Added<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-433"><strong>Modo offline</strong>: se agrega la palabra clave “offline”, para decirle al equipo que no hay cobertura así no enciende el módulo sim después de realizar la medición.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<dl class="simple">
+<dt>Cada vez que se agrega un campo a la estructura de la eeprom, se deben seguir los siguientes pasos:</dt><dd><ul class="simple">
+<li><p class="linemarker linemarker-437">Agregar escritura en la función Eeprom1::setStruct</p></li>
+<li><p class="linemarker linemarker-438">Agregar escritura en la función Eeprom1::erase_nvs</p></li>
+<li><p class="linemarker linemarker-439">Agregar lectura en la función Eeprom1::getStruct</p></li>
+<li><p class="linemarker linemarker-440">Descomentar la función Eeprom1::erase_nvs después de inicializar el espacio nvs en la función Eeprom1::setup()</p></li>
+<li><p class="linemarker linemarker-441">Comentar la función Eeprom1::erase_nvs después de inicializar el espacio nvs en la función Eeprom1::setup()</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+<section id="v4-1-6-23-06-2023">
+<h3>V4.1.6 - 23/06/2023<a class="headerlink" href="#v4-1-6-23-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id10">
+<h4>Fixed<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-447"><strong>Modo12 corregido</strong>: cuando la app mandaba la palabra clave “modo12”,
+no se guardaba bien el valor booleano en la eeprom. Corregido.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-1-5-23-06-2023">
+<h3>V4.1.5 - 23/06/2023<a class="headerlink" href="#v4-1-5-23-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id11">
+<h4>Added<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-454">Se responde firm vers a la app: cuando se abre la app, además de poner
+en hora al rtc externo, el equipo le responde con la versión de
+firmware. Antes se respondía:</p></li>
+</ul>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-463">y ahora se responde:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">HTTP/1.1 200 OK</span>
+<span class="go">Content-Type:text/plain;charset=UTF-8</span>
+
+<span class="go">V4.1.5</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="v4-1-4-23-06-2023">
+<h3>V4.1.4 - 23/06/2023<a class="headerlink" href="#v4-1-4-23-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id12">
+<h4>Changed<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-477">Cambio de palabra clave: se cambió la palabra clave “ledesma12” por
+“modo12”, para que no exista ninguna referencia al nombre de ninguna
+empresa.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-1-3-23-06-2023">
+<h3>V4.1.3 - 23/06/2023<a class="headerlink" href="#v4-1-3-23-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id13">
+<h4>Fixed<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-486"><strong>Apagado de sensor si no se puede chequear</strong>: cuando se configura
+un sensor y éste no responde después de un determinado intento, la
+salida no se deshabilitaba y el sensor quedaba alimentado. Corregido.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-1-2-22-06-2023">
+<h3>V4.1.2 - 22/06/2023<a class="headerlink" href="#v4-1-2-22-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id14">
+<h4>Fixed<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-494"><strong>Guardado de modo ledesma</strong>: había problemas cuando se mandaba la
+palabra clave “ledesma12”, no se guardaba correctamente. Corregido.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-1-1-22-06-2023">
+<h3>V4.1.1 - 22/06/2023<a class="headerlink" href="#v4-1-1-22-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id15">
+<h4>Fixed<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-502"><strong>No sube mediciones manuales</strong>: cuando se pedía una medición manual
+ya sea por app o por monitor, la medición no se subía. Corregido.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-1-0-21-06-2023">
+<h3>V4.1.0 - 21/06/2023<a class="headerlink" href="#v4-1-0-21-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id16">
+<h4>Added<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-509"><strong>Palabra clave “ledesma12”</strong>: se habilita al equipo a realizar una
+medición cada 1 hora y subir lo guardado cada 12 horas.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-0-2-21-06-2023">
+<h3>V4.0.2 - 21/06/2023<a class="headerlink" href="#v4-0-2-21-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id17">
+<h4>Fixed<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-516"><strong>No hace medición de sensor de nivel</strong>: no se hacía la medición si el
+sensor estaba configurado como de nivel. Se trataba de un error en el
+firmware, filtraba por <code class="docutils literal notranslate"><span class="pre">level</span></code> en lugar de hacerlo por <code class="docutils literal notranslate"><span class="pre">nivel</span></code>. Corregido.</p></li>
+</ul>
+</section>
+<section id="id18">
+<h4>Added<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-522"><strong>Mostrado de register como array</strong>: ante la orden por monitor “register”,
+el archivo “register.txt” se muestra como un array de json.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-0-1-21-06-2023">
+<h3>V4.0.1 - 21/06/2023<a class="headerlink" href="#v4-0-1-21-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id19">
+<h4>Fixed<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-529"><strong>No se configura si no se especifica sensor</strong>: si no se agrega ningún
+sensor en la configuración, se devuelve un mensaje y no se configura el
+equipo, ni tampoco se sube nada al servidor.</p></li>
+<li><p class="linemarker linemarker-532"><strong>Se pone “” en el tipo de sensor no configurado</strong>: si no se especifica
+la salida de un sensor (tipo y profundidad), entonces se guarda “” en
+la eeprom en la salida correspondiente.</p></li>
+</ul>
+</section>
+</section>
+<section id="v4-0-0-21-06-2023">
+<h3>V4.0.0 - 21/06/2023<a class="headerlink" href="#v4-0-0-21-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id20">
+<h4>Added<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-540"><strong>La memoria eeprom se maneja de otra forma</strong>: se deja de usar la
+librería <code class="docutils literal notranslate"><span class="pre">EEPROM.h</span></code> y se la reemplaza por la librería <code class="docutils literal notranslate"><span class="pre">Preferences.h</span></code>.
+Esta librería maneja mejor el espacio y prolonga la vida útil del
+almacenamiento no volátil.</p></li>
+<li><p class="linemarker linemarker-544"><strong>Se chequea antes de escribir en la eeprom</strong>: se chequea cada campo
+que se va a escribir en la eeprom para evitar sobreescribir un campo si
+en la eeprom hay un valor igual.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="version-3">
+<h2>Versión 3<a class="headerlink" href="#version-3" title="Permalink to this heading"></a></h2>
+<section id="v3-1-4-16-06-2023">
+<h3>V3.1.4 - 16/06/2023<a class="headerlink" href="#v3-1-4-16-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id21">
+<h4>Fixed<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-555"><strong>Palabra clave “voltaje,”</strong>: cuando la app recibe como location_name
+<code class="docutils literal notranslate"><span class="pre">voltaje,12.05</span></code>, se configura el coefficiente de voltaje con este valor.</p></li>
+</ul>
+</section>
+</section>
+<section id="v3-1-3-16-06-2023">
+<h3>V3.1.3 - 16/06/2023<a class="headerlink" href="#v3-1-3-16-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id22">
+<h4>Fixed<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-562"><strong>Respuesta al json mal formado</strong>: cuando la app manda un json metadata
+mal formado, el equipo le responde con el mensaje de “metadata mal formado”.</p></li>
+</ul>
+</section>
+</section>
+<section id="v3-1-2-16-06-2023">
+<h3>V3.1.2 - 16/06/2023<a class="headerlink" href="#v3-1-2-16-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id23">
+<h4>Fixed<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-569"><strong>Tiempo a dormir corregido</strong>: los segundos en que se ponia a dormir el
+equipo estaban calculados para las 12 de la noche y no del mediodía.</p></li>
+</ul>
+</section>
+</section>
+<section id="v3-1-1-14-06-2023">
+<h3>V3.1.1 - 14/06/2023<a class="headerlink" href="#v3-1-1-14-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id24">
+<h4>Added<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-576"><strong>Ver tiempo a dormir</strong>: con la orden por monitor <code class="docutils literal notranslate"><span class="pre">sleep</span></code> se muestra
+el tiempo (segundos y en horas, minutos y segundos) que quedan para que
+se cumpla las 12am del siguiente día.</p></li>
+</ul>
+</section>
+</section>
+<section id="v3-1-0-13-06-2023">
+<h3>V3.1.0 - 13/06/2023<a class="headerlink" href="#v3-1-0-13-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id25">
+<h4>Added<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h4>
+<ul>
+<li><p class="linemarker linemarker-584"><strong>Palabras clave</strong>: son palabras clave introducidas en la configuración
+en el campo <code class="docutils literal notranslate"><span class="pre">location_name</span></code> para que el equipo realice determinadas
+tareas. Las palabras clave son todas en minúscula y la lista es la
+siguiente:
+- <strong>erase</strong>: borra los siguientes campos en la memoria eeprom:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">BORRADO --&gt; String location_name;</span>
+<span class="go">BORRADO --&gt; String soil_type;</span>
+<span class="go">BORRADO --&gt; float latitude;</span>
+<span class="go">BORRADO --&gt; float longitude;</span>
+<span class="go">BORRADO --&gt; String type[4];</span>
+<span class="go">BORRADO --&gt; float tag_depth[4];</span>
+<span class="go">            String mac;</span>
+<span class="go">BORRADO --&gt; bool pending_config;</span>
+<span class="go">            String firmware_version;</span>
+<span class="go">            float voltage_coefficient;</span>
+<span class="go">            uint32_t unix_time;</span>
+<span class="go">            uint32_t wakeup_number;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p class="linemarker linemarker-605"><strong>eeprom</strong>: muestra en el HTTP request lo que hay en la eeprom.</p></li>
+<li><p class="linemarker linemarker-606"><strong>*bat</strong>: muestra en el HTTP request el archivo <code class="docutils literal notranslate"><span class="pre">bat.txt</span></code>, que es
+el registro de actividades del equipo.</p></li>
+<li><p class="linemarker linemarker-608"><strong>chequeo</strong>: reinstala todos los módulos y da un reporte.</p></li>
+<li><p class="linemarker linemarker-609"><strong>*regall</strong>: muestra en el HTTP request el archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code>,
+que es el registro de todas las mediciones que hizo el equipo, se
+hayan mandado o no.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-615">Los archivos <code class="docutils literal notranslate"><span class="pre">bat.txt</span></code> y <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code> son demasiado grandes como
+para que puedan ser vistos en la ventana emergente que muestra la app,
+así que hay que usar el Packet Sender o programa similar.</p>
+</div>
+</section>
+</section>
+<section id="v3-0-0-13-06-2023">
+<h3>V3.0.0 - 13/06/2023<a class="headerlink" href="#v3-0-0-13-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id26">
+<h4>Added<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-623"><strong>Medición a las 12:00 del mediodía</strong>: el equipo se despierta y
+realiza la medición automática si es la 12:00 del mediodía; si no es
+así, se pone a dormir sin hacer nada el tiempo que falte para llegar
+a la 12:00. Esto se debe hacer porque por más que se ponga al esp32
+a dormir 86400 segundos (número de segundos que tiene 1 día), siempre
+se despierta antes, por eso la necesidad de un rtc externo como
+el ds3231.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="version-2">
+<h2>Versión 2<a class="headerlink" href="#version-2" title="Permalink to this heading"></a></h2>
+<section id="v2-0-2-13-06-2023">
+<h3>V2.0.2 - 13/06/2023<a class="headerlink" href="#v2-0-2-13-06-2023" title="Permalink to this heading"></a></h3>
+<section id="removed">
+<h4>Removed<a class="headerlink" href="#removed" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-638"><strong>Actualiza rtc interno cuando el servidor responde 200 OK</strong>: cuando
+la hora está bien, el servidor responde lo siguiente:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{&quot;message&quot;:&quot;Se actualizaron los datos de L-7BF4&quot;,&quot;timestamp&quot;:&quot;2023-06-13T14:03:44&quot;}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-645">y cuando la hora está mal responde:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{&quot;message&quot;:&quot;Error fecha fuera de rango.&quot;,&quot;timestamp&quot;:&quot;13/06/2023, 11:05:07&quot;}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-651">El rtc interno ahora sólo se actualiza en el segundo caso debido a que
+como responde en formatos diferentes, generaba error en el 1er caso.</p>
+</section>
+</section>
+<section id="v2-0-1-12-06-2023">
+<h3>V2.0.1 - 12/06/2023<a class="headerlink" href="#v2-0-1-12-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id27">
+<h4>Changed<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-658"><strong>Respuesta a la configuración</strong>: se modifica el texto que se responde
+a la app cuando se configura el equipo para que se agregue información
+sobre el tipo de sensor. Pasa de ser:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Equipo configurado:</span>
+<span class="go">===================</span>
+<span class="go">1) 10 cm</span>
+<span class="go">2) 20 cm</span>
+<span class="go">3) No configurado</span>
+<span class="go">4) No configurado</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-671">a ser:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Equipo configurado:</span>
+<span class="go">===================</span>
+<span class="go">1) 10 cm (htc)</span>
+<span class="go">2) 20 cm (npk)</span>
+<span class="go">3) 5 m (nivel)</span>
+<span class="go">4) No configurado</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-683">En el caso del sensor de nivel, la profundidad pasa a ser la distancia
+desde la punta del sensor hasta el fondo del canal (en metros).</p>
+</div>
+</section>
+</section>
+<section id="v2-0-0-12-06-2023">
+<h3>V2.0.0 - 12/06/2023<a class="headerlink" href="#v2-0-0-12-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id28">
+<h4>Added<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-690"><strong>Sensor de nivel y npk</strong>: se agrega funcionalidad para que las entradas
+manejen sensores de 3 tipos: the, npk y de nivel. Se necesitó hacer
+cambios en el json que se recibe de la app y el metadata.
+El json que la app manda a la central era:</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Loamy Sand&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;río bravo&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Salida1(o1)&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Salida2(o2)&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Salida3(o3)&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Salida4(o4)&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.4403103</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.2040562</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-712">y ahora pasa a ser:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Loamy Sand&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;río bravo&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Salida 1 (o1)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;Salida 2 (o2)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npk&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;Salida 3 (o3)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nivel&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.4403103</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.2040562</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-739">El json de metadata era:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-7BF4&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THSST&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Clay&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Granja del sol&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-29.4570732</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-66.8782501</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;00000000001&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.00&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;00000000002&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;20.00&quot;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-758">y ahora pasa a ser:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-7BF4&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THSST&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Clay&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Granja del sol&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-29.4570732</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-66.8782501</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;000000001&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;000000002&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npk&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;000000003&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nivel&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-787">El json de medición queda como estaba:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-1234&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THSST&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-12-23-21-58-08&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.44021797</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.20396423</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0620019&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">31.70</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hola&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;loss_tangent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.114</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;electrical_conductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">89.10</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;electrical_conductivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.001</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;real_dielectric_permittivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.35</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;real_dielectric_permittivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.36</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;imag_dielectric_permittivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.389</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;imag_dielectric_permittivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.353</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">12.00</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">&quot;verFirm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V1.0.0&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;verHard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V1.0.0&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-819">Si el sensor es the, los parámetros no nulos son:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NO NULO --&gt; H: &quot;humidity&quot;: 0.000,</span>
+<span class="go">NO NULO --&gt; T: &quot;temperature&quot;: 31.70,</span>
+<span class="go">               &quot;location_name&quot;: &quot;hola&quot;,</span>
+<span class="go">               &quot;tag_depth&quot;: 100,</span>
+<span class="go">               &quot;loss_tangent&quot;: 1.114,</span>
+<span class="go">NO NULO --&gt; E: &quot;electrical_conductivity&quot;: 0.000,</span>
+<span class="go">               &quot;electrical_conductivity_tc&quot;: 0.00,</span>
+<span class="go">               &quot;real_dielectric_permittivity&quot;: 0.00,</span>
+<span class="go">               &quot;real_dielectric_permittivity_tc&quot;: 0.00,</span>
+<span class="go">               &quot;imag_dielectric_permittivity&quot;: 0.00,</span>
+<span class="go">               &quot;imag_dielectric_permittivity_tc&quot;: 0.00,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-835">Si el sensor es npk, los parámetros no nulos son:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NO NULO --&gt; H: &quot;humidity&quot;: 0.000,</span>
+<span class="go">NO NULO --&gt; T: &quot;temperature&quot;: 31.70,</span>
+<span class="go">               &quot;location_name&quot;: &quot;hola&quot;,</span>
+<span class="go">               &quot;tag_depth&quot;: 100,</span>
+<span class="go">               &quot;loss_tangent&quot;: 0.00,</span>
+<span class="go">NO NULO --&gt; E: &quot;electrical_conductivity&quot;: 10.00,</span>
+<span class="go">NO NULO --&gt; N: &quot;electrical_conductivity_tc&quot;: 20.00,</span>
+<span class="go">NO NULO --&gt; P: &quot;real_dielectric_permittivity&quot;: 30.00,</span>
+<span class="go">NO NULO --&gt; K: &quot;real_dielectric_permittivity_tc&quot;: 0.00,</span>
+<span class="go">               &quot;imag_dielectric_permittivity&quot;: 0.00,</span>
+<span class="go">               &quot;imag_dielectric_permittivity_tc&quot;: 0.00,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-851">Si el sensor es level, los parámetros no nulos son:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">               &quot;humidity&quot;: 0.000,</span>
+<span class="go">               &quot;temperature&quot;: 0.00,</span>
+<span class="go">               &quot;location_name&quot;: &quot;hola&quot;,</span>
+<span class="go">               &quot;tag_depth&quot;: 100,</span>
+<span class="go">NO NULO --&gt; L: &quot;loss_tangent&quot;: 5.00,</span>
+<span class="go">               &quot;electrical_conductivity&quot;: 0.00,</span>
+<span class="go">               &quot;electrical_conductivity_tc&quot;: 0.00,</span>
+<span class="go">               &quot;real_dielectric_permittivity&quot;: 0.00,</span>
+<span class="go">               &quot;real_dielectric_permittivity_tc&quot;: 0.00,</span>
+<span class="go">               &quot;imag_dielectric_permittivity&quot;: 0.00,</span>
+<span class="go">               &quot;imag_dielectric_permittivity_tc&quot;: 0.00,</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="version-1">
+<h2>Versión 1<a class="headerlink" href="#version-1" title="Permalink to this heading"></a></h2>
+<section id="v1-0-0-12-06-2023">
+<h3>V1.0.0 - 12/06/2023<a class="headerlink" href="#v1-0-0-12-06-2023" title="Permalink to this heading"></a></h3>
+<section id="id29">
+<h4>Added<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-874"><strong>Rtc interno</strong>: la hora y fecha se carga en el rtc interno del esp32
+cuando se despierta desde el de3231; si no se carga el ds3231, se carga
+con el tiempo unix guardado en la eeprom y se hace un aproximado.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="developer.html" class="btn btn-neutral float-left" title="8.- Desarrollador" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.- Componentes del equipo &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.- Información sobre el firmware" href="firmware.html" />
+    <link rel="prev" title="1.- Descripción del equipo" href="description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">2.- </span>Componentes del equipo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#esp32"><span class="sectnum">2.1.- </span>ESP32</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interrupcion"><span class="sectnum">2.1.1.- </span>Interrupción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#almacenamiento-no-volatil-simil-eeprom"><span class="sectnum">2.1.2.- </span>Almacenamiento no volátil (simil EEPROM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rtc-interno"><span class="sectnum">2.1.3.- </span>RTC interno</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modulo-sd"><span class="sectnum">2.2.- </span>Módulo SD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modulo-485"><span class="sectnum">2.3.- </span>Módulo 485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rtc-externo"><span class="sectnum">2.4.- </span>RTC externo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modulo-sim808"><span class="sectnum">2.5.- </span>Módulo SIM808</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html"><span class="sectnum">3.- </span>Información sobre el firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">2.- </span>Componentes del equipo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/components.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="componentes-del-equipo">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="sectnum">2.- </span>Componentes del equipo</a><a class="headerlink" href="#componentes-del-equipo" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#componentes-del-equipo" id="id1"><span class="sectnum">2.- </span>Componentes del equipo</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#esp32" id="id2"><span class="sectnum">2.1.- </span>ESP32</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#interrupcion" id="id3"><span class="sectnum">2.1.1.- </span>Interrupción</a></p></li>
+<li><p><a class="reference internal" href="#almacenamiento-no-volatil-simil-eeprom" id="id4"><span class="sectnum">2.1.2.- </span>Almacenamiento no volátil (simil EEPROM)</a></p></li>
+<li><p><a class="reference internal" href="#rtc-interno" id="id5"><span class="sectnum">2.1.3.- </span>RTC interno</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modulo-sd" id="id6"><span class="sectnum">2.2.- </span>Módulo SD</a></p></li>
+<li><p><a class="reference internal" href="#modulo-485" id="id7"><span class="sectnum">2.3.- </span>Módulo 485</a></p></li>
+<li><p><a class="reference internal" href="#rtc-externo" id="id8"><span class="sectnum">2.4.- </span>RTC externo</a></p></li>
+<li><p><a class="reference internal" href="#modulo-sim808" id="id9"><span class="sectnum">2.5.- </span>Módulo SIM808</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="esp32">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="sectnum">2.1.- </span>ESP32</a><a class="headerlink" href="#esp32" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-12">El micro elegido es el ESP32 DOIT DEVKIT V1. El pinout de la
+versión de 30 pines es el siguiente:</p>
+<img alt="../_images/components-01.png" src="../_images/components-01.png" />
+<p class="linemarker linemarker-17">El ESP32 es un microcontrolador de 32 bits que pertenece a la
+familia de dispositivos WiFi y Bluetooth de baja potencia.
+Este dispositivo fue desarrollado por Espressif Systems y se
+caracteriza por su capacidad de conectividad inalámbrica de
+alta velocidad y una amplia gama de periféricos.</p>
+<p class="linemarker linemarker-23">El ESP32 integra un procesador de doble núcleo con una
+velocidad de reloj que oscila entre los 80 y 240 MHz, lo que
+lo hace muy potente en comparación con otros dispositivos
+similares. Además, cuenta con una memoria flash de hasta 4 MB
+y una memoria RAM de 520 kB, lo que le permite manejar múltiples
+tareas de manera efectiva.</p>
+<p class="linemarker linemarker-31">Otra característica importante del ESP32 es su conectividad
+integrada de WiFi y Bluetooth. Esto permite que el dispositivo
+se conecte a una red inalámbrica y se comunique con otros
+dispositivos habilitados para Bluetooth, lo que lo hace ideal
+para proyectos de IoT (Internet de las cosas). También cuenta
+con una gran variedad de periféricos, como puertos ADC, DAC,
+I2C, SPI, UART, PWM y GPIO, que pueden ser utilizados para
+conectar sensores, motores y otros dispositivos.</p>
+<p class="linemarker linemarker-40">Se lo prefiere porque ya tiene integrado el módulo wifi para
+crear la red y porque no presenta problemas a la hora de
+programarlo como el STM32F103, que es el micro usado en el
+proyecto para Ledesma.</p>
+<section id="interrupcion">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">2.1.1.- </span>Interrupción</a><a class="headerlink" href="#interrupcion" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-48">La conexión con el pulsador para que se produzca la
+interrupción externa es la siguiente:</p>
+<img alt="../_images/components-02-interrupt.png" src="../_images/components-02-interrupt.png" />
+<p class="linemarker linemarker-53">El nombre de la red WiFi que se genera tiene la siguiente forma:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">MHTS-BIOT-&lt;mac&gt;</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-59">En donde <code class="docutils literal notranslate"><span class="pre">&lt;mac&gt;</span></code> corresponde a los últimos 4 caracteres de
+la dirección mac del ESP32. La seguridad de esta red es WPA2 y
+su contraseña es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Password: bristebiot</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-68">Para que se conecte e interactúe bien con la red WiFi, el
+celular debe tener los datos móviles desactivados.</p>
+</div>
+</section>
+<section id="almacenamiento-no-volatil-simil-eeprom">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">2.1.2.- </span>Almacenamiento no volátil (simil EEPROM)</a><a class="headerlink" href="#almacenamiento-no-volatil-simil-eeprom" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-74">El almacenamiento no volátil (NVS, Non-Volatile Storage) es un
+subsistema que permite el almacenamiento persistente de datos
+en la memoria flash del microcontrolador. Proporciona una
+interfaz sencilla para guardar y recuperar información de
+forma no volátil, lo que significa que los datos se mantienen
+incluso después de reiniciar o apagar el dispositivo.</p>
+<p class="linemarker linemarker-81">El NVS organiza los datos en pares clave-valor, donde cada
+valor se asocia con una clave única. Permite operaciones básicas
+como leer, escribir y borrar valores asociados con una clave
+específica. Los datos se almacenan de forma eficiente en la
+memoria flash y se pueden acceder rápidamente cuando sea
+necesario.</p>
+<p class="linemarker linemarker-88">Al principio, se usó la librería <code class="docutils literal notranslate"><span class="pre">EEPROM.h</span></code> para manejar la
+memoria flash como eeprom, pero luego se optó por <code class="docutils literal notranslate"><span class="pre">Preferences.h</span></code>
+por considerarse una opción mejor.</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-92"><code class="docutils literal notranslate"><span class="pre">Preferences.h</span></code>: proporciona una interfaz de alto nivel
+para almacenar y recuperar datos de forma persistente en la
+memoria flash del ESP32. Utiliza una implementación de
+almacenamiento basada en NVS (Non-Volatile Storage) que
+simplifica el manejo de datos y permite acceder a ellos
+utilizando claves.</p></li>
+<li><p class="linemarker linemarker-99"><code class="docutils literal notranslate"><span class="pre">EEPROM.h</span></code>: proporciona una interfaz de bajo nivel para
+acceder a la memoria EEPROM emulada en la memoria flash.
+Permite leer y escribir datos en posiciones de memoria
+específicas de la EEPROM.</p></li>
+</ol>
+<p class="linemarker linemarker-104">Con la librería <code class="docutils literal notranslate"><span class="pre">Preferences.h</span></code> no se especifica el tamaño
+del espacio que se necesita ni tampoco en dónde específicamente
+se va a guardar un valor. La librería sola se encarga de ubicar
+los datos como mejor le parezca y los va rotando para que una
+de memoria no se desgaste en detrimento de otra que no se usa;
+algo que sí pasa con <code class="docutils literal notranslate"><span class="pre">EEPROM.h</span></code>, es por eso que se decidió
+dejar de usarla.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-113">Si se intenta leer un dato que un para llave-dato sin haberlo
+guardado primero va a haber un error de acceso a la memoria.
+Por eso se debe “formatear” el NVS en un ESP32 nuevo o cuando
+se modifique la organización.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-119">La librería <code class="docutils literal notranslate"><span class="pre">Preferences.h</span></code> no pregunta si el dato a
+guardar es igual al ya guardado, directamente lo sobreescribe
+sin importarle si es igual al ya guardado o no. Por eso se
+debe preguntar cada vez que se escriba.</p>
+</div>
+<p class="linemarker linemarker-124">La estructura que se va a guardar en el NVS es:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">estructura</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">String</span><span class="w"> </span><span class="n">location_name</span><span class="p">;</span>
+<span class="w">   </span><span class="n">String</span><span class="w"> </span><span class="n">soil_type</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">float</span><span class="w"> </span><span class="n">latitude</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">float</span><span class="w"> </span><span class="n">longitude</span><span class="p">;</span>
+<span class="w">   </span><span class="n">String</span><span class="w"> </span><span class="n">type</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="w">   </span><span class="kt">float</span><span class="w"> </span><span class="n">tag_depth</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="w">   </span><span class="n">String</span><span class="w"> </span><span class="n">mac</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">bool</span><span class="w"> </span><span class="n">pending_config</span><span class="p">;</span>
+<span class="w">   </span><span class="n">String</span><span class="w"> </span><span class="n">firmware_version</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">float</span><span class="w"> </span><span class="n">voltage_coefficient</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">unix_time</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">wakeup_number</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">bool</span><span class="w"> </span><span class="n">ledesma</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">bool</span><span class="w"> </span><span class="n">manual_measure</span><span class="p">;</span>
+<span class="w">   </span><span class="kt">bool</span><span class="w"> </span><span class="n">offline</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-146">La palabra clave <code class="docutils literal notranslate"><span class="pre">erase</span></code> borra estos elementos excepto</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-148">mac;</p></li>
+<li><p class="linemarker linemarker-149">firmware_version;</p></li>
+<li><p class="linemarker linemarker-150">voltage_coefficient;</p></li>
+<li><p class="linemarker linemarker-151">unix_time.</p></li>
+</ul>
+</section>
+<section id="rtc-interno">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">2.1.3.- </span>RTC interno</a><a class="headerlink" href="#rtc-interno" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-156">Se usa el RTC interno para manejar la hora y fecha. Este RTC
+pierde la información cada vez que se pone a dormir el ESP32,
+es por eso que cada vez que se despierta, se debe sincronizar
+con un RTC externo, que es el DS3231 en este caso.</p>
+<p class="linemarker linemarker-161">Apenas se despierta, se inicializa el DS3231 varias veces y
+alimentando y quitando la alimentación en cada intento. Si
+después de todo eso el DS3231 no se logra inicializar, el RTC
+interno se sincroniza con otro valor estimado.</p>
+<p class="linemarker linemarker-166">Este valor estimado es el valor <code class="docutils literal notranslate"><span class="pre">unix_time</span></code> guardado en la
+eeprom sumado al tiempo de intervalo configurado. El tiempo
+<code class="docutils literal notranslate"><span class="pre">unix_time</span></code> es el tiempo de la última vez que el equipo se
+despertó.</p>
+</section>
+</section>
+<section id="modulo-sd">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="sectnum">2.2.- </span>Módulo SD</a><a class="headerlink" href="#modulo-sd" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-174">El módulo micro SD usado es el que se consigue comúnmente; es
+el que tiene el zócalo para colocar el microSD directamente,
+no el que tiene el zócalo para el adaptador. Funciona con 5V o
+con 3,3V, pero las pruebas con este último voltaje no han
+funcionado en todos los casos, así que se elige 5V. Las
+librerías que se usan son <code class="docutils literal notranslate"><span class="pre">FS.h</span></code> y <code class="docutils literal notranslate"><span class="pre">SD.h</span></code>, que vienen
+instaladas con el paquete de ESP32.</p>
+<img alt="../_images/components-03-module-SD.png" src="../_images/components-03-module-SD.png" />
+<p class="linemarker linemarker-184">La conexión entre el ESP y el módulo es:</p>
+<img alt="../_images/components_04_SD_ESP32_connection.png" src="../_images/components_04_SD_ESP32_connection.png" />
+<p class="linemarker linemarker-188">El json de medición <code class="docutils literal notranslate"><span class="pre">json_measure</span></code> que se guarda en la SD es:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-1234&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-12-23-21-58-08&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;number_sent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+<span class="p">}</span>
+
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;062+28.9,+84.0,+0.517&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-193">La forma en que se guarda en la SD es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{json_measure_0}\r\n</span>
+<span class="go">{json_measure_1}\r\n</span>
+<span class="go">{json_measure_2}\r\n</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-202">Donde <code class="docutils literal notranslate"><span class="pre">\r</span></code> y <code class="docutils literal notranslate"><span class="pre">\n</span></code> son retorno de carro y salto de línea,
+respectivamente.</p>
+</section>
+<section id="modulo-485">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="sectnum">2.3.- </span>Módulo 485</a><a class="headerlink" href="#modulo-485" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-208">El módulo RS-485 se alimenta con 5V, pero se le cambió el
+integrado por uno similar que funciona con 3,3V, pues es el
+voltaje de funcionamiento con el que funcionan los pines del
+ESP32. El sensor se alimenta con 12V. Todas las masas deben
+estar hermanadas.
+El módulo 485 usado es el siguiente:</p>
+<img alt="../_images/components_05_485_module.png" src="../_images/components_05_485_module.png" />
+<p class="linemarker linemarker-217">Hay que cambiarle el integrado para que funcione con 3.3V en
+lugar de 5V, porque ese es el voltaje de operación del ESP32.</p>
+<img alt="../_images/components_06_485_connection.png" src="../_images/components_06_485_connection.png" />
+<p class="linemarker linemarker-222">Los sensores soportados son:</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-224">Sensor chino de temperatura, humedad y electroconductividad, THE.</p></li>
+<li><p class="linemarker linemarker-225">Sensor chino de notrógeno, fósforo y potasio, NPK.</p></li>
+<li><p class="linemarker linemarker-226">Sensor chino de nivel.</p></li>
+<li><p class="linemarker linemarker-227">Sensor Stevens de parámetros varios.</p></li>
+</ol>
+<p class="linemarker linemarker-229">El comportamiento de dichos sensores se describe en la
+sección <a class="reference internal" href="sensors.html"><span class="doc">4.-   Tipos de sensores soportados</span></a>.</p>
+</section>
+<section id="rtc-externo">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="sectnum">2.4.- </span>RTC externo</a><a class="headerlink" href="#rtc-externo" title="Permalink to this heading"></a></h2>
+<img alt="../_images/DS3231_pinout.png" src="../_images/DS3231_pinout.png" />
+<p class="linemarker linemarker-237">El DS3231 es un circuito integrado (CI) de reloj en tiempo real
+(RTC, por sus siglas en inglés) de alta precisión.</p>
+<p class="linemarker linemarker-240">Características principales:</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-242"><strong>Precisión de tiempo</strong>: tiene una precisión de tiempo muy alta,
+con una deriva mínima y baja fluctuación de temperatura.
+Puede mantener la precisión del tiempo en el rango de segundos
+o incluso fracciones de segundo por día.</p></li>
+<li><p class="linemarker linemarker-246"><strong>Calendario completo</strong>: además de proporcionar la hora del día,
+el DS3231 también puede manejar información de fecha y
+calendario completo, incluyendo el día, mes y año. También
+puede manejar años bisiestos automáticamente.</p></li>
+<li><p class="linemarker linemarker-250"><strong>Interfaz de comunicación</strong>: utiliza una interfaz de comunicación
+I2C para la configuración y lectura de datos. Esto facilita
+su integración con una amplia gama de microcontroladores y
+otros dispositivos electrónicos.</p></li>
+</ol>
+<p class="linemarker linemarker-255">En resumen, el DS3231 es un RTC altamente preciso y confiable con
+características adicionales como calendario completo, alarmas y
+control de temperatura. Es ampliamente utilizado en aplicaciones
+donde se requiere una medición y seguimiento precisos del tiempo,
+como sistemas de registro de datos, relojes, calendarios,
+dispositivos de automatización del hogar y muchos otros.</p>
+<p class="linemarker linemarker-262">La conexión con el ESP32 es:</p>
+<img alt="../_images/ds3231_esp32_connection.png" src="../_images/ds3231_esp32_connection.png" />
+</section>
+<section id="modulo-sim808">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="sectnum">2.5.- </span>Módulo SIM808</a><a class="headerlink" href="#modulo-sim808" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="description.html" class="btn btn-neutral float-left" title="1.- Descripción del equipo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="firmware.html" class="btn btn-neutral float-right" title="3.- Información sobre el firmware" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

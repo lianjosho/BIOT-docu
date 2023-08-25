@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.- Información sobre el firmware &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.- Tipos de sensores soportados" href="sensors.html" />
+    <link rel="prev" title="2.- Componentes del equipo" href="components.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">3.- </span>Información sobre el firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#almacenamiento-no-volatil"><span class="sectnum">3.1.- </span>Almacenamiento no volatil</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#estructura"><span class="sectnum">3.1.1.- </span>Estructura</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#funciones"><span class="sectnum">3.1.2.- </span>Funciones</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">3.- </span>Información sobre el firmware</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/firmware.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="informacion-sobre-el-firmware">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="sectnum">3.- </span>Información sobre el firmware</a><a class="headerlink" href="#informacion-sobre-el-firmware" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#informacion-sobre-el-firmware" id="id1"><span class="sectnum">3.- </span>Información sobre el firmware</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#almacenamiento-no-volatil" id="id2"><span class="sectnum">3.1.- </span>Almacenamiento no volatil</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#estructura" id="id3"><span class="sectnum">3.1.1.- </span>Estructura</a></p></li>
+<li><p><a class="reference internal" href="#funciones" id="id4"><span class="sectnum">3.1.2.- </span>Funciones</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="almacenamiento-no-volatil">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="sectnum">3.1.- </span>Almacenamiento no volatil</a><a class="headerlink" href="#almacenamiento-no-volatil" title="Permalink to this heading"></a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N7Eeprom15setupEi">
+<span id="_CPPv3N7Eeprom15setupEi"></span><span id="_CPPv2N7Eeprom15setupEi"></span><span id="Eeprom1::setup__i"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">Eeprom1</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">setup</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argtumento</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7Eeprom15setupEi" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – description of the first parameter.</p></li>
+<li><p><strong>nitems</strong> – description of the second parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a result.</p>
+</dd>
+<dt class="field-odd">Return values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>NULL</strong> – under some conditions.</p></li>
+<li><p><strong>NULL</strong> – under some otjnhmjnhmmmher conditions as well.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="linemarker linemarker-23">El nombre de los archivos de cabereca son <code class="docutils literal notranslate"><span class="pre">EEPROM1.h</span></code> y
+<code class="docutils literal notranslate"><span class="pre">EEPROM1.cpp</span></code> porque cuando se comenzó a hacer el firmware
+se usó la librería <code class="docutils literal notranslate"><span class="pre">EEPROM.h</span></code>. La librería que se usa a
+partir de la versión V4.0.0 es la <code class="docutils literal notranslate"><span class="pre">Preferences.h</span></code>, que
+administra mejor el almacenamiento no volatil.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-30">En este peoyecto se usan las palabras <code class="docutils literal notranslate"><span class="pre">Eeprom</span></code> y
+<code class="docutils literal notranslate"><span class="pre">Almacenamiento</span> <span class="pre">no</span> <span class="pre">volátil</span></code> como sinónimos, aunque no lo
+sean. Se da a entender que se refiere al espacio que
+destina el ESP32 para usarlo como una memoria EEPROM.</p>
+</div>
+<section id="estructura">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">3.1.1.- </span>Estructura</a><a class="headerlink" href="#estructura" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-40">A partir de la versión V6.0.0, la estructura que se usa para
+escribir en la eeprom es:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">estructura</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">type</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">10</span><span class="p">];</span><span class="w">         </span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">command</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">max</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">  </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">timeout</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">mac</span><span class="p">;</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">firmware_version</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">float</span><span class="w"> </span><span class="n">voltage_coefficient</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">unix_time</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">wakeup_number</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">modo12</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">manual_measure</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">offline</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="funciones">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">3.1.2.- </span>Funciones</a><a class="headerlink" href="#funciones" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">int</span> <span class="pre">sumar(int</span> <span class="pre">num1,</span> <span class="pre">int</span> <span class="pre">num2)</span></span></dt>
+<dd><p class="linemarker linemarker-53">Esta función toma dos números enteros como entrada y devuelve su suma.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num1</strong> – El primer número a sumar.</p></li>
+<li><p><strong>num2</strong> – El segundo número a sumar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>La suma de los dos números.</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resultado</span> <span class="o">=</span> <span class="n">sumar</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El resultado es:&quot;</span><span class="p">,</span> <span class="n">resultado</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-66">Puedes encontrar más información sobre la función en la sección
+<a class="reference external" href="enlace-a-documentacion">Funciones de Matemáticas</a>.</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="components.html" class="btn btn-neutral float-left" title="2.- Componentes del equipo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sensors.html" class="btn btn-neutral float-right" title="4.- Tipos de sensores soportados" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

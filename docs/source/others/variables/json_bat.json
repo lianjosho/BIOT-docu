@@ -1,0 +1,22 @@
+{
+	"timeStamp": "2023-07-05-12-53-30",	/* Fecha y hora de la medición */
+	"dur": 26.775,                      /* Segundos que dura la medición y envío */
+	"level_bat": 0.028205128,           /* Nivel de batería */
+	"med": {          /* Resultado de mediciones */
+		"0": "OK",     /* Medición ok */
+		"1": "error",  /* Error en la merición */
+		"2": "-",      /* Salida no configurada */
+		"3": "-"
+	},
+	"env": {          /* Resultado del envío */
+		"int": true,   /* Conexión a internet */
+		"med": {       /* Resultado de los envíos */
+			"0": "OK",  /* Envío ok */
+			"1": "400", /* (Código de error) Problemas con el envío  */
+			"2": "-",   /* Salida no configurada */
+			"3": "-"
+		},
+		"antes": 0,    /* Paquetes que había en "register.txt" antes */
+		"envi": 0      /* Paquetes que se envían de dichos paquetes */
+	}
+}

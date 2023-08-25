@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.- Tipos de sensores soportados &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.- Comunicación con la APP" href="app.html" />
+    <link rel="prev" title="3.- Información sobre el firmware" href="firmware.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html"><span class="sectnum">3.- </span>Información sobre el firmware</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">4.- </span>Tipos de sensores soportados</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#soil-temperature-humidity-and-ec-sensor-gemho"><span class="sectnum">4.1.- </span>Soil Temperature Humidity And EC Sensor (Gemho)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#caracteristicas">Características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#valores-normales-de-un-suelo-agricola">Valores normales de un suelo agrícola</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conexion">Conexión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tramas">Tramas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rs485-4-20ma-soil-npk-sensor-gemho"><span class="sectnum">4.2.- </span>RS485/4-20mA Soil NPK Sensor (Gemho)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Conexión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Valores normales de un suelo agrícola</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Tramas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sup-zp-ultrasonic-level-transmitter-supmea"><span class="sectnum">4.3.- </span>SUP-ZP Ultrasonic level transmitter (Supmea)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Conexión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Tramas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conversion-a-float">Conversión a float</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-hydra-probe-soil-sensor-stevens"><span class="sectnum">4.4.- </span>The Hydra Probe® Soil Sensor (Stevens)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Conexión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Tramas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#trama-de-medicion">Trama de medición</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trama-de-pedido-de-t0">Trama de pedido de T0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trama-de-pedido-de-t1">Trama de pedido de T1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#contrastacion-entre-sensor-chino-y-stevens"><span class="sectnum">4.5.- </span>Contrastación entre sensor chino y Stevens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parametros-del-array"><span class="sectnum">4.6.- </span>Parámetros del array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#material-descargable"><span class="sectnum">4.7.- </span>Material descargable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">4.- </span>Tipos de sensores soportados</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/sensors.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tipos-de-sensores-soportados">
+<h1><a class="toc-backref" href="#id24" role="doc-backlink"><span class="sectnum">4.- </span>Tipos de sensores soportados</a><a class="headerlink" href="#tipos-de-sensores-soportados" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#tipos-de-sensores-soportados" id="id24"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#soil-temperature-humidity-and-ec-sensor-gemho" id="id25"><span class="sectnum">4.1.- </span>Soil Temperature Humidity And EC Sensor (Gemho)</a></p></li>
+<li><p><a class="reference internal" href="#rs485-4-20ma-soil-npk-sensor-gemho" id="id26"><span class="sectnum">4.2.- </span>RS485/4-20mA Soil NPK Sensor (Gemho)</a></p></li>
+<li><p><a class="reference internal" href="#sup-zp-ultrasonic-level-transmitter-supmea" id="id27"><span class="sectnum">4.3.- </span>SUP-ZP Ultrasonic level transmitter (Supmea)</a></p></li>
+<li><p><a class="reference internal" href="#the-hydra-probe-soil-sensor-stevens" id="id28"><span class="sectnum">4.4.- </span>The Hydra Probe® Soil Sensor (Stevens)</a></p></li>
+<li><p><a class="reference internal" href="#contrastacion-entre-sensor-chino-y-stevens" id="id29"><span class="sectnum">4.5.- </span>Contrastación entre sensor chino y Stevens</a></p></li>
+<li><p><a class="reference internal" href="#parametros-del-array" id="id30"><span class="sectnum">4.6.- </span>Parámetros del array</a></p></li>
+<li><p><a class="reference internal" href="#material-descargable" id="id31"><span class="sectnum">4.7.- </span>Material descargable</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="soil-temperature-humidity-and-ec-sensor-gemho">
+<span id="sensors"></span><h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="sectnum">4.1.- </span>Soil Temperature Humidity And EC Sensor (Gemho)</a><a class="headerlink" href="#soil-temperature-humidity-and-ec-sensor-gemho" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-18">El sensor de humedad / conductividad / temperatura del
+suelo, de ahora en más referido como <strong>sensor THE</strong>, es una
+herramienta importante para estudiar suelos salinos y su
+dinámica de salinidad. Mide la constante dieléctrica del
+suelo para reflejar con precisión el contenido de humedad
+del suelo. Es aplicable en diversas ocasiones como
+monitoreo de humedad del suelo, experimentos científicos,
+riego eficiente, invernaderos, agricultura de precisión,
+entre otros. Tiene características como integración de
+tres parámetros, resistencia a impactos y corrosión, alta
+precisión y opciones de salida de señal.</p>
+<section id="caracteristicas">
+<h3>Características<a class="headerlink" href="#caracteristicas" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p class="linemarker linemarker-34">Fabricante: Weihai Gemho Digital Mining Co., Ltd.</p></li>
+<li><p class="linemarker linemarker-35">Origen: chino.</p></li>
+<li><p class="linemarker linemarker-36">Alimentación: 3.6 / 30V.</p></li>
+<li><dl class="simple">
+<dt>Medición de temperatura:</dt><dd><ul>
+<li><p class="linemarker linemarker-38">Rango: -40 a ~80℃.</p></li>
+<li><p class="linemarker linemarker-39">Resolución: 0.1℃.</p></li>
+<li><p class="linemarker linemarker-40">Precisión: ±0.5℃.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Medición de humedad:</dt><dd><ul>
+<li><p class="linemarker linemarker-42">Rango: 0-50% o 0-100% (configurable).</p></li>
+<li><dl class="simple">
+<dt>Resolución:</dt><dd><ul>
+<li><p class="linemarker linemarker-44">0.03% en el rango 0-50%.</p></li>
+<li><p class="linemarker linemarker-45">1% en el rango 50-100%.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Precisión:</dt><dd><ul>
+<li><p class="linemarker linemarker-47">±2% en el rango 0-50%.</p></li>
+<li><p class="linemarker linemarker-48">3% en el rango 50-100%.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Medición de electroconductividad:</dt><dd><ul>
+<li><p class="linemarker linemarker-50">Rango: 0-5000us/cm, 10000us/cm, 20000us/cm (configurable).</p></li>
+<li><dl class="simple">
+<dt>Resolución:</dt><dd><ul>
+<li><p class="linemarker linemarker-52">10us/cm en el rango 0-10000us/cm.</p></li>
+<li><p class="linemarker linemarker-53">50us/cm en el rango 100000-20000us/cm.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Precisión:</dt><dd><ul>
+<li><p class="linemarker linemarker-55">±3% en el rango 0-10000us/cm.</p></li>
+<li><p class="linemarker linemarker-56">±5% en el rango 10000-20000us/cm.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="linemarker linemarker-57">Entorno operativo: -40 a ~85℃.</p></li>
+</ul>
+</section>
+<section id="valores-normales-de-un-suelo-agricola">
+<h3>Valores normales de un suelo agrícola<a class="headerlink" href="#valores-normales-de-un-suelo-agricola" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">Valores normales de temperatura, humedad y EC.</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Parámetro</p></th>
+<th class="head"><p class="linemarker linemarker-1">Unidad</p></th>
+<th class="head"><p class="linemarker linemarker-1">Mínimo</p></th>
+<th class="head"><p class="linemarker linemarker-1">Máximo</p></th>
+<th class="head"><p class="linemarker linemarker-1">Aire</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Temperatura</p></td>
+<td><p class="linemarker linemarker-1">°C</p></td>
+<td><p class="linemarker linemarker-1">15</p></td>
+<td><p class="linemarker linemarker-1">30</p></td>
+<td><p class="linemarker linemarker-1">Ambiente</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Humedad</p></td>
+<td><p class="linemarker linemarker-1">%RH</p></td>
+<td><p class="linemarker linemarker-1">50</p></td>
+<td><p class="linemarker linemarker-1">70</p></td>
+<td><p class="linemarker linemarker-1">~50*</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Electroconductividad</p></td>
+<td><p class="linemarker linemarker-1">uS/cm</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+<td><p class="linemarker linemarker-1">500</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-72">Si bien el sensor de humedad podría medir la humedad
+relativa del aire, que puede ser diferente a la humedad del
+suelo, puede variar ampliamente dependiendo del clima y la
+ubicación, pero en promedio, suele estar entre el 30% y el
+70%. Sin embargo, en el laboratorio registramos un valor nulo.</p>
+</div>
+</section>
+<section id="conexion">
+<h3>Conexión<a class="headerlink" href="#conexion" title="Permalink to this heading"></a></h3>
+<table class="docutils align-center" id="id12">
+<caption><span class="caption-text">Conexión sensor THE</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Color</p></th>
+<th class="head"><p class="linemarker linemarker-1">Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Rojo</p></td>
+<td><p class="linemarker linemarker-1">12V</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Negro</p></td>
+<td><p class="linemarker linemarker-1">Ground</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Verde</p></td>
+<td><p class="linemarker linemarker-1">RS485(A)</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Amarillo</p></td>
+<td><p class="linemarker linemarker-1">RS485(B)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tramas">
+<h3>Tramas<a class="headerlink" href="#tramas" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-94">El sensor THE recibe una sola trama y envía otra trama. Para que
+mida temperatura, humedad y electroconductividad (the), la trama
+que se le envía es se llama <code class="docutils literal notranslate"><span class="pre">THE_request</span></code>, y es la siguiente:</p>
+<table class="docutils align-center" id="id13">
+<caption><span class="caption-text">Trama THE_request (8 bytes)</span><a class="headerlink" href="#id13" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Add</p></th>
+<th class="head"><p class="linemarker linemarker-1">Function code</p></th>
+<th class="head"><p class="linemarker linemarker-1">Register start address</p></th>
+<th class="head"><p class="linemarker linemarker-1">Register length</p></th>
+<th class="head"><p class="linemarker linemarker-1">CRC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">0x01</p></td>
+<td><p class="linemarker linemarker-1">0x03</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x06</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x03</p></td>
+<td><p class="linemarker linemarker-1">0xE5 0xCA</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p class="linemarker linemarker-105"><strong>Add</strong>: dirección del dispositivo esclavo. Indica qué dispositivo
+esclavo MODBUS debe responder a la solicitud. En este caso, se está
+comunicando con el dispositivo esclavo de dirección 1, que es la que
+viene por defecto en el sensor.</p></li>
+<li><p class="linemarker linemarker-109"><strong>Function code</strong>: indica el tipo de operación que se realizará en el
+dispositivo esclavo. En este caso, se está solicitando una lectura de
+registros de entrada con el código 03.</p></li>
+<li><p class="linemarker linemarker-112"><strong>Register start address</strong>: indica la dirección del primer registro
+que se leerá. En este caso, el registro de inicio es 0x0006.</p></li>
+<li><p class="linemarker linemarker-114"><strong>Register length</strong>: cantidad de registros a leer. Indica cuántos
+registros se leerán en la solicitud. En este caso, se están solicitando
+3 registros.</p></li>
+<li><p class="linemarker linemarker-117"><strong>Register length</strong>: CRC (Cyclic Redundancy Check). Es un valor de
+verificación que se utiliza para asegurar la integridad de los datos
+transmitidos. Estos dos bytes contienen el resultado del cálculo del
+CRC.</p></li>
+</ul>
+<p class="linemarker linemarker-122">La trama de respuesta se llama <code class="docutils literal notranslate"><span class="pre">THE_response</span></code>, y es como sigue:</p>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">Trama THE_response (11 bytes)</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Address</p></th>
+<th class="head"><p class="linemarker linemarker-1">Function code</p></th>
+<th class="head"><p class="linemarker linemarker-1">Effective number of bytes</p></th>
+<th class="head"><p class="linemarker linemarker-1">Temp.</p></th>
+<th class="head"><p class="linemarker linemarker-1">Hum.</p></th>
+<th class="head"><p class="linemarker linemarker-1">EC</p></th>
+<th class="head"><p class="linemarker linemarker-1">CRC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">0x01</p></td>
+<td><p class="linemarker linemarker-1">0x03</p></td>
+<td><p class="linemarker linemarker-1">0x06</p></td>
+<td><p class="linemarker linemarker-1">0x01 0x2C</p></td>
+<td><p class="linemarker linemarker-1">0x02 0x92</p></td>
+<td><p class="linemarker linemarker-1">0x1D 0x4C</p></td>
+<td><p class="linemarker linemarker-1">0xEC 0xA6</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p class="linemarker linemarker-130"><strong>Add</strong>: dirección del dispositivo esclavo.</p></li>
+<li><p class="linemarker linemarker-131"><strong>Function code</strong>: indica el tipo de operación que se realizará en el
+dispositivo esclavo. En este caso, se está solicitando una lectura de
+registros de entrada con el código 03.</p></li>
+<li><p class="linemarker linemarker-134"><strong>Effective number of bytes</strong>: es la cantidad de bytes que conforma la
+información de las variables medidas.</p></li>
+<li><p class="linemarker linemarker-136"><strong>Temp</strong>: valor de temperatura. En este caso se recibe 0x01, 0x2C;
+se los coloca juntos para formar el hexa <code class="docutils literal notranslate"><span class="pre">0x012C</span></code>, y convertido a
+decimal queda: 300, se lo divide entre 100 y se obtiene el valor
+de temperatura <code class="docutils literal notranslate"><span class="pre">Temp=3.00°C</span></code>.</p></li>
+<li><p class="linemarker linemarker-140"><strong>Hum</strong>: valor de humedad; ídem al anterior y se obtiene <code class="docutils literal notranslate"><span class="pre">Hum=6.58%RH</span></code>.</p></li>
+<li><p class="linemarker linemarker-141"><strong>EC</strong>: valor de electroconductividad; ídem al anterior pero no se lo
+divide entre 100 y se obtiene <code class="docutils literal notranslate"><span class="pre">EC=7500us/cm</span></code>.</p></li>
+<li><p class="linemarker linemarker-143"><strong>CRC</strong>: CRC (Cyclic Redundancy Check).</p></li>
+</ul>
+</section>
+</section>
+<section id="rs485-4-20ma-soil-npk-sensor-gemho">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="sectnum">4.2.- </span>RS485/4-20mA Soil NPK Sensor (Gemho)</a><a class="headerlink" href="#rs485-4-20ma-soil-npk-sensor-gemho" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-148">El sensor de suelo Ghhb-031-485 NPK, de ahora en más
+referido como <strong>sensor NPK</strong>, es un nuevo sensor integrado.
+Obtiene el contenido de nitrógeno, fósforo y potasio en el
+suelo donde está ubicado el equipo a través del equipo de
+adquisición.</p>
+<p class="linemarker linemarker-154">El sensor NPK utiliza el principio de reflexión de dominio
+de frecuencia (FDR). Basado en el pulso electromagnético
+y la frecuencia de propagación de ondas electromagnéticas
+en el medio, se mide la constante dieléctrica aparente del
+suelo para obtener el contenido de nitrógeno, fósforo y
+potasio en el suelo.</p>
+<p class="linemarker linemarker-161">El sensor tiene un bajo consumo de energía, alta precisión,
+alta sensibilidad, amplio rango lineal, fuerte capacidad
+antiinterferencias, excelente repetibilidad y estabilidad.</p>
+<p class="linemarker linemarker-165">El producto se puede utilizar ampliamente en monitoreo
+ambiental, monitoreo meteorológico, agricultura
+inteligente, viveros de huertos, flores e investigación
+del suelo. En comparación con los sensores tradicionales
+de Internet de las cosas, tiene ventajas de alta
+precisión y fácil instalación.</p>
+<p class="linemarker linemarker-172">El sensor NPK funciona como el sensor THE, se le envía dos tipos de
+tramas dependiendo qué parámetros se quiere. Para la temperatura,
+humedad y electroconductividad, se le envía la trama THE_request; y
+para el nitrógeno, fósforo y potasio, la trama NPK_request.</p>
+<section id="id1">
+<h3>Características<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p class="linemarker linemarker-180">Fabricante: Weihai Gemho Digital Mining Co., Ltd.</p></li>
+<li><p class="linemarker linemarker-181">Origen: chino.</p></li>
+<li><p class="linemarker linemarker-182">Alimentación: 9-18 V <sub>CC</sub>.</p></li>
+<li><p class="linemarker linemarker-183">Rango: 0-1999mg/kg (para los parámetros N, P y K).</p></li>
+<li><p class="linemarker linemarker-184">Resolución: ±2 % de F.E.</p></li>
+<li><p class="linemarker linemarker-185">Precisión: ±2 % de F.E.</p></li>
+<li><p class="linemarker linemarker-186">Entorno operativo: 5℃ a ~45℃.</p></li>
+<li><p class="linemarker linemarker-187">Humedad: 15 a ~90%RH.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-191">Las especificaciones de este sensor son distintas a las
+del sensor THE (temperatura, humedad y EC). Para una mejor
+comprensión, referirse a los manuales.</p>
+</div>
+</section>
+<section id="id2">
+<h3>Conexión<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<table class="docutils align-center" id="id15">
+<caption><span class="caption-text">Conexión sensor NPK</span><a class="headerlink" href="#id15" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Color</p></th>
+<th class="head"><p class="linemarker linemarker-1">Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Rojo</p></td>
+<td><p class="linemarker linemarker-1">12V</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Negro</p></td>
+<td><p class="linemarker linemarker-1">Ground</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Verde</p></td>
+<td><p class="linemarker linemarker-1">RS485(A)</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Amarillo</p></td>
+<td><p class="linemarker linemarker-1">RS485(B)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Valores normales de un suelo agrícola<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">Valores normales</span><a class="headerlink" href="#id16" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Parámetro</p></th>
+<th class="head"><p class="linemarker linemarker-1">Unidad</p></th>
+<th class="head"><p class="linemarker linemarker-1">Rango promedio</p></th>
+<th class="head"><p class="linemarker linemarker-1">Aire</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Nitrógeno</p></td>
+<td><p class="linemarker linemarker-1">mg/kg</p></td>
+<td><p class="linemarker linemarker-1">20-100</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Fósforo</p></td>
+<td><p class="linemarker linemarker-1">mg/kg</p></td>
+<td><p class="linemarker linemarker-1">10-50</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Potasio</p></td>
+<td><p class="linemarker linemarker-1">mg/kg</p></td>
+<td><p class="linemarker linemarker-1">80-200</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-220">Los valores mínimo y máximo están sacados de internet groso
+modo y podrían variar dependiendo de un suelo agrícola en
+específico.</p>
+</div>
+</section>
+<section id="id4">
+<h3>Tramas<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-227">La trama de pedido de NPK es la misma que para los sensores THE y
+la trama de respuesta también. La trama <code class="docutils literal notranslate"><span class="pre">NPK_request</span></code> es:</p>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Trama NPK_request (8 bytes)</span><a class="headerlink" href="#id17" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Add</p></th>
+<th class="head"><p class="linemarker linemarker-1">Function code</p></th>
+<th class="head"><p class="linemarker linemarker-1">Register start address</p></th>
+<th class="head"><p class="linemarker linemarker-1">Register length</p></th>
+<th class="head"><p class="linemarker linemarker-1">CRC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">0x01</p></td>
+<td><p class="linemarker linemarker-1">0x03</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x1E</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x03</p></td>
+<td><p class="linemarker linemarker-1">0x65 0xCD</p></td>
+</tr>
+</tbody>
+</table>
+<p class="linemarker linemarker-236">Y la trama de respuesta <code class="docutils literal notranslate"><span class="pre">NPK_response</span></code> es:</p>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Trama NPK_response (11 bytes)</span><a class="headerlink" href="#id18" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 8%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Address</p></th>
+<th class="head"><p class="linemarker linemarker-1">Function code</p></th>
+<th class="head"><p class="linemarker linemarker-1">Effective number of bytes</p></th>
+<th class="head"><p class="linemarker linemarker-1">N</p></th>
+<th class="head"><p class="linemarker linemarker-1">P</p></th>
+<th class="head"><p class="linemarker linemarker-1">K</p></th>
+<th class="head"><p class="linemarker linemarker-1">CRC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">0x01</p></td>
+<td><p class="linemarker linemarker-1">0x03</p></td>
+<td><p class="linemarker linemarker-1">0x06</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x25</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x25</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x28</p></td>
+<td><p class="linemarker linemarker-1">0x41 0x28</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p class="linemarker linemarker-244"><strong>N</strong>: valor de nitrógeno. En este caso se recibe 0x00, 0x25; se los coloca
+juntos para formar el hexa <code class="docutils literal notranslate"><span class="pre">0x025C</span></code>, y convertido a decimal queda: 37 y
+se obtiene el valor de nitrógeno <code class="docutils literal notranslate"><span class="pre">N=37</span> <span class="pre">mg/kg</span></code>.</p></li>
+<li><p class="linemarker linemarker-247"><strong>P</strong>: valor de fósforo; ídem al anterior y se obtiene <code class="docutils literal notranslate"><span class="pre">P=49</span> <span class="pre">mg/kg</span></code>.</p></li>
+<li><p class="linemarker linemarker-248"><strong>K</strong>: valor de potasio; ídem al anterior y se obtiene <code class="docutils literal notranslate"><span class="pre">K=40</span> <span class="pre">mg/kg</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="sup-zp-ultrasonic-level-transmitter-supmea">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="sectnum">4.3.- </span>SUP-ZP Ultrasonic level transmitter (Supmea)</a><a class="headerlink" href="#sup-zp-ultrasonic-level-transmitter-supmea" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-253">El medidor de nivel ultrasónico, de ahora en más referido como
+<strong>sensor LEVEL</strong>, es un dispositivo universal que
+combina las ventajas de varios otros medidores de nivel para lograr
+un diseño completamente digital y humanizado. Ofrece una medición y
+control de nivel perfectos, funciones de transmisión de datos y
+comunicación entre el hombre y la máquina.</p>
+<p class="linemarker linemarker-260">Este producto utiliza un diseño de circuito modular, una placa PCB de
+varias capas de calidad militar, una estructura de hardware compacta y
+una disposición razonable. Admite una salida aislada de 4~20 mA, cuenta
+con módulos de transmisión de datos inalámbricos incorporados, como
+GPRS, LORA, GPS, RF y Bluetooth. También puede agregar módulos para
+lograr otras funciones según las necesidades del cliente.</p>
+<p class="linemarker linemarker-267">El medidor utiliza chips de grado industrial importados y circuitos
+integrados especiales de compensación de temperatura digital, lo que le
+otorga una fuerte capacidad antiinterferencias. Además, permite
+ajustar arbitrariamente los límites superior e inferior de la salida
+en línea y cuenta con una pantalla local. La carcasa está hecha de
+plástico ABS resistente al agua, lo que lo hace compacto y robusto.</p>
+<p class="linemarker linemarker-274">Este producto puede satisfacer la mayoría de los requisitos de medición de nivel de líquido y nivel de material sin entrar en contacto con el medio industrial. Además, resuelve completamente las limitaciones de los métodos de medición tradicionales, como los medidores de nivel de tipo de presión, capacitivos y flotantes, que pueden sufrir problemas de enrollado, obstrucción, fugas, corrosión del medio y mantenimiento inconveniente. Por lo tanto, puede utilizarse ampliamente en diversos campos relacionados con la medición y control de nivel de material y líquido.
+El sensor de nivel registra la distancia que hay entre la punta del
+sensor y la superficie de un líquido.</p>
+<section id="id5">
+<h3>Características<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p class="linemarker linemarker-281">Fabricante: Supmea.</p></li>
+<li><p class="linemarker linemarker-282">Origen: chino.</p></li>
+<li><p class="linemarker linemarker-283">Voltaje de operación 6-32 V <sub>CC</sub>.</p></li>
+<li><p class="linemarker linemarker-284">Rango de medición: 5m, 10m,15m.</p></li>
+<li><dl class="simple">
+<dt>Blind zone (zona ciega):</dt><dd><ul>
+<li><p class="linemarker linemarker-286">0.4m (para un rango de 5m).</p></li>
+<li><p class="linemarker linemarker-287">0.5m (para un rango de 10m).</p></li>
+<li><p class="linemarker linemarker-288">0.6m (para un rango de 15m).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="linemarker linemarker-289">Precisión: 0.3%F.S.</p></li>
+<li><p class="linemarker linemarker-290">Consumo: &lt;1.5W.</p></li>
+<li><p class="linemarker linemarker-291">Temperatura de operación: -20 a ~60℃.</p></li>
+<li><p class="linemarker linemarker-292">Medición opcional de distancia incremental/diferencial para medir
+el espacio de aire o el nivel de líquido</p></li>
+<li><p class="linemarker linemarker-294">Intensidad de pulso transmitido de 1 a 15 dependiendo de las
+condiciones de trabajo.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Conexión<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Conexión de un sensor de nivel</span><a class="headerlink" href="#id19" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Conector</p></th>
+<th class="head"><p class="linemarker linemarker-1">Nombre</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">3</p></td>
+<td><p class="linemarker linemarker-1">RS485(A)</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">4</p></td>
+<td><p class="linemarker linemarker-1">RS485(B)</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">5</p></td>
+<td><p class="linemarker linemarker-1">12V</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">6</p></td>
+<td><p class="linemarker linemarker-1">GND</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h3>Tramas<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-312">La trama de pedido de medición <code class="docutils literal notranslate"><span class="pre">level_request</span></code> de un sensor de
+nivel es:</p>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">Trama level_request (8 bytes)</span><a class="headerlink" href="#id20" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Address</p></th>
+<th class="head"><p class="linemarker linemarker-1">Function code</p></th>
+<th class="head"><p class="linemarker linemarker-1">Register address</p></th>
+<th class="head"><p class="linemarker linemarker-1">Read data lenght</p></th>
+<th class="head"><p class="linemarker linemarker-1">CRC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">01</p></td>
+<td><p class="linemarker linemarker-1">04</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x00</p></td>
+<td><p class="linemarker linemarker-1">0x00 0x02</p></td>
+<td><p class="linemarker linemarker-1">0x71 0xCB</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p class="linemarker linemarker-321"><strong>Address</strong>: dirección del esclavo (sensor). En este caso la dirección es
+<code class="docutils literal notranslate"><span class="pre">0000</span></code>, que es la dirección por defecto.</p></li>
+<li><p class="linemarker linemarker-323"><strong>Function code</strong>: código de función para indicarle al sensor que mida.</p></li>
+<li><p class="linemarker linemarker-324"><strong>Register address</strong>: dirección del registro en donde se almacena el valor medido.</p></li>
+<li><p class="linemarker linemarker-325"><strong>Read data lenght</strong>: cantidad de bytes qué leer desde <code class="docutils literal notranslate"><span class="pre">register</span> <span class="pre">address</span></code>.</p></li>
+</ul>
+<p class="linemarker linemarker-327">La trama que se recibe <code class="docutils literal notranslate"><span class="pre">level_response</span></code> del sensor es:</p>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">Trama level_response (9 bytes)</span><a class="headerlink" href="#id21" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Address</p></th>
+<th class="head"><p class="linemarker linemarker-1">Function code</p></th>
+<th class="head"><p class="linemarker linemarker-1">Return data lenght</p></th>
+<th class="head"><p class="linemarker linemarker-1">Read data lenght</p></th>
+<th class="head"><p class="linemarker linemarker-1">CRC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">01</p></td>
+<td><p class="linemarker linemarker-1">04</p></td>
+<td><p class="linemarker linemarker-1">0x04</p></td>
+<td><p class="linemarker linemarker-1">0x40 0xA0 0x00 0x00</p></td>
+<td><p class="linemarker linemarker-1">0xEE 0x66</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p class="linemarker linemarker-335"><strong>Return data lenght</strong>: cantidad de bytes que contienen la información leída.</p></li>
+<li><p class="linemarker linemarker-336"><strong>Read data lenght</strong>: información leída.</p></li>
+</ul>
+</section>
+<section id="conversion-a-float">
+<h3>Conversión a float<a class="headerlink" href="#conversion-a-float" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-341">La variable de datos almacenada en el registro interno es un número de punto
+flotante de precisión simple estándar <code class="docutils literal notranslate"><span class="pre">IEEE754</span></code>. Expresado en hexadecimal de
+cuatro dígitos, ocupa cuatro direcciones de registro interno.</p>
+<p class="linemarker linemarker-345">El programa almacena la trama de respuesta en un array de 11 elementos:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">response_level</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-351">y la conversión a una variable tipo float se hace con las siguientes líneas:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">response1</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">response1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">response_level</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="kt">uint32_t</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">response1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">response1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">response1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">response1</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">((</span><span class="kt">float</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="the-hydra-probe-soil-sensor-stevens">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="sectnum">4.4.- </span>The Hydra Probe® Soil Sensor (Stevens)</a><a class="headerlink" href="#the-hydra-probe-soil-sensor-stevens" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-365">El Hydra Probe Soil Sensor de la marca Stevens, de ahora en más
+referido como <strong>sensor STEVENS</strong>, es un sensor de
+suelo avanzado diseñado para medir múltiples parámetros importantes
+para el monitoreo y análisis del suelo. Está especialmente diseñado
+para proporcionar mediciones precisas y confiables en una amplia
+gama de condiciones de suelo.</p>
+<p class="linemarker linemarker-372">El sensor utiliza tecnología de capacitancia para medir la humedad
+del suelo, la temperatura del suelo y la conductividad eléctrica
+del suelo. Estas mediciones son fundamentales para comprender las
+condiciones del suelo y su impacto en el crecimiento de las
+plantas, la gestión del riego y otros procesos agrícolas.</p>
+<p class="linemarker linemarker-378">El Hydra Probe Soil Sensor es fácil de instalar y usar. Se puede
+integrar en sistemas de monitoreo y control automatizados para
+proporcionar datos en tiempo real sobre las condiciones del suelo.
+Además, es altamente resistente al agua y a la corrosión, lo que
+garantiza su durabilidad y confiabilidad en entornos desafiantes.</p>
+<p class="linemarker linemarker-384">Este sensor es ampliamente utilizado en aplicaciones agrícolas,
+forestales, de investigación y de gestión del agua, donde el
+conocimiento preciso de las condiciones del suelo es esencial
+para tomar decisiones informadas.</p>
+<p class="linemarker linemarker-389">En resumen, el Hydra Probe Soil Sensor de Stevens es un sensor
+de suelo de alta calidad y rendimiento que proporciona mediciones
+precisas y confiables de humedad, temperatura y conductividad
+eléctrica del suelo, lo que lo convierte en una herramienta
+valiosa para la monitorización y gestión del suelo en diversos
+campos de aplicación.</p>
+<section id="id8">
+<h3>Características<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p class="linemarker linemarker-399">Fabricante: Stevens® Water Monitoring System, Inc.</p></li>
+<li><p class="linemarker linemarker-400">Origen: estadounidense.</p></li>
+<li><p class="linemarker linemarker-401">Alimentación: 7 a 20 V <sub>CC</sub> (12V ideal)</p></li>
+<li><p class="linemarker linemarker-402">Rango de temperatura: -30 to 65o C</p></li>
+<li><p class="linemarker linemarker-403">Exactitud y precisión:</p></li>
+</ul>
+<img alt="../_images/stevens_caract.png" src="../_images/stevens_caract.png" />
+</section>
+<section id="id9">
+<h3>Conexión<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Conexión de sensor Stevens</span><a class="headerlink" href="#id22" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Color</p></th>
+<th class="head"><p class="linemarker linemarker-1">Significado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Rojo</p></td>
+<td><p class="linemarker linemarker-1">+12V</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Negro</p></td>
+<td><p class="linemarker linemarker-1">Ground</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Blanco</p></td>
+<td><p class="linemarker linemarker-1">RS485 (A)</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Verde</p></td>
+<td><p class="linemarker linemarker-1">RS485 (B)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>Tramas<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-422">El sensor Stevens espera tramas conformadas por caracteres ascii,
+son varios, pero en este proyecto usamos sólo 3:</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-425">Trama de medición.</p></li>
+<li><p class="linemarker linemarker-426">Trama de T0.</p></li>
+<li><p class="linemarker linemarker-427">Trama de T1.</p></li>
+</ol>
+<section id="trama-de-medicion">
+<h4>Trama de medición<a class="headerlink" href="#trama-de-medicion" title="Permalink to this heading"></a></h4>
+<p class="linemarker linemarker-431">Esta trama pide al sensor que realice la medición de todos los
+parámetros y los guarda en memoria.</p>
+<p class="linemarker linemarker-434">La trama de pedido de medición es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">///TR&lt;CR&gt;&lt;LF&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-442">Aunque no se espera trama de respuesta de este comando, se debe
+esperar unos 3 segundos para darle tiempo al sensor para hacer
+la medición.</p>
+</div>
+</section>
+<section id="trama-de-pedido-de-t0">
+<h4>Trama de pedido de T0<a class="headerlink" href="#trama-de-pedido-de-t0" title="Permalink to this heading"></a></h4>
+<p class="linemarker linemarker-449">Esta trama le pide al sensor el parámetro T0.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">///T0&lt;CR&gt;&lt;LF&gt;</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-455">La trama de respuesta es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&lt;addr&gt;&lt;H&gt;,&lt;J&gt;,&lt;F&gt;,&lt;G&gt;,&lt;O&gt;,&lt;K&gt;,&lt;M&gt;,&lt;L&gt;,&lt;N&gt;&lt;CR&gt;&lt;LF&gt;</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-461">Donde:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-463"><strong>&lt;addr&gt;:</strong> es la dirección del dispositivo, va desde +000 hasta +999.</p></li>
+<li><p class="linemarker linemarker-464"><strong>&lt;H&gt;:</strong> Moisture</p></li>
+<li><p class="linemarker linemarker-465"><strong>&lt;J&gt;:</strong> Soil Electrical Conductivity (tc)</p></li>
+<li><p class="linemarker linemarker-466"><strong>&lt;F&gt;:</strong> Temp C</p></li>
+<li><p class="linemarker linemarker-467"><strong>&lt;G&gt;:</strong> Temp F</p></li>
+<li><p class="linemarker linemarker-468"><strong>&lt;O&gt;:</strong> Soil Electrical Conductivity</p></li>
+<li><p class="linemarker linemarker-469"><strong>&lt;K&gt;:</strong> Real Dielectric Permittivity</p></li>
+<li><p class="linemarker linemarker-470"><strong>&lt;M&gt;:</strong> Imag Dielectric Permittivity</p></li>
+<li><p class="linemarker linemarker-471"><strong>&lt;L&gt;:</strong> Real Dielectric Permittivity (tc)</p></li>
+<li><p class="linemarker linemarker-472"><strong>&lt;N&gt;:</strong> Imag Dielectric Permittivity (tc)</p></li>
+<li><p class="linemarker linemarker-473"><strong>&lt;CR&gt;&lt;LF&gt;:</strong> Retorno de carro y salto de línea, respectivamente.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-477">El pedido de esta trama no le ordena al sensor que mida, sólo
+le pide el parámetro T0.</p></li>
+<li><p class="linemarker linemarker-479">Las comas forman parte de la trama.</p></li>
+</ul>
+</div>
+<p class="linemarker linemarker-481">Un ejemplo de esta respuesta es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661&lt;CR&gt;&lt;LF&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="trama-de-pedido-de-t1">
+<h4>Trama de pedido de T1<a class="headerlink" href="#trama-de-pedido-de-t1" title="Permalink to this heading"></a></h4>
+<p class="linemarker linemarker-490">Esta trama le pide al sensor el parámetro T1.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">///T1&lt;CR&gt;&lt;LF&gt;</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-496">La trama de respuesta es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&lt;addr&gt;&lt;F&gt;,&lt;G&gt;,&lt;I&gt;&lt;CR&gt;&lt;LF&gt;</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-502">Donde:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-504"><strong>&lt;F&gt;:</strong> Temp C</p></li>
+<li><p class="linemarker linemarker-505"><strong>&lt;G&gt;:</strong> Temp F</p></li>
+<li><p class="linemarker linemarker-506"><strong>&lt;I&gt;:</strong> Loss Tangent</p></li>
+</ul>
+<p class="linemarker linemarker-508">Un ejemplo de esta respuesta es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">062+28.9,+84.0,+0.517&lt;CR&gt;&lt;LF&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="contrastacion-entre-sensor-chino-y-stevens">
+<span id="array-param"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="sectnum">4.5.- </span>Contrastación entre sensor chino y Stevens</a><a class="headerlink" href="#contrastacion-entre-sensor-chino-y-stevens" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-519">Las unidades de medida de humedad del sensor chino y del Stevens
+no son iguales.</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-522"><strong>Sensor Stevens</strong>: usa la unidad de medida <code class="docutils literal notranslate"><span class="pre">Water</span> <span class="pre">Fraction</span> <span class="pre">by</span>
+<span class="pre">Volume</span> <span class="pre">(wfv)</span></code>, que expresa el contenido de agua en el suelo. El
+wfv indica la fracción de volumen de agua presente en el suelo,
+es decir, cuántos mililitros (ml) de agua hay en un litro de
+suelo. <a class="reference external" href="https://www.tceq.texas.gov/cgi-bin/compliance/monops/daily_info.pl?parameter:11058#:~:text=Soil%20Moisture,and%20is%20quite%20soil%20dependent.">Soil Moisture</a>.</p></li>
+<li><p class="linemarker linemarker-528"><strong>Sensor chino</strong>: usa la unidad <code class="docutils literal notranslate"><span class="pre">Relative</span> <span class="pre">Humidity</span> <span class="pre">(%RH)</span></code>,
+que expresa el porcentaje de la cantidad de vapor de
+agua presente en el aire con respecto a la cantidad máxima
+que podría contener a una temperatura y presión específicas.
+Por ejemplo, una humedad relativa del 50% indica que el aire
+contiene la mitad de la cantidad máxima de vapor de agua que
+podría tener a esa temperatura y presión. <a class="reference external" href="https://en.wikipedia.org/wiki/Humidity#Relative_humidity">Relative humidity</a>.</p></li>
+</ol>
+<p class="linemarker linemarker-536">Se hicieron mediciones poniendo los dos sensores en un mismo
+volumen en 4 entornos:</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-539">Al aire</p></li>
+<li><p class="linemarker linemarker-540">En una maceta</p></li>
+<li><p class="linemarker linemarker-541">Con la maseta y agua</p></li>
+<li><p class="linemarker linemarker-542">En una maceta y agua caliente</p></li>
+</ol>
+<table class="docutils align-center" id="id23">
+<caption><span class="caption-text">Humedad</span><a class="headerlink" href="#id23" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Entorno</p></th>
+<th class="head"><p class="linemarker linemarker-1">Stevens [wfv]</p></th>
+<th class="head"><p class="linemarker linemarker-1">Chino [%RH]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Aire</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Maceta</p></td>
+<td><p class="linemarker linemarker-1">0.1901</p></td>
+<td><p class="linemarker linemarker-1">24.41</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Maceta + agua</p></td>
+<td><p class="linemarker linemarker-1">0.357</p></td>
+<td><p class="linemarker linemarker-1">95.57</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Maceta + agua caliente</p></td>
+<td><p class="linemarker linemarker-1">0.422</p></td>
+<td><p class="linemarker linemarker-1">100.0</p></td>
+</tr>
+</tbody>
+</table>
+<img alt="../_images/sensors_01_contraste.png" src="../_images/sensors_01_contraste.png" />
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p class="linemarker linemarker-558">Los sensores miden dos magnitudes distintas cuyas unidades son
+también distintas. No hay una equivalencia lineal entre ambas.</p>
+</div>
+</section>
+<section id="parametros-del-array">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="sectnum">4.6.- </span>Parámetros del array</a><a class="headerlink" href="#parametros-del-array" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-564">Básicamente, se tiene dos tipos de sensores: los que trabajan con
+tramas <code class="docutils literal notranslate"><span class="pre">hex</span></code> y los que trabajan con tramas <code class="docutils literal notranslate"><span class="pre">ascii</span></code>. Cada uno
+tiene sus propios tiempos para trabajar con los comandos.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Trama</p></th>
+<th class="head"><p class="linemarker linemarker-1">max [caract.]</p></th>
+<th class="head"><p class="linemarker linemarker-1">power [seg.]</p></th>
+<th class="head"><p class="linemarker linemarker-1">response [seg.]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">THE_request</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">NPK_request</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">level_request</p></td>
+<td><p class="linemarker linemarker-1">9</p></td>
+<td><p class="linemarker linemarker-1">12</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">///TR\r\n</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">3</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">///T0\r\n</p></td>
+<td><p class="linemarker linemarker-1">80</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">///T1\r\n</p></td>
+<td><p class="linemarker linemarker-1">80</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">1</p></td>
+</tr>
+</tbody>
+</table>
+<p class="linemarker linemarker-579">Donde:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-581"><strong>max</strong>: es la cantidad de caracteres máxima que se espera que
+tenga la respuesta.</p></li>
+<li><p class="linemarker linemarker-583"><strong>power</strong>: es el tiempo que se debe esperar después de alimentar
+el sensor antes de mandar el comando.</p></li>
+<li><p class="linemarker linemarker-585"><strong>response</strong>: es el tiempo que se debe esperar por la respuesta.</p></li>
+</ul>
+<img alt="../_images/power_and_response.png" src="../_images/power_and_response.png" />
+</section>
+<section id="material-descargable">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="sectnum">4.7.- </span>Material descargable</a><a class="headerlink" href="#material-descargable" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Soil Temperature Humidity And EC Sensor (Gemho):</dt><dd><ul>
+<li><p class="linemarker linemarker-593"><a class="reference download internal" download="" href="../_downloads/a04edbcd990b1304aa29e9c9402b4e8a/the-datasheet.docx"><code class="xref download docutils literal notranslate"><span class="pre">datasheet</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RS485/4-20mA Soil NPK Sensor (Gemho):</dt><dd><ul>
+<li><p class="linemarker linemarker-595"><a class="reference download internal" download="" href="../_downloads/ac3d58da17c46a906237d72f7f7fa43c/npk-datasheet.docx"><code class="xref download docutils literal notranslate"><span class="pre">datasheet</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>SUP-ZP Ultrasonic level transmitter (Supnea):</dt><dd><ul>
+<li><p class="linemarker linemarker-597"><a class="reference download internal" download="" href="../_downloads/3911ec80223191b7338e1b0715884ec6/level-datasheet.pdf"><code class="xref download docutils literal notranslate"><span class="pre">datasheet</span></code></a></p></li>
+<li><p class="linemarker linemarker-598"><a class="reference download internal" download="" href="../_downloads/c5b7b413812a387892546eb3cbe9e1e1/level-user-manual.pdf"><code class="xref download docutils literal notranslate"><span class="pre">user</span> <span class="pre">manual</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The Hydra Probe® Soil SensorSensor (Stevens):</dt><dd><ul>
+<li><p class="linemarker linemarker-600"><a class="reference download internal" download="" href="../_downloads/98a6c131406b712d3f4fc6b4a3c584f3/sensor_2.7.pdf"><code class="xref download docutils literal notranslate"><span class="pre">datasheet</span></code></a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="firmware.html" class="btn btn-neutral float-left" title="3.- Información sobre el firmware" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="app.html" class="btn btn-neutral float-right" title="5.- Comunicación con la APP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

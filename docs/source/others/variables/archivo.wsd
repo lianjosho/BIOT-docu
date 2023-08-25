@@ -1,0 +1,10 @@
+@startuml <titulo>
+title Principal
+
+start
+  :Motivo de despertado;
+  :Cálculo de tiempo a dormir;
+  :Poner en __deep sleep mode__;
+stop
+
+@enduml

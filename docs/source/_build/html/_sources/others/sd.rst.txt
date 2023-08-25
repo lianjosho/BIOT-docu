@@ -1,0 +1,112 @@
+Guardado en memoria SD
+######################
+
+.. sectnum::
+   :suffix: .-
+   :start: 6
+
+.. contents:: 
+    
+La memoria SD contiene varios archivos .txt:
+
+- ``regall.txt``: se guardan aquí **TODOS** los paquetes 
+  de mediciones que se han hecho.
+- ``register.txt``: se guardan aquí los paquetes que no 
+  se pudieron enviar.
+- ``battery.txt``: se guarda el registro de actividad
+  del equipo.
+
+.. warning:: 
+
+   Todos estos archivos se borran con la instrucción o 
+   palabra clave ``recrear`` y se vuelven a crear.
+
+Los paquetes de medición se llaman ``json_measure`` y 
+tienen la siguiente forma. 
+
+.. literalinclude:: variables/json_measure.json
+   :language: json
+   :lines: 1-8
+
+Donde:
+
+- ``id``: es el identificador del equipo.
+- ``timestamp``: es la fecha y hora en que se hizo la 
+  medición.
+- ``level_bat``: es el nivel de batería al momento de 
+  realizar la medición.
+- ``sn``: es la salida en donde está conectado el sensor, 
+  puede ir desde 0 hasta 3.
+- ``number_sent``: es la cantidad de veces que se ha
+  intentado enviar el paquete al servidor sin éxito. 
+  Cuando supera los 3 intentos, el paquete se borra del 
+  archivo ``register.txt``.
+- ``value``: es el array de Strings compuesto de las 
+  respuestas a cada comando. 
+
+Este array depende del tipo de sensor:
+
+Para un sensor tipo THE: 
+
+.. literalinclude:: variables/json_measure.json
+   :language: json
+   :lines: 10
+
+Para un sensor tipo NPK:
+
+.. literalinclude:: variables/json_measure.json
+   :language: json
+   :lines: 11
+
+Para un sensor tipo LEVEL:
+
+.. literalinclude:: variables/json_measure.json
+   :language: json
+   :lines: 12
+
+Para un sensor tipo STEVENS:
+
+.. literalinclude:: variables/json_measure.json
+   :language: json
+   :lines: 13-16
+
+Archivo ``regall.txt``
+**********************
+
+Se guardan los paquetes de forma lineal y con un salto 
+de línea:
+
+.. code-block:: console
+
+   {json_measure_0}
+   {json_measure_1}
+   {json_measure_2}
+   ...
+   {json_measure_n}
+
+Es lo que se ve cuando se coloca la SD en una laptop y se 
+abre el archivo en un procesador de texto.
+
+Archivo ``register.txt``
+************************
+
+Ídem al archivo anterior, pero **SOLO** se guardan los paquetes
+que no se han podido enviar al servidor un número igual o 
+menor a 3 intentos; luego de eso se borra. 
+
+Archivo ``battery.txt``
+***********************
+
+Se guarda en este archivo toda la actividad del equipo, se 
+conforma también de paquetes json como los otros dos 
+archivos, pero se conforman de la siguiente manera:
+
+.. literalinclude:: variables/json_bat.json
+   :language: json
+   :tab-width: 2
+
+Archivos ``monitor/<year><month><day>.txt``
+********************************************
+
+En estos archivos se planea por todo lo que se imprime 
+en el monitor serial en un día.
