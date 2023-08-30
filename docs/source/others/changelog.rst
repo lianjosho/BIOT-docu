@@ -262,13 +262,290 @@ Para un sensor tipo STEVENS:
 Versión 5
 *********
 
+V5.2.1 - 30/08/2023
+===================
+
+Changed
+-------
+
+- **Palabra clave "chequeo":** se agrega información de los 
+  modos 12 y offline y del número de mediciones guardadas.
+
+  .. code-block:: http
+    :emphasize-lines: 13-15
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    Chequeo:
+    ========
+    - Tarjeta SD: ok
+    - Reloj externo: ok
+    - Salidas:
+     · 1) ok
+     · 2) No configurado
+     · 3) No configurado
+     · 4) No configurado
+    - Modo 12: No
+    - Modo offline: Sí
+    - Mediciones guardadas: 3
+
+  En donde las últimas líneas resaltadas son las agregadas.
+
+V5.2.1 - 29/08/2023
+===================
+
+Changed
+-------
+
+- **Respuesta de configuración ok:** cuando la configuración 
+  se hace bien, se guarda y se envía, se responde a la app el 
+  siguiente http_response:
+
+  .. code-block:: bash
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Equipo configurado 
+      ==================
+      1: 10.00 metros (the)
+      2: No configurado
+      3: No configurado
+      4: No configurado
+
+- **Respuesta de configuración con json mal formado:** cuando 
+  la app manda un json mal formado, la http response es:
+
+  .. code-block:: bash
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Json inválido
+
+- **Respuesta de configuración con modo offline:** si el 
+  equipo está con el modo offline activo y la app envía una 
+  petición para hacer una configuración, ésta se hace pero no 
+  se envía; la http response es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Modo offline activo. Configuración hecha, pero no enviada
+      Equipo configurado 
+      ==================
+      1: 10.00 metros (the)
+      2: No configurado
+      3: No configurado
+      4: No configurado
+
+- **Respuesta de configuración con problemas de conexión:** si 
+  el equipo recibe una petición para configurarlo y hay 
+  problemas de conexión, el chip está mal colocado o no tiene 
+  datos activados, la configuración se hace pero no se envía. 
+  La http response es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Problemas de conexión. Chip mal colocado o sin datos.
+      Configuración hecha, pero no enviada
+      Equipo configurado 
+      ==================
+      1: 10.00 metros (the)
+      2: No configurado
+      3: No configurado
+      4: No configurado
+
+- **Respuesta de configuración con problemas del servidor:** si 
+  el equipo recibe una petición para configurarlo y se logra 
+  conectar a internet pero no al servidor, la configuración se 
+  hace pero no se envía. La http response es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Problemas de servidor. Configuración hecha, pero no enviada
+      Equipo configurado 
+      ==================
+      1: 10.00 metros (the)
+      2: No configurado
+      3: No configurado
+      4: No configurado
+
+- **Respuesta a palabra clave "modo12":** al usar la palabra 
+  clave "modo 12", se des/activa el modo 12, y el http response 
+  depende de si el modo 12 está activado o no.
+  Si está activado, es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Modo 12:
+       · Medición cada 1 hs
+       · Envío cada 12 hs
+       · Envíos a la 00:00 y 12:00 hs
+
+  Si está desactivado, es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Modo normal:
+       · Medición cada 24 hs
+       · Envío cada 24 hs
+       · Envíos a la 12:00 hs
+  
+- **Respuesta a palabra clave "offline":** al usar la palabra 
+  clave "offline", se des/activa el modo offline, y el http 
+  response depende de si el modo offline está activado o no.
+  Si está activado, es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Modo offline: las mediciones NO se envían, sólo se guardan
+
+  Si está desactivado, es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Modo online: las mediciones se envían normalmente
+
+- **Respuesta a configuración con problemas de sensor:** si el 
+  equipo recibe una petición de configuración, pero hay 
+  problemas con un sensor en una salida, no se toca la 
+  configuración anterior y el http response es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Problemas con la salida 1. Revise conexión
+
+  .. warning:: 
+      
+      Cuando se detecta problemas en una salida, se interrumpe 
+      la configuración y no se sigue con la siguiente. Por 
+      ejemplo, si se quiere configurar sensores en las salidas 
+      1 y 2 y ambos están descoenctados, entonces se muestra el 
+      mensaje anterior, pero no hay forma de saber el estado 
+      de la salida 2. Por eso hay que corregir el el problema 
+      en la salida 1 e intentar configurar de nuevo para saber 
+      si el sensor en la salida 2 responde bien. 
+
+- **Respuesta a palabra clave "erase":** se borra la 
+  la configuración y http response es:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      La configuración ha sido borrada
+
+- **Respuesta a palabra clave "eeprom":** devuelve el json de 
+  configuración que se arma para enviar al servidor.
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      {
+        "id": "L-7BF4",
+        "product": "THSST",
+        "soil_type": "Arcilloso",
+        "location_name": "holas",
+        "location": {
+            "latitude": -31.44030952,
+            "longitude": -64.20405579
+        },
+        "sensors": {
+            "00000000001": {
+            "type": "the",
+            "tag_depth": "10.00"
+            }
+        }
+      }
+
+- **Respuesta a palabra clave "chequeo":** chequea el estado del
+  equipo y devuelve el resultado:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Chequeo:
+      ========
+      - Tarjeta SD: ok
+      - Reloj externo: ok
+      - Salidas:
+        · 1) ok
+        · 2) No configurado
+        · 3) No configurado
+        · 4) No configurado
+
+- **Respuesta a palabra clave "regall":** devuelve el archivo 
+  "regall.txt":
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      [
+        {json_measure_0}
+        ,{json_measure_1}
+        ,{json_measure_2}
+        ,...
+        ,{json_measure_n}
+      ]
+
+- **Respuesta a palabra clave "voltaje,":** setea el coeficiente
+  de voltaje y devuelve:
+
+  .. code-block:: http
+
+      HTTP/1.1 200 OK
+      Content-Type:text/plain;charset=UTF-8
+
+      Coeficiente de voltaje seteado en 1.02
+
+V5.2.0 - 28/08/2023
+===================
+
+Added
+-----
+
+- **Funcionalidad para guardar registro:** se guarda registro 
+  en la memoria SD para las peticiones updateDate y setConfig.
+
 V5.1.0 - 24/08/2023
 ===================
 
 Added
 -----
 
-- Respuesta a la palabra clave "modulo": se elimina y se 
+- **Respuesta a la palabra clave "modulo":** se elimina y se 
   recrea el archivo "register.txt", que es en donde se guardan
   las mediciones no enviadas. La HTTP response es:
 
@@ -279,7 +556,7 @@ Added
 
     Memoria SD formateada
 
-- Respuesta a configuración en offline: cuando el equipo está 
+- **Respuesta a configuración en offline:** cuando el equipo está 
   en modo offline y la app manda la petición para configurarlo, 
   la configuración se hace pero no se envía el metadata al 
   servidor. La HTTP response es:
@@ -462,7 +739,7 @@ Added
 
 y ahora se responde:
 
-.. code-block:: http
+.. code-block:: console
 
    HTTP/1.1 200 OK
    Content-Type:text/plain;charset=UTF-8
