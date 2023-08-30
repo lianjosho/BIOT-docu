@@ -462,7 +462,7 @@ Added
 
 y ahora se responde:
 
-.. code-block:: console
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Content-Type:text/plain;charset=UTF-8
