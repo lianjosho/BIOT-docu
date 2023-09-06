@@ -77,6 +77,7 @@ Contenido
    others/sd
    others/server
    others/developer
+   others/testing
    others/changelog
 
 

@@ -52,16 +52,11 @@
 <li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">5.- </span>Comunicación con la APP</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#actualizacion-del-rtc-interno"><span class="sectnum">5.1.- </span>Actualización del RTC interno</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configuracion-del-equipo"><span class="sectnum">5.2.- </span>Configuración del equipo</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#no-hay-sensor-conectado">No hay sensor conectado</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#no-hay-respuesta-a-un-comando">No hay respuesta a un comando</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#se-cuela-ruido-en-la-respuesta-a-un-comando">Se cuela ruido en la respuesta a un comando</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-del-equipo"><span class="sectnum">5.2.- </span>Configuración del equipo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#palabras-clave"><span class="sectnum">5.3.- </span>Palabras clave</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#erase">erase</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#eeprom">eeprom</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#check">check</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chequeo">chequeo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#voltaje-volt">voltaje,&lt;volt&gt;</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#modo12">modo12</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#offline">offline</a></li>
@@ -77,6 +72,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html"><span class="sectnum">9.- </span>Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
 </ul>
 
@@ -112,28 +108,22 @@
 <li><p><a class="reference internal" href="#comunicacion-con-la-app" id="id1"><span class="sectnum">5.- </span>Comunicación con la APP</a></p>
 <ul class="auto-toc">
 <li><p><a class="reference internal" href="#actualizacion-del-rtc-interno" id="id2"><span class="sectnum">5.1.- </span>Actualización del RTC interno</a></p></li>
-<li><p><a class="reference internal" href="#configuracion-del-equipo" id="id3"><span class="sectnum">5.2.- </span>Configuración del equipo</a></p>
+<li><p><a class="reference internal" href="#configuracion-del-equipo" id="id3"><span class="sectnum">5.2.- </span>Configuración del equipo</a></p></li>
+<li><p><a class="reference internal" href="#palabras-clave" id="id4"><span class="sectnum">5.3.- </span>Palabras clave</a></p>
 <ul>
-<li><p><a class="reference internal" href="#no-hay-sensor-conectado" id="id4">No hay sensor conectado</a></p></li>
-<li><p><a class="reference internal" href="#no-hay-respuesta-a-un-comando" id="id5">No hay respuesta a un comando</a></p></li>
-<li><p><a class="reference internal" href="#se-cuela-ruido-en-la-respuesta-a-un-comando" id="id6">Se cuela ruido en la respuesta a un comando</a></p></li>
+<li><p><a class="reference internal" href="#erase" id="id5">erase</a></p></li>
+<li><p><a class="reference internal" href="#eeprom" id="id6">eeprom</a></p></li>
+<li><p><a class="reference internal" href="#chequeo" id="id7">chequeo</a></p></li>
+<li><p><a class="reference internal" href="#voltaje-volt" id="id8">voltaje,&lt;volt&gt;</a></p></li>
+<li><p><a class="reference internal" href="#modo12" id="id9">modo12</a></p></li>
+<li><p><a class="reference internal" href="#offline" id="id10">offline</a></p></li>
+<li><p><a class="reference internal" href="#bat" id="id11">bat</a></p></li>
+<li><p><a class="reference internal" href="#regall" id="id12">regall</a></p></li>
+<li><p><a class="reference internal" href="#activity" id="id13">activity</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#palabras-clave" id="id7"><span class="sectnum">5.3.- </span>Palabras clave</a></p>
-<ul>
-<li><p><a class="reference internal" href="#erase" id="id8">erase</a></p></li>
-<li><p><a class="reference internal" href="#eeprom" id="id9">eeprom</a></p></li>
-<li><p><a class="reference internal" href="#check" id="id10">check</a></p></li>
-<li><p><a class="reference internal" href="#voltaje-volt" id="id11">voltaje,&lt;volt&gt;</a></p></li>
-<li><p><a class="reference internal" href="#modo12" id="id12">modo12</a></p></li>
-<li><p><a class="reference internal" href="#offline" id="id13">offline</a></p></li>
-<li><p><a class="reference internal" href="#bat" id="id14">bat</a></p></li>
-<li><p><a class="reference internal" href="#regall" id="id15">regall</a></p></li>
-<li><p><a class="reference internal" href="#activity" id="id16">activity</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#medicion-manual" id="id17"><span class="sectnum">5.4.- </span>Medición manual</a></p></li>
-<li><p><a class="reference internal" href="#pedido-del-historial" id="id18"><span class="sectnum">5.5.- </span>Pedido del historial</a></p></li>
+<li><p><a class="reference internal" href="#medicion-manual" id="id14"><span class="sectnum">5.4.- </span>Medición manual</a></p></li>
+<li><p><a class="reference internal" href="#pedido-del-historial" id="id15"><span class="sectnum">5.5.- </span>Pedido del historial</a></p></li>
 </ul>
 </li>
 </ul>
@@ -176,13 +166,13 @@ V5.0.1
 <p class="admonition-title">Note</p>
 <p class="linemarker linemarker-54">Cada vez que el ESP32 se queda sin suministro eléctrico,
 el RTC vuelve al epoch time (1 de enero de 1970 a las 0hs),
-es por eso que se sincroniza con el RTC externo cada vez
-que se despierta.</p>
+es por eso que se sincroniza con el RTC externo (DS3231)
+cada vez que se despierta.</p>
 </div>
 </section>
 <section id="configuracion-del-equipo">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">5.2.- </span>Configuración del equipo</a><a class="headerlink" href="#configuracion-del-equipo" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-63">El HTTP request es el siguiente:</p>
+<p class="linemarker linemarker-62">El HTTP request es el siguiente:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/setConfig</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
 <span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
@@ -190,408 +180,134 @@ que se despierta.</p>
 <span class="na">content-length</span><span class="o">:</span> <span class="l">158</span>
 <span class="na">host</span><span class="o">:</span> <span class="l">192.168.4.1</span>
 
-<span class="s2">&quot;{json_app}&quot;</span>
+<span class="s2">&quot;{\&quot;soil_type\&quot;: \&quot;Arcillo arenoso\&quot;, \&quot;location_name\&quot;: \&quot;eeprom\&quot;, \&quot;sensors\&quot;: {\&quot;Salida1(o1)\&quot;: {\&quot;type\&quot;: \&quot;the\&quot;, \&quot;tag_depth\&quot;: 10 }}, \&quot;location\&quot;: {\&quot;latitude\&quot;: -31.4402331, \&quot;longitude\&quot;: -64.2040826}}&quot;</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-76">Donde <code class="docutils literal notranslate"><span class="pre">{json_app}</span></code> es el json que el ESP32 usa para
-configurar el equipo. El <code class="docutils literal notranslate"><span class="pre">{json_app}</span></code> tiene la forma:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;01040000000271CB&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///TR\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T0\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T1\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-82">En el ejemplo las salidas tienen los siguientes sensores:</p>
-<ul class="simple">
-<li><p class="linemarker linemarker-84">Salida 1: sensor THE.</p></li>
-<li><p class="linemarker linemarker-85">Salida 2: sensor NPK.</p></li>
-<li><p class="linemarker linemarker-86">Salida 3: sensor de nivel.</p></li>
-<li><p class="linemarker linemarker-87">Salida 4: sensor Stevens.</p></li>
-</ul>
-<p class="linemarker linemarker-89">La trama tiene a lo sumo 4 elementos, numerados del 0 al 3, que
-corresponden a cada una de las salidas configuradas.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="hll"><span class="w">  </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="hll"><span class="w">  </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="hll"><span class="w">  </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;01040000000271CB&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="hll"><span class="w">  </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///TR\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T0\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
-<span class="w">    </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T1\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-96">Cada salida tiene a su vez elementos numerados del 0 al 9 a lo
-sumo, que corresponden a los comandos que se le debe enviar al
-sensor en dicha salida.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="hll"><span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
-</span><span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="hll"><span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
-</span><span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="hll"><span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;01040000000271CB&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-</span><span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="hll"><span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///TR\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T0\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
-</span><span class="hll"><span class="w">    </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T1\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-</span><span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-104">Estos comandos tienen como campo un array que tiene la forma:</p>
-<div class="centered highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[&lt;type&gt;, &lt;command&gt;, &lt;max&gt;, &lt;power&gt;, &lt;response&gt;]</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p class="linemarker linemarker-111"><code class="docutils literal notranslate"><span class="pre">type</span></code>: es el tipo de variable del contenido del comando.
-Puede ser <code class="docutils literal notranslate"><span class="pre">hex</span></code> o <code class="docutils literal notranslate"><span class="pre">ascii</span></code>.</p></li>
-<li><p class="linemarker linemarker-113"><code class="docutils literal notranslate"><span class="pre">command</span></code>: es el comando en sí.</p></li>
-<li><p class="linemarker linemarker-114"><code class="docutils literal notranslate"><span class="pre">max</span></code>: es el número de caracteres que se debe esperar como
-respuesta del sensor. Si es 0, significa que no se espera
-respuesta.</p></li>
-<li><p class="linemarker linemarker-117"><code class="docutils literal notranslate"><span class="pre">power</span></code>: es el tiempo que hay que esperar después de
-haber alimentado la salida antes de mandarle un comando.</p></li>
-<li><p class="linemarker linemarker-119"><code class="docutils literal notranslate"><span class="pre">response</span></code>: es el tiempo límite que se debe esperar la
-respuesta. De nuevo, si es 0 es que no se espera respuesta.
-Si <code class="docutils literal notranslate"><span class="pre">max</span> <span class="pre">=</span> <span class="pre">0</span></code> entonces <code class="docutils literal notranslate"><span class="pre">response</span> <span class="pre">=</span> <span class="pre">0</span></code> también.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p class="linemarker linemarker-124">Para más información de estos parámetros,
-ver :<a class="reference internal" href="sensors.html#array-param"><span class="std std-ref">4.5.-   Contrastación entre sensor chino y Stevens</span></a></p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p class="linemarker linemarker-128">Los dos últimos parámetros podrían llevar el nombre de
-<code class="docutils literal notranslate"><span class="pre">timeout</span></code> al principio, pero la librería <code class="docutils literal notranslate"><span class="pre">Preferences.h</span></code>
-limita la longitud del nombre de la llave para guardar un valor
-en la eeprom. En realidad, deberían llamarse
-<code class="docutils literal notranslate"><span class="pre">timeout_power</span></code> y <code class="docutils literal notranslate"><span class="pre">timeout_response</span></code>.</p>
-</div>
-<p class="linemarker linemarker-134">Con esta información, el equipo chequea si los sensores de ese
-json están en las salidas correspondientes y si coinciden en
-el tipo.</p>
-<p class="linemarker linemarker-138">El HTTP response es un json con las respuestas que devolvieron
-las salidas a cada uno de los parámetros pasados.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
+<p class="linemarker linemarker-75">Si todo sale bien, entonces el http response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
-<span class="o">{</span>
-<span class="w">   </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;3&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.535,+0.060,+29.2\r\n&quot;</span>,
-<span class="w">   </span><span class="o">}</span>
-<span class="o">}</span>
+Equipo configurado
+==================
+ · 1) 10.00 cm (the)
+ · 2) No configurado
+ · 3) No configurado
+ · 4) No configurado
 </pre></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p class="linemarker linemarker-166">El equipo no verifica la trama de respuesta (longitud, tiempo
-de respuesta, caracteres válidos, etc.) de cada parámetros,
-simplemente devuelve lo que respondió. La app se tiene que
-encargar de verificar si cada trama de respuesta es coherente
-con su comando.</p>
-</div>
-<p class="linemarker linemarker-172">Los casos en que haya un posible fallo en la configuración son:</p>
-<ol class="arabic simple">
-<li><p class="linemarker linemarker-174">No hay sensor conectado.</p></li>
-<li><p class="linemarker linemarker-175">No hay respuesta a un comando.</p></li>
-<li><p class="linemarker linemarker-176">Se cuela ruido en la respuesta a un comando.</p></li>
-</ol>
-<section id="no-hay-sensor-conectado">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">No hay sensor conectado</a><a class="headerlink" href="#no-hay-sensor-conectado" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-181">Si en el caso del ejemplo el sensor de la salida 1 está
-desconectado, entonces el json de respuesta es como sigue:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-
-<span class="o">{</span>
-<span class="w">   </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="hll"><span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-</span><span class="hll"><span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;3&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.535,+0.060,+29.2\r\n&quot;</span>,
-<span class="w">   </span><span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-208">En donde las líneas resaltadas tienen tramas de respuesta nulas
-porque no hay sensor que responda. Como el parámetro <code class="docutils literal notranslate"><span class="pre">&lt;max&gt;</span></code>
-no es 0, esto se interpreta como un error y los comandos para
-esta salida <strong>NO</strong> van a ser guardados en la configuración. El
-resto de las salidas sí se van a guardar.</p>
-</section>
-<section id="no-hay-respuesta-a-un-comando">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">No hay respuesta a un comando</a><a class="headerlink" href="#no-hay-respuesta-a-un-comando" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-217">Si ahora en la salida 1 se tiene conectado un sensor THE y la
-app manda comandos para un sensor NPK, el sensor THE sólo
-responderá al primer comando, como sigue.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-
-<span class="o">{</span>
-<span class="w">   </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>,
-<span class="hll"><span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;3&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.535,+0.060,+29.2\r\n&quot;</span>,
-<span class="w">   </span><span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-245">En donde la línea resaltada representa la respuesta del sensor
-al segundo comando. En este caso pasa como en el caso anterior:
-<strong>NO</strong> se guarda la configuración para esta salida.</p>
-</section>
-<section id="se-cuela-ruido-en-la-respuesta-a-un-comando">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Se cuela ruido en la respuesta a un comando</a><a class="headerlink" href="#se-cuela-ruido-en-la-respuesta-a-un-comando" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-252">Ha sucedido un caso en una placa en que el sensor responde con
-unos bytes aleatorios antes de responder la trama esperada.
-Siguiendo con el ejemplo anterior, se esperan 11 bytes</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="m">2</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">4</span><span class="w">   </span><span class="m">5</span><span class="w">   </span><span class="m">6</span><span class="w">   </span><span class="m">7</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">10</span>
-------------------------------------------
-<span class="m">01</span><span class="w">  </span><span class="m">03</span><span class="w">  </span><span class="m">06</span><span class="w">  </span><span class="m">01</span><span class="w">  </span>2C<span class="w">  </span><span class="m">02</span><span class="w">  </span><span class="m">92</span><span class="w">  </span>1D<span class="w">  </span>4C<span class="w">  </span>EC<span class="w">  </span>A6
-</pre></div>
-</div>
-<p class="linemarker linemarker-262">Pero en su lugar, se reciben 4 bytes antes de la respuesta
-esperada:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="m">2</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">4</span><span class="w">   </span><span class="m">5</span><span class="w">   </span><span class="m">6</span><span class="w">   </span><span class="m">7</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">10</span><span class="w">  </span><span class="m">11</span><span class="w">  </span><span class="m">12</span><span class="w">  </span><span class="m">13</span><span class="w">  </span><span class="m">14</span>
-----------------------------------------------------------
-<span class="m">00</span><span class="w">  </span><span class="m">00</span><span class="w">  </span><span class="m">00</span><span class="w">  </span><span class="m">00</span><span class="w">  </span><span class="m">01</span><span class="w">  </span><span class="m">03</span><span class="w">  </span><span class="m">06</span><span class="w">  </span><span class="m">01</span><span class="w">  </span>2C<span class="w">  </span><span class="m">02</span><span class="w">  </span><span class="m">92</span><span class="w">  </span>1D<span class="w">  </span>4C<span class="w">  </span>EC<span class="w">  </span>A6
-</pre></div>
-</div>
-<p class="linemarker linemarker-271">En donde los bytes 0 al 3 son basura o respuesta inálida, ya
-que la trama de respuesta debería comenzar con 01, que es la
-dirección por defecto de los sensores chinos. Como <code class="docutils literal notranslate"><span class="pre">max=11</span></code>,
-el equipo espera 11 bytes y corta ahí la respuesta, por lo que
-lo devuelto a la app sería:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="w">   </span><span class="m">1</span><span class="w">   </span><span class="m">2</span><span class="w">   </span><span class="m">3</span><span class="w">   </span><span class="m">4</span><span class="w">   </span><span class="m">5</span><span class="w">   </span><span class="m">6</span><span class="w">   </span><span class="m">7</span><span class="w">   </span><span class="m">8</span><span class="w">   </span><span class="m">9</span><span class="w">   </span><span class="m">10</span>
-------------------------------------------
-<span class="m">00</span><span class="w">  </span><span class="m">00</span><span class="w">  </span><span class="m">00</span><span class="w">  </span><span class="m">00</span><span class="w">  </span><span class="m">01</span><span class="w">  </span><span class="m">03</span><span class="w">  </span><span class="m">06</span><span class="w">  </span><span class="m">01</span><span class="w">  </span>2C<span class="w">  </span><span class="m">02</span><span class="w">  </span><span class="m">92</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-283">Lo cual no tiene sentido y si se le aplica CRC no lo va a cumplir,
-pero el equipo no está configurado para hacer esta tarea, de eso
-se tiene que encargar la app. Lo que sí va a pasar es que se van
-a guardar los comandos para esa salida y lo que se devuelve a
-la app es lo siguiente:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-
-<span class="o">{</span>
-<span class="w">   </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>,
-<span class="hll"><span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;00000000010306012C0292&quot;</span>
-</span><span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;010306012C02921D4CECA6&quot;</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;3&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.535,+0.060,+29.2\r\n&quot;</span>,
-<span class="w">   </span><span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-313">Donde la línea resaltada es la respuesta inválida del sensor.</p>
-</section>
 </section>
 <section id="palabras-clave">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="sectnum">5.3.- </span>Palabras clave</a><a class="headerlink" href="#palabras-clave" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-318">El http request es:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/keyword</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">content-type</span><span class="o">:</span> <span class="l">plain/text</span>
-<span class="na">content-length</span><span class="o">:</span> <span class="l">158</span>
-<span class="na">host</span><span class="o">:</span> <span class="l">192.168.4.1</span>
-
-&quot;{json_key}&quot;
-</pre></div>
-</div>
-<p class="linemarker linemarker-329">Donde el json_key tiene la forma:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;keyword&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;keyword&gt;&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-334">Y el campo <code class="docutils literal notranslate"><span class="pre">&lt;keyword&gt;</span></code> es la palabra clave, que puede ser:</p>
-<section id="erase">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">erase</a><a class="headerlink" href="#erase" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-338">Borra la configuración del equipo, excepto:</p>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">5.3.- </span>Palabras clave</a><a class="headerlink" href="#palabras-clave" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-335">Si el campo <code class="docutils literal notranslate"><span class="pre">location_name</span></code> tiene alguna de las siguientes
+palabras reservadas, entonces el equipo no hace la
+configuración y atiende ese caso especial.</p>
 <ul class="simple">
-<li><p class="linemarker linemarker-340"><code class="docutils literal notranslate"><span class="pre">mac</span></code>;</p></li>
-<li><p class="linemarker linemarker-341"><code class="docutils literal notranslate"><span class="pre">firm_vers</span></code>;</p></li>
-<li><p class="linemarker linemarker-342"><code class="docutils literal notranslate"><span class="pre">volt_coeff</span></code> y</p></li>
-<li><p class="linemarker linemarker-343"><code class="docutils literal notranslate"><span class="pre">unix_time</span></code>.</p></li>
+<li><p class="linemarker linemarker-339">erase</p></li>
+<li><p class="linemarker linemarker-340">eeprom</p></li>
+<li><p class="linemarker linemarker-341">chequeo</p></li>
+<li><p class="linemarker linemarker-342">regall</p></li>
+<li><p class="linemarker linemarker-343">voltaje,&lt;bat_level&gt;</p></li>
+<li><p class="linemarker linemarker-344">modo12</p></li>
+<li><p class="linemarker linemarker-345">offline</p></li>
+<li><p class="linemarker linemarker-346">modulo</p></li>
 </ul>
-<p class="linemarker linemarker-345">Devuelve la siguiente HTTP response:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
+<section id="erase">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">erase</a><a class="headerlink" href="#erase" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-351">Borra la configuración del equipo, excepto:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-353"><code class="docutils literal notranslate"><span class="pre">mac</span></code>;</p></li>
+<li><p class="linemarker linemarker-354"><code class="docutils literal notranslate"><span class="pre">firm_vers</span></code>;</p></li>
+<li><p class="linemarker linemarker-355"><code class="docutils literal notranslate"><span class="pre">volt_coeff</span></code> y</p></li>
+<li><p class="linemarker linemarker-356"><code class="docutils literal notranslate"><span class="pre">unix_time</span></code>.</p></li>
+</ul>
+<p class="linemarker linemarker-358">El http_response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
-Se<span class="w"> </span>borró<span class="w"> </span>toda<span class="w"> </span>la<span class="w"> </span>configuración,<span class="w"> </span>excepto:
-<span class="w">      </span>-<span class="w"> </span>MAC
-<span class="w">      </span>-<span class="w"> </span>Versión<span class="w"> </span>de<span class="w"> </span>firmware
-<span class="w">      </span>-<span class="w"> </span>Unix<span class="w"> </span><span class="nb">time</span>
-<span class="w">      </span>-<span class="w"> </span>Coeficiente<span class="w"> </span>de<span class="w"> </span>voltaje
+La configuración ha sido borrada
 </pre></div>
 </div>
 </section>
 <section id="eeprom">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">eeprom</a><a class="headerlink" href="#eeprom" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-361">Devuelve un json con la configuración de la eeprom.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-
-<span class="o">{</span>
-<span class="w">   </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;hex&quot;</span>,<span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span>,<span class="w"> </span><span class="m">30</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">4</span><span class="o">]</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;hex&quot;</span>,<span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span>,<span class="w"> </span><span class="m">30</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">4</span><span class="o">]</span>,
-<span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;hex&quot;</span>,<span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span>,<span class="w"> </span><span class="m">30</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">4</span><span class="o">]</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;hex&quot;</span>,<span class="w"> </span><span class="s2">&quot;01040000000271CB&quot;</span>,<span class="w"> </span><span class="m">30</span>,<span class="w"> </span><span class="m">12</span>,<span class="w"> </span><span class="m">1</span><span class="o">]</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;3&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;ascii&quot;</span>,<span class="w"> </span><span class="s2">&quot;///TR\r\n&quot;</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>,
-<span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;ascii&quot;</span>,<span class="w"> </span><span class="s2">&quot;///T0\r\n&quot;</span>,<span class="w"> </span><span class="m">80</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">1</span><span class="o">]</span>,
-<span class="w">     </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;ascii&quot;</span>,<span class="w"> </span><span class="s2">&quot;///T1\r\n&quot;</span>,<span class="w"> </span><span class="m">80</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">1</span><span class="o">]</span>
-<span class="w">   </span><span class="o">}</span>,
-<span class="w">   </span><span class="s2">&quot;other&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;mac&quot;</span>:<span class="w"> </span><span class="s2">&quot;7BF4&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;fv&quot;</span>:<span class="w"> </span><span class="s2">&quot;V6.1.0&quot;</span>,
-<span class="w">     </span><span class="s2">&quot;unix time&quot;</span>:<span class="w"> </span><span class="m">0</span>,
-<span class="w">     </span><span class="s2">&quot;volt. coeff.&quot;</span>:<span class="w"> </span><span class="m">0</span>.00,
-<span class="w">     </span><span class="s2">&quot;modo_12&quot;</span>:<span class="w"> </span>false,
-<span class="w">     </span><span class="s2">&quot;offline&quot;</span>:<span class="w"> </span><span class="nb">false</span>
-<span class="w">   </span><span class="o">}</span>
-<span class="o">}</span>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">eeprom</a><a class="headerlink" href="#eeprom" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-370">Devuelve un json con la configuración del equipo en
+formato json.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-394">Donde el json devuelto es igual al <code class="docutils literal notranslate"><span class="pre">json_pp</span></code>, excepto que
+<p class="linemarker linemarker-380">Donde el json devuelto es igual al <code class="docutils literal notranslate"><span class="pre">json_pp</span></code>, excepto que
 a los campos de las salidas se le agrega un campo llamado
 <code class="docutils literal notranslate"><span class="pre">other</span></code> que contiene información adicional. El tiempo que
 demora la respuesta es <strong>258 ms</strong> aproximadamente.</p>
 </section>
-<section id="check">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">check</a><a class="headerlink" href="#check" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-402">Hace un chequeo de los módulos RTC externo y SD y las
+<section id="chequeo">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">chequeo</a><a class="headerlink" href="#chequeo" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-388">Hace un chequeo de los módulos RTC externo y SD y las
 salidas. Luego le envía a la app un mensaje con el
 resultado del chequeo.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
 Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
 
-<span class="w"> </span><span class="o">{</span>
-<span class="w">     </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">         </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;01030608D500880000ADC5&quot;</span>
-<span class="w">     </span><span class="o">}</span>,
-<span class="w">     </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">         </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<span class="w">         </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.000,+0.001,+22.4,+72.3,+0.001,+0.697,+0.354,+0.708,+0.368\r\n&quot;</span>,
-<span class="w">         </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+22.4,+72.3,+0.508\r\n&quot;</span>
-<span class="w">     </span><span class="o">}</span>,
-<span class="w">     </span><span class="s2">&quot;other&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">         </span><span class="s2">&quot;sdcard&quot;</span>:<span class="w"> </span>true,
-<span class="w">         </span><span class="s2">&quot;rtc&quot;</span>:<span class="w"> </span><span class="nb">true</span>
-<span class="w">     </span><span class="o">}</span>
-<span class="w"> </span><span class="o">}</span>
+Chequeo:
+<span class="o">========</span>
+-<span class="w"> </span>Tarjeta<span class="w"> </span>SD:<span class="w"> </span>ok
+-<span class="w"> </span>Reloj<span class="w"> </span>externo:<span class="w"> </span>ok
+-<span class="w"> </span>Salidas:
+<span class="w"> </span>·<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>ok
+<span class="w"> </span>·<span class="w"> </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>No<span class="w"> </span>configurado
+<span class="w"> </span>·<span class="w"> </span><span class="m">3</span><span class="o">)</span><span class="w"> </span>No<span class="w"> </span>configurado
+<span class="w"> </span>·<span class="w"> </span><span class="m">4</span><span class="o">)</span><span class="w"> </span>No<span class="w"> </span>configurado
+-<span class="w"> </span>Modo<span class="w"> </span><span class="m">12</span>:<span class="w"> </span>No
+-<span class="w"> </span>Modo<span class="w"> </span>offline:<span class="w"> </span>Sí
+-<span class="w"> </span>Mediciones<span class="w"> </span>guardadas:<span class="w"> </span><span class="m">8</span>
 </pre></div>
 </div>
 </section>
 <section id="voltaje-volt">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">voltaje,&lt;volt&gt;</a><a class="headerlink" href="#voltaje-volt" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-430">Configura el coeficiente de voltaje, donde &lt;volt&gt; es el
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">voltaje,&lt;volt&gt;</a><a class="headerlink" href="#voltaje-volt" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-413">Configura el coeficiente de voltaje, donde &lt;volt&gt; es el
 valor de voltaje de la batería en ese momento. La HTTP response es:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
 Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
 
-Coeficiente<span class="w"> </span>de<span class="w"> </span>voltaje<span class="w"> </span>seteado<span class="w"> </span>en:
-<span class="w"> </span>-<span class="w"> </span><span class="m">1</span>.00
+Coeficiente<span class="w"> </span>de<span class="w"> </span>voltaje<span class="w"> </span>seteado<span class="w"> </span>en<span class="w"> </span><span class="m">1</span>.00
 </pre></div>
 </div>
 </section>
 <section id="modo12">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">modo12</a><a class="headerlink" href="#modo12" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-444">Activa o desactiva el modo 12.</p>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">modo12</a><a class="headerlink" href="#modo12" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-426">Activa o desactiva el modo 12.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
 Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
 
-Modo<span class="w"> </span><span class="m">12</span>:<span class="w"> </span>des/activado
+Modo<span class="w"> </span><span class="m">12</span>:
+<span class="w"> </span>·<span class="w"> </span>Medición<span class="w"> </span>cada<span class="w"> </span><span class="m">1</span><span class="w"> </span>hs
+<span class="w"> </span>·<span class="w"> </span>Envío<span class="w"> </span>cada<span class="w"> </span><span class="m">12</span><span class="w"> </span>hs
+<span class="w"> </span>·<span class="w"> </span>Envíos<span class="w"> </span>a<span class="w"> </span>la<span class="w"> </span><span class="m">00</span>:00<span class="w"> </span>y<span class="w"> </span><span class="m">12</span>:00<span class="w"> </span>hs
 </pre></div>
 </div>
 </section>
 <section id="offline">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">offline</a><a class="headerlink" href="#offline" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-456">Activa o desactiva el modo offline.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">offline</a><a class="headerlink" href="#offline" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-441">Des/activa modo offline. Si el equipo estaba con el modo offline
+desactivado, lo activa y devuelve:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
-Modo<span class="w"> </span>offline:<span class="w"> </span>des/activado
+Modo offline: las mediciones NO se envían, sólo se guardan
+</pre></div>
+</div>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+Modo online: las mediciones se envían normalmente
 </pre></div>
 </div>
 </section>
 <section id="bat">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">bat</a><a class="headerlink" href="#bat" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-468">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code>.</p>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">bat</a><a class="headerlink" href="#bat" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-462">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
 Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
 
@@ -606,8 +322,8 @@ Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><s
 </div>
 </section>
 <section id="regall">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">regall</a><a class="headerlink" href="#regall" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-486">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code>.</p>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">regall</a><a class="headerlink" href="#regall" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-480">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
 Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
 
@@ -622,19 +338,19 @@ Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><s
 </div>
 </section>
 <section id="activity">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">activity</a><a class="headerlink" href="#activity" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-504">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">activity.txt</span></code>.</p>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">activity</a><a class="headerlink" href="#activity" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-498">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">activity.txt</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p class="linemarker linemarker-507">Con las 3 últimas palabras se debe hacer la petición con
+<p class="linemarker linemarker-501">Con las 3 últimas palabras se debe hacer la petición con
 Packet Sender o programa similar, pues los archivos son
 muy extensos para que la app los muestre.</p>
 </div>
 </section>
 </section>
 <section id="medicion-manual">
-<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="sectnum">5.4.- </span>Medición manual</a><a class="headerlink" href="#medicion-manual" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-514">La HTTP request es:</p>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="sectnum">5.4.- </span>Medición manual</a><a class="headerlink" href="#medicion-manual" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-508">La HTTP request es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/requestMeasuring</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
 <span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
@@ -646,32 +362,92 @@ muy extensos para que la app los muestre.</p>
 <span class="p">{}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-528">La HTTP response es:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
+<p class="linemarker linemarker-522">La HTTP_response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
-<span class="o">[</span><span class="w"> </span>json_measure_0,<span class="w"> </span>json_measure_1,<span class="w"> </span>json_measure_2,<span class="w"> </span>json_measure_3<span class="w"> </span><span class="o">]</span>
+Resultado
+=========
+· 1) Sensor the
+    T = 19.43°C
+    H = 0.45%RH
+    EC = 0uS/cm
+    Envío: FALLÓ
+    Guardado: ok
+· 2) Sensor the
+    T = 19.42°C
+    H = 0.34%RH
+    EC = 0uS/cm
+    Envío: FALLÓ
+    Guardado: ok
+· 3) Sensor the
+    T = 19.59°C
+    H = 0.34%RH
+    EC = 0uS/cm
+    Envío: FALLÓ
+    Guardado: ok
+· 4) Sensor the
+    T = 19.54°C
+    H = 0.22%RH
+    EC = 0uS/cm
+    Envío: FALLÓ
+    Guardado: ok
+Enviados desde SD: 0
+Quedan en la SD: 4
 </pre></div>
 </div>
-<p class="linemarker linemarker-537">Donde cada <code class="docutils literal notranslate"><span class="pre">json_measure</span></code> es:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-1234&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-12-23-21-58-08&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.2</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;number_sent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
-<span class="p">}</span>
+<p class="linemarker linemarker-558">Donde cada salida corresponde a lo siguiente:</p>
+<ul>
+<li><p class="linemarker linemarker-560">Encabezado: tiene el número de la salida y el tipo de sensor.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">· 4) Sensor the</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-543">Si los elementos del campo <code class="docutils literal notranslate"><span class="pre">value</span></code> están vacíos, significa que
-no se pudo medir.</p>
-<p class="linemarker linemarker-546">Si el campo <code class="docutils literal notranslate"><span class="pre">number_sent</span></code> tiene valor 0, significa que no se ha
-podido enviar.</p>
+</li>
+<li><p class="linemarker linemarker-566">Parámetros: son las mediciones en sí. Para un sensor “THE”:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">T = 19.54°C</span>
+<span class="go">H = 0.22%RH</span>
+<span class="go">EC = 0uS/cm</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-574">Para un sensor “NPK”:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">T = 19.54°C</span>
+<span class="go">H = 0.22%RH</span>
+<span class="go">EC = 0uS/cm</span>
+<span class="go">N = 19mg/kg</span>
+<span class="go">P = 39mg/kg</span>
+<span class="go">K = 29mg/kg</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-585">Y para un sensor “de nivel”:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">L = 4.5 metros</span>
+</pre></div>
+</div>
+</li>
+<li><p class="linemarker linemarker-591">Envío y guardado: es el resultado del envío y guardado del
+paquete de la salida en cuestión.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Envío: ok o FALLÓ</span>
+<span class="go">Guardado: ok o FALLÓ</span>
+</pre></div>
+</div>
+</li>
+<li><p class="linemarker linemarker-599">Mediciones guardadas: es el resultado del envío de las mediciones
+que habían guardadas en la SD. Si no se pueden enviar,
+seguirán en la SD.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Enviados desde SD: 0</span>
+<span class="go">Quedan en la SD: 4</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-610">Los paquetes en la SD con más de 3 envíos fallidos se
+corrarán de la misma.</p>
+</div>
 </section>
 <section id="pedido-del-historial">
-<h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="sectnum">5.5.- </span>Pedido del historial</a><a class="headerlink" href="#pedido-del-historial" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-552">El HTTP request es:</p>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="sectnum">5.5.- </span>Pedido del historial</a><a class="headerlink" href="#pedido-del-historial" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-616">El HTTP request es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/getHistory</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
 <span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
@@ -683,20 +459,20 @@ podido enviar.</p>
 <span class="p">{}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-566">Y la HTTP response es un array de json:</p>
+<p class="linemarker linemarker-630">Y la HTTP response es un array de json:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
 Content-type:<span class="w"> </span>application/json
 
 <span class="o">[</span><span class="w"> </span>json_measure_0,<span class="w"> </span>json_measure_1,<span class="w"> </span>...<span class="w"> </span><span class="o">]</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-575">El ESP32 manda un json cada vez porque tiene un límite de
+<p class="linemarker linemarker-639">El ESP32 manda un json cada vez porque tiene un límite de
 alrededor de 1400 caracteres por envío al cliente.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p class="linemarker linemarker-579">Después de descargar los datos, el archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>
-no se elimina, sólo lo hará en la medida en que el equipo
-pueda mandar con éxito dichas mediciones o se hayan
+<p class="linemarker linemarker-644">Después de descargar los datos, el archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>
+no se elimina, sólo lo hará cuando el equipo pueda mandar
+con éxito dichas mediciones vía sim800 o se hayan
 intentado mandar 3 veces sin éxito.</p>
 </div>
 </section>

@@ -1,0 +1,49 @@
+# Mediciones automáticas
+
+| Nro | Test case |
+|:---:|:---|
+| 1 | Modo 12 activado |
+| 2 | Modo 12 desactivado |
+| 3 | Modo offline desactivado |
+| 4 | Modo offline activado |
+| 5 | Modo offline activado |
+
+
+
+| 2 | eeprom | Devuelve la configuración del equipo | 
+| 3 | chequeo | Hace un chequeo de las salidas, la SD y el RTC | 
+| 4 | regall | Devuelve el archivo "regall.txt" | 
+| 5 | voltaje,12.05 | Setea el coeficiente de voltaje con el voltaje de la batería a 12.05 | 
+| 6 | modo12 | Des/activa el modo 12 | 
+| 7 | offline | Des/activa el modo offline | 
+| 8 | modulo | Elimina las mediciones guardadas en la SD | 
+
+## Requerimientos
+
+* Equipo encendido 
+* Wifi activado 
+* Celular sin datos activados 
+* Celular conectado a la red wifi generada por el equipo 
+* App de BIOT abierta en el menú principal
+
+## 1. Palabra clave "erase"
+
+### Pasos
+
+1. En el menú de la app, apretar "Configurar equipo"
+2. Rellenar con los siguientes campos:
+    - Nombre de la central: **erase**
+    - El resto de los campos rellenar con cualquier valor
+3. En el menú "configuraciones", apretar "Guardar"
+
+### Resultado esperado
+
+Aparece un pop-up con el siguiente mensaje:
+
+    La configuración ha sido borrada
+    Configuración
+    =============
+    · 1) --- No config. ---
+    · 2) --- No config. ---
+    · 3) --- No config. ---
+    · 4) --- No config. ---

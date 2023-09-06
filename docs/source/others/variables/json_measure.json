@@ -1,16 +1,28 @@
 {
-  "id": "L-1234",
-  "timestamp": "2022-12-23-21-58-08",
-  "level_bat": 10.2,
-  "sn": 1,
-  "number_sent": 2,
-  "value": "value"
+  "enabled": true,
+  "id": "L-7BF4",
+  "product": "THSST",
+  "timestamp": "2024-08-31-14-10-36",
+  "location": {
+    "latitude": -31.44023323,
+    "longitude": -64.2040863
+  },
+  "value": {
+    "sn": "00000000001",
+    "humidity": 0.79,
+    "temperature": 23.65,
+    "location_name": "hola",
+    "tag_depth": 10,
+    "loss_tangent": 0.000,
+    "electrical_conductivity": 0,
+    "electrical_conductivity_tc": 0,
+    "real_dielectric_permittivity": 0,
+    "real_dielectric_permittivity_tc": 0,
+    "imag_dielectric_permittivity": 0.00,
+    "imag_dielectric_permittivity_tc": 0.00,
+    "level_bat": 0.013
+  },
+  "verFirm": "V5.2.1",
+  "verHard": "V1.0.0",
+  "number_sent": 0
 }
-
-  "value": ["010325657455548"]
-  "value": ["010325657455548", "010325657455548"]
-  "value": ["010325657455548"]
-  "value": [
-    "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661",
-    "062+28.9,+84.0,+0.517"
-  ]

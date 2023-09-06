@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9.- Testing &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Versionado" href="changelog.html" />
+    <link rel="prev" title="8.- Desarrollador" href="developer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html"><span class="sectnum">3.- </span>Información sobre el firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">9.- </span>Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion"><span class="sectnum">9.1.- </span>Configuración</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#en-cada-salida">En cada salida</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#en-las-4-salidas">En las 4 salidas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#en-las-4-salidas-con-salida-2-desconectada">En las 4 salidas con salida 2 desconectada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#en-una-salida-con-sensor-desconectado">En una salida con sensor desconectado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#en-una-salida-sin-chip">En una salida sin chip</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#medicion-manual"><span class="sectnum">9.2.- </span>Medición manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pedido-de-historial"><span class="sectnum">9.3.- </span>Pedido de historial</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">9.- </span>Testing</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/testing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="testing">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">9.- </span>Testing</a><a class="headerlink" href="#testing" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#testing" id="id3"><span class="sectnum">9.- </span>Testing</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#configuracion" id="id4"><span class="sectnum">9.1.- </span>Configuración</a></p>
+<ul>
+<li><p><a class="reference internal" href="#en-cada-salida" id="id5">En cada salida</a></p></li>
+<li><p><a class="reference internal" href="#en-las-4-salidas" id="id6">En las 4 salidas</a></p></li>
+<li><p><a class="reference internal" href="#en-las-4-salidas-con-salida-2-desconectada" id="id7">En las 4 salidas con salida 2 desconectada</a></p></li>
+<li><p><a class="reference internal" href="#en-una-salida-con-sensor-desconectado" id="id8">En una salida con sensor desconectado</a></p></li>
+<li><p><a class="reference internal" href="#en-una-salida-sin-chip" id="id9">En una salida sin chip</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#medicion-manual" id="id10"><span class="sectnum">9.2.- </span>Medición manual</a></p></li>
+<li><p><a class="reference internal" href="#pedido-de-historial" id="id11"><span class="sectnum">9.3.- </span>Pedido de historial</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="configuracion">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">9.1.- </span>Configuración</a><a class="headerlink" href="#configuracion" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-14">### Requerimientos</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-16">Sin sensores conectados</p></li>
+</ul>
+<p class="linemarker linemarker-18">### Pasos</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-20">En el menú de la app, apretar “Configurar equipo”</p></li>
+<li><dl class="simple">
+<dt>Rellenar con los siguientes campos:</dt><dd><ul class="simple">
+<li><p class="linemarker linemarker-22">Nombre de la central: _&amp;lt;cualquiera&amp;gt;_</p></li>
+<li><p class="linemarker linemarker-23">Textura del suelo: _&amp;lt;cualquiera&amp;gt;_</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Apretar en “Agregar sensor” y rellenar:</dt><dd><ul class="simple">
+<li><p class="linemarker linemarker-25">Salida del sensor: Salida1(o1)</p></li>
+<li><p class="linemarker linemarker-26">Tipo de sensor: the</p></li>
+<li><p class="linemarker linemarker-27">Profundidad del sensor: _&amp;lt;cualquiera&amp;gt;_</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p class="linemarker linemarker-28">4. Apretar “Guardar”
+4. En el menú “configuraciones”, apretar “Guardar”</p>
+<p class="linemarker linemarker-31">### Resultado esperado
+Aparece un pop-up con el siguiente mensaje:</p>
+<blockquote>
+<div><p class="linemarker linemarker-34">Problemas con la salida 1. Revise conexión</p>
+</div></blockquote>
+<dl class="simple">
+<dt>1 salida</dt><dd><p class="linemarker linemarker-38">Configuración con sensor desconectado
+Configuración con otro tipo de sensor
+Configuración con sensor
+Configuración sin chip
+Medición manual con sensor
+Medición manual sin chip
+Pedidio de historial
+Medición manual sin sensor</p>
+</dd>
+</dl>
+<p class="linemarker linemarker-47">4 salidas</p>
+<p class="linemarker linemarker-51">Testing cases para configurar el equipo, deben hacerse con
+sensores THE, NPK y de nivel.</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-54">En cada salida</p></li>
+<li><p class="linemarker linemarker-55">En las 4 salidas</p></li>
+<li><p class="linemarker linemarker-56">En las 4 salidas con salida 2 desconectada</p></li>
+<li><p class="linemarker linemarker-57">En una salida con sensor desconectado</p></li>
+<li><p class="linemarker linemarker-58">En una salida sin chip</p></li>
+</ul>
+<section id="en-cada-salida">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">En cada salida</a><a class="headerlink" href="#en-cada-salida" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td colspan="4"><p class="linemarker linemarker-64">Results</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p class="linemarker linemarker-67">Competition</p></td>
+<td colspan="3"><p class="linemarker linemarker-66">Contestant</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-68">John</p></td>
+<td><p class="linemarker linemarker-68">Andrea</p></td>
+<td><p class="linemarker linemarker-68">Robert</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-70">Swimming</p></td>
+<td><p class="linemarker linemarker-70">1:30</p></td>
+<td><p class="linemarker linemarker-70">2:05</p></td>
+<td><p class="linemarker linemarker-70">1:15</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-72">Running</p></td>
+<td><p class="linemarker linemarker-72">15:30</p></td>
+<td><p class="linemarker linemarker-72">14:10</p></td>
+<td><p class="linemarker linemarker-72">15:45</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-77">Requerimientos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p class="linemarker linemarker-79">Sensor conectado a una salida</p></li>
+<li><p class="linemarker linemarker-80">Chip instalado y con datos</p></li>
+<li><p class="linemarker linemarker-81">Cel sin datos y conectado a red del equipo</p></li>
+<li><p class="linemarker linemarker-82">App abierta en menú principal</p></li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-87">Requerimientos</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ul class="simple">
+<li><p class="linemarker linemarker-89">Sensor conectado en una salida</p></li>
+<li><p class="linemarker linemarker-90">Chip instalado y con datos</p></li>
+<li><p class="linemarker linemarker-91">Celular sin datos móviles activados y conectado a red wifi del equipo</p></li>
+<li><p class="linemarker linemarker-92">App abierta en el menú principal</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id1">
+<caption><span class="caption-text">Steps</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 48%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Step</p></th>
+<th class="head"><p class="linemarker linemarker-1">Description</p></th>
+<th class="head"><p class="linemarker linemarker-1">Expected result</p></th>
+<th class="head"><p class="linemarker linemarker-1">Actual result</p></th>
+<th class="head"><p class="linemarker linemarker-1">Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">Apretar “Configuración”</p></td>
+<td><p class="linemarker linemarker-1">Se abre el menú de configuración</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">Rellenar los campos:</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">dsa</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Frozen Delights!</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-108">Treat</p></th>
+<th class="head"><p class="linemarker linemarker-109">Quantity</p></th>
+<th class="head"><p class="linemarker linemarker-110">Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-111">Albatross</p></td>
+<td><p class="linemarker linemarker-112">2.99</p></td>
+<td><p class="linemarker linemarker-113">On a stick!</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-114">Crunchy Frog</p></td>
+<td><p class="linemarker linemarker-115">1.49n
+* historialn
+* asfd</p></td>
+<td><p class="linemarker linemarker-118">If we took the bones out, it wouldn’t be
+crunchy, now would it?</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-120">Gannet Ripple</p></td>
+<td><p class="linemarker linemarker-121">1.99</p></td>
+<td><p class="linemarker linemarker-122">On a stick!</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="en-las-4-salidas">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">En las 4 salidas</a><a class="headerlink" href="#en-las-4-salidas" title="Permalink to this heading"></a></h3>
+</section>
+<section id="en-las-4-salidas-con-salida-2-desconectada">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">En las 4 salidas con salida 2 desconectada</a><a class="headerlink" href="#en-las-4-salidas-con-salida-2-desconectada" title="Permalink to this heading"></a></h3>
+</section>
+<section id="en-una-salida-con-sensor-desconectado">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">En una salida con sensor desconectado</a><a class="headerlink" href="#en-una-salida-con-sensor-desconectado" title="Permalink to this heading"></a></h3>
+</section>
+<section id="en-una-salida-sin-chip">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">En una salida sin chip</a><a class="headerlink" href="#en-una-salida-sin-chip" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="medicion-manual">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="sectnum">9.2.- </span>Medición manual</a><a class="headerlink" href="#medicion-manual" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p class="linemarker linemarker-153">En una salida</p></li>
+<li><p class="linemarker linemarker-154">En una salida con sensor desconectado</p></li>
+<li><p class="linemarker linemarker-155">En una salida sin chip</p></li>
+</ul>
+</section>
+<section id="pedido-de-historial">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="sectnum">9.3.- </span>Pedido de historial</a><a class="headerlink" href="#pedido-de-historial" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p class="linemarker linemarker-160">En una salida</p></li>
+<li><p class="linemarker linemarker-161">En las 4 salidas</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="developer.html" class="btn btn-neutral float-left" title="8.- Desarrollador" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Versionado" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
