@@ -4,6 +4,7 @@ Descripción del equipo
 .. sectnum::
    :suffix: .-
    :start: 1
+   :depth: 2
 
 .. contents:: 
 
@@ -42,6 +43,8 @@ funcionamiento son 2: el 12 y el normal.
    12, 1, 12, 0:00 y 12:00
    Normal, 24, 24, 12:00
 
+.. image:: images/main01.png
+
 El ESP32 permanece dormido o en `deep sleep mode` y se despierta
 para realizar mediciones. Sigue los siguientes pasos:
 
@@ -69,3 +72,38 @@ descargar el historial de mediciones guardadas, entre otras cosas.
 Al cabo de 10 minutos, el equipo vuelve a ponerse en modo 
 deep sleep. Si no se alcanzó a realizar las operaciones previstas,
 se puede volver a tocar el pulsador para crear la red de nuevo.
+
+Diagramas de flujo
+==================
+
+Principal
+_________
+
+.. image:: images/flowcchart_01_main.png
+    :align: center
+
+Motivo de despertado
+--------------------
+
+Apenas se despierta, el equipo chequea cuál fue el motivo de 
+despertado, por timer (mediciones automáticas) o por 
+interrupción (tocando el pulsador magnético).
+
+.. image:: images/flowcchart_03_wakeup_reason.png
+    :align: center
+
+Responder petición http
+-----------------------
+
+Decide qué hacer entre las 4 peticiones http entrantes.
+
+.. image:: images/flowcchart_02_responder_peticion.png
+    :align: center
+
+Tomar medición
+--------------
+
+Toma de medición de UNA salida.
+
+.. image:: images/flowcchart_04_take_measuraments.png
+    :align: center

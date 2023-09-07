@@ -50,8 +50,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#diagrama-de-bloques"><span class="sectnum">1.1.- </span>Diagrama de bloques</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#componentes"><span class="sectnum">1.2.- </span>Componentes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#funcionamiento"><span class="sectnum">1.3.- </span>Funcionamiento</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mediciones-automaticas"><span class="sectnum">1.3.1.- </span>Mediciones automáticas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manejo-desde-la-app"><span class="sectnum">1.3.2.- </span>Manejo desde la app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mediciones-automaticas">Mediciones automáticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manejo-desde-la-app">Manejo desde la app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagramas-de-flujo">Diagramas de flujo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#principal">Principal</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -101,9 +105,20 @@
 <li><p><a class="reference internal" href="#diagrama-de-bloques" id="id3"><span class="sectnum">1.1.- </span>Diagrama de bloques</a></p></li>
 <li><p><a class="reference internal" href="#componentes" id="id4"><span class="sectnum">1.2.- </span>Componentes</a></p></li>
 <li><p><a class="reference internal" href="#funcionamiento" id="id5"><span class="sectnum">1.3.- </span>Funcionamiento</a></p>
-<ul class="auto-toc">
-<li><p><a class="reference internal" href="#mediciones-automaticas" id="id6"><span class="sectnum">1.3.1.- </span>Mediciones automáticas</a></p></li>
-<li><p><a class="reference internal" href="#manejo-desde-la-app" id="id7"><span class="sectnum">1.3.2.- </span>Manejo desde la app</a></p></li>
+<ul>
+<li><p><a class="reference internal" href="#mediciones-automaticas" id="id6">Mediciones automáticas</a></p></li>
+<li><p><a class="reference internal" href="#manejo-desde-la-app" id="id7">Manejo desde la app</a></p></li>
+<li><p><a class="reference internal" href="#diagramas-de-flujo" id="id8">Diagramas de flujo</a></p>
+<ul>
+<li><p><a class="reference internal" href="#principal" id="id9">Principal</a></p>
+<ul>
+<li><p><a class="reference internal" href="#motivo-de-despertado" id="id10">Motivo de despertado</a></p></li>
+<li><p><a class="reference internal" href="#responder-peticion-http" id="id11">Responder petición http</a></p></li>
+<li><p><a class="reference internal" href="#tomar-medicion" id="id12">Tomar medición</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -117,22 +132,22 @@
 <section id="componentes">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">1.2.- </span>Componentes</a><a class="headerlink" href="#componentes" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p class="linemarker linemarker-18">Tarjeta de desarrollo ESP32 DOIT DEVKIT V1 (versión de 30 pines);</p></li>
-<li><p class="linemarker linemarker-19">Módulo conversor RS-485 TTL MAX485 transceiver (cambiar integrado para que funcione con 3,3V en lugar de 5V);</p></li>
-<li><p class="linemarker linemarker-20">Módulo lector de tarjetas microSD (versión con zócalo para poner la microSD directamente, sin necesidad de adaptador);</p></li>
-<li><p class="linemarker linemarker-21">Módulo DS3231;</p></li>
-<li><p class="linemarker linemarker-22">Módulo relé doble, de 3.3V;</p></li>
-<li><p class="linemarker linemarker-23">2 sensores de Stevens;</p></li>
-<li><p class="linemarker linemarker-24">Fuentes de 12V, 5V y de 3,3V;</p></li>
-<li><p class="linemarker linemarker-25">1 resistencia para pull-down de 10kOhm aproximadamente;</p></li>
-<li><p class="linemarker linemarker-26">1 pulsador (no interruptor).</p></li>
+<li><p class="linemarker linemarker-19">Tarjeta de desarrollo ESP32 DOIT DEVKIT V1 (versión de 30 pines);</p></li>
+<li><p class="linemarker linemarker-20">Módulo conversor RS-485 TTL MAX485 transceiver (cambiar integrado para que funcione con 3,3V en lugar de 5V);</p></li>
+<li><p class="linemarker linemarker-21">Módulo lector de tarjetas microSD (versión con zócalo para poner la microSD directamente, sin necesidad de adaptador);</p></li>
+<li><p class="linemarker linemarker-22">Módulo DS3231;</p></li>
+<li><p class="linemarker linemarker-23">Módulo relé doble, de 3.3V;</p></li>
+<li><p class="linemarker linemarker-24">2 sensores de Stevens;</p></li>
+<li><p class="linemarker linemarker-25">Fuentes de 12V, 5V y de 3,3V;</p></li>
+<li><p class="linemarker linemarker-26">1 resistencia para pull-down de 10kOhm aproximadamente;</p></li>
+<li><p class="linemarker linemarker-27">1 pulsador (no interruptor).</p></li>
 </ul>
 </section>
 <section id="funcionamiento">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">1.3.- </span>Funcionamiento</a><a class="headerlink" href="#funcionamiento" title="Permalink to this heading"></a></h2>
 <section id="mediciones-automaticas">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="sectnum">1.3.1.- </span>Mediciones automáticas</a><a class="headerlink" href="#mediciones-automaticas" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-34">Cuando el equipo está configurado, realiza mediciones automáticas
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Mediciones automáticas</a><a class="headerlink" href="#mediciones-automaticas" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-35">Cuando el equipo está configurado, realiza mediciones automáticas
 dependiendo del modo introducido por el usuario. Los modos de
 funcionamiento son 2: el 12 y el normal.</p>
 <table class="docutils align-default" id="id1">
@@ -163,32 +178,57 @@ funcionamiento son 2: el 12 y el normal.</p>
 </tr>
 </tbody>
 </table>
-<p class="linemarker linemarker-45">El ESP32 permanece dormido o en <cite>deep sleep mode</cite> y se despierta
+<img alt="../_images/main01.png" src="../_images/main01.png" />
+<p class="linemarker linemarker-48">El ESP32 permanece dormido o en <cite>deep sleep mode</cite> y se despierta
 para realizar mediciones. Sigue los siguientes pasos:</p>
 <ol class="arabic simple">
-<li><p class="linemarker linemarker-48">Manda a medir a los sensores que tiene configurados.</p></li>
-<li><p class="linemarker linemarker-49">Con esa respuesta, arma los paquetes de mediciones.</p></li>
-<li><p class="linemarker linemarker-50">Se conecta a internet.</p></li>
-<li><p class="linemarker linemarker-51">Se manda el paquete al servidor.</p></li>
-<li><p class="linemarker linemarker-52">Si hay algún problema con el envío, el paquete se guarda
+<li><p class="linemarker linemarker-51">Manda a medir a los sensores que tiene configurados.</p></li>
+<li><p class="linemarker linemarker-52">Con esa respuesta, arma los paquetes de mediciones.</p></li>
+<li><p class="linemarker linemarker-53">Se conecta a internet.</p></li>
+<li><p class="linemarker linemarker-54">Se manda el paquete al servidor.</p></li>
+<li><p class="linemarker linemarker-55">Si hay algún problema con el envío, el paquete se guarda
 en una memoria SD para enviar en un futuro.</p></li>
-<li><p class="linemarker linemarker-54">Si no hay ningún problema y el servidor contestó bien, se
+<li><p class="linemarker linemarker-57">Si no hay ningún problema y el servidor contestó bien, se
 chequea para ver si hay mediciones guardadas en la memoria
 SD y las envía.</p></li>
-<li><p class="linemarker linemarker-57">También chequea si hay alguna configuración pendiente y la
+<li><p class="linemarker linemarker-60">También chequea si hay alguna configuración pendiente y la
 envía si ese es el caso.</p></li>
-<li><p class="linemarker linemarker-59">El ESP32 vuelve a dormir.</p></li>
+<li><p class="linemarker linemarker-62">El ESP32 vuelve a dormir.</p></li>
 </ol>
 </section>
 <section id="manejo-desde-la-app">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="sectnum">1.3.2.- </span>Manejo desde la app</a><a class="headerlink" href="#manejo-desde-la-app" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-64">Tocando el pulsador, se despierta el ESP32 y éste genera a su
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Manejo desde la app</a><a class="headerlink" href="#manejo-desde-la-app" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-67">Tocando el pulsador, se despierta el ESP32 y éste genera a su
 vez una red WiFi para que el celular se coencte. Mediante la app,
 el usuario puede configurar el equipo, hacer mediciones manuales,
 descargar el historial de mediciones guardadas, entre otras cosas.</p>
-<p class="linemarker linemarker-69">Al cabo de 10 minutos, el equipo vuelve a ponerse en modo
+<p class="linemarker linemarker-72">Al cabo de 10 minutos, el equipo vuelve a ponerse en modo
 deep sleep. Si no se alcanzó a realizar las operaciones previstas,
 se puede volver a tocar el pulsador para crear la red de nuevo.</p>
+</section>
+<section id="diagramas-de-flujo">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Diagramas de flujo</a><a class="headerlink" href="#diagramas-de-flujo" title="Permalink to this heading"></a></h3>
+<section id="principal">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Principal</a><a class="headerlink" href="#principal" title="Permalink to this heading"></a></h4>
+<img alt="../_images/flowcchart_01_main.png" class="align-center" src="../_images/flowcchart_01_main.png" />
+<section id="motivo-de-despertado">
+<h5><a class="toc-backref" href="#id10" role="doc-backlink">Motivo de despertado</a><a class="headerlink" href="#motivo-de-despertado" title="Permalink to this heading"></a></h5>
+<p class="linemarker linemarker-88">Apenas se despierta, el equipo chequea cuál fue el motivo de
+despertado, por timer (mediciones automáticas) o por
+interrupción (tocando el pulsador magnético).</p>
+<img alt="../_images/flowcchart_03_wakeup_reason.png" class="align-center" src="../_images/flowcchart_03_wakeup_reason.png" />
+</section>
+<section id="responder-peticion-http">
+<h5><a class="toc-backref" href="#id11" role="doc-backlink">Responder petición http</a><a class="headerlink" href="#responder-peticion-http" title="Permalink to this heading"></a></h5>
+<p class="linemarker linemarker-98">Decide qué hacer entre las 4 peticiones http entrantes.</p>
+<img alt="../_images/flowcchart_02_responder_peticion.png" class="align-center" src="../_images/flowcchart_02_responder_peticion.png" />
+</section>
+<section id="tomar-medicion">
+<h5><a class="toc-backref" href="#id12" role="doc-backlink">Tomar medición</a><a class="headerlink" href="#tomar-medicion" title="Permalink to this heading"></a></h5>
+<p class="linemarker linemarker-106">Toma de medición de UNA salida.</p>
+<img alt="../_images/flowcchart_04_take_measuraments.png" class="align-center" src="../_images/flowcchart_04_take_measuraments.png" />
+</section>
+</section>
 </section>
 </section>
 </section>

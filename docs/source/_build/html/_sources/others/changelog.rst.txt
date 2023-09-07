@@ -262,6 +262,15 @@ Para un sensor tipo STEVENS:
 Versión 5
 *********
 
+V5.2.2 - 07/09/2023
+===================
+
+Fixed
+-------
+
+- **Comunicación con la app:** se arreglaron algunos fallas con la 
+  comunicación con la app. 
+
 V5.2.1 - 30/08/2023
 ===================
 

@@ -596,19 +596,19 @@ Donde cada salida corresponde a lo siguiente:
     Envío: ok o FALLÓ
     Guardado: ok o FALLÓ
 
-- Mediciones guardadas: es el resultado del envío de las mediciones
-  que habían guardadas en la SD. Si no se pueden enviar,
-  seguirán en la SD.
+Por último, se muestran las mediciones guardadas, que son el 
+resultado del envío de las mediciones que habían guardadas 
+en la SD. Si no se pueden enviar, seguirán en la SD.
 
-  .. code-block:: console
- 
+.. code-block:: console
+
     Enviados desde SD: 0
     Quedan en la SD: 4
 
 .. warning:: 
 
     Los paquetes en la SD con más de 3 envíos fallidos se 
-    corrarán de la misma.
+    borrarán de la misma.
 
 Pedido del historial
 ********************
