@@ -359,6 +359,45 @@ y la conversión a una variable tipo float se hace con las siguientes líneas:
    uint32_t value = (response1[0] << 24) | (response1[1] << 16) | (response1[2] << 8) | response1[3];
    float level = *((float*)&value);
 
+Testing
+-------
+
+El siguiente es un gráfico de los valores medidos en una 
+superficie de agua para distintos niveles. Se enciende el 
+sensor y se toma una medición cada 1 segundo durante 30 segundos. 
+
+.. image:: images/sensors_02_level_sensor_test_graph.png
+
+Todas las líneas se estabilizan a los 5 segundos, con algunas 
+cosas a tener en cuenta: 
+
+- Todas las líneas tienen un punto nulo a los 17 segundos. Esto no 
+  es un valor que devuelva el sensor, sino un problema de 
+  comunicación con el sensor, pues la trama devuelta son todos 0:
+
+  .. code-block:: console
+
+    00 00 00 00 00 00 00 00 00 00 00 
+  
+- La línea más "baja", las verde, se estabiliza a los 5 segundos 
+  también, pero su valor no se mantiene constante en el tiempo; 
+  esto es porque el nivel medido está en la zona ciega del sensor, 
+  que es de 40 cm.   
+
+Con esto, se decide lo siguiente:
+
+- El sensor se alimenta y se comienza a pedir mediciones desde los 
+  5 hasta los 30 segundos a intervalos de 1 segundo.
+- Se promedian las mediciones obtenidas.
+- Los valores nulos se descartan del promedio
+
+En la gráfica siguiente están los valores medidos reales vs los 
+valores medidos con el sensor. Hasta los 40 cm se ven que ambos 
+valores se aproximan; por debajo de los 40 cm, el sensor arroja 
+valores aleatorios, y no son confiables.
+
+.. image:: images/sensors_03_level_sensor_blind_zone.png
+
 The Hydra Probe® Soil Sensor (Stevens)
 **************************************
 

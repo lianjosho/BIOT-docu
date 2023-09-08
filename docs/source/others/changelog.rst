@@ -262,14 +262,49 @@ Para un sensor tipo STEVENS:
 Versión 5
 *********
 
+V5.3.0 - 08/09/2023
+===================
+
+Changed
+-------
+
+- **Apn de Movistar:** antes era:
+
+  .. code-block:: console
+
+    apn:    wap.gprs.unifon.com.ar
+    user:   wap
+    pwd:    wap
+
+  y ahora es:
+
+  .. code-block:: console
+
+    apn:    gm2m.movistar
+    user:   gm2m
+    pwd:    gm2m
+
 V5.2.2 - 07/09/2023
 ===================
 
 Fixed
--------
+-----
 
 - **Comunicación con la app:** se arreglaron algunos fallas con la 
   comunicación con la app. 
+
+Added
+-----
+
+- **Palabra clave "reset":** resetea el esp32, al igual que apretar 
+  el botón EN en la placa de desaroollo. Esto se hace debido a que 
+  a veces el equipo muestra comportamientos no esperados.
+
+  .. warning:: 
+
+    Al hacer esto, la red wifi se apaga y se la tiene que volver a 
+    generar con el pulsador magnético.
+
 
 V5.2.1 - 30/08/2023
 ===================
