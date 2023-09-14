@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10.- Bugs reportados &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Versionado" href="changelog.html" />
+    <link rel="prev" title="9.- Testing" href="testing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html"><span class="sectnum">3.- </span>Información sobre el firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html"><span class="sectnum">9.- </span>Testing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">10.- </span>Bugs reportados</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#estado-de-los-bugs"><span class="sectnum">10.1.- </span>Estado de los bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#espaciado-en-el-envio"><span class="sectnum">10.2.- </span>Espaciado en el envío</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#descripion-detallada">Descripión detallada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#posibles-causas">Posibles causas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#solucion-propuesta">Solución propuesta</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1"><span class="sectnum">10.3.- </span>Espaciado en el envío</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Descripión detallada</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Posibles causas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Solución propuesta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">10.- </span>Bugs reportados</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/bugs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bugs-reportados">
+<h1><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">10.- </span>Bugs reportados</a><a class="headerlink" href="#bugs-reportados" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#bugs-reportados" id="id5"><span class="sectnum">10.- </span>Bugs reportados</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#estado-de-los-bugs" id="id6"><span class="sectnum">10.1.- </span>Estado de los bugs</a></p></li>
+<li><p><a class="reference internal" href="#espaciado-en-el-envio" id="id7"><span class="sectnum">10.2.- </span>Espaciado en el envío</a></p>
+<ul>
+<li><p><a class="reference internal" href="#descripion-detallada" id="id8">Descripión detallada</a></p></li>
+<li><p><a class="reference internal" href="#posibles-causas" id="id9">Posibles causas</a></p></li>
+<li><p><a class="reference internal" href="#solucion-propuesta" id="id10">Solución propuesta</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id1" id="id11"><span class="sectnum">10.3.- </span>Espaciado en el envío</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id12">Descripión detallada</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id13">Posibles causas</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id14">Solución propuesta</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="estado-de-los-bugs">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="sectnum">10.1.- </span>Estado de los bugs</a><a class="headerlink" href="#estado-de-los-bugs" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 67%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Nombre</p></th>
+<th class="head"><p class="linemarker linemarker-1">Estado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Espaciado en el envío</p></td>
+<td><p class="linemarker linemarker-1">—</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="espaciado-en-el-envio">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="sectnum">10.2.- </span>Espaciado en el envío</a><a class="headerlink" href="#espaciado-en-el-envio" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p class="linemarker linemarker-24">Id: 001</p></li>
+<li><p class="linemarker linemarker-25">Informador:</p></li>
+<li><p class="linemarker linemarker-26">Producto: BIOT-003-E620</p></li>
+<li><p class="linemarker linemarker-27">Empresa: Ledesma</p></li>
+<li><p class="linemarker linemarker-28">Versión de firmware:</p></li>
+<li><p class="linemarker linemarker-29">Versión de app:</p></li>
+<li><p class="linemarker linemarker-30">Alcance: Crítico</p></li>
+<li><p class="linemarker linemarker-31">Estado: Por revisar</p></li>
+</ul>
+<section id="descripion-detallada">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Descripión detallada</a><a class="headerlink" href="#descripion-detallada" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-36">El equipo está configurado en  modo12. Venía subiendo todos los datos
+correctamente hasta el 22 de agosto a la 11:00; luego empezo a subir 1 dato
+cada 12 horas y el 24 de agosto empezó a subir 1 dato cada 24 hs.</p>
+<img alt="../_images/bugs_001.png" src="../_images/bugs_001.png" />
+</section>
+<section id="posibles-causas">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Posibles causas</a><a class="headerlink" href="#posibles-causas" title="Permalink to this heading"></a></h3>
+</section>
+<section id="solucion-propuesta">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Solución propuesta</a><a class="headerlink" href="#solucion-propuesta" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id1">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="sectnum">10.3.- </span>Espaciado en el envío</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p class="linemarker linemarker-53">Id: 001</p></li>
+<li><p class="linemarker linemarker-54">Informador:</p></li>
+<li><p class="linemarker linemarker-55">Producto: BIOT-003-E620</p></li>
+<li><p class="linemarker linemarker-56">Empresa: Ledesma</p></li>
+<li><p class="linemarker linemarker-57">Versión de firmware:</p></li>
+<li><p class="linemarker linemarker-58">Versión de app:</p></li>
+<li><p class="linemarker linemarker-59">Alcance: Crítico</p></li>
+<li><p class="linemarker linemarker-60">Estado: Por revisar</p></li>
+</ul>
+<section id="id2">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Descripión detallada</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-65">Tambien detectan muchas anomalias en las mediciones, datos muy varibles lo cual preocupa ya que si esas variaciones se dan en los aforadores estamos hablando de datos muy incorrecto con errores de hasta 2cm en la mediciones</p>
+<img alt="../_images/bugs_001.png" src="../_images/bugs_001.png" />
+</section>
+<section id="id3">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Posibles causas</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Solución propuesta</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="testing.html" class="btn btn-neutral float-left" title="9.- Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Versionado" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

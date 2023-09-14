@@ -19,7 +19,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="9.- Testing" href="testing.html" /> 
+    <link rel="prev" title="10.- Bugs reportados" href="bugs.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,37 +54,37 @@
 <li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html"><span class="sectnum">9.- </span>Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html"><span class="sectnum">10.- </span>Bugs reportados</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Versionado</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#nomenclatura">Nomenclatura</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tipos-de-cambios">Tipos de cambios</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-6">Versión 6</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#v6-3-0-08-08-2023">V6.3.0 - 08/08/2023</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#v6-2-0-28-07-2023">V6.2.0 - 28/07/2023</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v6-1-0-13-09-2023">V6.1.0 - 13/09/2023</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#changed">Changed</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#v6-1-1-28-07-2023">V6.1.1 - 28/07/2023</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v6-0-2-12-09-2023">V6.0.2 - 12/09/2023</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#fixed">Fixed</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#v6-1-0-26-07-2023">V6.1.0 - 26/07/2023</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v6-0-1-10-09-2023">V6.0.1 - 10/09/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Fixed</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#v6-0-0-14-07-2023">V6.0.0 - 14/07/2023</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id1">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#v6-0-0-08-09-2023">V6.0.0 - 08/09/2023</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Changed</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#version-5">Versión 5</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#v5-3-0-08-09-2023">V5.3.0 - 08/09/2023</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Changed</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#v5-2-2-07-09-2023">V5.2.2 - 07/09/2023</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">Fixed</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#added">Added</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#v5-2-1-30-08-2023">V5.2.1 - 30/08/2023</a><ul>
@@ -275,210 +275,94 @@
 </section>
 <section id="version-6">
 <h2>Versión 6<a class="headerlink" href="#version-6" title="Permalink to this heading"></a></h2>
-<section id="v6-3-0-08-08-2023">
-<h3>V6.3.0 - 08/08/2023<a class="headerlink" href="#v6-3-0-08-08-2023" title="Permalink to this heading"></a></h3>
-<ul class="simple">
-<li><p class="linemarker linemarker-36"><strong>HTTP response de keyword “check”</strong>: antes era:</p></li>
-</ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-
-Chequeo:
-<span class="o">========</span>
--<span class="w"> </span>Memoria<span class="w"> </span>SD:<span class="w"> </span>ok
--<span class="w"> </span>Módulo<span class="w"> </span>de<span class="w"> </span>hora:<span class="w"> </span>ok
--<span class="w"> </span>Sensores:<span class="w"> </span>ok
-</pre></div>
-</div>
-<p class="linemarker linemarker-50">y ahora es:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-
-<span class="o">{</span>
-<span class="w">    </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;01030608D500880000ADC5&quot;</span>
-<span class="w">    </span><span class="o">}</span>,
-<span class="w">    </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="s2">&quot;0&quot;</span>:<span class="w"> </span><span class="s2">&quot;&quot;</span>,
-<span class="w">        </span><span class="s2">&quot;1&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+0.000,+0.001,+22.4,+72.3,+0.001,+0.697,+0.354,+0.708,+0.368\r\n&quot;</span>,
-<span class="w">        </span><span class="s2">&quot;2&quot;</span>:<span class="w"> </span><span class="s2">&quot;062+22.4,+72.3,+0.508\r\n&quot;</span>
-<span class="w">    </span><span class="o">}</span>,
-<span class="w">    </span><span class="s2">&quot;other&quot;</span>:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="s2">&quot;sdcard&quot;</span>:<span class="w"> </span>true,
-<span class="w">        </span><span class="s2">&quot;rtc&quot;</span>:<span class="w"> </span><span class="nb">true</span>
-<span class="w">    </span><span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</section>
-<section id="v6-2-0-28-07-2023">
-<h3>V6.2.0 - 28/07/2023<a class="headerlink" href="#v6-2-0-28-07-2023" title="Permalink to this heading"></a></h3>
+<section id="v6-1-0-13-09-2023">
+<h3>V6.1.0 - 13/09/2023<a class="headerlink" href="#v6-1-0-13-09-2023" title="Permalink to this heading"></a></h3>
 <section id="changed">
 <h4>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h4>
-<ul class="simple">
-<li><p class="linemarker linemarker-78"><strong>HTTP response de configuración</strong>: antes era:</p></li>
+<ul>
+<li><p class="linemarker linemarker-269"><strong>unix time de config:</strong> cada vez que el equipo se despierta por timer y
+falla la inicialización del ds3231, el rtc interno se setea con el
+valor del unix de la última vez que se configuró el equipo más una
+cantidad de segundos que es igual al intervalo de medición
+multiplicado por el número de veces que el equipo se despertó por
+timer.</p>
+<p class="linemarker linemarker-276">Por ejemplo, si el equipo está en modo 12 y se configuró a la 17:30,
+entonces el tiempo unix de referencia se situa a la 17:00 y un
+contador interno en 0. Entonces, si el equipo se despierta a la
+19:00 y el ds3231 no se inicializó, el rtc se sitúa en <code class="docutils literal notranslate"><span class="pre">unix</span> <span class="pre">+</span>
+<span class="pre">cont</span> <span class="pre">·</span> <span class="pre">Δ12</span></code>.</p>
+<img alt="../_images/changelog-v6.2.0_02.png" src="../_images/changelog-v6.2.0_02.png" />
+<p class="linemarker linemarker-284">Si el equipo está configurado en modo normal, entonces el tiempo unix
+de referencia se situa a la 12:00. Si el equipo se despierta 24 hs
+después, entonces el rtc se sitúa en</p>
+<p class="linemarker linemarker-288">Así, suponiendo que la inicialización del ds3231 falló y el equipo
+se configuró a la 17:30, el tiempo unix de referencia (si el modo
+12 está activado) va a ser la 17:00; y si el equipo <code class="docutils literal notranslate"><span class="pre">unix</span> <span class="pre">+</span>
+<span class="pre">cont</span> <span class="pre">·</span> <span class="pre">Δn</span></code>.</p>
+<img alt="../_images/changelog-v6.2.0_01.png" src="../_images/changelog-v6.2.0_01.png" />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-297">Para que el equipo se setee bien, hay que seguir estos pasos:</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-299">Configurar el equipo normalmente.</p></li>
+<li><p class="linemarker linemarker-300">Usar la palabra clave “modo12” 1 o 2 veces para des/activar el
+modo 12.</p></li>
+<li><p class="linemarker linemarker-302">Salir del menú “Configuración” y volver a entrar para que se
+configure bien el tiempo unix de referencia.</p></li>
+</ol>
+</div>
+</li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-
-Equipo<span class="w"> </span>configurado:
-<span class="o">===================</span>
-<span class="m">1</span><span class="o">)</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>cm<span class="w"> </span><span class="o">(</span>the<span class="o">)</span>
-<span class="m">2</span><span class="o">)</span><span class="w"> </span><span class="m">20</span><span class="w"> </span>cm<span class="w"> </span><span class="o">(</span>npk<span class="o">)</span>
-<span class="m">3</span><span class="o">)</span><span class="w"> </span>No<span class="w"> </span>configurado
-<span class="m">4</span><span class="o">)</span><span class="w"> </span>No<span class="w"> </span>configurado
-</pre></div>
-</div>
-<p class="linemarker linemarker-92">y ahora es:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
-Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
-
-Configuración<span class="w"> </span>hecha
-</pre></div>
-</div>
 </section>
 </section>
-<section id="v6-1-1-28-07-2023">
-<h3>V6.1.1 - 28/07/2023<a class="headerlink" href="#v6-1-1-28-07-2023" title="Permalink to this heading"></a></h3>
+<section id="v6-0-2-12-09-2023">
+<h3>V6.0.2 - 12/09/2023<a class="headerlink" href="#v6-0-2-12-09-2023" title="Permalink to this heading"></a></h3>
 <section id="fixed">
 <h4>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-107"><strong>Problema de sensor tipo hex no conectado</strong>: cuando el sensor
-tipo hex no está conectado, no devuelve respuesta. Esa respuesta
-se estaba guardando en un array nulo que después se convertía en
-un String “000…”; cuando en realidad debería ser “”. Corregido.</p></li>
+<li><p class="linemarker linemarker-311"><strong>Envío duplicado:</strong> cuando se enviaba por un json con un timestamp
+futuro, se corregía pero el json corregido se enviaba 2 veces.</p></li>
 </ul>
 </section>
 </section>
-<section id="v6-1-0-26-07-2023">
-<h3>V6.1.0 - 26/07/2023<a class="headerlink" href="#v6-1-0-26-07-2023" title="Permalink to this heading"></a></h3>
-<section id="added">
-<h4>Added<a class="headerlink" href="#added" title="Permalink to this heading"></a></h4>
-<ul class="simple">
-<li><p class="linemarker linemarker-118"><strong>Funcionalidad keyword: erase</strong>: se atiende la petición POST
-de palabra clave que pide borrar la configuración.</p></li>
-<li><p class="linemarker linemarker-121"><strong>Funcionalidad keyword: eeprom</strong>: se atiende la petición POST
-que pide la configuración guardada.</p></li>
-<li><p class="linemarker linemarker-124"><strong>Funcionalidad keyword: check</strong>: chequea los módulos del equipo.</p></li>
-<li><p class="linemarker linemarker-126"><strong>Funcionalidad keyword: voltaje</strong>: setea el coeficiente de
-voltaje.</p></li>
-<li><p class="linemarker linemarker-129"><strong>Funcionalidad keyword: modo12</strong>: des/activa el modo 12.</p></li>
-<li><p class="linemarker linemarker-131"><strong>Funcionalidad keyword: offline</strong>: des/activa el modo offline.</p></li>
-<li><p class="linemarker linemarker-133"><strong>Funcionalidad keyword: bat</strong>: devuelve el archivo “battery.txt”.</p></li>
-<li><p class="linemarker linemarker-135"><strong>Funcionalidad keyword: regall</strong>: devuelve el archivo
-“regall.txt”.</p></li>
-</ul>
-</section>
-</section>
-<section id="v6-0-0-14-07-2023">
-<h3>V6.0.0 - 14/07/2023<a class="headerlink" href="#v6-0-0-14-07-2023" title="Permalink to this heading"></a></h3>
+<section id="v6-0-1-10-09-2023">
+<h3>V6.0.1 - 10/09/2023<a class="headerlink" href="#v6-0-1-10-09-2023" title="Permalink to this heading"></a></h3>
 <section id="id1">
-<h4>Changed<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
+<h4>Fixed<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-144"><strong>Cambios en el json_app</strong>: se cambió el json que manda la app
-para configurar el equipo. Antes era:</p></li>
+<li><p class="linemarker linemarker-320"><strong>Seteado de Rtc interno y externo:</strong> había problemas con el
+seteado del rtc interno y del ds3231 a parti del tiempo unix.</p></li>
 </ul>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arcilloso&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Salida 2 (o2)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">         </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nivel&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.4403103</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.2040562</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-164">Y ahora es:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span>
-<span class="w">      </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010300060003E5CA&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;01040000000271CB&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///TR\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span>
-<span class="w">      </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T0\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
-<span class="w">      </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;///T1\r\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p class="linemarker linemarker-186"><strong>Cambios en el json_measure</strong>: se cambió el paquete json de
-de medición. Antes era:</p></li>
+</section>
+</section>
+<section id="v6-0-0-08-09-2023">
+<h3>V6.0.0 - 08/09/2023<a class="headerlink" href="#v6-0-0-08-09-2023" title="Permalink to this heading"></a></h3>
+<section id="id2">
+<h4>Changed<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<ul>
+<li><p class="linemarker linemarker-329"><strong>Medición de nivel promediado:</strong> la medición de un sensor de
+nivel antes era:</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-332">Se alimenta sensor</p></li>
+<li><p class="linemarker linemarker-333">Se espera 14 segundos</p></li>
+<li><p class="linemarker linemarker-334">Se toma una medición</p></li>
+<li><p class="linemarker linemarker-335">Se desalimenta el sensor</p></li>
+<li><p class="linemarker linemarker-336">Se procesa la respuesta y se obtiene el valor del nivel medido</p></li>
+</ol>
+<p class="linemarker linemarker-338">Ahora se hace:</p>
+<ol class="arabic simple">
+<li><p class="linemarker linemarker-340">Se alimenta sensor</p></li>
+<li><p class="linemarker linemarker-341">Se toma una medición</p></li>
+<li><p class="linemarker linemarker-342">Se procesa la respuesta y se obtiene el valor del nivel medido</p></li>
+<li><p class="linemarker linemarker-343">Se espera 1 segundo</p></li>
+<li><p class="linemarker linemarker-344">Se repite los 30 veces 3 pasos anteriores (2 al 4)</p></li>
+<li><p class="linemarker linemarker-345">Se desalimenta el sensor</p></li>
+<li><p class="linemarker linemarker-346">Se promedia los 30 valores de nivel y no se tiene en cuenta
+las mediciones en 0 ni las que se alejen demasiado del
+promedio de las dos últimas mediciones.</p></li>
+</ol>
+</li>
 </ul>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-7BF4&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THSST&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-04-20-12-18-42&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.39167023</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.22102356</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00000000001&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">22.08</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BIOT-&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;loss_tangent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;electrical_conductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;electrical_conductivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;real_dielectric_permittivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;real_dielectric_permittivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;imag_dielectric_permittivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;imag_dielectric_permittivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.000</span>
-<span class="w">   </span><span class="p">},</span>
-<span class="w">   </span><span class="nt">&quot;verFirm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V1.0.15&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;verHard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V1.0.0&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;number_sent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-220">Y ahora es:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-1234&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-12-23-21-58-08&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.2</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;number_sent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-233">Donde el campo <code class="docutils literal notranslate"><span class="pre">value</span></code> es depende del tipo de sensor.</p>
-<p class="linemarker linemarker-235">Para un sensor tipo THE:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-241">Para un sensor tipo NPK:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-247">Para un sensor tipo LEVEL:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;010325657455548&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p class="linemarker linemarker-253">Para un sensor tipo STEVENS:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">   </span><span class="s2">&quot;062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="s2">&quot;062+28.9,+84.0,+0.517&quot;</span>
-<span class="p">]</span>
-</pre></div>
-</div>
 </section>
 </section>
 </section>
@@ -486,16 +370,16 @@ de medición. Antes era:</p></li>
 <h2>Versión 5<a class="headerlink" href="#version-5" title="Permalink to this heading"></a></h2>
 <section id="v5-3-0-08-09-2023">
 <h3>V5.3.0 - 08/09/2023<a class="headerlink" href="#v5-3-0-08-09-2023" title="Permalink to this heading"></a></h3>
-<section id="id2">
-<h4>Changed<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
+<section id="id3">
+<h4>Changed<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
 <ul>
-<li><p class="linemarker linemarker-271"><strong>Apn de Movistar:</strong> antes era:</p>
+<li><p class="linemarker linemarker-359"><strong>Apn de Movistar:</strong> antes era:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apn:    wap.gprs.unifon.com.ar</span>
 <span class="go">user:   wap</span>
 <span class="go">pwd:    wap</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-279">y ahora es:</p>
+<p class="linemarker linemarker-367">y ahora es:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apn:    gm2m.movistar</span>
 <span class="go">user:   gm2m</span>
 <span class="go">pwd:    gm2m</span>
@@ -507,22 +391,22 @@ de medición. Antes era:</p></li>
 </section>
 <section id="v5-2-2-07-09-2023">
 <h3>V5.2.2 - 07/09/2023<a class="headerlink" href="#v5-2-2-07-09-2023" title="Permalink to this heading"></a></h3>
-<section id="id3">
-<h4>Fixed<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<section id="id4">
+<h4>Fixed<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-293"><strong>Comunicación con la app:</strong> se arreglaron algunos fallas con la
+<li><p class="linemarker linemarker-381"><strong>Comunicación con la app:</strong> se arreglaron algunos fallas con la
 comunicación con la app.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h4>Added<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+<section id="added">
+<h4>Added<a class="headerlink" href="#added" title="Permalink to this heading"></a></h4>
 <ul>
-<li><p class="linemarker linemarker-299"><strong>Palabra clave “reset”:</strong> resetea el esp32, al igual que apretar
+<li><p class="linemarker linemarker-387"><strong>Palabra clave “reset”:</strong> resetea el esp32, al igual que apretar
 el botón EN en la placa de desaroollo. Esto se hace debido a que
 a veces el equipo muestra comportamientos no esperados.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p class="linemarker linemarker-305">Al hacer esto, la red wifi se apaga y se la tiene que volver a
+<p class="linemarker linemarker-393">Al hacer esto, la red wifi se apaga y se la tiene que volver a
 generar con el pulsador magnético.</p>
 </div>
 </li>
@@ -534,7 +418,7 @@ generar con el pulsador magnético.</p>
 <section id="id5">
 <h4>Changed<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
 <ul>
-<li><p class="linemarker linemarker-315"><strong>Palabra clave “chequeo”:</strong> se agrega información de los
+<li><p class="linemarker linemarker-403"><strong>Palabra clave “chequeo”:</strong> se agrega información de los
 modos 12 y offline y del número de mediciones guardadas.</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -553,7 +437,7 @@ Chequeo:
 </span><span class="hll">- Mediciones guardadas: 3
 </span></pre></div>
 </div>
-<p class="linemarker linemarker-337">En donde las últimas líneas resaltadas son las agregadas.</p>
+<p class="linemarker linemarker-425">En donde las últimas líneas resaltadas son las agregadas.</p>
 </li>
 </ul>
 </section>
@@ -563,7 +447,7 @@ Chequeo:
 <section id="id6">
 <h4>Changed<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
 <ul>
-<li><p class="linemarker linemarker-345"><strong>Respuesta de configuración ok:</strong> cuando la configuración
+<li><p class="linemarker linemarker-433"><strong>Respuesta de configuración ok:</strong> cuando la configuración
 se hace bien, se guarda y se envía, se responde a la app el
 siguiente http_response:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
@@ -578,7 +462,7 @@ Equipo<span class="w"> </span><span class="nv">configurado</span>
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-361"><strong>Respuesta de configuración con json mal formado:</strong> cuando
+<li><p class="linemarker linemarker-449"><strong>Respuesta de configuración con json mal formado:</strong> cuando
 la app manda un json mal formado, la http response es:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
 Content-Type:text/plain<span class="p">;</span><span class="nv">charset</span><span class="o">=</span>UTF-8
@@ -587,7 +471,7 @@ Json<span class="w"> </span>inválido
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-371"><strong>Respuesta de configuración con modo offline:</strong> si el
+<li><p class="linemarker linemarker-459"><strong>Respuesta de configuración con modo offline:</strong> si el
 equipo está con el modo offline activo y la app envía una
 petición para hacer una configuración, ésta se hace pero no
 se envía; la http response es:</p>
@@ -604,7 +488,7 @@ Equipo configurado
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-389"><strong>Respuesta de configuración con problemas de conexión:</strong> si
+<li><p class="linemarker linemarker-477"><strong>Respuesta de configuración con problemas de conexión:</strong> si
 el equipo recibe una petición para configurarlo y hay
 problemas de conexión, el chip está mal colocado o no tiene
 datos activados, la configuración se hace pero no se envía.
@@ -623,7 +507,7 @@ Equipo configurado
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-409"><strong>Respuesta de configuración con problemas del servidor:</strong> si
+<li><p class="linemarker linemarker-497"><strong>Respuesta de configuración con problemas del servidor:</strong> si
 el equipo recibe una petición para configurarlo y se logra
 conectar a internet pero no al servidor, la configuración se
 hace pero no se envía. La http response es:</p>
@@ -640,7 +524,7 @@ Equipo configurado
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-427"><strong>Respuesta a palabra clave “modo12”:</strong> al usar la palabra
+<li><p class="linemarker linemarker-515"><strong>Respuesta a palabra clave “modo12”:</strong> al usar la palabra
 clave “modo 12”, se des/activa el modo 12, y el http response
 depende de si el modo 12 está activado o no.
 Si está activado, es:</p>
@@ -653,7 +537,7 @@ Modo 12:
  · Envíos a la 00:00 y 12:00 hs
 </pre></div>
 </div>
-<p class="linemarker linemarker-442">Si está desactivado, es:</p>
+<p class="linemarker linemarker-530">Si está desactivado, es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
@@ -664,7 +548,7 @@ Modo normal:
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-454"><strong>Respuesta a palabra clave “offline”:</strong> al usar la palabra
+<li><p class="linemarker linemarker-542"><strong>Respuesta a palabra clave “offline”:</strong> al usar la palabra
 clave “offline”, se des/activa el modo offline, y el http
 response depende de si el modo offline está activado o no.
 Si está activado, es:</p>
@@ -674,7 +558,7 @@ Si está activado, es:</p>
 Modo offline: las mediciones NO se envían, sólo se guardan
 </pre></div>
 </div>
-<p class="linemarker linemarker-466">Si está desactivado, es:</p>
+<p class="linemarker linemarker-554">Si está desactivado, es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
@@ -682,7 +566,7 @@ Modo online: las mediciones se envían normalmente
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-475"><strong>Respuesta a configuración con problemas de sensor:</strong> si el
+<li><p class="linemarker linemarker-563"><strong>Respuesta a configuración con problemas de sensor:</strong> si el
 equipo recibe una petición de configuración, pero hay
 problemas con un sensor en una salida, no se toca la
 configuración anterior y el http response es:</p>
@@ -694,7 +578,7 @@ Problemas con la salida 1. Revise conexión
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p class="linemarker linemarker-489">Cuando se detecta problemas en una salida, se interrumpe
+<p class="linemarker linemarker-577">Cuando se detecta problemas en una salida, se interrumpe
 la configuración y no se sigue con la siguiente. Por
 ejemplo, si se quiere configurar sensores en las salidas
 1 y 2 y ambos están descoenctados, entonces se muestra el
@@ -704,7 +588,7 @@ en la salida 1 e intentar configurar de nuevo para saber
 si el sensor en la salida 2 responde bien.</p>
 </div>
 </li>
-<li><p class="linemarker linemarker-498"><strong>Respuesta a palabra clave “erase”:</strong> se borra la
+<li><p class="linemarker linemarker-586"><strong>Respuesta a palabra clave “erase”:</strong> se borra la
 la configuración y http response es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -713,7 +597,7 @@ La configuración ha sido borrada
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-508"><strong>Respuesta a palabra clave “eeprom”:</strong> devuelve el json de
+<li><p class="linemarker linemarker-596"><strong>Respuesta a palabra clave “eeprom”:</strong> devuelve el json de
 configuración que se arma para enviar al servidor.</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -737,7 +621,7 @@ configuración que se arma para enviar al servidor.</p>
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-533"><strong>Respuesta a palabra clave “chequeo”:</strong> chequea el estado del
+<li><p class="linemarker linemarker-621"><strong>Respuesta a palabra clave “chequeo”:</strong> chequea el estado del
 equipo y devuelve el resultado:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -754,7 +638,7 @@ Chequeo:
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-551"><strong>Respuesta a palabra clave “regall”:</strong> devuelve el archivo
+<li><p class="linemarker linemarker-639"><strong>Respuesta a palabra clave “regall”:</strong> devuelve el archivo
 “regall.txt”:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -769,7 +653,7 @@ Chequeo:
 </pre></div>
 </div>
 </li>
-<li><p class="linemarker linemarker-567"><strong>Respuesta a palabra clave “voltaje,”:</strong> setea el coeficiente
+<li><p class="linemarker linemarker-655"><strong>Respuesta a palabra clave “voltaje,”:</strong> setea el coeficiente
 de voltaje y devuelve:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -786,7 +670,7 @@ Coeficiente de voltaje seteado en 1.02
 <section id="id7">
 <h4>Added<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-583"><strong>Funcionalidad para guardar registro:</strong> se guarda registro
+<li><p class="linemarker linemarker-671"><strong>Funcionalidad para guardar registro:</strong> se guarda registro
 en la memoria SD para las peticiones updateDate y setConfig.</p></li>
 </ul>
 </section>
@@ -796,7 +680,7 @@ en la memoria SD para las peticiones updateDate y setConfig.</p></li>
 <section id="id8">
 <h4>Added<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-592"><strong>Respuesta a la palabra clave “modulo”:</strong> se elimina y se
+<li><p class="linemarker linemarker-680"><strong>Respuesta a la palabra clave “modulo”:</strong> se elimina y se
 recrea el archivo “register.txt”, que es en donde se guardan
 las mediciones no enviadas. La HTTP response es:</p></li>
 </ul>
@@ -807,7 +691,7 @@ las mediciones no enviadas. La HTTP response es:</p></li>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p class="linemarker linemarker-603"><strong>Respuesta a configuración en offline:</strong> cuando el equipo está
+<li><p class="linemarker linemarker-691"><strong>Respuesta a configuración en offline:</strong> cuando el equipo está
 en modo offline y la app manda la petición para configurarlo,
 la configuración se hace pero no se envía el metadata al
 servidor. La HTTP response es:</p></li>
@@ -826,20 +710,20 @@ servidor. La HTTP response es:</p></li>
 <section id="id9">
 <h4>Fixed<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-622"><strong>Respuesta al modo12</strong>: se cambia el mensaje cuando el modo12 está
+<li><p class="linemarker linemarker-710"><strong>Respuesta al modo12</strong>: se cambia el mensaje cuando el modo12 está
 activado. Pasa de ser:</p></li>
 </ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;Modo Ledesma: se mide cada 1...&quot;</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-629">a ser:</p>
+<p class="linemarker linemarker-717">a ser:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;Modo 12: se mide cada 1...&quot;</span>
 </pre></div>
 </div>
 <section id="id10">
 <h5>Added<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h5>
 <ul class="simple">
-<li><p class="linemarker linemarker-638">Se muestra tipo de sensor en respuesta a “eeprom”: cuando se
+<li><p class="linemarker linemarker-726">Se muestra tipo de sensor en respuesta a “eeprom”: cuando se
 responde a la palabra clave “eeprom”, ahora se muestra el
 tipo de sensor, y si es de tipo “nivel”, se muestran metros
 en lugar de cm. La respuesta pasa de ser:</p></li>
@@ -848,7 +732,7 @@ en lugar de cm. La respuesta pasa de ser:</p></li>
 <span class="go">O3) 2.00 cm</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-648">a ser:</p>
+<p class="linemarker linemarker-736">a ser:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">O2) 14.00 cm (the)</span>
 <span class="go">O3) 2.00 m (nivel)</span>
 </pre></div>
@@ -861,18 +745,18 @@ en lugar de cm. La respuesta pasa de ser:</p></li>
 <section id="id11">
 <h4>Changed<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-662"><strong>Json que la app manda al equipo</strong>: se cambia el json que la app le
+<li><p class="linemarker linemarker-750"><strong>Json que la app manda al equipo</strong>: se cambia el json que la app le
 manda al equipo para configurarlo. En particular, se eliminan los
 espacios en el nombre del siguiente campo:</p></li>
 </ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;Salida 1 (o1)&quot;: 100,</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-670">ahora es:</p>
+<p class="linemarker linemarker-758">ahora es:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;Salida1(o1)&quot;: 100,</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-676">El json entonces pasa de ser:</p>
+<p class="linemarker linemarker-764">El json entonces pasa de ser:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arcilloso&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span>
@@ -889,7 +773,7 @@ espacios en el nombre del siguiente campo:</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-695">a ser:</p>
+<p class="linemarker linemarker-783">a ser:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arcilloso&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span>
@@ -906,14 +790,14 @@ espacios en el nombre del siguiente campo:</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-714">El siguiente gráfico muestra resaltado el campo modificado.</p>
+<p class="linemarker linemarker-802">El siguiente gráfico muestra resaltado el campo modificado.</p>
 <img alt="../_images/changelog-01.png" src="../_images/changelog-01.png" />
 <img alt="../_images/changelog-02.png" src="../_images/changelog-02.png" />
 </section>
 <section id="id12">
 <h4>Added<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-722"><strong>Documentación “modo12” y “modooffline”</strong>: faltaba documentar lo que
+<li><p class="linemarker linemarker-810"><strong>Documentación “modo12” y “modooffline”</strong>: faltaba documentar lo que
 significaban estos modos.</p></li>
 </ul>
 <table class="docutils align-default" id="id36">
@@ -946,7 +830,7 @@ significaban estos modos.</p></li>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p class="linemarker linemarker-733">Cuando el modo offline está activo, el equipo no enciende el módulo SIM808 para enviar datos, así que solamente los guarda en la memoria SD.</p>
+<p class="linemarker linemarker-821">Cuando el modo offline está activo, el equipo no enciende el módulo SIM808 para enviar datos, así que solamente los guarda en la memoria SD.</p>
 </div>
 </section>
 </section>
@@ -958,7 +842,7 @@ significaban estos modos.</p></li>
 <section id="id13">
 <h4>Fixed<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-742"><strong>Modo12 y modooffline</strong>: había un problema en la declaración de una variable que no permitía que las variables booleanas relacionadas a esos modos se guardaran de forma correcta. Corregido.</p></li>
+<li><p class="linemarker linemarker-830"><strong>Modo12 y modooffline</strong>: había un problema en la declaración de una variable que no permitía que las variables booleanas relacionadas a esos modos se guardaran de forma correcta. Corregido.</p></li>
 </ul>
 </section>
 </section>
@@ -967,7 +851,7 @@ significaban estos modos.</p></li>
 <section id="id14">
 <h4>Fixed<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-748"><strong>Modo ledesma</strong>: había errores en el enviado de las mediciones.</p></li>
+<li><p class="linemarker linemarker-836"><strong>Modo ledesma</strong>: había errores en el enviado de las mediciones.</p></li>
 </ul>
 </section>
 </section>
@@ -976,17 +860,17 @@ significaban estos modos.</p></li>
 <section id="id15">
 <h4>Added<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-754"><strong>Modo offline</strong>: se agrega la palabra clave “offline”, para decirle al equipo que no hay cobertura así no enciende el módulo sim después de realizar la medición.</p></li>
+<li><p class="linemarker linemarker-842"><strong>Modo offline</strong>: se agrega la palabra clave “offline”, para decirle al equipo que no hay cobertura así no enciende el módulo sim después de realizar la medición.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <dl class="simple">
 <dt>Cada vez que se agrega un campo a la estructura de la eeprom, se deben seguir los siguientes pasos:</dt><dd><ul class="simple">
-<li><p class="linemarker linemarker-758">Agregar escritura en la función Eeprom1::setStruct</p></li>
-<li><p class="linemarker linemarker-759">Agregar escritura en la función Eeprom1::erase_nvs</p></li>
-<li><p class="linemarker linemarker-760">Agregar lectura en la función Eeprom1::getStruct</p></li>
-<li><p class="linemarker linemarker-761">Descomentar la función Eeprom1::erase_nvs después de inicializar el espacio nvs en la función Eeprom1::setup()</p></li>
-<li><p class="linemarker linemarker-762">Comentar la función Eeprom1::erase_nvs después de inicializar el espacio nvs en la función Eeprom1::setup()</p></li>
+<li><p class="linemarker linemarker-846">Agregar escritura en la función Eeprom1::setStruct</p></li>
+<li><p class="linemarker linemarker-847">Agregar escritura en la función Eeprom1::erase_nvs</p></li>
+<li><p class="linemarker linemarker-848">Agregar lectura en la función Eeprom1::getStruct</p></li>
+<li><p class="linemarker linemarker-849">Descomentar la función Eeprom1::erase_nvs después de inicializar el espacio nvs en la función Eeprom1::setup()</p></li>
+<li><p class="linemarker linemarker-850">Comentar la función Eeprom1::erase_nvs después de inicializar el espacio nvs en la función Eeprom1::setup()</p></li>
 </ul>
 </dd>
 </dl>
@@ -998,7 +882,7 @@ significaban estos modos.</p></li>
 <section id="id16">
 <h4>Fixed<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-768"><strong>Modo12 corregido</strong>: cuando la app mandaba la palabra clave “modo12”,
+<li><p class="linemarker linemarker-856"><strong>Modo12 corregido</strong>: cuando la app mandaba la palabra clave “modo12”,
 no se guardaba bien el valor booleano en la eeprom. Corregido.</p></li>
 </ul>
 </section>
@@ -1008,7 +892,7 @@ no se guardaba bien el valor booleano en la eeprom. Corregido.</p></li>
 <section id="id17">
 <h4>Added<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-775">Se responde firm vers a la app: cuando se abre la app, además de poner
+<li><p class="linemarker linemarker-863">Se responde firm vers a la app: cuando se abre la app, además de poner
 en hora al rtc externo, el equipo le responde con la versión de
 firmware. Antes se respondía:</p></li>
 </ul>
@@ -1016,7 +900,7 @@ firmware. Antes se respondía:</p></li>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-784">y ahora se responde:</p>
+<p class="linemarker linemarker-872">y ahora se responde:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">HTTP/1.1 200 OK</span>
 <span class="go">Content-Type:text/plain;charset=UTF-8</span>
 
@@ -1030,7 +914,7 @@ firmware. Antes se respondía:</p></li>
 <section id="id18">
 <h4>Changed<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-798">Cambio de palabra clave: se cambió la palabra clave “ledesma12” por
+<li><p class="linemarker linemarker-886">Cambio de palabra clave: se cambió la palabra clave “ledesma12” por
 “modo12”, para que no exista ninguna referencia al nombre de ninguna
 empresa.</p></li>
 </ul>
@@ -1041,7 +925,7 @@ empresa.</p></li>
 <section id="id19">
 <h4>Fixed<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-807"><strong>Apagado de sensor si no se puede chequear</strong>: cuando se configura
+<li><p class="linemarker linemarker-895"><strong>Apagado de sensor si no se puede chequear</strong>: cuando se configura
 un sensor y éste no responde después de un determinado intento, la
 salida no se deshabilitaba y el sensor quedaba alimentado. Corregido.</p></li>
 </ul>
@@ -1052,7 +936,7 @@ salida no se deshabilitaba y el sensor quedaba alimentado. Corregido.</p></li>
 <section id="id20">
 <h4>Fixed<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-815"><strong>Guardado de modo ledesma</strong>: había problemas cuando se mandaba la
+<li><p class="linemarker linemarker-903"><strong>Guardado de modo ledesma</strong>: había problemas cuando se mandaba la
 palabra clave “ledesma12”, no se guardaba correctamente. Corregido.</p></li>
 </ul>
 </section>
@@ -1062,7 +946,7 @@ palabra clave “ledesma12”, no se guardaba correctamente. Corregido.</p></li>
 <section id="id21">
 <h4>Fixed<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-823"><strong>No sube mediciones manuales</strong>: cuando se pedía una medición manual
+<li><p class="linemarker linemarker-911"><strong>No sube mediciones manuales</strong>: cuando se pedía una medición manual
 ya sea por app o por monitor, la medición no se subía. Corregido.</p></li>
 </ul>
 </section>
@@ -1072,7 +956,7 @@ ya sea por app o por monitor, la medición no se subía. Corregido.</p></li>
 <section id="id22">
 <h4>Added<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-830"><strong>Palabra clave “ledesma12”</strong>: se habilita al equipo a realizar una
+<li><p class="linemarker linemarker-918"><strong>Palabra clave “ledesma12”</strong>: se habilita al equipo a realizar una
 medición cada 1 hora y subir lo guardado cada 12 horas.</p></li>
 </ul>
 </section>
@@ -1082,7 +966,7 @@ medición cada 1 hora y subir lo guardado cada 12 horas.</p></li>
 <section id="id23">
 <h4>Fixed<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-837"><strong>No hace medición de sensor de nivel</strong>: no se hacía la medición si el
+<li><p class="linemarker linemarker-925"><strong>No hace medición de sensor de nivel</strong>: no se hacía la medición si el
 sensor estaba configurado como de nivel. Se trataba de un error en el
 firmware, filtraba por <code class="docutils literal notranslate"><span class="pre">level</span></code> en lugar de hacerlo por <code class="docutils literal notranslate"><span class="pre">nivel</span></code>. Corregido.</p></li>
 </ul>
@@ -1090,7 +974,7 @@ firmware, filtraba por <code class="docutils literal notranslate"><span class="p
 <section id="id24">
 <h4>Added<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-843"><strong>Mostrado de register como array</strong>: ante la orden por monitor “register”,
+<li><p class="linemarker linemarker-931"><strong>Mostrado de register como array</strong>: ante la orden por monitor “register”,
 el archivo “register.txt” se muestra como un array de json.</p></li>
 </ul>
 </section>
@@ -1100,10 +984,10 @@ el archivo “register.txt” se muestra como un array de json.</p></li>
 <section id="id25">
 <h4>Fixed<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-850"><strong>No se configura si no se especifica sensor</strong>: si no se agrega ningún
+<li><p class="linemarker linemarker-938"><strong>No se configura si no se especifica sensor</strong>: si no se agrega ningún
 sensor en la configuración, se devuelve un mensaje y no se configura el
 equipo, ni tampoco se sube nada al servidor.</p></li>
-<li><p class="linemarker linemarker-853"><strong>Se pone “” en el tipo de sensor no configurado</strong>: si no se especifica
+<li><p class="linemarker linemarker-941"><strong>Se pone “” en el tipo de sensor no configurado</strong>: si no se especifica
 la salida de un sensor (tipo y profundidad), entonces se guarda “” en
 la eeprom en la salida correspondiente.</p></li>
 </ul>
@@ -1114,11 +998,11 @@ la eeprom en la salida correspondiente.</p></li>
 <section id="id26">
 <h4>Added<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-861"><strong>La memoria eeprom se maneja de otra forma</strong>: se deja de usar la
+<li><p class="linemarker linemarker-949"><strong>La memoria eeprom se maneja de otra forma</strong>: se deja de usar la
 librería <code class="docutils literal notranslate"><span class="pre">EEPROM.h</span></code> y se la reemplaza por la librería <code class="docutils literal notranslate"><span class="pre">Preferences.h</span></code>.
 Esta librería maneja mejor el espacio y prolonga la vida útil del
 almacenamiento no volátil.</p></li>
-<li><p class="linemarker linemarker-865"><strong>Se chequea antes de escribir en la eeprom</strong>: se chequea cada campo
+<li><p class="linemarker linemarker-953"><strong>Se chequea antes de escribir en la eeprom</strong>: se chequea cada campo
 que se va a escribir en la eeprom para evitar sobreescribir un campo si
 en la eeprom hay un valor igual.</p></li>
 </ul>
@@ -1132,7 +1016,7 @@ en la eeprom hay un valor igual.</p></li>
 <section id="id27">
 <h4>Fixed<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-876"><strong>Palabra clave “voltaje,”</strong>: cuando la app recibe como location_name
+<li><p class="linemarker linemarker-964"><strong>Palabra clave “voltaje,”</strong>: cuando la app recibe como location_name
 <code class="docutils literal notranslate"><span class="pre">voltaje,12.05</span></code>, se configura el coefficiente de voltaje con este valor.</p></li>
 </ul>
 </section>
@@ -1142,7 +1026,7 @@ en la eeprom hay un valor igual.</p></li>
 <section id="id28">
 <h4>Fixed<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-883"><strong>Respuesta al json mal formado</strong>: cuando la app manda un json metadata
+<li><p class="linemarker linemarker-971"><strong>Respuesta al json mal formado</strong>: cuando la app manda un json metadata
 mal formado, el equipo le responde con el mensaje de “metadata mal formado”.</p></li>
 </ul>
 </section>
@@ -1152,7 +1036,7 @@ mal formado, el equipo le responde con el mensaje de “metadata mal formado”.
 <section id="id29">
 <h4>Fixed<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-890"><strong>Tiempo a dormir corregido</strong>: los segundos en que se ponia a dormir el
+<li><p class="linemarker linemarker-978"><strong>Tiempo a dormir corregido</strong>: los segundos en que se ponia a dormir el
 equipo estaban calculados para las 12 de la noche y no del mediodía.</p></li>
 </ul>
 </section>
@@ -1162,7 +1046,7 @@ equipo estaban calculados para las 12 de la noche y no del mediodía.</p></li>
 <section id="id30">
 <h4>Added<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-897"><strong>Ver tiempo a dormir</strong>: con la orden por monitor <code class="docutils literal notranslate"><span class="pre">sleep</span></code> se muestra
+<li><p class="linemarker linemarker-985"><strong>Ver tiempo a dormir</strong>: con la orden por monitor <code class="docutils literal notranslate"><span class="pre">sleep</span></code> se muestra
 el tiempo (segundos y en horas, minutos y segundos) que quedan para que
 se cumpla las 12am del siguiente día.</p></li>
 </ul>
@@ -1173,7 +1057,7 @@ se cumpla las 12am del siguiente día.</p></li>
 <section id="id31">
 <h4>Added<a class="headerlink" href="#id31" title="Permalink to this heading"></a></h4>
 <ul>
-<li><p class="linemarker linemarker-905"><strong>Palabras clave</strong>: son palabras clave introducidas en la configuración
+<li><p class="linemarker linemarker-993"><strong>Palabras clave</strong>: son palabras clave introducidas en la configuración
 en el campo <code class="docutils literal notranslate"><span class="pre">location_name</span></code> para que el equipo realice determinadas
 tareas. Las palabras clave son todas en minúscula y la lista es la
 siguiente:
@@ -1195,11 +1079,11 @@ siguiente:
 </div>
 </div></blockquote>
 <ul class="simple">
-<li><p class="linemarker linemarker-926"><strong>eeprom</strong>: muestra en el HTTP request lo que hay en la eeprom.</p></li>
-<li><p class="linemarker linemarker-927"><strong>*bat</strong>: muestra en el HTTP request el archivo <code class="docutils literal notranslate"><span class="pre">bat.txt</span></code>, que es
+<li><p class="linemarker linemarker-1014"><strong>eeprom</strong>: muestra en el HTTP request lo que hay en la eeprom.</p></li>
+<li><p class="linemarker linemarker-1015"><strong>*bat</strong>: muestra en el HTTP request el archivo <code class="docutils literal notranslate"><span class="pre">bat.txt</span></code>, que es
 el registro de actividades del equipo.</p></li>
-<li><p class="linemarker linemarker-929"><strong>chequeo</strong>: reinstala todos los módulos y da un reporte.</p></li>
-<li><p class="linemarker linemarker-930"><strong>*regall</strong>: muestra en el HTTP request el archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code>,
+<li><p class="linemarker linemarker-1017"><strong>chequeo</strong>: reinstala todos los módulos y da un reporte.</p></li>
+<li><p class="linemarker linemarker-1018"><strong>*regall</strong>: muestra en el HTTP request el archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code>,
 que es el registro de todas las mediciones que hizo el equipo, se
 hayan mandado o no.</p></li>
 </ul>
@@ -1207,7 +1091,7 @@ hayan mandado o no.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p class="linemarker linemarker-936">Los archivos <code class="docutils literal notranslate"><span class="pre">bat.txt</span></code> y <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code> son demasiado grandes como
+<p class="linemarker linemarker-1024">Los archivos <code class="docutils literal notranslate"><span class="pre">bat.txt</span></code> y <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code> son demasiado grandes como
 para que puedan ser vistos en la ventana emergente que muestra la app,
 así que hay que usar el Packet Sender o programa similar.</p>
 </div>
@@ -1218,7 +1102,7 @@ así que hay que usar el Packet Sender o programa similar.</p>
 <section id="id32">
 <h4>Added<a class="headerlink" href="#id32" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-944"><strong>Medición a las 12:00 del mediodía</strong>: el equipo se despierta y
+<li><p class="linemarker linemarker-1032"><strong>Medición a las 12:00 del mediodía</strong>: el equipo se despierta y
 realiza la medición automática si es la 12:00 del mediodía; si no es
 así, se pone a dormir sin hacer nada el tiempo que falte para llegar
 a la 12:00. Esto se debe hacer porque por más que se ponga al esp32
@@ -1236,17 +1120,17 @@ el ds3231.</p></li>
 <section id="removed">
 <h4>Removed<a class="headerlink" href="#removed" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-959"><strong>Actualiza rtc interno cuando el servidor responde 200 OK</strong>: cuando
+<li><p class="linemarker linemarker-1047"><strong>Actualiza rtc interno cuando el servidor responde 200 OK</strong>: cuando
 la hora está bien, el servidor responde lo siguiente:</p></li>
 </ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{&quot;message&quot;:&quot;Se actualizaron los datos de L-7BF4&quot;,&quot;timestamp&quot;:&quot;2023-06-13T14:03:44&quot;}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-966">y cuando la hora está mal responde:</p>
+<p class="linemarker linemarker-1054">y cuando la hora está mal responde:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{&quot;message&quot;:&quot;Error fecha fuera de rango.&quot;,&quot;timestamp&quot;:&quot;13/06/2023, 11:05:07&quot;}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-972">El rtc interno ahora sólo se actualiza en el segundo caso debido a que
+<p class="linemarker linemarker-1060">El rtc interno ahora sólo se actualiza en el segundo caso debido a que
 como responde en formatos diferentes, generaba error en el 1er caso.</p>
 </section>
 </section>
@@ -1255,7 +1139,7 @@ como responde en formatos diferentes, generaba error en el 1er caso.</p>
 <section id="id33">
 <h4>Changed<a class="headerlink" href="#id33" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-979"><strong>Respuesta a la configuración</strong>: se modifica el texto que se responde
+<li><p class="linemarker linemarker-1067"><strong>Respuesta a la configuración</strong>: se modifica el texto que se responde
 a la app cuando se configura el equipo para que se agregue información
 sobre el tipo de sensor. Pasa de ser:</p></li>
 </ul>
@@ -1267,7 +1151,7 @@ sobre el tipo de sensor. Pasa de ser:</p></li>
 <span class="go">4) No configurado</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-992">a ser:</p>
+<p class="linemarker linemarker-1080">a ser:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Equipo configurado:</span>
 <span class="go">===================</span>
 <span class="go">1) 10 cm (htc)</span>
@@ -1278,7 +1162,7 @@ sobre el tipo de sensor. Pasa de ser:</p></li>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p class="linemarker linemarker-1004">En el caso del sensor de nivel, la profundidad pasa a ser la distancia
+<p class="linemarker linemarker-1092">En el caso del sensor de nivel, la profundidad pasa a ser la distancia
 desde la punta del sensor hasta el fondo del canal (en metros).</p>
 </div>
 </section>
@@ -1288,7 +1172,7 @@ desde la punta del sensor hasta el fondo del canal (en metros).</p>
 <section id="id34">
 <h4>Added<a class="headerlink" href="#id34" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-1011"><strong>Sensor de nivel y npk</strong>: se agrega funcionalidad para que las entradas
+<li><p class="linemarker linemarker-1099"><strong>Sensor de nivel y npk</strong>: se agrega funcionalidad para que las entradas
 manejen sensores de 3 tipos: the, npk y de nivel. Se necesitó hacer
 cambios en el json que se recibe de la app y el metadata.
 El json que la app manda a la central era:</p></li>
@@ -1309,7 +1193,7 @@ El json que la app manda a la central era:</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-1033">y ahora pasa a ser:</p>
+<p class="linemarker linemarker-1121">y ahora pasa a ser:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Loamy Sand&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;río bravo&quot;</span><span class="p">,</span>
@@ -1334,7 +1218,7 @@ El json que la app manda a la central era:</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-1060">El json de metadata era:</p>
+<p class="linemarker linemarker-1148">El json de metadata era:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-7BF4&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THSST&quot;</span><span class="p">,</span>
@@ -1351,7 +1235,7 @@ El json que la app manda a la central era:</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-1079">y ahora pasa a ser:</p>
+<p class="linemarker linemarker-1167">y ahora pasa a ser:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-7BF4&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THSST&quot;</span><span class="p">,</span>
@@ -1378,7 +1262,7 @@ El json que la app manda a la central era:</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-1108">El json de medición queda como estaba:</p>
+<p class="linemarker linemarker-1196">El json de medición queda como estaba:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-1234&quot;</span><span class="p">,</span>
@@ -1408,7 +1292,7 @@ El json que la app manda a la central era:</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-1140">Si el sensor es the, los parámetros no nulos son:</p>
+<p class="linemarker linemarker-1228">Si el sensor es the, los parámetros no nulos son:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NO NULO --&gt; H: &quot;humidity&quot;: 0.000,</span>
 <span class="go">NO NULO --&gt; T: &quot;temperature&quot;: 31.70,</span>
 <span class="go">               &quot;location_name&quot;: &quot;hola&quot;,</span>
@@ -1422,7 +1306,7 @@ El json que la app manda a la central era:</p></li>
 <span class="go">               &quot;imag_dielectric_permittivity_tc&quot;: 0.00,</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-1156">Si el sensor es npk, los parámetros no nulos son:</p>
+<p class="linemarker linemarker-1244">Si el sensor es npk, los parámetros no nulos son:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NO NULO --&gt; H: &quot;humidity&quot;: 0.000,</span>
 <span class="go">NO NULO --&gt; T: &quot;temperature&quot;: 31.70,</span>
 <span class="go">               &quot;location_name&quot;: &quot;hola&quot;,</span>
@@ -1436,7 +1320,7 @@ El json que la app manda a la central era:</p></li>
 <span class="go">               &quot;imag_dielectric_permittivity_tc&quot;: 0.00,</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-1172">Si el sensor es level, los parámetros no nulos son:</p>
+<p class="linemarker linemarker-1260">Si el sensor es level, los parámetros no nulos son:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">               &quot;humidity&quot;: 0.000,</span>
 <span class="go">               &quot;temperature&quot;: 0.00,</span>
 <span class="go">               &quot;location_name&quot;: &quot;hola&quot;,</span>
@@ -1460,7 +1344,7 @@ El json que la app manda a la central era:</p></li>
 <section id="id35">
 <h4>Added<a class="headerlink" href="#id35" title="Permalink to this heading"></a></h4>
 <ul class="simple">
-<li><p class="linemarker linemarker-1195"><strong>Rtc interno</strong>: la hora y fecha se carga en el rtc interno del esp32
+<li><p class="linemarker linemarker-1283"><strong>Rtc interno</strong>: la hora y fecha se carga en el rtc interno del esp32
 cuando se despierta desde el de3231; si no se carga el ds3231, se carga
 con el tiempo unix guardado en la eeprom y se hace un aproximado.</p></li>
 </ul>
@@ -1473,7 +1357,7 @@ con el tiempo unix guardado en la eeprom y se hace un aproximado.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="testing.html" class="btn btn-neutral float-left" title="9.- Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bugs.html" class="btn btn-neutral float-left" title="10.- Bugs reportados" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -68,10 +68,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#id5">Características</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6">Conexión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id7">Tramas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#conversion-a-float">Conversión a float</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#testing">Testing</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#conversion-a-float">Conversión a float</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#the-hydra-probe-soil-sensor-stevens"><span class="sectnum">4.4.- </span>The Hydra Probe® Soil Sensor (Stevens)</a><ul>
@@ -95,6 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html"><span class="sectnum">9.- </span>Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html"><span class="sectnum">10.- </span>Bugs reportados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
 </ul>
 
@@ -747,8 +746,9 @@ cuatro dígitos, ocupa cuatro direcciones de registro interno.</p>
 <span class="kt">float</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">((</span><span class="kt">float</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
 </pre></div>
 </div>
+</section>
 <section id="testing">
-<h4>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h4>
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h3>
 <p class="linemarker linemarker-365">El siguiente es un gráfico de los valores medidos en una
 superficie de agua para distintos niveles. Se enciende el
 sensor y se toma una medición cada 1 segundo durante 30 segundos.</p>
@@ -780,7 +780,6 @@ valores medidos con el sensor. Hasta los 40 cm se ven que ambos
 valores se aproximan; por debajo de los 40 cm, el sensor arroja
 valores aleatorios, y no son confiables.</p>
 <img alt="../_images/sensors_03_level_sensor_blind_zone.png" src="../_images/sensors_03_level_sensor_blind_zone.png" />
-</section>
 </section>
 </section>
 <section id="the-hydra-probe-soil-sensor-stevens">

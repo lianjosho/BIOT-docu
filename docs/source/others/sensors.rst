@@ -360,7 +360,7 @@ y la conversión a una variable tipo float se hace con las siguientes líneas:
    float level = *((float*)&value);
 
 Testing
--------
+=======
 
 El siguiente es un gráfico de los valores medidos en una 
 superficie de agua para distintos niveles. Se enciende el 

@@ -78,6 +78,7 @@ Contenido
    others/server
    others/developer
    others/testing
+   others/bugs
    others/changelog
 
 

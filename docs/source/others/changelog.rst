@@ -30,234 +30,322 @@ Tipos de cambios
 Versión 6
 *********
 
-V6.3.0 - 08/08/2023
-===================
+.. V6.3.0 - 08/08/2023
+.. ===================
 
-- **HTTP response de keyword "check"**: antes era:
+.. - **HTTP response de keyword "check"**: antes era:
   
-.. code-block:: bash
+.. .. code-block:: bash
    
-    HTTP/1.1 200 OK
-    Content-Type:text/plain;charset=UTF-8
+..     HTTP/1.1 200 OK
+..     Content-Type:text/plain;charset=UTF-8
 
-    Chequeo:
-    ========
-    - Memoria SD: ok
-    - Módulo de hora: ok
-    - Sensores: ok
+..     Chequeo:
+..     ========
+..     - Memoria SD: ok
+..     - Módulo de hora: ok
+..     - Sensores: ok
 
 
-y ahora es:
+.. y ahora es:
 
-.. code-block:: bash
+.. .. code-block:: bash
 
-    HTTP/1.1 200 OK
-    Content-Type:text/plain;charset=UTF-8
+..     HTTP/1.1 200 OK
+..     Content-Type:text/plain;charset=UTF-8
 
-    {
-        "0": {
-            "0": "01030608D500880000ADC5"
-        },
-        "1": {
-            "0": "",
-            "1": "062+0.000,+0.001,+22.4,+72.3,+0.001,+0.697,+0.354,+0.708,+0.368\r\n",
-            "2": "062+22.4,+72.3,+0.508\r\n"
-        },
-        "other": {
-            "sdcard": true,
-            "rtc": true
-        }
-    }
+..     {
+..         "0": {
+..             "0": "01030608D500880000ADC5"
+..         },
+..         "1": {
+..             "0": "",
+..             "1": "062+0.000,+0.001,+22.4,+72.3,+0.001,+0.697,+0.354,+0.708,+0.368\r\n",
+..             "2": "062+22.4,+72.3,+0.508\r\n"
+..         },
+..         "other": {
+..             "sdcard": true,
+..             "rtc": true
+..         }
+..     }
 
-V6.2.0 - 28/07/2023
+.. V6.2.0 - 28/07/2023
+.. ===================
+
+.. Changed
+.. -------
+
+.. - **HTTP response de configuración**: antes era:
+
+.. .. code-block:: bash
+
+..    HTTP/1.1 200 OK
+..    Content-Type:text/plain;charset=UTF-8
+
+..    Equipo configurado:
+..    ===================
+..    1) 10 cm (the)
+..    2) 20 cm (npk)
+..    3) No configurado 
+..    4) No configurado
+
+.. y ahora es:
+
+.. .. code-block:: bash
+
+..    HTTP/1.1 200 OK
+..    Content-Type:text/plain;charset=UTF-8
+
+..    Configuración hecha
+
+.. V6.1.1 - 28/07/2023
+.. ===================
+
+.. Fixed
+.. -----
+
+.. - **Problema de sensor tipo hex no conectado**: cuando el sensor 
+..   tipo hex no está conectado, no devuelve respuesta. Esa respuesta 
+..   se estaba guardando en un array nulo que después se convertía en 
+..   un String "000..."; cuando en realidad debería ser "". Corregido.
+
+.. V6.1.0 - 26/07/2023
+.. ===================
+
+.. Added
+.. -----
+
+.. - **Funcionalidad keyword: erase**: se atiende la petición POST 
+..   de palabra clave que pide borrar la configuración.  
+
+.. - **Funcionalidad keyword: eeprom**: se atiende la petición POST 
+..   que pide la configuración guardada. 
+
+.. - **Funcionalidad keyword: check**: chequea los módulos del equipo. 
+
+.. - **Funcionalidad keyword: voltaje**: setea el coeficiente de 
+..   voltaje. 
+
+.. - **Funcionalidad keyword: modo12**: des/activa el modo 12. 
+
+.. - **Funcionalidad keyword: offline**: des/activa el modo offline. 
+
+.. - **Funcionalidad keyword: bat**: devuelve el archivo "battery.txt". 
+
+.. - **Funcionalidad keyword: regall**: devuelve el archivo 
+..   "regall.txt". 
+
+.. V6.0.0 - 14/07/2023
+.. ===================
+
+.. Changed
+.. -------
+
+.. - **Cambios en el json_app**: se cambió el json que manda la app 
+..   para configurar el equipo. Antes era:
+
+.. .. code-block:: json
+
+..    {
+..       "soil_type": "Arcilloso",
+..       "location_name": "Hola",
+..       "sensors": {
+..          "Salida 2 (o2)": {
+..             "type": "nivel",
+..             "tag_depth": 20
+..          }
+..       },
+..       "location": {
+..       "latitude": -31.4403103,
+..       "longitude": -64.2040562
+..       }
+..    }
+
+.. Y ahora es:
+
+.. .. code-block:: json
+
+..    {
+..       "0": {
+..          "0": ["hex", "010300060003E5CA", 30, 1, 4]
+..       },
+..       "1": {
+..          "0": ["hex", "010300060003E5CA", 30, 1, 4],
+..          "1": ["hex", "010300060003E5CA", 30, 1, 4]
+..       },
+..       "2": {
+..          "0": ["hex", "01040000000271CB", 30, 12, 1]
+..       },
+..       "3": {
+..          "0": ["ascii", "///TR\r\n", 1, 1, 5],
+..          "1": ["ascii", "///T0\r\n", 80, 1, 1],
+..          "2": ["ascii", "///T1\r\n", 80, 1, 1]
+..       }
+..    }
+
+.. - **Cambios en el json_measure**: se cambió el paquete json de 
+..   de medición. Antes era:
+
+.. .. code-block:: json
+
+..    {
+..       "enabled": true,
+..       "id": "L-7BF4",
+..       "product": "THSST",
+..       "timestamp": "2023-04-20-12-18-42",
+..       "location": {
+..          "latitude": -31.39167023,
+..          "longitude": -64.22102356
+..       },
+..       "value": {
+..          "sn": "00000000001",
+..          "humidity": 0.00,
+..          "temperature": 22.08,
+..          "location_name": "BIOT-",
+..          "tag_depth": 10,
+..          "loss_tangent": 0.00,
+..          "electrical_conductivity": 0,
+..          "electrical_conductivity_tc": 0.00,
+..          "real_dielectric_permittivity": 0.00,
+..          "real_dielectric_permittivity_tc": 0.00,
+..          "imag_dielectric_permittivity": 0.00,
+..          "imag_dielectric_permittivity_tc": 0.00,
+..          "level_bat": 0.000
+..       },
+..       "verFirm": "V1.0.15",
+..       "verHard": "V1.0.0",
+..       "number_sent": 0
+..    }
+
+.. Y ahora es: 
+
+.. .. code-block:: json
+
+..    {
+..       "id": "L-1234",
+..       "timestamp": "2022-12-23-21-58-08",
+..       "level_bat": 10.2,
+..       "sn": 1,
+..       "number_sent": 2,
+..       "value": "value"
+..    }
+
+.. Donde el campo ``value`` es depende del tipo de sensor.
+
+.. Para un sensor tipo THE: 
+
+.. .. code-block:: json
+
+..    "value": ["010325657455548"]
+
+.. Para un sensor tipo NPK:
+
+.. .. code-block:: json
+  
+..    "value": ["010325657455548", "010325657455548"]
+
+.. Para un sensor tipo LEVEL:
+
+.. .. code-block:: json
+  
+..    "value": ["010325657455548"]
+
+.. Para un sensor tipo STEVENS:
+
+.. .. code-block:: json
+  
+..    "value": [
+..       "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661",
+..       "062+28.9,+84.0,+0.517"
+..    ]
+
+
+V6.1.0 - 13/09/2023
 ===================
 
 Changed
 -------
 
-- **HTTP response de configuración**: antes era:
+- **unix time de config:** cada vez que el equipo se despierta por timer y 
+  falla la inicialización del ds3231, el rtc interno se setea con el 
+  valor del unix de la última vez que se configuró el equipo más una 
+  cantidad de segundos que es igual al intervalo de medición 
+  multiplicado por el número de veces que el equipo se despertó por 
+  timer.
+  
+  Por ejemplo, si el equipo está en modo 12 y se configuró a la 17:30,
+  entonces el tiempo unix de referencia se situa a la 17:00 y un 
+  contador interno en 0. Entonces, si el equipo se despierta a la 
+  19:00 y el ds3231 no se inicializó, el rtc se sitúa en ``unix + 
+  cont · Δ12``.
 
-.. code-block:: bash
+  .. image:: images/changelog-v6.2.0_02.png
 
-   HTTP/1.1 200 OK
-   Content-Type:text/plain;charset=UTF-8
+  Si el equipo está configurado en modo normal, entonces el tiempo unix 
+  de referencia se situa a la 12:00. Si el equipo se despierta 24 hs 
+  después, entonces el rtc se sitúa en 
 
-   Equipo configurado:
-   ===================
-   1) 10 cm (the)
-   2) 20 cm (npk)
-   3) No configurado 
-   4) No configurado
+  Así, suponiendo que la inicialización del ds3231 falló y el equipo 
+  se configuró a la 17:30, el tiempo unix de referencia (si el modo 
+  12 está activado) va a ser la 17:00; y si el equipo ``unix + 
+  cont · Δn``.
 
-y ahora es:
+  .. image:: images/changelog-v6.2.0_01.png
 
-.. code-block:: bash
+  .. warning:: 
 
-   HTTP/1.1 200 OK
-   Content-Type:text/plain;charset=UTF-8
+    Para que el equipo se setee bien, hay que seguir estos pasos:
 
-   Configuración hecha
+    1. Configurar el equipo normalmente.
+    2. Usar la palabra clave "modo12" 1 o 2 veces para des/activar el 
+       modo 12.
+    3. Salir del menú "Configuración" y volver a entrar para que se 
+       configure bien el tiempo unix de referencia.
 
-V6.1.1 - 28/07/2023
+V6.0.2 - 12/09/2023
 ===================
 
 Fixed
 -----
 
-- **Problema de sensor tipo hex no conectado**: cuando el sensor 
-  tipo hex no está conectado, no devuelve respuesta. Esa respuesta 
-  se estaba guardando en un array nulo que después se convertía en 
-  un String "000..."; cuando en realidad debería ser "". Corregido.
+- **Envío duplicado:** cuando se enviaba por un json con un timestamp 
+  futuro, se corregía pero el json corregido se enviaba 2 veces.
 
-V6.1.0 - 26/07/2023
+V6.0.1 - 10/09/2023
 ===================
 
-Added
+Fixed
 -----
 
-- **Funcionalidad keyword: erase**: se atiende la petición POST 
-  de palabra clave que pide borrar la configuración.  
+- **Seteado de Rtc interno y externo:** había problemas con el
+  seteado del rtc interno y del ds3231 a parti del tiempo unix.
 
-- **Funcionalidad keyword: eeprom**: se atiende la petición POST 
-  que pide la configuración guardada. 
-
-- **Funcionalidad keyword: check**: chequea los módulos del equipo. 
-
-- **Funcionalidad keyword: voltaje**: setea el coeficiente de 
-  voltaje. 
-
-- **Funcionalidad keyword: modo12**: des/activa el modo 12. 
-
-- **Funcionalidad keyword: offline**: des/activa el modo offline. 
-
-- **Funcionalidad keyword: bat**: devuelve el archivo "battery.txt". 
-
-- **Funcionalidad keyword: regall**: devuelve el archivo 
-  "regall.txt". 
-
-V6.0.0 - 14/07/2023
+V6.0.0 - 08/09/2023
 ===================
 
 Changed
 -------
 
-- **Cambios en el json_app**: se cambió el json que manda la app 
-  para configurar el equipo. Antes era:
+- **Medición de nivel promediado:** la medición de un sensor de
+  nivel antes era:
 
-.. code-block:: json
+  1. Se alimenta sensor
+  2. Se espera 14 segundos
+  3. Se toma una medición
+  4. Se desalimenta el sensor
+  5. Se procesa la respuesta y se obtiene el valor del nivel medido
 
-   {
-      "soil_type": "Arcilloso",
-      "location_name": "Hola",
-      "sensors": {
-         "Salida 2 (o2)": {
-            "type": "nivel",
-            "tag_depth": 20
-         }
-      },
-      "location": {
-      "latitude": -31.4403103,
-      "longitude": -64.2040562
-      }
-   }
+  Ahora se hace:
 
-Y ahora es:
-
-.. code-block:: json
-
-   {
-      "0": {
-         "0": ["hex", "010300060003E5CA", 30, 1, 4]
-      },
-      "1": {
-         "0": ["hex", "010300060003E5CA", 30, 1, 4],
-         "1": ["hex", "010300060003E5CA", 30, 1, 4]
-      },
-      "2": {
-         "0": ["hex", "01040000000271CB", 30, 12, 1]
-      },
-      "3": {
-         "0": ["ascii", "///TR\r\n", 1, 1, 5],
-         "1": ["ascii", "///T0\r\n", 80, 1, 1],
-         "2": ["ascii", "///T1\r\n", 80, 1, 1]
-      }
-   }
-
-- **Cambios en el json_measure**: se cambió el paquete json de 
-  de medición. Antes era:
-
-.. code-block:: json
-
-   {
-      "enabled": true,
-      "id": "L-7BF4",
-      "product": "THSST",
-      "timestamp": "2023-04-20-12-18-42",
-      "location": {
-         "latitude": -31.39167023,
-         "longitude": -64.22102356
-      },
-      "value": {
-         "sn": "00000000001",
-         "humidity": 0.00,
-         "temperature": 22.08,
-         "location_name": "BIOT-",
-         "tag_depth": 10,
-         "loss_tangent": 0.00,
-         "electrical_conductivity": 0,
-         "electrical_conductivity_tc": 0.00,
-         "real_dielectric_permittivity": 0.00,
-         "real_dielectric_permittivity_tc": 0.00,
-         "imag_dielectric_permittivity": 0.00,
-         "imag_dielectric_permittivity_tc": 0.00,
-         "level_bat": 0.000
-      },
-      "verFirm": "V1.0.15",
-      "verHard": "V1.0.0",
-      "number_sent": 0
-   }
-
-Y ahora es: 
-
-.. code-block:: json
-
-   {
-      "id": "L-1234",
-      "timestamp": "2022-12-23-21-58-08",
-      "level_bat": 10.2,
-      "sn": 1,
-      "number_sent": 2,
-      "value": "value"
-   }
-
-Donde el campo ``value`` es depende del tipo de sensor.
-
-Para un sensor tipo THE: 
-
-.. code-block:: json
-
-   "value": ["010325657455548"]
-
-Para un sensor tipo NPK:
-
-.. code-block:: json
-  
-   "value": ["010325657455548", "010325657455548"]
-
-Para un sensor tipo LEVEL:
-
-.. code-block:: json
-  
-   "value": ["010325657455548"]
-
-Para un sensor tipo STEVENS:
-
-.. code-block:: json
-  
-   "value": [
-      "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661",
-      "062+28.9,+84.0,+0.517"
-   ]
+  1. Se alimenta sensor
+  2. Se toma una medición
+  3. Se procesa la respuesta y se obtiene el valor del nivel medido
+  4. Se espera 1 segundo
+  5. Se repite los 30 veces 3 pasos anteriores (2 al 4)
+  6. Se desalimenta el sensor
+  7. Se promedia los 30 valores de nivel y no se tiene en cuenta
+     las mediciones en 0 ni las que se alejen demasiado del 
+     promedio de las dos últimas mediciones.
 
 Versión 5
 *********
