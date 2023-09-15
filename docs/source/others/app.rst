@@ -339,11 +339,14 @@ configuración y atiende ese caso especial.
 - erase 
 - eeprom 
 - chequeo 
-- regall
 - voltaje,<bat_level>
 - modo12
 - offline
 - modulo
+- reset
+- invalid sn
+- invalid time
+- log
 
 erase 
 =====
@@ -448,7 +451,6 @@ desactivado, lo activa y devuelve:
 
     Modo offline: las mediciones NO se envían, sólo se guardan
 
-
 .. code-block:: http
 
     HTTP/1.1 200 OK
@@ -456,51 +458,84 @@ desactivado, lo activa y devuelve:
 
     Modo online: las mediciones se envían normalmente
 
-bat
-===
-
-Devuelve a la app el archivo ``battery.txt``.
-
-.. code-block:: bash
-
-   HTTP/1.1 200 OK
-   Content-Type:text/plain;charset=UTF-8
-
-   [
-      json_bat_0,   
-      json_bat_1,   
-      json_bat_2,
-      ...   
-      json_bat_n   
-   ]
-
-regall
+modulo 
 ======
 
-Devuelve a la app el archivo ``regall.txt``.
+Borra el contenido del archivo "register.txt", que es en donde se 
+guardan las mediciones fallidas. El http_response es:
 
-.. code-block:: bash
+.. code-block:: http
 
-   HTTP/1.1 200 OK
-   Content-Type:text/plain;charset=UTF-8
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
 
-   [
-      json_regall_0,   
-      json_regall_1,   
-      json_regall_2,
-      ...   
-      json_regall_n   
-   ]
+    Memoria SD formateada. Mediciones guardadas eliminadas
 
-activity
-========
+reset
+=====
+
+Reinicia el equipo. El esp32 se apaga y se vuelve a encender. Para 
+seguir configurando el equipo, se debe volver a generar la red wifi.
+
+invalid sn
+==========
+
+Se quita los 0 en el campo "sn" del json de medición que se va a 
+enviar al servidor. Esto se hace para testear la respuesta del 
+mismo a un json formado con un sn inválido.
+
+El http_response es:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    El json de medición se va a armar con un sn inválido
+
+Y si se vuelve a mandar la palabra clave, devuelve:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    El json de medición se va a armar normal
+
+invalid time
+============
+
+Se manda un timestamp con el a{o 2025 en el json de medición que 
+se va a enviar al servidor. Esto se hace para testear la respuesta
+del mismo a un json formado con un timestamp inválido.
+
+El http_response es:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    El json de medición se va a armar con un timestamp inválido
+
+Y si se vuelve a mandar la palabra clave, devuelve:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    El json de medición se va a armar normal
+
+log
+===
 
 Devuelve a la app el archivo ``activity.txt``.
 
 .. warning:: 
-   Con las 3 últimas palabras se debe hacer la petición con 
-   Packet Sender o programa similar, pues los archivos son 
-   muy extensos para que la app los muestre.
+   Con esta palabra se debe hacer la petición con Packet Sender o 
+   programa similar, pues el archivo es muy extensos para que la 
+   app los muestre.
 
 Medición manual
 ***************
