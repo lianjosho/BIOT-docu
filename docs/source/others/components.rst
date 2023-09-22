@@ -9,6 +9,7 @@ Componentes del equipo
 
 ESP32
 *****
+
 El micro elegido es el ESP32 DOIT DEVKIT V1. El pinout de la 
 versión de 30 pines es el siguiente:
 
@@ -26,7 +27,6 @@ lo hace muy potente en comparación con otros dispositivos
 similares. Además, cuenta con una memoria flash de hasta 4 MB 
 y una memoria RAM de 520 kB, lo que le permite manejar múltiples 
 tareas de manera efectiva.
-
 
 Otra característica importante del ESP32 es su conectividad 
 integrada de WiFi y Bluetooth. Esto permite que el dispositivo 

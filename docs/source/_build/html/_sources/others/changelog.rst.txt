@@ -260,6 +260,17 @@ Versión 6
 ..    ]
 
 
+V6.2.0 - 20/09/2023
+===================
+
+Added
+-----
+
+- **Credenciales ingresadas:** se agregan palabras clave para ingresar desde 
+  la app APN, USER y PWD si se desea que el equipo use unas credenciales en 
+  particular en lugar de consultar por la empresa proveedora de servicio para 
+  cargar las que están en el firmware por defecto.
+
 V6.1.0 - 13/09/2023
 ===================
 

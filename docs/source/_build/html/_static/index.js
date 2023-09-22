@@ -493,6 +493,8 @@
             } else {
               toNode = toElement(toNode);
             }
+          } else if (toNode.nodeType === DOCUMENT_FRAGMENT_NODE$1) {
+            toNode = toNode.firstElementChild;
           }
           var getNodeKey = options.getNodeKey || defaultGetNodeKey;
           var onBeforeNodeAdded = options.onBeforeNodeAdded || noop;
@@ -502,6 +504,10 @@
           var onBeforeNodeDiscarded = options.onBeforeNodeDiscarded || noop;
           var onNodeDiscarded = options.onNodeDiscarded || noop;
           var onBeforeElChildrenUpdated = options.onBeforeElChildrenUpdated || noop;
+          var skipFromChildren = options.skipFromChildren || noop;
+          var addChild = options.addChild || function(parent, child) {
+            return parent.appendChild(child);
+          };
           var childrenOnly = options.childrenOnly === true;
           var fromNodesLookup = /* @__PURE__ */ Object.create(null);
           var keyedRemovalList = [];
@@ -602,6 +608,7 @@
             }
           }
           function morphChildren(fromEl, toEl) {
+            var skipFrom = skipFromChildren(fromEl);
             var curToNodeChild = toEl.firstChild;
             var curFromNodeChild = fromEl.firstChild;
             var curToNodeKey;
@@ -613,7 +620,7 @@
               while (curToNodeChild) {
                 toNextSibling = curToNodeChild.nextSibling;
                 curToNodeKey = getNodeKey(curToNodeChild);
-                while (curFromNodeChild) {
+                while (!skipFrom && curFromNodeChild) {
                   fromNextSibling = curFromNodeChild.nextSibling;
                   if (curToNodeChild.isSameNode && curToNodeChild.isSameNode(curFromNodeChild)) {
                     curToNodeChild = toNextSibling;
@@ -670,7 +677,9 @@
                   curFromNodeChild = fromNextSibling;
                 }
                 if (curToNodeKey && (matchingFromEl = fromNodesLookup[curToNodeKey]) && compareNodeNames(matchingFromEl, curToNodeChild)) {
-                  fromEl.appendChild(matchingFromEl);
+                  if (!skipFrom) {
+                    addChild(fromEl, matchingFromEl);
+                  }
                   morphEl(matchingFromEl, curToNodeChild);
                 } else {
                   var onBeforeNodeAddedResult = onBeforeNodeAdded(curToNodeChild);
@@ -681,7 +690,7 @@
                     if (curToNodeChild.actualize) {
                       curToNodeChild = curToNodeChild.actualize(fromEl.ownerDocument || doc);
                     }
-                    fromEl.appendChild(curToNodeChild);
+                    addChild(fromEl, curToNodeChild);
                     handleNodeAdded(curToNodeChild);
                   }
                 }

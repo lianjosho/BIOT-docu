@@ -8,8 +8,61 @@ Comunicación con el servidor
 
 .. contents:: 
 
-Funcionamiento
-**************
+setMetadata
+***********
+
+Para configurar un punto, el equipo le manda al servidor el 
+siguiente ``http_request``: 
+
+.. code-block:: http
+
+    POST /setMetadata HTTP/1.1
+    Content-Type: text/plain
+    User-Agent: Insomnia/2023.5.7
+    Host: us-central1-briste-biot.cloudfunctions.net
+    Content-Length: 354
+
+    {
+        "id": "L-7BF4",
+        "product": "THSST",
+        "soil_type": "Franco arcillo arenoso",
+        "location_name": "hola",
+        "location": {
+            "latitude": -31.39163971,
+            "longitude": -64.22101593
+        },
+        "sensors": {
+            "00000000001": {
+                "type": "the",
+                "tag_depth": "10.00"
+            }
+        },
+        "cred": {
+            "apn": "datos.personal.com",
+            "user": "datos",
+            "pwd": "datos"
+        }
+    }
+
+.. code-block:: http
+   
+    HTTP/2 200 
+    content-type: application/json; charset=utf-8
+    function-execution-id: xlnu4p0lt2ec
+    x-cloud-trace-context: 8f5c53493268a963fecda8353c1d7583;o=1
+    date: Thu, 21 Sep 2023 14:00:12 GMT
+    server: Google Frontend
+    content-length: 49
+    alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+    {
+        "message": "Se actualizaron los datos de L-7BF4"
+    }
+
+
+
+updateProduct
+*************
 
 Una vez que los paquetes de mediciones están hechas, los paquetes 
 se mandan al servidor cuya dirección es:
@@ -183,12 +236,51 @@ El servidor responde:
 407: Problema con LOCATION
 ==========================
 
-enviados son [0,0]
+Problemas con el campo ``location``, tiene valores nulos. Si se 
+le envía el mismo ``http request`` del ejemplo, pero con el 
+siguiente campo modificado:
+
+.. code-block:: json
+
+    "location": {
+        "latitude": 0,
+        "longitude": 0
+    }
+
+El servidor responde:
+
+.. code-block:: http
+
+    HTTP/1.1 406 Not Acceptable
+    Content-Type: application/json
+    Content-Length: <length>
+
+    {
+    	"message": "Error LOCATION no valido"
+    }
 
 408: Problema con el TAG_DEPTH  
 ==============================
 
-no es válido. Fuera del  rango [000, 9999]
+Problemas con el campo ``tag_depth``, está fuera de rango. Si se 
+le envía el mismo ``http request`` del ejemplo, pero con el 
+siguiente campo modificado:
+
+.. code-block:: json
+
+    "tag_depth": -1 (o 1001)
+
+El servidor responde:
+
+.. code-block:: http
+
+    HTTP/1.1 406 Not Acceptable
+    Content-Type: application/json
+    Content-Length: <length>
+
+    {
+    	"message": "Error TAG_DEPTH fuera de rango en cm. [0,1000]"
+    }
 
 460: Problema con la LATITUDE
 =============================

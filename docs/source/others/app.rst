@@ -505,7 +505,7 @@ Y si se vuelve a mandar la palabra clave, devuelve:
 invalid time
 ============
 
-Se manda un timestamp con el a{o 2025 en el json de medición que 
+Se manda un timestamp con el año 2025 en el json de medición que 
 se va a enviar al servidor. Esto se hace para testear la respuesta
 del mismo a un json formado con un timestamp inválido.
 
@@ -536,6 +536,97 @@ Devuelve a la app el archivo ``activity.txt``.
    Con esta palabra se debe hacer la petición con Packet Sender o 
    programa similar, pues el archivo es muy extensos para que la 
    app los muestre.
+
+apn,<valor de apn>
+==================
+
+Configura la APN que va a usar el equipo para conectarse a 
+internet. El `http_response` es:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    APN configurado:
+    Credenciales:
+    -------------
+     · apn: <valor de apn>
+     · user: <valor de user>
+     · pwd: <valor de pwd>
+
+.. warning:: 
+
+    El valor de apn se debe ingresar sin los símbolos <>;
+    así, si APN es igual a `datos.personal.com`, entonces
+    la palabra clave a usar es:
+
+    .. code-block:: console
+
+        apn,datos.personal.com
+
+    Lo mismo sucede con USER y PWD.
+
+user,<valor de user>
+====================
+
+Configura el USER que va a usar el equipo para conectarse a 
+internet. El ``http_response`` es:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    USER configurado:
+    Credenciales:
+    -------------
+     · apn: <valor de apn>
+     · user: <valor de user>
+     · pwd: <valor de pwd>
+
+pwd,<valor de pwd>
+==================
+
+Configura el PWD que va a usar el equipo para conectarse a 
+internet. El ``http_response`` es:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    PWD configurado:
+    Credenciales:
+    -------------
+     · apn: <valor de apn>
+     · user: <valor de user>
+     · pwd: <valor de pwd>
+
+erase cred
+==========
+
+Borra la APN, USER y PWD que están guardados. El 
+``http_response`` es:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    APN configurado:
+    Credenciales borradas:
+    -------------
+     · apn: 
+     · user: 
+     · pwd: 
+
+.. note:: 
+
+    Cuando no hay credenciales configuradas, el equipo
+    consulta al módulo SIM800 para saber a qué prestadora 
+    de servicio de internet permenece el chip insertado y
+    coloca las credenciales guardadas por defecto. 
 
 Medición manual
 ***************
