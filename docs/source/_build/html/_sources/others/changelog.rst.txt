@@ -259,6 +259,14 @@ Versión 6
 ..       "062+28.9,+84.0,+0.517"
 ..    ]
 
+V6.2.2 - 29/09/2023
+===================
+
+Changed
+-------
+
+- **http en formato json:** las respuestas del equipo a la app se 
+  cambiaron a formato json.
 
 V6.2.1 - 22/09/2023
 ===================

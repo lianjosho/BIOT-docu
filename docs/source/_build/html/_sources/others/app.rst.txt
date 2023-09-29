@@ -80,28 +80,28 @@ Si todo sale bien, entonces el http response es:
     Content-Type:text/plain;charset=UTF-8
 
     {
-      "sensors": {
-        "Salida1(o1)": <sensor_value>,
-        "Salida2(o2)": <sensor_value>
-        },
-      "save": <save_value>,
-      "sent": <sent_value>
+        "id": "L-7BF4",
+        "sensors": true,
+        "save": true,
+        "sent": 1
     }
 
 Donde: 
 
-- ``<sensor_value>``: resultado de configurar el sensor.
-    - **0**: el sensor no se configuró, ya sea porque no se obtuvo respuesta o porque responde mal.
-    - **1**: el sensor se configuró correctamente.
-- ``<save_value>``: resultado del guardado de la configuración.
-    - **0**: no se guardó la configuración.
-    - **1**: la configuración se guardó y quedó como pendiente.
-- ``<sent_value>``: resultado del envío de la configuración.
+- ``<id>``: identificador del equipo.
+- ``<sensors>``: resultado de configurar los sensores.
+    - **false**: hubo un problema con algún sensor y no se configuró.
+    - **true**: los sensores se configurarion correctamente.
+- ``<save>``: resultado del guardado de la configuración.
+    - **false**: no se guardó la configuración.
+    - **true**: se guardó la configuración.
+- ``<sent>``: resultado del envío de la configuración.
     - **0**: módulo offline activado, no se envía la configuración.
     - **1**: la configuración se envió correctamente.
     - **2**: el módulo SIM no responde.
     - **3**: no se pudo obtener conexión a internet.
     - **4**: el servidor no respondió con 200 ok.
+
 
 
 
@@ -363,6 +363,9 @@ configuración y atiende ese caso especial.
 - invalid sn
 - invalid time
 - log
+- apn,<valor de apn>
+- user,<valor de user>
+- pwd,<valor de pwd>
 
 erase 
 =====
@@ -408,23 +411,24 @@ Hace un chequeo de los módulos RTC externo y SD y las
 salidas. Luego le envía a la app un mensaje con el 
 resultado del chequeo.
 
-.. code-block:: bash
+.. code-block:: http
 
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    Chequeo:
-    ========
-    - Tarjeta SD: ok
-    - Reloj externo: ok
-    - Salidas:
-     · 1) ok
-     · 2) No configurado
-     · 3) No configurado
-     · 4) No configurado
-    - Modo 12: No
-    - Modo offline: Sí
-    - Mediciones guardadas: 8
+    {
+      "SD card": true,
+      "extern RTC": true,
+      "SIM module": true,
+      "sensors": {
+        "1": true
+      },
+      "others": {
+        "offline": false,
+        "modo 12": false,
+        "json in SD": 3
+      }
+    }
    
 voltaje,<volt>
 ==============
@@ -432,27 +436,45 @@ voltaje,<volt>
 Configura el coeficiente de voltaje, donde <volt> es el 
 valor de voltaje de la batería en ese momento. La HTTP response es:
 
-.. code-block:: bash
+.. code-block:: http
 
-   HTTP/1.1 200 OK
-   Content-Type:text/plain;charset=UTF-8
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
 
-   Coeficiente de voltaje seteado en 1.00
+    {
+        "message": "Coeficiente de voltaje seteado en 1.00"
+    }
 
 modo12
 ======
 
-Activa o desactiva el modo 12.
+Activa o desactiva el modo 12. Si el modo 12 estaba desactivado, el 
+``http_response`` es:
 
-.. code-block:: bash
+.. code-block:: http
 
-   HTTP/1.1 200 OK
-   Content-Type:text/plain;charset=UTF-8
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
 
-   Modo 12:
-    · Medición cada 1 hs
-    · Envío cada 12 hs
-    · Envíos a la 00:00 y 12:00 hs
+    {
+        "message": "modo 12",
+        "measures": "c/1 hs",
+        "send": "00:00 y 12:00"
+    }
+
+Si se vuelve a mandar la palabra clave, entonces el 
+``http_response`` es:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    {
+        "message": "modo normal",
+        "measures": "12:00",
+        "send": "12:00"
+    }
 
 offline
 =======
@@ -465,14 +487,20 @@ desactivado, lo activa y devuelve:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    Modo offline: las mediciones NO se envían, sólo se guardan
+    {
+        "message": "Modo offline: activado"
+    }
+
+Si se vuelve a enviar la palabra clave, entonces responde:
 
 .. code-block:: http
 
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    Modo online: las mediciones se envían normalmente
+    {
+        "message": "Modo offline: desactivado"
+    }
 
 modulo 
 ======
@@ -485,7 +513,9 @@ guardan las mediciones fallidas. El http_response es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    Memoria SD formateada. Mediciones guardadas eliminadas
+    {
+        "message": "Memoria SD formateada. Mediciones guardadas eliminadas"
+    }
 
 reset
 =====
@@ -507,7 +537,9 @@ El http_response es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    El json de medición se va a armar con un sn inválido
+    {
+        "message": "json_measure con SN inválido"
+    }
 
 Y si se vuelve a mandar la palabra clave, devuelve:
 
@@ -516,7 +548,9 @@ Y si se vuelve a mandar la palabra clave, devuelve:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    El json de medición se va a armar normal
+    {
+        "message": "json_measure normal"
+    }
 
 invalid time
 ============
@@ -532,7 +566,9 @@ El http_response es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    El json de medición se va a armar con un timestamp inválido
+    {
+        "message": "json_measure con timestamp inválido"
+    }
 
 Y si se vuelve a mandar la palabra clave, devuelve:
 
@@ -541,7 +577,9 @@ Y si se vuelve a mandar la palabra clave, devuelve:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    El json de medición se va a armar normal
+    {
+        "message": "json_measure normal"
+    }
 
 log
 ===
@@ -564,12 +602,12 @@ internet. El `http_response` es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    APN configurado:
-    Credenciales:
-    -------------
-     · apn: <valor de apn>
-     · user: <valor de user>
-     · pwd: <valor de pwd>
+    {
+        "message": "APN configurado",
+        "apn": "<valor de apn>",
+        "user": "<valor de user>",
+        "pwd": "<valor de pwd>"
+    }
 
 .. warning:: 
 
@@ -594,12 +632,12 @@ internet. El ``http_response`` es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    USER configurado:
-    Credenciales:
-    -------------
-     · apn: <valor de apn>
-     · user: <valor de user>
-     · pwd: <valor de pwd>
+    {
+        "message": "APN configurado",
+        "apn": "<valor de apn>",
+        "user": "<valor de user>",
+        "pwd": "<valor de pwd>"
+    }
 
 pwd,<valor de pwd>
 ==================
@@ -612,12 +650,12 @@ internet. El ``http_response`` es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    PWD configurado:
-    Credenciales:
-    -------------
-     · apn: <valor de apn>
-     · user: <valor de user>
-     · pwd: <valor de pwd>
+    {
+        "message": "PWD configurado",
+        "apn": "<valor de apn>",
+        "user": "<valor de user>",
+        "pwd": "<valor de pwd>"
+    }
 
 erase cred
 ==========
@@ -630,12 +668,12 @@ Borra la APN, USER y PWD que están guardados. El
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    APN configurado:
-    Credenciales borradas:
-    -------------
-     · apn: 
-     · user: 
-     · pwd: 
+    {
+        "message": "Credenciales borradas",
+        "apn": "<valor de apn>",
+        "user": "<valor de user>",
+        "pwd": "<valor de pwd>"
+    }
 
 .. note:: 
 
