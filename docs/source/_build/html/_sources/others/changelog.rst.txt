@@ -260,6 +260,46 @@ Versión 6
 ..    ]
 
 
+V6.2.1 - 22/09/2023
+===================
+
+Fixed
+-----
+
+- **Respuestas no solicitadas del sim:** el módulo sim responde con los 
+  siguientes códigos no solicitados después de que se lo alimentase: 
+  ``Call Ready`` y ``SMS Ready``. Se modificó el firmware para que se siga 
+  esperando la respuesta si alguno de estos códigos aparece.
+
+- **Configuración de modo12:** pasos a seguir antes: 
+  - Configurar sensores.
+  - Des/activar modo 12 con palabra clave.
+  - Salir y volver a entrar al menú de configuración para actualizar el tiempo unix guardado en la eeprom.
+
+  Pasos a seguir ahora:
+  - Configurar sensores.
+  - Des/activar modo 12 con palabra clave.
+
+Added
+-----
+
+- **Tiempo agregado al wifi:** el wifi se enciende por interrupción por 5 
+  minutos y cada vez que se realiza una de las 4 peticiones válidas, se van 
+  a agregar 2 minutos mas. 
+  
+  .. note:: 
+
+    Recordar que con la palabra clave ``reset`` el esp32 se resetea y se 
+    pone a dormir.
+
+Fixed
+-----
+
+- **Palabra clave "log":** la palabra clave "log" devolvía un archivo que 
+  se cortaba cuando encontraba un String nulo, cosa que no se debía hacer 
+  porque el archivo log no se acaba ahí. Para arreglarlo, se pregunta si 
+  la posición del cursor es igual al tamaño del archivo.
+
 V6.2.0 - 20/09/2023
 ===================
 

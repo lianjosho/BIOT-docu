@@ -79,13 +79,29 @@ Si todo sale bien, entonces el http response es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    Equipo configurado
-    ==================
-     · 1) 10.00 cm (the)
-     · 2) No configurado
-     · 3) No configurado
-     · 4) No configurado
+    {
+      "sensors": {
+        "Salida1(o1)": <sensor_value>,
+        "Salida2(o2)": <sensor_value>
+        },
+      "save": <save_value>,
+      "sent": <sent_value>
+    }
 
+Donde: 
+
+- ``<sensor_value>``: resultado de configurar el sensor.
+    - **0**: el sensor no se configuró, ya sea porque no se obtuvo respuesta o porque responde mal.
+    - **1**: el sensor se configuró correctamente.
+- ``<save_value>``: resultado del guardado de la configuración.
+    - **0**: no se guardó la configuración.
+    - **1**: la configuración se guardó y quedó como pendiente.
+- ``<sent_value>``: resultado del envío de la configuración.
+    - **0**: módulo offline activado, no se envía la configuración.
+    - **1**: la configuración se envió correctamente.
+    - **2**: el módulo SIM no responde.
+    - **3**: no se pudo obtener conexión a internet.
+    - **4**: el servidor no respondió con 200 ok.
 
 
 

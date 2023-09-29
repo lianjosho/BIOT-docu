@@ -53,9 +53,9 @@
 <li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">7.- </span>Comunicación con el servidor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#setmetadata">setMetadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#updateproduct">updateProduct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#peticion-ok">200: Petición ok</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dada-de-alta-de-un-punto">Dada de alta de un punto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#actualizacion-de-las-mediciones">Actualización de las mediciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#peticion-ok">200: Petición ok</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problema-con-el-json">400: Problema con el JSON</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problema-con-product">404: Problema con PRODUCT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problema-con-id">405: Problema con ID</a></li>
@@ -65,8 +65,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#problema-con-la-latitude">460: Problema con la LATITUDE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problema-con-longitude">461: Problema con LONGITUDE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id1">462: Problema con LOCATION</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#problema-con-el-timestamp">463: Problema con el TIMESTAMP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">464: Problema con el TIMESTAMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problema-con-el-timestamp-mal-formado">463: Problema con el TIMESTAMP (mal formado)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problema-con-el-timestamp-fuera-de-rango">464: Problema con el TIMESTAMP (fuera de rango)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#problema-del-servidor">500: Problema del servidor</a></li>
 </ul>
 </li>
@@ -103,38 +103,41 @@
            <div itemprop="articleBody">
              
   <section id="comunicacion-con-el-servidor">
-<h1><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">7.- </span>Comunicación con el servidor</a><a class="headerlink" href="#comunicacion-con-el-servidor" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id2" role="doc-backlink"><span class="sectnum">7.- </span>Comunicación con el servidor</a><a class="headerlink" href="#comunicacion-con-el-servidor" title="Permalink to this heading"></a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="auto-toc simple">
-<li><p><a class="reference internal" href="#comunicacion-con-el-servidor" id="id3"><span class="sectnum">7.- </span>Comunicación con el servidor</a></p>
+<li><p><a class="reference internal" href="#comunicacion-con-el-servidor" id="id2"><span class="sectnum">7.- </span>Comunicación con el servidor</a></p>
 <ul>
-<li><p><a class="reference internal" href="#setmetadata" id="id4">setMetadata</a></p></li>
-<li><p><a class="reference internal" href="#updateproduct" id="id5">updateProduct</a></p></li>
-<li><p><a class="reference internal" href="#peticion-ok" id="id6">200: Petición ok</a></p>
+<li><p><a class="reference internal" href="#dada-de-alta-de-un-punto" id="id3">Dada de alta de un punto</a></p></li>
+<li><p><a class="reference internal" href="#actualizacion-de-las-mediciones" id="id4">Actualización de las mediciones</a></p>
 <ul>
-<li><p><a class="reference internal" href="#problema-con-el-json" id="id7">400: Problema con el JSON</a></p></li>
-<li><p><a class="reference internal" href="#problema-con-product" id="id8">404: Problema con PRODUCT</a></p></li>
-<li><p><a class="reference internal" href="#problema-con-id" id="id9">405: Problema con ID</a></p></li>
-<li><p><a class="reference internal" href="#problema-con-sn" id="id10">406: Problema con SN</a></p></li>
-<li><p><a class="reference internal" href="#problema-con-location" id="id11">407: Problema con LOCATION</a></p></li>
-<li><p><a class="reference internal" href="#problema-con-el-tag-depth" id="id12">408: Problema con el TAG_DEPTH</a></p></li>
-<li><p><a class="reference internal" href="#problema-con-la-latitude" id="id13">460: Problema con la LATITUDE</a></p></li>
-<li><p><a class="reference internal" href="#problema-con-longitude" id="id14">461: Problema con LONGITUDE</a></p></li>
-<li><p><a class="reference internal" href="#id1" id="id15">462: Problema con LOCATION</a></p></li>
-<li><p><a class="reference internal" href="#problema-con-el-timestamp" id="id16">463: Problema con el TIMESTAMP</a></p></li>
-<li><p><a class="reference internal" href="#id2" id="id17">464: Problema con el TIMESTAMP</a></p></li>
-<li><p><a class="reference internal" href="#problema-del-servidor" id="id18">500: Problema del servidor</a></p></li>
+<li><p><a class="reference internal" href="#peticion-ok" id="id5">200: Petición ok</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-json" id="id6">400: Problema con el JSON</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-product" id="id7">404: Problema con PRODUCT</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-id" id="id8">405: Problema con ID</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-sn" id="id9">406: Problema con SN</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-location" id="id10">407: Problema con LOCATION</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-tag-depth" id="id11">408: Problema con el TAG_DEPTH</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-la-latitude" id="id12">460: Problema con la LATITUDE</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-longitude" id="id13">461: Problema con LONGITUDE</a></p></li>
+<li><p><a class="reference internal" href="#id1" id="id14">462: Problema con LOCATION</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-timestamp-mal-formado" id="id15">463: Problema con el TIMESTAMP (mal formado)</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-timestamp-fuera-de-rango" id="id16">464: Problema con el TIMESTAMP (fuera de rango)</a></p></li>
+<li><p><a class="reference internal" href="#problema-del-servidor" id="id17">500: Problema del servidor</a></p></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </nav>
-<section id="setmetadata">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">setMetadata</a><a class="headerlink" href="#setmetadata" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-14">Para configurar un punto, el equipo le manda al servidor el
-siguiente <code class="docutils literal notranslate"><span class="pre">http_request</span></code>:</p>
+<section id="dada-de-alta-de-un-punto">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Dada de alta de un punto</a><a class="headerlink" href="#dada-de-alta-de-un-punto" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-14">Para configurar un punto, el equipo manda a la siguiente dirección:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">https://us-central1-briste-biot.cloudfunctions.net/setMetadata</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-20">el siguiente metadata en una HTTP POST request:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/setMetadata</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/plain</span>
 <span class="na">User-Agent</span><span class="o">:</span> <span class="l">Insomnia/2023.5.7</span>
@@ -164,6 +167,7 @@ siguiente <code class="docutils literal notranslate"><span class="pre">http_requ
 }
 </pre></div>
 </div>
+<p class="linemarker linemarker-52">Si está todo ok, el servidor responde lo siguiente:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">200</span>
 <span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
 <span class="na">function-execution-id</span><span class="o">:</span> <span class="l">xlnu4p0lt2ec</span>
@@ -178,172 +182,206 @@ siguiente <code class="docutils literal notranslate"><span class="pre">http_requ
 <span class="p">}</span>
 </pre></div>
 </div>
+<p class="linemarker linemarker-69">Entonces el equipo no pone el bool <code class="docutils literal notranslate"><span class="pre">pending_config</span></code> en alto y
+le responde a la app que la configuración se realizó
+exitosamente.</p>
 </section>
-<section id="updateproduct">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">updateProduct</a><a class="headerlink" href="#updateproduct" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-67">Una vez que los paquetes de mediciones están hechas, los paquetes
-se mandan al servidor cuya dirección es:</p>
+<section id="actualizacion-de-las-mediciones">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Actualización de las mediciones</a><a class="headerlink" href="#actualizacion-de-las-mediciones" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-76">Una vez que los paquetes de mediciones están hechas, se mandan al
+servidor cuya dirección es:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">https://us-central1-briste-biot.cloudfunctions.net/updateProduct</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-74">Se hace una petición POST con cada paquete con el módulo
+<p class="linemarker linemarker-83">Se hace una petición POST con cada paquete con el módulo
 SIM808 como el del siguiente ejemplo:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/updateProduct</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
-<span class="na">Host</span><span class="o">:</span> <span class="l">us-central1-briste-biot.cloudfunctions.net</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/plain</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">&lt;length&gt;</span>
+<span class="na">User-Agent</span><span class="o">:</span> <span class="l">Insomnia/2023.5.7</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">us-central1-briste-biot.cloudfunctions.net</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">679</span>
 
 {
-   &quot;enabled&quot;: true,
-   &quot;id&quot;: &quot;L-7BF4&quot;,
-   &quot;product&quot;: &quot;THSST&quot;,
-   &quot;timestamp&quot;: &quot;2023-04-20-12-18-42&quot;,
-   &quot;location&quot;: {
-      &quot;latitude&quot;: -31.39167023,
-      &quot;longitude&quot;: -64.22102356
-   },
-   &quot;value&quot;: {
-      &quot;sn&quot;: &quot;00000000001&quot;,
-      &quot;humidity&quot;: 0.00,
-      &quot;temperature&quot;: 22.08,
-      &quot;location_name&quot;: &quot;BIOT-&quot;,
-      &quot;tag_depth&quot;: 10,
-      &quot;loss_tangent&quot;: 0.00,
-      &quot;electrical_conductivity&quot;: 0,
-      &quot;electrical_conductivity_tc&quot;: 0.00,
-      &quot;real_dielectric_permittivity&quot;: 0.00,
-      &quot;real_dielectric_permittivity_tc&quot;: 0.00,
-      &quot;imag_dielectric_permittivity&quot;: 0.00,
-      &quot;imag_dielectric_permittivity_tc&quot;: 0.00,
-      &quot;level_bat&quot;: 0.000
-   },
-   &quot;verFirm&quot;: &quot;V1.0.15&quot;,
-   &quot;verHard&quot;: &quot;V1.0.0&quot;,
-   &quot;number_sent&quot;: 0
-   }
+    &quot;enabled&quot;: true,
+    &quot;id&quot;: &quot;L-1004&quot;,
+    &quot;product&quot;: &quot;THSST&quot;,
+    &quot;timestamp&quot;: &quot;2022-12-31-21-00-00&quot;,
+    &quot;location&quot;: {
+        &quot;latitude&quot;: -31.39164543,
+        &quot;longitude&quot;: -64.22100067
+},
+&quot;value&quot;: {
+    &quot;sn&quot;: &quot;00000000001&quot;,
+    &quot;humidity&quot;: 1.59,
+    &quot;temperature&quot;: 24.98,
+    &quot;location_name&quot;: &quot;BRISTE&quot;,
+    &quot;tag_depth&quot;: 200,
+    &quot;loss_tangent&quot;: 0.000,
+    &quot;electrical_conductivity&quot;: 0,
+    &quot;electrical_conductivity_tc&quot;: 0,
+    &quot;real_dielectric_permittivity&quot;: 0,
+    &quot;real_dielectric_permittivity_tc&quot;: 0,
+    &quot;imag_dielectric_permittivity&quot;: 0.00,
+    &quot;imag_dielectric_permittivity_tc&quot;: 0.00,
+    &quot;level_bat&quot;: 6.643
+    },
+&quot;verFirm&quot;: &quot;V5.1.0&quot;,
+&quot;verHard&quot;: &quot;V1.0.0&quot;,
+&quot;number_sent&quot;: 0
+}
 </pre></div>
 </div>
-<p class="linemarker linemarker-113">El servidor puede contestar con los siguientes códigos de
+<p class="linemarker linemarker-123">El servidor puede contestar con los siguientes códigos de
 error.</p>
-</section>
 <section id="peticion-ok">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">200: Petición ok</a><a class="headerlink" href="#peticion-ok" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-119">Petición procesada exitosamente. Si se le envía el <code class="docutils literal notranslate"><span class="pre">http</span>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">200: Petición ok</a><a class="headerlink" href="#peticion-ok" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-129">Petición procesada exitosamente. Si se le envía el <code class="docutils literal notranslate"><span class="pre">http</span>
 <span class="pre">request</span></code> del ejemplo, entonces el servidor responde:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">&lt;length&gt;</span>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span> HTTP/2 200
+ content-type: application/json; charset=utf-8
+ function-execution-id: 4327ufhdlkwk
+ x-cloud-trace-context: 979ccf0190118773a1eea5b3ecf09a2d
+ date: Fri, 29 Sep 2023 14:24:35 GMT
+ server: Google Frontend
+ content-length: 83
+ alt-svc: h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000
 
-<span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Se actualizaron los datos de L-7BF4&quot;</span><span class="p">,</span>
-<span class="w">   </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-07-16T23:26:06&quot;</span>
-<span class="p">}</span>
+{
+   &quot;message&quot;: &quot;Se actualizaron los datos de L-7BF4&quot;,
+   &quot;timestamp&quot;: &quot;2023-07-16T23:26:06&quot;
+}
 </pre></div>
 </div>
+</section>
 <section id="problema-con-el-json">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">400: Problema con el JSON</a><a class="headerlink" href="#problema-con-el-json" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-136">El paquete json entero posiblemente esté mal formado. Si
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">400: Problema con el JSON</a><a class="headerlink" href="#problema-con-el-json" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-151">El paquete json entero posiblemente esté mal formado. Si
 se le envía el <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo con algún error,
 entonces el servidor responde:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">&lt;length&gt;</span>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span> HTTP/2 400
+ content-type: application/json; charset=utf-8
+ function-execution-id: 4327ad9l5bl2
+ x-cloud-trace-context: d6c3aacad50eff5163d7da9a5951f2ea;o=1
+ date: Fri, 29 Sep 2023 14:25:07 GMT
+ server: Google Frontend
+ content-length: 691
+ alt-svc: h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000
 
-<span class="p">{</span>
-<span class="w"> </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error al parsear el body: {\r\n</span>
-<span class="s2"> \&quot;enabled\&quot;: true,\r\n  \r\n  \&quot;product\&quot;: \&quot;THSST\&quot;,</span>
-<span class="s2"> \r\n  \&quot;timestamp\&quot;: \&quot;2023-04-20-12-18-42\&quot;,\r\n</span>
-<span class="s2"> \&quot;location\&quot;: {\r\n    \&quot;latitude\&quot;: -31.39167023,\r\n</span>
-<span class="s2">\&quot;longitude\&quot;: -64.22102356\r\n  },\r\n</span>
-<span class="s2">\&quot;value\&quot;: {\r\n    \&quot;sn\&quot;: \&quot;00000000001\&quot;,\r\n</span>
-<span class="s2">\&quot;humidity\&quot;: 0.00,\r\n    \&quot;temperature\&quot;:</span>
-<span class="s2">22.08,\r\n    \&quot;location_name\&quot;: \&quot;BIOT-\&quot;,\r\n</span>
-<span class="s2">\&quot;tag_depth\&quot;: 10,\r\n    \&quot;loss_tangent\&quot;: 0.00,\r\n</span>
-<span class="s2">\&quot;electrical_conductivity\&quot;: 0,\r\n</span>
-<span class="s2">\&quot;electrical_conductivity_tc\&quot;: 0.00,\r\n</span>
-<span class="s2">\&quot;real_dielectric_permittivity\&quot;: 0.00,\r\n</span>
-<span class="s2">\&quot;real_dielectric_permittivity_tc\&quot;: 0.00,\r\n</span>
-<span class="s2">\&quot;imag_dielectric_permittivity\&quot;: 0.00,\r\n</span>
-<span class="s2">\&quot;imag_dielectric_permittivity_tc\&quot;: 0.00,\r\n</span>
-<span class="s2">\&quot;level_bat\&quot;: 0.000\r\n  },\r\n  \&quot;verFirm\&quot;:</span>
-<span class="s2">\&quot;V1.0.15\&quot;,\r\n  \&quot;verHard\&quot;: \&quot;V1.0.0\&quot;,\r\n</span>
-<span class="s2">\&quot;number_sent\&quot;: 0\r\n}&quot;</span>
-<span class="p">}</span>
+{
+ &quot;message&quot;: &quot;Error al parsear el body: {\r\n
+ \&quot;enabled\&quot;: true,\r\n  \r\n  \&quot;product\&quot;: \&quot;THSST\&quot;,
+ \r\n  \&quot;timestamp\&quot;: \&quot;2023-04-20-12-18-42\&quot;,\r\n
+ \&quot;location\&quot;: {\r\n    \&quot;latitude\&quot;: -31.39167023,\r\n
+\&quot;longitude\&quot;: -64.22102356\r\n  },\r\n
+\&quot;value\&quot;: {\r\n    \&quot;sn\&quot;: \&quot;00000000001\&quot;,\r\n
+\&quot;humidity\&quot;: 0.00,\r\n    \&quot;temperature\&quot;:
+22.08,\r\n    \&quot;location_name\&quot;: \&quot;BIOT-\&quot;,\r\n
+\&quot;tag_depth\&quot;: 10,\r\n    \&quot;loss_tangent\&quot;: 0.00,\r\n
+\&quot;electrical_conductivity\&quot;: 0,\r\n
+\&quot;electrical_conductivity_tc\&quot;: 0.00,\r\n
+\&quot;real_dielectric_permittivity\&quot;: 0.00,\r\n
+\&quot;real_dielectric_permittivity_tc\&quot;: 0.00,\r\n
+\&quot;imag_dielectric_permittivity\&quot;: 0.00,\r\n
+\&quot;imag_dielectric_permittivity_tc\&quot;: 0.00,\r\n
+\&quot;level_bat\&quot;: 0.000\r\n  },\r\n  \&quot;verFirm\&quot;:
+\&quot;V1.0.15\&quot;,\r\n  \&quot;verHard\&quot;: \&quot;V1.0.0\&quot;,\r\n
+\&quot;number_sent\&quot;: 0\r\n}&quot;
+}
 </pre></div>
 </div>
 </section>
 <section id="problema-con-product">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">404: Problema con PRODUCT</a><a class="headerlink" href="#problema-con-product" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-170">El campo <code class="docutils literal notranslate"><span class="pre">product</span></code> no es válido. Si se le envía el
-mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el siguiente
-campo modificado:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dsTHSST&quot;</span><span class="p">,</span>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">404: Problema con PRODUCT</a><a class="headerlink" href="#problema-con-product" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-190">El campo <code class="docutils literal notranslate"><span class="pre">product</span></code> no es válido. Si se le envía el mismo
+<code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el siguiente campo
+modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;product&quot;: &quot;TdddHSST&quot;</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-178">El servidor responde:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not Found</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">&lt;length&gt;</span>
+<p class="linemarker linemarker-198">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">404</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">43276bbpevjg</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">0dd0a36ff048bebced564210d3b47720;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:26:16 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">49</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
 
 <span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error PRODUCT: dsTHSST no válido.&quot;</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error PRODUCT: TdddHSST no válido.&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="problema-con-id">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">405: Problema con ID</a><a class="headerlink" href="#problema-con-id" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-193">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">id</span></code>, no es válido. Si se le
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">405: Problema con ID</a><a class="headerlink" href="#problema-con-id" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-218">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">id</span></code>, no es válido. Si se le
 envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
 siguiente campo modificado:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;id&quot;: &quot;&quot;,</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-201">El servidor responde:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">405</span> <span class="ne">Method Not Allowed</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">&lt;length&gt;</span>
+<p class="linemarker linemarker-226">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">405</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327iobihsgs</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">38fcb81db56be11f4755c004f82af3d5;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:27:08 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">32</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
 
 <span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error ID no valido&quot;</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error ID no valido&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="problema-con-sn">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">406: Problema con SN</a><a class="headerlink" href="#problema-con-sn" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-216">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">sn</span></code>, la longitud es menor a
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">406: Problema con SN</a><a class="headerlink" href="#problema-con-sn" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-246">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">sn</span></code>, la longitud es menor a
 4 caracteres. Si se le envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code>
 del ejemplo, pero con el siguiente campo modificado:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;sn&quot;: &quot;01&quot;,</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-224">El servidor responde:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">406</span> <span class="ne">Not Acceptable</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">&lt;length&gt;</span>
+<p class="linemarker linemarker-254">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">406</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327phq6x3pu</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">4bda6dc1b80f87f11d724dee1aafe24c;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:29:09 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">32</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
 
 <span class="p">{</span>
-<span class="w">   </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error SN no valido&quot;</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error SN no valido&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </section>
 <section id="problema-con-location">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">407: Problema con LOCATION</a><a class="headerlink" href="#problema-con-location" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-239">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">location</span></code>, tiene valores nulos. Si se
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">407: Problema con LOCATION</a><a class="headerlink" href="#problema-con-location" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-274">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">location</span></code>, tiene valores nulos. Si se
 le envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
 siguiente campo modificado:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<span class="p">}</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;location&quot;: {</span>
+<span class="go">    &quot;latitude&quot;: 0,</span>
+<span class="go">    &quot;longitude&quot;: 0</span>
+<span class="go">}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-250">El servidor responde:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">406</span> <span class="ne">Not Acceptable</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">&lt;length&gt;</span>
+<p class="linemarker linemarker-285">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">407</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">43275yhfqgp3</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">0f1e3a8038c542871411b216cdcb6420;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:30:16 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">38</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
 
 <span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error LOCATION no valido&quot;</span>
@@ -352,17 +390,22 @@ siguiente campo modificado:</p>
 </div>
 </section>
 <section id="problema-con-el-tag-depth">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">408: Problema con el TAG_DEPTH</a><a class="headerlink" href="#problema-con-el-tag-depth" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-265">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">tag_depth</span></code>, está fuera de rango. Si se
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">408: Problema con el TAG_DEPTH</a><a class="headerlink" href="#problema-con-el-tag-depth" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-305">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">tag_depth</span></code>, está fuera de rango. Si se
 le envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
 siguiente campo modificado:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;tag_depth&quot;: -1 (o 1001)
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;tag_depth&quot;: -1 (o 1001)</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-273">El servidor responde:</p>
-<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">406</span> <span class="ne">Not Acceptable</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-<span class="na">Content-Length</span><span class="o">:</span> <span class="l">&lt;length&gt;</span>
+<p class="linemarker linemarker-313">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">408</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327fjv706qh</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">c073c93c7b38e7fd887ca80b5567ebdf</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:31:18 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">60</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
 
 <span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error TAG_DEPTH fuera de rango en cm. [0,1000]&quot;</span>
@@ -371,29 +414,140 @@ siguiente campo modificado:</p>
 </div>
 </section>
 <section id="problema-con-la-latitude">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">460: Problema con la LATITUDE</a><a class="headerlink" href="#problema-con-la-latitude" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-288">feura de  rango de [-90, 90]</p>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">460: Problema con la LATITUDE</a><a class="headerlink" href="#problema-con-la-latitude" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-333">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, está fuera del rango
+[-90; 90]. Si se envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo,
+pero con el siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;latitude&quot;: -121.39164543</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-341">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">460</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327styqcgqb</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">0cef79a5a2f24ce400d58f2711933b53;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 13:58:02 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">70</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error LATITUDE: -121.39164543 fuera del rango [-90, 90].&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="problema-con-longitude">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">461: Problema con LONGITUDE</a><a class="headerlink" href="#problema-con-longitude" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-293">fuera del  rango de [-180, 180]</p>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">461: Problema con LONGITUDE</a><a class="headerlink" href="#problema-con-longitude" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-361">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, está fuera del rango
+[-180; 180]. Si se envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo,
+pero con el siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;longitude&quot;: -264.22100067</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-369">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">461</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327ypc89obe</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">02409f5d3ff5c00d0db21e2abdd20452;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:04:12 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">73</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error LONGITUDE: -264.22100067 fuera del rango [-180, 180].&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="id1">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink">462: Problema con LOCATION</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-298">Revisar los  campos “latitude” &amp; “longitude”</p>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">462: Problema con LOCATION</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-389">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">location</span></code>, está mal formado. Si se
+envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
+siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;location&quot;: {</span>
+<span class="go">    &quot;le&quot;: -31.39164543,</span>
+<span class="go">    &quot;longitude&quot;: -64.22100067</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-400">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">462</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327uzdwybk9</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">c0b28411578ea5badab2d2867b5fb1ba;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:06:45 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">45</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error al convertir la location.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
-<section id="problema-con-el-timestamp">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink">463: Problema con el TIMESTAMP</a><a class="headerlink" href="#problema-con-el-timestamp" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-303">mal formado,  debe seguir con el formato YYYY-MM-DD-HH-MM-SS. Por
-ejemplo: 2021-10-15-12-06-18</p>
+<section id="problema-con-el-timestamp-mal-formado">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">463: Problema con el TIMESTAMP (mal formado)</a><a class="headerlink" href="#problema-con-el-timestamp-mal-formado" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-420">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, está mal formado, debe
+seguir con el formato YYYY-mm-DD-HH-MM-SS. Si se envía el
+mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el siguiente campo
+modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;timestamp&quot;: &quot;2023-08-31T14:10:36&quot;,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-429">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">463</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327qpic95yf</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">2f668064b1d64e371a0053a0363ee908;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:09:08 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">43</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error al convertir timestamp.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
-<section id="id2">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink">464: Problema con el TIMESTAMP</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-309">fuera de rango</p>
+<section id="problema-con-el-timestamp-fuera-de-rango">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">464: Problema con el TIMESTAMP (fuera de rango)</a><a class="headerlink" href="#problema-con-el-timestamp-fuera-de-rango" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-449">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, está fuera de rango.</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-451">Valor mínimo: 2021-12-31-21-00-00</p></li>
+<li><p class="linemarker linemarker-452">Valor máximo: la hora actual del servidor</p></li>
+</ul>
+<p class="linemarker linemarker-454">Si se envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
+siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;timestamp&quot;: &quot;2024-08-31T14:10:36&quot;,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-461">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">464</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327wilgms5n</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">f931fa672659f33450be1d334dd1697c;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:22:11 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">76</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error fecha fuera de rango.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;29/09/2023, 11:22:11&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="problema-del-servidor">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink">500: Problema del servidor</a><a class="headerlink" href="#problema-del-servidor" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-314">Problema interno del servidor a la hora de guardar los datos</p>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">500: Problema del servidor</a><a class="headerlink" href="#problema-del-servidor" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-482">Problema interno del servidor a la hora de guardar los datos. No
+se muestra un ejemplo de lo que responde el servidor porque al
+momento de ahcer esta documentación no se ha podido simular esa
+falla.</p>
 </section>
 </section>
 </section>
