@@ -11,8 +11,6 @@ Comunicación con la APP
 Cuando el celular está conectado al equipo, éste puede 
 atender las siguientes peticiones:
 
-[enlace](variables/archivo.wsd)
-
 - Actualización del RTC interno
 - Configuración del equipo
 - Palabras clave
@@ -80,16 +78,24 @@ Si todo sale bien, entonces el http response es:
     Content-Type:text/plain;charset=UTF-8
 
     {
-        "id": "L-7BF4",
-        "sensors": true,
-        "save": true,
-        "sent": 1
+      "id": "L-E620",
+      "offline": false,
+      "sensors": {
+        "1": true,
+        "2": false,
+        "3": false,
+        "4": false
+      },
+      "save": true,
+      "connection": true,
+      "server": true
     }
 
 Donde: 
 
 - ``<id>``: identificador del equipo.
-- ``<sensors>``: resultado de configurar los sensores.
+- ``<offline>``: indica si el modo offline está des/activado.
+- ``<sensors>``: resultado de la configuración de los sensores.
     - **false**: hubo un problema con algún sensor y no se configuró.
     - **true**: los sensores se configurarion correctamente.
 - ``<save>``: resultado del guardado de la configuración.
@@ -366,6 +372,8 @@ configuración y atiende ese caso especial.
 - apn,<valor de apn>
 - user,<valor de user>
 - pwd,<valor de pwd>
+- erase cred
+- erase log
 
 erase 
 =====
@@ -384,7 +392,9 @@ El http_response es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    La configuración ha sido borrada
+    {
+        "message": "La configuración ha sido borrada"
+    }
 
 eeprom
 ======
@@ -394,10 +404,28 @@ formato json.
 
 .. code-block:: http
 
-   HTTP/1.1 200 OK
-   Content-Type:text/plain;charset=UTF-8
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
 
-
+    {
+      "id": "L-7BF4",
+      "product": "THSST",
+      "soil_type": "",
+      "location_name": "",
+      "location": {
+        "latitude": 0,
+        "longitude": 0
+      },
+      "sensors": {},
+      "otro": {
+        "apn": "",
+        "user": "",
+        "pwd": "",
+        "pending_config": false,
+        "offline": true,
+        "modo 12": true
+      }
+    }
 
 Donde el json devuelto es igual al ``json_pp``, excepto que 
 a los campos de las salidas se le agrega un campo llamado
@@ -421,7 +449,8 @@ resultado del chequeo.
       "extern RTC": true,
       "SIM module": true,
       "sensors": {
-        "1": true
+        "1": true,
+        "1": false
       },
       "others": {
         "offline": false,
@@ -430,6 +459,25 @@ resultado del chequeo.
       }
     }
    
+- ``SD card``: instala el módulo SD y crea las carpetas necesarias para trabajar si no estaban creadas.
+    - false: no se pudo obtener respuesta.
+    - true: chequeo ok.
+- ``extern RTC``: instala el módulo DS3231. Si no responde a la primera llamada, se desalimenta, se espera 100 ms, se vuelve a alimentar y se chequea de nuevo
+    - false: no se pudo obtener respuesta.
+    - true: chequeo ok.
+- ``SIM module``: se alimenta el módulo SIM y se intenta mandar un paquete al server.
+    - false: no se pudo enviar el paquete.
+    - true: paquete enviado.
+- ``sensors``: json que contiene los sensores configurados.
+    - false: no se obtuvo respuesta del sensor.
+    - true: chequeo ok.
+- ``others``: json que contiene otras configuraciones.
+    - ``offline``: false si el modo offline está desactivado, true si está activado.
+    - ``modo 12``: ídem para el modo 12.
+    - ``json in SD``: cantidad de paquetes guardados en la SD.
+
+
+
 voltaje,<volt>
 ==============
 
@@ -488,7 +536,7 @@ desactivado, lo activa y devuelve:
     Content-Type:text/plain;charset=UTF-8
 
     {
-        "message": "Modo offline: activado"
+        "message": "Modo offline ACTIVADO"
     }
 
 Si se vuelve a enviar la palabra clave, entonces responde:
@@ -499,13 +547,13 @@ Si se vuelve a enviar la palabra clave, entonces responde:
     Content-Type:text/plain;charset=UTF-8
 
     {
-        "message": "Modo offline: desactivado"
+        "message": "Modo offline desactivado"
     }
 
 modulo 
 ======
 
-Borra el contenido del archivo "register.txt", que es en donde se 
+Borra el contenido del archivo ``register.txt``, que es en donde se 
 guardan las mediciones fallidas. El http_response es:
 
 .. code-block:: http
@@ -520,8 +568,11 @@ guardan las mediciones fallidas. El http_response es:
 reset
 =====
 
-Reinicia el equipo. El esp32 se apaga y se vuelve a encender. Para 
-seguir configurando el equipo, se debe volver a generar la red wifi.
+Reinicia el equipo. El esp32 se apaga y se vuelve a encender. 
+
+.. warning:: 
+    
+    Para seguir configurando el equipo, se debe volver a generar la red wifi.
 
 invalid sn
 ==========
@@ -587,6 +638,7 @@ log
 Devuelve a la app el archivo ``activity.txt``.
 
 .. warning:: 
+   
    Con esta palabra se debe hacer la petición con Packet Sender o 
    programa similar, pues el archivo es muy extensos para que la 
    app los muestre.
@@ -682,6 +734,21 @@ Borra la APN, USER y PWD que están guardados. El
     de servicio de internet permenece el chip insertado y
     coloca las credenciales guardadas por defecto. 
 
+erase log 
+=========
+
+Borra el archivo ``/activity.txt`` y lo vuelve a crear. El 
+``http_response`` es:
+
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    {
+        "message": "Archivo "/activity.txt" borrado"
+    }
+
 Medición manual
 ***************
 
@@ -706,84 +773,51 @@ La HTTP_response es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    Resultado
-    =========
-    · 1) Sensor the
-        T = 19.43°C
-        H = 0.45%RH
-        EC = 0uS/cm
-        Envío: FALLÓ
-        Guardado: ok
-    · 2) Sensor the
-        T = 19.42°C
-        H = 0.34%RH
-        EC = 0uS/cm
-        Envío: FALLÓ
-        Guardado: ok
-    · 3) Sensor the
-        T = 19.59°C
-        H = 0.34%RH
-        EC = 0uS/cm
-        Envío: FALLÓ
-        Guardado: ok
-    · 4) Sensor the
-        T = 19.54°C
-        H = 0.22%RH
-        EC = 0uS/cm
-        Envío: FALLÓ
-        Guardado: ok
-    Enviados desde SD: 0
-    Quedan en la SD: 4
+    {
+      "offline": true,
+      "sensors": {
+        "1": {
+          "status": true,
+          "T": 20.50,
+          "H": 0.11,
+          "E": 0,
+          "sent": false,
+          "save": true
+        },
+        "2": {
+          "status": true,
+          "T": 20.50,
+          "H": 0.11,
+          "E": 0,
+          "N": 0,
+          "P": 0,
+          "K": 0,
+          "sent": false,
+          "save": true
+        },
+        "3": {
+          "status": true,
+          "L": 0.798,
+          "sent": false,
+          "save": true
+        }
+      },
+      "sent_from_sd": 0,
+      "rest_on_sd": 16
+    }
 
-Donde cada salida corresponde a lo siguiente:
+Donde :
 
-- Encabezado: tiene el número de la salida y el tipo de sensor.
-
-  .. code-block:: console
-
-     · 4) Sensor the
-
-- Parámetros: son las mediciones en sí. Para un sensor "THE":
-     
-  .. code-block:: console
-
-     T = 19.54°C
-     H = 0.22%RH
-     EC = 0uS/cm
-
-  Para un sensor "NPK":      
-        
-  .. code-block:: console
- 
-     T = 19.54°C
-     H = 0.22%RH
-     EC = 0uS/cm
-     N = 19mg/kg
-     P = 39mg/kg
-     K = 29mg/kg
-
-  Y para un sensor "de nivel":      
-    
-  .. code-block:: console
- 
-    L = 4.5 metros
-
-- Envío y guardado: es el resultado del envío y guardado del 
-  paquete de la salida en cuestión.
-
-  .. code-block:: console
- 
-    Envío: ok o FALLÓ
-    Guardado: ok o FALLÓ
-
-Por último, se muestran las mediciones guardadas, que son el 
-resultado del envío de las mediciones que habían guardadas 
-en la SD. Si no se pueden enviar, seguirán en la SD.
-
-.. code-block:: console
-
-    Enviados desde SD: 0
-    Quedan en la SD: 4
+- ``offline``: indica si el modo offline está activado o no.
+- ``Sensors``: contiene json de los sensores configurados.
+    - ``status``: indica si la medición se hizo o falló.
+    - ``T, H, E``: parámetros del sensor THE. 
+    - ``T, H, E, N, P, K``: parámetros del sensor NPK. 
+    - ``L``: parámetros del sensor LEVEL. 
+    - ``sent``: indica si el paquete se envió con éxito al server. 
+    - ``save``: indica si el paquete se guardó con éxito si el envío falló. 
+- ``sent_from_sd``: número de paquetes enviados desde la sd.
+- ``rest_on_sd``: número de paquetes que quedan en la sd.
 
 .. warning:: 
 
@@ -797,31 +831,36 @@ El HTTP request es:
 
 .. code-block:: http
 
-   POST /getHistory HTTP/1.1  
-   user-agent: Dart/2.16 (dart:io)  
-   content-type: application/json; charset=utf-8
-   accept-encoding: gzip
-   content-length: 2
-   host: 192.168.4.1
+    POST /getHistory HTTP/1.1  
+    user-agent: Dart/2.16 (dart:io)  
+    content-type: application/json; charset=utf-8
+    accept-encoding: gzip
+    content-length: 2
+    host: 192.168.4.1
 
 
-   {}
+    {}
 
 Y la HTTP response es un array de json:
 
 .. code-block:: bash
 
-   HTTP/1.1 200 OK
-   Content-type: application/json
+    HTTP/1.1 200 OK
+    Content-type: application/json
 
-   [ json_measure_0, json_measure_1, ... ]   
+    [
+      json_measure_0, 
+      json_measure_1, 
+      ...,
+      json_measure_n 
+    ]   
 
 El ESP32 manda un json cada vez porque tiene un límite de 
 alrededor de 1400 caracteres por envío al cliente.
 
 .. note:: 
     
-   Después de descargar los datos, el archivo ``register.txt``
-   no se elimina, sólo lo hará cuando el equipo pueda mandar 
-   con éxito dichas mediciones vía sim800 o se hayan 
-   intentado mandar 3 veces sin éxito.
+    Después de descargar los datos, el archivo ``register.txt``
+    no se elimina, sólo lo hará cuando el equipo pueda mandar 
+    con éxito dichas mediciones vía sim800 o se hayan 
+    intentado mandar 3 veces sin éxito.

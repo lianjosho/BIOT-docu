@@ -27,7 +27,7 @@ Tipos de cambios
 - ``Removed`` para las características en desuso que se eliminaron en esta versión.
 - ``Fixed`` para corrección de errores.
 
-Versión 6
+Versión 7
 *********
 
 .. V6.3.0 - 08/08/2023
@@ -259,7 +259,80 @@ Versión 6
 ..       "062+28.9,+84.0,+0.517"
 ..    ]
 
-V6.2.2 - 29/09/2023
+
+
+V7.1.4 - 4/10/2023
+===================
+
+Fixed
+-----
+
+- **Problemas el campo "level_bat":** el campo ``level_bat`` del 
+  ``json_measure`` no contenía decimales.
+
+V7.1.2 - 2/10/2023
+===================
+
+Fixed
+-----
+
+- **Problemas con la palabra clave "chequeo":** el equipo devolvía un 
+  chequeo de sensores erróneo, siempre chequeaba la misma salida, 
+  independientemente de lo que decía la configuración. Se cambió: 
+  
+  .. code-block:: c++
+     
+    for (size_t i = 0; i < 4; i++) {
+      if (config.tag_depth[i] > 0)
+        sensors[String(i + 1)] = Sensor1::check_sensor_in_a_out(0, config.type[0]);
+    }
+
+  por: 
+     
+  .. code-block:: c++
+    
+    for (size_t i = 0; i < 4; i++) {
+      if (config.tag_depth[i] > 0)
+        sensors[String(i + 1)] = Sensor1::check_sensor_in_a_out(i, config.type[i]);
+    }
+
+Added
+-----
+
+- **Palabra clave "erase log":** recrea el archivo ``/activity.txt``. 
+
+
+V7.1.1 - 1/10/2023
+===================
+
+Fixed
+-----
+
+- **Problemas con float al serializar json:** cuando una variable float se 
+  serializaba en el json, pasaba de ser
+  
+  .. code-block:: console
+
+    "temp": 12.36
+
+  a ser 
+
+  .. code-block:: console
+
+    "temp": 12.35999999
+
+  Se corrigió pasando de tipo de variable ``float`` a ``double``.
+
+V7.0.1 - 29/09/2023
+===================
+
+Changed
+-------
+
+- **http de palabras clave de credenciales:** las respuestas del equipo a la app se 
+  cuando se cambia de credenciales cambiaron a formato json.
+
+V7.0.0 - 29/09/2023
 ===================
 
 Changed
@@ -267,6 +340,9 @@ Changed
 
 - **http en formato json:** las respuestas del equipo a la app se 
   cambiaron a formato json.
+
+Versión 6
+*********
 
 V6.2.1 - 22/09/2023
 ===================

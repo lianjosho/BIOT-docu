@@ -73,6 +73,22 @@ Al cabo de 10 minutos, el equipo vuelve a ponerse en modo
 deep sleep. Si no se alcanzó a realizar las operaciones previstas,
 se puede volver a tocar el pulsador para crear la red de nuevo.
 
+Tiempos de respuesta
+====================
+
+.. csv-table:: Configuración
+    :header: Elemento, the / npk, nivel
+    :widths: 10, 5, 10
+    :align: center 
+
+    Sensor, 1 (3), 1 (6)
+    Sim, ,
+    Internet, , 
+    Server, ,
+
+**Nota:** los tiempos están en segundos, y entre paréntesis están los valores 
+máximos.
+
 Diagramas de flujo
 ==================
 
