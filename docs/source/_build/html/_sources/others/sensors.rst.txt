@@ -247,6 +247,139 @@ Y la trama de respuesta ``NPK_response`` es:
 - **P**: valor de fósforo; ídem al anterior y se obtiene ``P=49 mg/kg``.
 - **K**: valor de potasio; ídem al anterior y se obtiene ``K=40 mg/kg``.
 
+RS485/4-20mA Soil PH Sensor (Gemho)
+***********************************
+El pH es una medida de acidez o alcalinidad de una disolución acuosa. 
+El pH indica la concentración de iones de hidrógeno presentes en 
+determinadas disoluciones. El PH es adimensional.
+
+El sensor de PH del suelo GHHB-031-485 es un nuevo sensor integrado. 
+El sensor adopta el principio de reflexión en el dominio de frecuencia 
+FDR. Basado en el principio del pulso electromagnético y la frecuencia 
+de propagación de la onda electromagnética en el medio, se mide la 
+constante dieléctrica aparente del suelo para obtener el contenido de 
+PH del suelo.
+
+Características
+===============
+
+- Alimentación: 9-18 V :sub:`CC`.
+- Señal de salida: RS485/0-5V/0-10V/4-20mA/4G/NB-IoT/LoRa/WiFi
+- Rango de medición: 0-14 PH
+- Exactitud: 0.01 PH
+- Tiempo de respuesta: ≤15 seg
+- Temperatura de operación: -40 a ~85 °C
+- Humedad: 15 %RH a ~90 %RH
+
+Conexión 
+========
+
+.. csv-table:: Conexión sensor NPK
+   :header: Color, Descripción
+   :widths: 10, 10
+   :align: center
+
+   Rojo, 12V
+   Negro, Ground
+   Verde, RS485(A)
+   Amarillo, RS485(B)
+
+Tramas
+======
+
+Las tramas de pedido de THE y de NPK son las mismas que para los sensores 
+THE y NPK, respectivamente. La trama ``PH_request`` es:
+
+.. csv-table:: Trama PH_request (8 bytes)
+   :header: Add, Function code, Register start address, Register length, CRC
+   :widths: 10, 10, 10, 10, 10
+
+   0x01, 0x03, 0x00 0x09, 0x00 0x01, 0x54 0x08
+
+Y la trama de respuesta ``PH_response`` es:
+
+.. csv-table:: Trama PH_response (7 bytes)
+   :header: Address, Function code, Effective number of bytes, PH, CRC
+   :widths: 10, 5, 10, 10, 10
+
+   0x01, 0x03, 0x04, 0x03 0x2D, 0x78 0xA9
+
+- **PH**: valor de PH. En este caso se recibe 0x03, 0x2D; se los coloca 
+  juntos para formar el hexa ``0x032D``, y convertido a decimal queda 813; 
+  dividiéndolo ahora por 100 queda ``PH=8.13``.
+
+LT-CG-S/D-001-M1120-12 THE, NPK, PH sensor
+*******************************************
+
+Los sensores LT-CG-S  y D-001-M1120-12 son sensores que miden temperatura, 
+humedad, electroconductividad, nitrógeno, potasio, fósforo y PH de un 
+suelo agrícola. 
+
+Características
+===============
+
+- Alimentación: 12 V :sub:`CC`.
+- Temperatura de operación: -20~50°C, 15~90 %RH
+- Rango de medición: 
+   - Temperatura: -40 a ~80°C
+   - Humedad: 0 a ~100%
+   - EC: 0 a ~10000us/cm
+   - PH: 4 a ~9
+   - NPK: 0 a ~1999mg/kg
+- Exactitud de la medición:
+   - Temperatura: ±0.5°C
+   - Humedad: ±3%
+   - EC: ±4%
+   - PH: 0.1
+   - NPK: ±2 %FS
+
+Conexión 
+========
+
+.. csv-table:: Conexión sensor PH
+   :header: Color, Descripción
+   :widths: 10, 10
+   :align: center
+
+   Gris, 12V
+   Negro, Ground
+   Verde/amarillo, RS485(A)
+   Marrón, RS485(B)
+
+Tramas
+======
+
+La trama de pedido de este sensor es diferente a los anteriores, tiene una 
+sola trama en la cual se piden todos los parámetros. La ``PH_request`` es:
+
+.. csv-table:: Trama PH_request (8 bytes)
+    :header: Add, Function code, Read register start position, Number of read registers, CRC
+    :widths: 10, 10, 10, 10, 10
+
+    0x01, 0x03, 0x00 0x00, 0x00 0x0B, 0x04 0x0D
+
+Y la trama de respuesta ``PH_response`` es:
+
+.. csv-table:: Trama PH_response (27 bytes)
+    :header: Valor, Descripción, Medición
+    :widths: 3, 4, 10
+
+    0x01, Sensor address,
+    0x03, Function code, 
+    0x16, Data length,
+    0x01 0x07, T (°C) · 1/10, 0x01 0x07 = 0x0107 = 263/10 = 26.3 °C
+    0x01 0xD7, H (%) · 1/10, 0x01 0xD7 = 0x01D7 = 471/10 = 47.1 %
+    0x00 0x00, EC (ms/cm), 0x00 0x00 = 0x00 = 0 ms/cm
+    0x00 0x46, PH (adim) · 1/10, 0x00 0x46 = 0x46 = 70/10 = 7.0
+    0x00 0x0F, N (mg/kg), 0x00 0x0F = 0x0F = 15 mg/kg
+    0x00 0x14, P (mg/kg), 0x00 0x14 = 0x14 = 20 mg/kg
+    0x00 0x32, K (mg/kg), 0x00 0x32 = 0x32 = 50 mg/kg
+    0x00 0x00, Reservado,
+    0x00 0x00, Reservado,
+    0x25 0x80, Baud rate, 9600
+    0x00 0x01, Sensor address, 01
+    0x63 0xE7, Verificación,
+
 SUP-ZP Ultrasonic level transmitter (Supmea)
 ********************************************
 
