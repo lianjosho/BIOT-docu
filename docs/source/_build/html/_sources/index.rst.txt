@@ -79,6 +79,7 @@ Contenido
    others/developer
    others/misc_test
    others/bugs
+   others/changes
    others/changelog
 
 
