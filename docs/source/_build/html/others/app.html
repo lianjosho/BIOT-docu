@@ -413,34 +413,28 @@ valor de voltaje de la batería en ese momento. La HTTP response es:</p>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
 {
-  &quot;message&quot;: &quot;modo normal&quot;,
-  &quot;measures&quot;: &quot;12:00&quot;,
-  &quot;send&quot;: &quot;12:00&quot;,
-  &quot;unix_eeprom&quot;: &quot;2023-11-21-12-00-00&quot;,
-  &quot;timeStamp RTC externo&quot;: &quot;2023-11-21-13-10-23&quot;,
-  &quot;timestamp equipo&quot;: &quot;2023-11-21-13-10-23&quot;
+    &quot;message&quot;: &quot;modo 12&quot;,
+    &quot;measures&quot;: &quot;c/1 hs&quot;,
+    &quot;send&quot;: &quot;00:00 y 12:00&quot;
 }
 </pre></div>
 </div>
-<p class="linemarker linemarker-516">Si se vuelve a mandar la palabra clave, entonces el
+<p class="linemarker linemarker-513">Si se vuelve a mandar la palabra clave, entonces el
 <code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
 {
-  &quot;message&quot;: &quot;modo 12&quot;,
-  &quot;measures&quot;: &quot;c/1 hs&quot;,
-  &quot;send&quot;: &quot;00:00 y 12:00&quot;,
-  &quot;unix_eeprom&quot;: &quot;2023-11-21-13-00-00&quot;,
-  &quot;timeStamp RTC externo&quot;: &quot;2023-11-21-13-15-51&quot;,
-  &quot;timestamp equipo&quot;: &quot;2023-11-21-13-15-51&quot;
+    &quot;message&quot;: &quot;modo normal&quot;,
+    &quot;measures&quot;: &quot;12:00&quot;,
+    &quot;send&quot;: &quot;12:00&quot;
 }
 </pre></div>
 </div>
 </section>
 <section id="offline">
 <h3><a class="toc-backref" href="#id10" role="doc-backlink">offline</a><a class="headerlink" href="#offline" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-536">Des/activa modo offline. Si el equipo estaba con el modo offline
+<p class="linemarker linemarker-530">Des/activa modo offline. Si el equipo estaba con el modo offline
 desactivado, lo activa y devuelve:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -450,7 +444,7 @@ desactivado, lo activa y devuelve:</p>
 }
 </pre></div>
 </div>
-<p class="linemarker linemarker-548">Si se vuelve a enviar la palabra clave, entonces responde:</p>
+<p class="linemarker linemarker-542">Si se vuelve a enviar la palabra clave, entonces responde:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
@@ -462,7 +456,7 @@ desactivado, lo activa y devuelve:</p>
 </section>
 <section id="modulo">
 <h3><a class="toc-backref" href="#id11" role="doc-backlink">modulo</a><a class="headerlink" href="#modulo" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-562">Borra el contenido del archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>, que es en donde se
+<p class="linemarker linemarker-556">Borra el contenido del archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>, que es en donde se
 guardan las mediciones fallidas. El http_response es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -475,18 +469,18 @@ guardan las mediciones fallidas. El http_response es:</p>
 </section>
 <section id="reset">
 <h3><a class="toc-backref" href="#id12" role="doc-backlink">reset</a><a class="headerlink" href="#reset" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-577">Reinicia el equipo. El esp32 se apaga y se vuelve a encender.</p>
+<p class="linemarker linemarker-571">Reinicia el equipo. El esp32 se apaga y se vuelve a encender.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p class="linemarker linemarker-581">Para seguir configurando el equipo, se debe volver a generar la red wifi.</p>
+<p class="linemarker linemarker-575">Para seguir configurando el equipo, se debe volver a generar la red wifi.</p>
 </div>
 </section>
 <section id="invalid-sn">
 <h3><a class="toc-backref" href="#id13" role="doc-backlink">invalid sn</a><a class="headerlink" href="#invalid-sn" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-586">Se quita los 0 en el campo “sn” del json de medición que se va a
+<p class="linemarker linemarker-580">Se quita los 0 en el campo “sn” del json de medición que se va a
 enviar al servidor. Esto se hace para testear la respuesta del
 mismo a un json formado con un sn inválido.</p>
-<p class="linemarker linemarker-590">El http_response es:</p>
+<p class="linemarker linemarker-584">El http_response es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
@@ -495,7 +489,7 @@ mismo a un json formado con un sn inválido.</p>
 }
 </pre></div>
 </div>
-<p class="linemarker linemarker-601">Y si se vuelve a mandar la palabra clave, devuelve:</p>
+<p class="linemarker linemarker-595">Y si se vuelve a mandar la palabra clave, devuelve:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
@@ -507,10 +501,10 @@ mismo a un json formado con un sn inválido.</p>
 </section>
 <section id="invalid-time">
 <h3><a class="toc-backref" href="#id14" role="doc-backlink">invalid time</a><a class="headerlink" href="#invalid-time" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-615">Se manda un timestamp con el año 2025 en el json de medición que
+<p class="linemarker linemarker-609">Se manda un timestamp con el año 2025 en el json de medición que
 se va a enviar al servidor. Esto se hace para testear la respuesta
 del mismo a un json formado con un timestamp inválido.</p>
-<p class="linemarker linemarker-619">El http_response es:</p>
+<p class="linemarker linemarker-613">El http_response es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
@@ -519,7 +513,7 @@ del mismo a un json formado con un timestamp inválido.</p>
 }
 </pre></div>
 </div>
-<p class="linemarker linemarker-630">Y si se vuelve a mandar la palabra clave, devuelve:</p>
+<p class="linemarker linemarker-624">Y si se vuelve a mandar la palabra clave, devuelve:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
@@ -531,17 +525,17 @@ del mismo a un json formado con un timestamp inválido.</p>
 </section>
 <section id="log">
 <h3><a class="toc-backref" href="#id15" role="doc-backlink">log</a><a class="headerlink" href="#log" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-644">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">activity.txt</span></code>.</p>
+<p class="linemarker linemarker-638">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">activity.txt</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p class="linemarker linemarker-648">Con esta palabra se debe hacer la petición con Packet Sender o
+<p class="linemarker linemarker-642">Con esta palabra se debe hacer la petición con Packet Sender o
 programa similar, pues el archivo es muy extensos para que la
 app los muestre.</p>
 </div>
 </section>
 <section id="apn-valor-de-apn">
 <h3><a class="toc-backref" href="#id16" role="doc-backlink">apn,&lt;valor de apn&gt;</a><a class="headerlink" href="#apn-valor-de-apn" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-655">Configura la APN que va a usar el equipo para conectarse a
+<p class="linemarker linemarker-649">Configura la APN que va a usar el equipo para conectarse a
 internet. El <cite>http_response</cite> es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -556,18 +550,18 @@ internet. El <cite>http_response</cite> es:</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p class="linemarker linemarker-672">El valor de apn se debe ingresar sin los símbolos &lt;&gt;;
+<p class="linemarker linemarker-666">El valor de apn se debe ingresar sin los símbolos &lt;&gt;;
 así, si APN es igual a <cite>datos.personal.com</cite>, entonces
 la palabra clave a usar es:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apn,datos.personal.com</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-680">Lo mismo sucede con USER y PWD.</p>
+<p class="linemarker linemarker-674">Lo mismo sucede con USER y PWD.</p>
 </div>
 </section>
 <section id="user-valor-de-user">
 <h3><a class="toc-backref" href="#id17" role="doc-backlink">user,&lt;valor de user&gt;</a><a class="headerlink" href="#user-valor-de-user" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-685">Configura el USER que va a usar el equipo para conectarse a
+<p class="linemarker linemarker-679">Configura el USER que va a usar el equipo para conectarse a
 internet. El <code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -583,7 +577,7 @@ internet. El <code class="docutils literal notranslate"><span class="pre">http_r
 </section>
 <section id="pwd-valor-de-pwd">
 <h3><a class="toc-backref" href="#id18" role="doc-backlink">pwd,&lt;valor de pwd&gt;</a><a class="headerlink" href="#pwd-valor-de-pwd" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-703">Configura el PWD que va a usar el equipo para conectarse a
+<p class="linemarker linemarker-697">Configura el PWD que va a usar el equipo para conectarse a
 internet. El <code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -599,7 +593,7 @@ internet. El <code class="docutils literal notranslate"><span class="pre">http_r
 </section>
 <section id="erase-cred">
 <h3><a class="toc-backref" href="#id19" role="doc-backlink">erase cred</a><a class="headerlink" href="#erase-cred" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-721">Borra la APN, USER y PWD que están guardados. El
+<p class="linemarker linemarker-715">Borra la APN, USER y PWD que están guardados. El
 <code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -614,7 +608,7 @@ internet. El <code class="docutils literal notranslate"><span class="pre">http_r
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p class="linemarker linemarker-738">Cuando no hay credenciales configuradas, el equipo
+<p class="linemarker linemarker-732">Cuando no hay credenciales configuradas, el equipo
 consulta al módulo SIM800 para saber a qué prestadora
 de servicio de internet permenece el chip insertado y
 coloca las credenciales guardadas por defecto.</p>
@@ -622,7 +616,7 @@ coloca las credenciales guardadas por defecto.</p>
 </section>
 <section id="erase-log">
 <h3><a class="toc-backref" href="#id20" role="doc-backlink">erase log</a><a class="headerlink" href="#erase-log" title="Permalink to this heading"></a></h3>
-<p class="linemarker linemarker-746">Borra el archivo <code class="docutils literal notranslate"><span class="pre">/activity.txt</span></code> y lo vuelve a crear. El
+<p class="linemarker linemarker-740">Borra el archivo <code class="docutils literal notranslate"><span class="pre">/activity.txt</span></code> y lo vuelve a crear. El
 <code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
@@ -636,7 +630,7 @@ coloca las credenciales guardadas por defecto.</p>
 </section>
 <section id="medicion-manual">
 <h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="sectnum">5.4.- </span>Medición manual</a><a class="headerlink" href="#medicion-manual" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-761">La HTTP request es:</p>
+<p class="linemarker linemarker-755">La HTTP request es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/requestMeasuring</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
 <span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
@@ -648,14 +642,14 @@ coloca las credenciales guardadas por defecto.</p>
 <span class="p">{}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-775">Suponiendo la siguiente configuración:</p>
+<p class="linemarker linemarker-769">Suponiendo la siguiente configuración:</p>
 <ul class="simple">
-<li><p class="linemarker linemarker-777">Salida 1: sensor THE;</p></li>
-<li><p class="linemarker linemarker-778">Salida 2: sensor NPK;</p></li>
-<li><p class="linemarker linemarker-779">Salida 3: sensor LEVEL;</p></li>
-<li><p class="linemarker linemarker-780">Salida 4: sensor PH;</p></li>
+<li><p class="linemarker linemarker-771">Salida 1: sensor THE;</p></li>
+<li><p class="linemarker linemarker-772">Salida 2: sensor NPK;</p></li>
+<li><p class="linemarker linemarker-773">Salida 3: sensor LEVEL;</p></li>
+<li><p class="linemarker linemarker-774">Salida 4: sensor PH;</p></li>
 </ul>
-<p class="linemarker linemarker-782">la <code class="docutils literal notranslate"><span class="pre">HTTP_response</span></code> es:</p>
+<p class="linemarker linemarker-776">la <code class="docutils literal notranslate"><span class="pre">HTTP_response</span></code> es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
 <span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
 
@@ -705,33 +699,33 @@ coloca las credenciales guardadas por defecto.</p>
 }
 </pre></div>
 </div>
-<p class="linemarker linemarker-834">Donde :</p>
+<p class="linemarker linemarker-828">Donde :</p>
 <ul class="simple">
-<li><p class="linemarker linemarker-836"><code class="docutils literal notranslate"><span class="pre">offline</span></code>: indica si el modo offline está activado o no.</p></li>
+<li><p class="linemarker linemarker-830"><code class="docutils literal notranslate"><span class="pre">offline</span></code>: indica si el modo offline está activado o no.</p></li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">Sensors</span></code>: contiene json de los sensores configurados.</dt><dd><ul>
-<li><p class="linemarker linemarker-838"><code class="docutils literal notranslate"><span class="pre">status</span></code>: indica si la medición se hizo o falló.</p></li>
-<li><p class="linemarker linemarker-839"><code class="docutils literal notranslate"><span class="pre">T,</span> <span class="pre">H,</span> <span class="pre">E</span></code>: parámetros del sensor THE.</p></li>
-<li><p class="linemarker linemarker-840"><code class="docutils literal notranslate"><span class="pre">T,</span> <span class="pre">H,</span> <span class="pre">E,</span> <span class="pre">N,</span> <span class="pre">P,</span> <span class="pre">K</span></code>: parámetros del sensor NPK.</p></li>
-<li><p class="linemarker linemarker-841"><code class="docutils literal notranslate"><span class="pre">L</span></code>: parámetros del sensor LEVEL.</p></li>
-<li><p class="linemarker linemarker-842"><code class="docutils literal notranslate"><span class="pre">sent</span></code>: indica si el paquete se envió con éxito al server.</p></li>
-<li><p class="linemarker linemarker-843"><code class="docutils literal notranslate"><span class="pre">save</span></code>: indica si el paquete se guardó con éxito si el envío falló.</p></li>
+<li><p class="linemarker linemarker-832"><code class="docutils literal notranslate"><span class="pre">status</span></code>: indica si la medición se hizo o falló.</p></li>
+<li><p class="linemarker linemarker-833"><code class="docutils literal notranslate"><span class="pre">T,</span> <span class="pre">H,</span> <span class="pre">E</span></code>: parámetros del sensor THE.</p></li>
+<li><p class="linemarker linemarker-834"><code class="docutils literal notranslate"><span class="pre">T,</span> <span class="pre">H,</span> <span class="pre">E,</span> <span class="pre">N,</span> <span class="pre">P,</span> <span class="pre">K</span></code>: parámetros del sensor NPK.</p></li>
+<li><p class="linemarker linemarker-835"><code class="docutils literal notranslate"><span class="pre">L</span></code>: parámetros del sensor LEVEL.</p></li>
+<li><p class="linemarker linemarker-836"><code class="docutils literal notranslate"><span class="pre">sent</span></code>: indica si el paquete se envió con éxito al server.</p></li>
+<li><p class="linemarker linemarker-837"><code class="docutils literal notranslate"><span class="pre">save</span></code>: indica si el paquete se guardó con éxito si el envío falló.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p class="linemarker linemarker-844"><code class="docutils literal notranslate"><span class="pre">sent_from_sd</span></code>: número de paquetes enviados desde la sd.</p></li>
-<li><p class="linemarker linemarker-845"><code class="docutils literal notranslate"><span class="pre">rest_on_sd</span></code>: número de paquetes que quedan en la sd.</p></li>
+<li><p class="linemarker linemarker-838"><code class="docutils literal notranslate"><span class="pre">sent_from_sd</span></code>: número de paquetes enviados desde la sd.</p></li>
+<li><p class="linemarker linemarker-839"><code class="docutils literal notranslate"><span class="pre">rest_on_sd</span></code>: número de paquetes que quedan en la sd.</p></li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p class="linemarker linemarker-849">Los paquetes en la SD con más de 3 envíos fallidos se
+<p class="linemarker linemarker-843">Los paquetes en la SD con más de 3 envíos fallidos se
 borrarán de la misma.</p>
 </div>
 </section>
 <section id="pedido-del-historial">
 <h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="sectnum">5.5.- </span>Pedido del historial</a><a class="headerlink" href="#pedido-del-historial" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-855">El HTTP request es:</p>
+<p class="linemarker linemarker-849">El HTTP request es:</p>
 <div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/getHistory</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
 <span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
@@ -743,7 +737,7 @@ borrarán de la misma.</p>
 <span class="p">{}</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-869">Y la HTTP response es un array de json:</p>
+<p class="linemarker linemarker-863">Y la HTTP response es un array de json:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
 Content-type:<span class="w"> </span>application/json
 
@@ -755,11 +749,11 @@ Content-type:<span class="w"> </span>application/json
 <span class="o">]</span>
 </pre></div>
 </div>
-<p class="linemarker linemarker-883">El ESP32 manda un json cada vez porque tiene un límite de
+<p class="linemarker linemarker-877">El ESP32 manda un json cada vez porque tiene un límite de
 alrededor de 1400 caracteres por envío al cliente.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p class="linemarker linemarker-888">Después de descargar los datos, el archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>
+<p class="linemarker linemarker-882">Después de descargar los datos, el archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>
 no se elimina, sólo lo hará cuando el equipo pueda mandar
 con éxito dichas mediciones vía sim800 o se hayan
 intentado mandar 3 veces sin éxito.</p>

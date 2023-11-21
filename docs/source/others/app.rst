@@ -505,12 +505,9 @@ Activa o desactiva el modo 12. Si el modo 12 estaba desactivado, el
     Content-Type:text/plain;charset=UTF-8
 
     {
-      "message": "modo normal",
-      "measures": "12:00",
-      "send": "12:00",
-      "unix_eeprom": "2023-11-21-12-00-00",
-      "timeStamp RTC externo": "2023-11-21-13-10-23",
-      "timestamp equipo": "2023-11-21-13-10-23"
+        "message": "modo 12",
+        "measures": "c/1 hs",
+        "send": "00:00 y 12:00"
     }
 
 Si se vuelve a mandar la palabra clave, entonces el 
@@ -522,12 +519,9 @@ Si se vuelve a mandar la palabra clave, entonces el
     Content-Type:text/plain;charset=UTF-8
 
     {
-      "message": "modo 12",
-      "measures": "c/1 hs",
-      "send": "00:00 y 12:00",
-      "unix_eeprom": "2023-11-21-13-00-00",
-      "timeStamp RTC externo": "2023-11-21-13-15-51",
-      "timestamp equipo": "2023-11-21-13-15-51"
+        "message": "modo normal",
+        "measures": "12:00",
+        "send": "12:00"
     }
 
 offline
