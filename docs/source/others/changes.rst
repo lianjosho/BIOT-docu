@@ -1,5 +1,5 @@
-Comunicación con la APP
-#######################
+Cambios o propuestas de mejora
+##############################
 
 .. sectnum:: 
    :suffix: .-

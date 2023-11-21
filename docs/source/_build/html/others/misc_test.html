@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9.- Pruebas varias &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.- Bugs reportados" href="bugs.html" />
+    <link rel="prev" title="8.- Desarrollador" href="developer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firmware.html"><span class="sectnum">3.- </span>Información sobre el firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">6.- </span>Guardado en memoria SD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">9.- </span>Pruebas varias</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sensor-ph-gemho"><span class="sectnum">9.1.- </span>Sensor PH Gemho</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#promediado-de-las-mediciones"><span class="sectnum">9.2.- </span>Promediado de las mediciones</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html"><span class="sectnum">10.- </span>Bugs reportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">9.- </span>Pruebas varias</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/misc_test.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pruebas-varias">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">9.- </span>Pruebas varias</a><a class="headerlink" href="#pruebas-varias" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#pruebas-varias" id="id3"><span class="sectnum">9.- </span>Pruebas varias</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#sensor-ph-gemho" id="id4"><span class="sectnum">9.1.- </span>Sensor PH Gemho</a></p></li>
+<li><p><a class="reference internal" href="#promediado-de-las-mediciones" id="id5"><span class="sectnum">9.2.- </span>Promediado de las mediciones</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="sensor-ph-gemho">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">9.1.- </span>Sensor PH Gemho</a><a class="headerlink" href="#sensor-ph-gemho" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-14">Se realizó la siguiente prueba para ver cómo funciona el sensor PH:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-16">Se aliemnta el sensor.</p></li>
+<li><p class="linemarker linemarker-17">Se manda la trama 01 03 00 06 00 07 E4 09 cada 2 segundos apox.</p></li>
+<li><p class="linemarker linemarker-18">Se recolecta la respuesata y analiza.</p></li>
+</ul>
+<style>
+   .gbg {background-color:#00ff00;}
+</style><table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Prueba sensor PH</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 57%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Intento</p></th>
+<th class="head"><p class="linemarker linemarker-1">Trama de respuesta</p></th>
+<th class="head"><p class="linemarker linemarker-1">Tiempo (seg.)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">01 03 0E 00 00 00 00 00 00 02 F7 00 00 00 00 00 00 E8 03</p></td>
+<td><p class="linemarker linemarker-1">2</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">2</p></td>
+<td><p class="linemarker linemarker-1">01 03 0E 00 00 00 00 00 00 03 16 00 00 00 00 00 00 D8 C1</p></td>
+<td><p class="linemarker linemarker-1">4</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">3</p></td>
+<td><p class="linemarker linemarker-1">01 03 0E <span class="gbg">08 31 0B B0 01 A1</span> 03 19 <span class="gbg">00 0D 00 3C 00 46</span> 16 0C</p></td>
+<td><p class="linemarker linemarker-1">6</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">4</p></td>
+<td><p class="linemarker linemarker-1">01 03 0E <span class="gbg">08 34 0B C9 01 8E</span> 03 19 <span class="gbg">00 0C 00 38 00 43</span> FA 67</p></td>
+<td><p class="linemarker linemarker-1">8</p></td>
+</tr>
+</tbody>
+</table>
+<p class="linemarker linemarker-37"><strong>Conclusión</strong>: se puede ver que después de ser alimentado, tiene que pasar
+aproximadamente 6 segundos antes de que el sensor devuelva una trama con los
+parámetros THE y NPK no nulos.</p>
+</section>
+<section id="promediado-de-las-mediciones">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">9.2.- </span>Promediado de las mediciones</a><a class="headerlink" href="#promediado-de-las-mediciones" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-44">Se tomó un sensor ph y se extrajeron varios valores de los 7
+parámetros para tomar su promedio.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Valores de sensor PH</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Intento</p></th>
+<th class="head"><p class="linemarker linemarker-1">T</p></th>
+<th class="head"><p class="linemarker linemarker-1">H</p></th>
+<th class="head"><p class="linemarker linemarker-1">E</p></th>
+<th class="head"><p class="linemarker linemarker-1">PH</p></th>
+<th class="head"><p class="linemarker linemarker-1">N</p></th>
+<th class="head"><p class="linemarker linemarker-1">P</p></th>
+<th class="head"><p class="linemarker linemarker-1">K</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">0</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+<td><p class="linemarker linemarker-1">7.04</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+<td><p class="linemarker linemarker-1">0</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">1</p></td>
+<td><p class="linemarker linemarker-1">23.04</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">417</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">13</p></td>
+<td><p class="linemarker linemarker-1">60</p></td>
+<td><p class="linemarker linemarker-1">70</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">2</p></td>
+<td><p class="linemarker linemarker-1">23.04</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">394</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">56</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">3</p></td>
+<td><p class="linemarker linemarker-1">23.07</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">394</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">56</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">4</p></td>
+<td><p class="linemarker linemarker-1">23.10</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">392</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">55</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">5</p></td>
+<td><p class="linemarker linemarker-1">23.07</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">391</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">55</p></td>
+<td><p class="linemarker linemarker-1">65</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">6</p></td>
+<td><p class="linemarker linemarker-1">23.07</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">393</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">55</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">7</p></td>
+<td><p class="linemarker linemarker-1">23.07</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">393</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">55</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">8</p></td>
+<td><p class="linemarker linemarker-1">23.07</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">392</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">55</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">9</p></td>
+<td><p class="linemarker linemarker-1">23.07</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">393</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">55</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-1">10</p></td>
+<td><p class="linemarker linemarker-1">23.13</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">395</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">56</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">23.07</p></td>
+<td><p class="linemarker linemarker-1">100.00</p></td>
+<td><p class="linemarker linemarker-1">393</p></td>
+<td><p class="linemarker linemarker-1">7.32</p></td>
+<td><p class="linemarker linemarker-1">11</p></td>
+<td><p class="linemarker linemarker-1">55</p></td>
+<td><p class="linemarker linemarker-1">66</p></td>
+</tr>
+</tbody>
+</table>
+<p class="linemarker linemarker-64"><strong>Conclusión:</strong> se toman distintas mediciones y se ve que los valores
+se quedan dentro de las tolerancias especificadas por la hoja de
+datos del sensor PH. Por lo tanto, no se necesita tomar varias
+mediciones para promediarlas después.</p>
+<p class="linemarker linemarker-69"><strong>Nota:</strong> lo que sí sucede es que cuando se toman mediciones desde
+distintos sensores en un mismo entorno, las mediciones no
+coiciden y se alejan de las tolerancias.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="developer.html" class="btn btn-neutral float-left" title="8.- Desarrollador" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bugs.html" class="btn btn-neutral float-right" title="10.- Bugs reportados" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

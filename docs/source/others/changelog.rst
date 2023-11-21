@@ -30,6 +30,169 @@ Tipos de cambios
 Versión 7
 *********
 
+V7.4.2 - 14/11/2023
+===================
+
+Fixed
+-----
+
+- **Valores no válidos de parámetros:** la trama que devolvía el sensor ph 
+  no era válida, no comenzaba con 0x01 0x03. Corregido, ahora se pide la trama
+  hasta que responda de esa forma. 
+
+V7.4.1 - 13/11/2023
+===================
+
+Changed
+-------
+
+- **Tiempo de espera del wifi:** cuando el equipo se enciende por interrupción,
+  se queda despierto durante 5 minutos. Si cuando queda menos de 1 minuto se 
+  realiza una petición, entonces se agrega 1 minuto más al tiempo en el que 
+  el wifi está activo. 
+
+Added
+-----
+
+- **Campo de timeStamp en la configuración y en la medición manual**: se agrega
+  un campo de timestamp en el json de configuración en la ``http_response`` 
+  cuando se configura un equipo y cuando se pide medición manual. Esto se hace 
+  para saber si al momento de hacer la petición un problema con el rtc. 
+  El ``http_response`` de configuración pasa a ser:
+
+    .. code-block:: http
+        :emphasize-lines: 7
+
+        HTTP/1.1 200 OK
+        Content-Type:text/plain;charset=UTF-8
+
+        {
+           "id": "L-33F8",
+           "offline": true,
+           "timestamp": "2023-11-13-16-57-47",
+           "sensors": {
+             "1": true,
+             "2": false,
+             "3": false,
+             "4": false,
+             "5": false
+           },
+           "save": true,
+           "connection": false,
+           "server": false
+        }
+
+  y el de medición manual:
+
+    .. code-block:: http
+        :emphasize-lines: 6
+
+        HTTP/1.1 200 OK
+        Content-Type:text/plain;charset=UTF-8
+
+        {
+          "offline": true,
+          "timestamp": "2023-11-13-17-19-02",
+          "sensors": {
+            "1": {
+              "status": true,
+              "T": "26.23",
+              "H": "12.84",
+              "E": 172,
+              "N": 7,
+              "P": 26,
+              "K": 30,
+              "sent": false,
+              "save": true
+            }
+          },
+          "sent_from_sd": 0,
+          "rest_on_sd": 34
+        }
+
+  donde las líneas resaltadas son las agregadas.     
+
+V7.4.0 - 07/11/2023
+===================
+
+Added
+-----
+
+- **Sensor PH:** se agrega la funcionalidad para configurar y medir con 
+  un sensor typo PH. El ``json_measure`` pasa de ser: 
+
+  .. code-block:: json
+
+    {
+       "enabled": true,
+       "id": "L-D944",
+       "product": "THSST",
+       "timestamp": "2023-11-12-16-55-49",
+       "location": {
+         "latitude": -31.44026566,
+         "longitude": -64.20396423
+       },
+       "value": {
+         "sn": "00000000001",
+         "humidity": 100,
+         "temperature": 23.56,
+         "location_name": "holas",
+         "tag_depth": 10,
+         "loss_tangent": 0.000,
+         "electrical_conductivity": 325,
+         "electrical_conductivity_tc": 8,
+         "real_dielectric_permittivity": 45,
+         "real_dielectric_permittivity_tc": 53,
+         "imag_dielectric_permittivity": 0,
+         "imag_dielectric_permittivity_tc": 0,
+         "level_bat": 12.90000029
+       },
+       "verFirm": "V7.4.0",
+       "verHard": "V1.1.0",
+       "number_sent": 0
+    }
+
+  a ser: 
+  
+  .. code-block:: json
+    :emphasize-lines: 23
+
+    {
+       "enabled": true,
+       "id": "L-D944",
+       "product": "THSST",
+       "timestamp": "2023-11-12-16-55-49",
+       "location": {
+         "latitude": -31.44026566,
+         "longitude": -64.20396423
+       },
+       "value": {
+         "sn": "00000000001",
+         "humidity": 100,
+         "temperature": 23.56,
+         "location_name": "holas",
+         "tag_depth": 10,
+         "loss_tangent": 0.000,
+         "electrical_conductivity": 325,
+         "electrical_conductivity_tc": 8,
+         "real_dielectric_permittivity": 45,
+         "real_dielectric_permittivity_tc": 53,
+         "imag_dielectric_permittivity": 0,
+         "imag_dielectric_permittivity_tc": 0,
+         "ph": 7.68,
+         "level_bat": 12.90000029
+       },
+       "verFirm": "V7.4.0",
+       "verHard": "V1.1.0",
+       "number_sent": 0
+    }  
+
+Removed
+-------
+
+- **Valor nulo válido:** si el sensor responde una trama válida, pero 
+  con valores nulos, entonces la respuesta no es ``false``, sino ``true``.
+
 V7.3.2 - 20/10/2023
 ===================
 

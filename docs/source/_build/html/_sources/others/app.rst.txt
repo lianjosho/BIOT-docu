@@ -68,7 +68,7 @@ El HTTP request es el siguiente:
    content-length: 158
    host: 192.168.4.1
 
-   "{\"soil_type\": \"Arcillo arenoso\", \"location_name\": \"eeprom\", \"sensors\": {\"Salida1(o1)\": {\"type\": \"the\", \"tag_depth\": 10 }}, \"location\": {\"latitude\": -31.4402331, \"longitude\": -64.2040826}}"
+   "{\"soil_type\": \"Arcillo arenoso\", \"location_name\": \"holas\", \"sensors\": {\"Salida1(o1)\": {\"type\": \"the\", \"tag_depth\": 10 }}, \"location\": {\"latitude\": -31.4402331, \"longitude\": -64.2040826}}"
 
 Si todo sale bien, entonces el http response es:
 
@@ -766,7 +766,14 @@ La HTTP request es:
 
    {}
 
-La HTTP_response es:
+Suponiendo la siguiente configuración:
+
+- Salida 1: sensor THE;
+- Salida 2: sensor NPK;
+- Salida 3: sensor LEVEL;
+- Salida 4: sensor PH;
+
+la ``HTTP_response`` es:
 
 .. code-block:: http
 
@@ -800,7 +807,19 @@ La HTTP_response es:
           "L": 0.798,
           "sent": false,
           "save": true
-        }
+        },
+        "4": {
+          "status": true,
+          "T": 20.50,
+          "H": 0.11,
+          "E": 0,
+          "N": 5,
+          "P": 42,
+          "K": 56,
+          "PH": 7.52
+          "sent": false,
+          "save": true
+        },
       },
       "sent_from_sd": 0,
       "rest_on_sd": 16

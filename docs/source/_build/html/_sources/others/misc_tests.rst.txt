@@ -1,0 +1,49 @@
+Pruebas varias
+##############
+
+.. sectnum:: 
+   :suffix: .-
+   :start: 9
+   :depth: 2
+
+.. contents::
+
+Cuando el celular está conectado al equipo, éste puede 
+atender las siguientes peticiones:
+
+- Actualización del RTC interno
+- Configuración del equipo
+- Palabras clave
+- Medición manual
+- Pedido del historial
+
+Sensor PH Gemho
+***************
+
+Se realizó la siguiente prueba para ver cómo funciona el sensor PH:
+
+- Se aliemnta el sensor.
+- Se manda la trama 01 03 00 06 00 07 E4 09 cada 2 segundos apox.
+- Se recolecta la respuesata y analiza.
+
+.. role:: gbg
+
+.. raw:: html
+
+   <style>
+      .gbg {background-color:#00ff00;} 
+   </style>
+
+.. csv-table:: Prueba sensor PH
+    :header: Intento, Trama de respuesta, Tiempo (seg.)
+    :widths: 3, 4, 10
+
+    1, 01 03 0E 00 00 00 00 00 00 02 F7 00 00 00 00 00 00 E8 03, 2
+    2, 01 03 0E 00 00 00 00 00 00 03 16 00 00 00 00 00 00 D8 C1, 4
+    3, 01 03 0E :gbg:`08 31 0B B0 01 A1` 03 19 :gbg:`00 0D 00 3C 00 46` 16 0C, 6
+    4, 01 03 0E :gbg:`08 34 0B C9 01 8E` 03 19 :gbg:`00 0C 00 38 00 43` FA 67, 8
+
+**Conclusión**: se puede ver que después de ser alimentado, tiene que pasar 
+aproximadamente 6 segundos antes de que el sensor devuelva una trama con los 
+parámetros THE y NPK no nulos. 
+
