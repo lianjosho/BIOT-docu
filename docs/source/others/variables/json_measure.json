@@ -20,7 +20,8 @@
     "real_dielectric_permittivity_tc": 0,
     "imag_dielectric_permittivity": 0.00,
     "imag_dielectric_permittivity_tc": 0.00,
-    "level_bat": 0.013
+    "level_bat": 0.013,
+    "ph": 7.16
   },
   "verFirm": "V5.2.1",
   "verHard": "V1.0.0",

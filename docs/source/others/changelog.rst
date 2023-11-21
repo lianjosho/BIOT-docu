@@ -30,6 +30,31 @@ Tipos de cambios
 Versión 7
 *********
 
+V7.4.3 - 21/11/2023
+===================
+
+Added
+-----
+
+- **Valores relacionados al timeStamp en response de 
+  configuración:** se agregan los siguientes campos al 
+  ``http_response`` de configuración.
+  
+  .. code-block:: console
+
+    "unix_eeprom": "2023-11-21-12-00-00",
+    "timeStamp RTC externo": "2023-11-21-12-55-41",
+    "timestamp equipo": "2023-11-21-12-55-41",
+
+- **Valores relacionados al timeStamp en response:** se agregan los siguientes 
+  campos al ``http_response`` de configuración.
+  
+  .. code-block:: console
+
+    "unix_eeprom": "2023-11-21-12-00-00",
+    "timeStamp RTC externo": "2023-11-21-12-55-41",
+    "timestamp equipo": "2023-11-21-12-55-41",
+
 V7.4.2 - 14/11/2023
 ===================
 
