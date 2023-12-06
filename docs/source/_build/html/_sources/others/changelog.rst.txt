@@ -30,6 +30,121 @@ Tipos de cambios
 Versión 7
 *********
 
+V7.5.0 - 06/12/2023
+===================
+
+Changed
+-------
+
+- **http_response para requestMeasuring:** la respuesta a la medición manual 
+  cambia y pasa de ser un json que contenía las 5 mediciones a ser un array 
+  de json que son los json_measure.
+
+  .. code-block:: http 
+  
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    [
+      {json_measure_0},
+      {json_measure_1},
+      {json_measure_2},
+      {json_measure_3},
+      {json_measure_4}
+    ]
+
+  Donde cada json_measure es:
+
+  .. code-block:: json
+
+    {
+      "enabled": true,
+      "id": "L-1004",
+      "product": "THSST",
+      "timestamp": "2022-12-31-21-00-00",
+      "location": {
+          "latitude": -31.39164543,
+          "longitude": -64.22100067
+      },
+      "value": {
+        "sn": "00000000001",
+        "humidity": 1.59,
+        "temperature": 24.98,
+        "location_name": "BRISTE",
+        "tag_depth": 200,
+        "loss_tangent": 0.000,
+        "electrical_conductivity": 0,
+        "electrical_conductivity_tc": 0,
+        "real_dielectric_permittivity": 0,
+        "real_dielectric_permittivity_tc": 0,
+        "imag_dielectric_permittivity": 0.00,
+        "imag_dielectric_permittivity_tc": 0.00,
+        "ph": 0.00,
+        "level_bat": 6.643
+      },
+      "verFirm": "V5.1.0",
+      "verHard": "V1.0.0",
+      "number_sent": 0
+    }
+
+V7.4.6 - 01/12/2023
+===================
+
+Added
+-----
+
+- **firmVers y hardVers en http_response de configuración:** se agregan 
+  campos para indicar la versión de firmware y la versión del hardware 
+  en el ``http_response`` de configuración.
+
+  .. code-block:: http
+    :emphasize-lines: 16, 17
+
+    HTTP/1.1 200 OK
+    Content-Type:text/plain;charset=UTF-8
+
+    {
+        "id": "L-378C",
+        "RTC ref": "2023-12-01-12-00-00",
+        "RTC externo": "2023-12-01-16-39-03",
+        "RTC interno": "2023-12-01-16-39-03",
+        "sensors": {
+            "1": true
+        },
+        "save": true,
+        "offline": true,
+        "connection": false,
+        "server": false,
+        "verFirm": "V7.4.6",
+        "verHard": "V1.1.0"
+    }
+
+Removed
+-------
+
+- **Salidas no configuradas:** se quitan las salidas 
+  que no están configuradas en el ``http_response`` de la 
+  configuración.
+
+V7.4.5 - 24/11/2023
+===================
+
+Changed
+-------
+
+- **TimeStamp en Rtc:** si el ds3231 no se inicia correctamente o se 
+  inicia pero con una fecha anterior a la que está guardada en la eeprom, 
+  entonces el RTC se carga con ésta última. 
+
+V7.4.4 - 24/11/2023
+===================
+
+Changed
+-------
+
+- **Promediado de valores:** en lugar de tomar una sola muestra de cada 
+  parámetro, ahora se toman 5 y se promedia. 
+
 V7.4.3 - 21/11/2023
 ===================
 
@@ -37,25 +152,16 @@ Added
 -----
 
 - **Valores relacionados al timeStamp en response de 
-  configuración:** se agregan los siguientes campos al 
-  ``http_response`` de configuración.
+  configuración:** se agregan los siguientes campos al ``http_response`` 
+  de configuración.
   
   .. code-block:: console
 
-    "unix_eeprom": "2023-11-21-12-00-00",
-    "timeStamp RTC externo": "2023-11-21-12-55-41",
-    "timestamp equipo": "2023-11-21-12-55-41",
+    "RTC ref.": "2023-11-21-12-00-00",
+    "RTC externo": "2023-11-21-12-55-41",
+    "RTC interno": "2023-11-21-12-55-41",
 
-- **Valores relacionados al timeStamp en response:** se agregan los siguientes 
-  campos al ``http_response`` de configuración.
-  
-  .. code-block:: console
-
-    "unix_eeprom": "2023-11-21-12-00-00",
-    "timeStamp RTC externo": "2023-11-21-12-55-41",
-    "timestamp equipo": "2023-11-21-12-55-41",
-
-V7.4.2 - 14/11/2023
+V7.4.3 - 14/11/2023
 ===================
 
 Fixed

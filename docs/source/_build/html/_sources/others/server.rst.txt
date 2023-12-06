@@ -92,15 +92,15 @@ SIM808 como el del siguiente ejemplo:
     Content-Length: 679
 
     {
-        "enabled": true,
-        "id": "L-1004",
-        "product": "THSST",
-        "timestamp": "2022-12-31-21-00-00",
-        "location": {
-            "latitude": -31.39164543,
-            "longitude": -64.22100067
-    },
-    "value": {
+      "enabled": true,
+      "id": "L-1004",
+      "product": "THSST",
+      "timestamp": "2022-12-31-21-00-00",
+      "location": {
+          "latitude": -31.39164543,
+          "longitude": -64.22100067
+      },
+      "value": {
         "sn": "00000000001",
         "humidity": 1.59,
         "temperature": 24.98,
@@ -113,11 +113,12 @@ SIM808 como el del siguiente ejemplo:
         "real_dielectric_permittivity_tc": 0,
         "imag_dielectric_permittivity": 0.00,
         "imag_dielectric_permittivity_tc": 0.00,
+        "ph": 0.00,
         "level_bat": 6.643
-        },
-    "verFirm": "V5.1.0",
-    "verHard": "V1.0.0",
-    "number_sent": 0
+      },
+      "verFirm": "V5.1.0",
+      "verHard": "V1.0.0",
+      "number_sent": 0
     }
 
 El servidor puede contestar con los siguientes códigos de 

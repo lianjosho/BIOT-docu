@@ -163,9 +163,3 @@ En donde se proponen los siguientes cambios:
 **Nota**: los campos T, H, PH y bat se deben dividir por 
 100 para mostrarlos o procesarlos, y a L se lo debe 
 dividir por 1000.
-
-
-erase 
-=====
-
-Borr

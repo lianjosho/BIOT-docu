@@ -59,16 +59,30 @@ Configuración del equipo
 
 El HTTP request es el siguiente:
 
+
 .. code-block:: http
    
-   POST /setConfig HTTP/1.1
-   user-agent: Dart/2.16 (dart:io)
-   content-type: application/json; charset=utf-8
-   accept-encoding: gzip
-   content-length: 158
-   host: 192.168.4.1
+    POST /setConfig HTTP/1.1
+    user-agent: Dart/2.16 (dart:io)
+    content-type: application/json; charset=utf-8
+    accept-encoding: gzip
+    content-length: 158
+    host: 192.168.4.1
 
-   "{\"soil_type\": \"Arcillo arenoso\", \"location_name\": \"holas\", \"sensors\": {\"Salida1(o1)\": {\"type\": \"the\", \"tag_depth\": 10 }}, \"location\": {\"latitude\": -31.4402331, \"longitude\": -64.2040826}}"
+    {
+      "soil_type": "Arcillo arenoso",
+      "location_name": "holas",
+      "sensors": {
+        "Salida1(o1)": {
+          "type": "the",
+          "tag_depth": 10
+        }
+      },
+      "location": {
+        "latitude": -31.4402331,
+        "longitude": -64.2040826
+      }
+    }
 
 Si todo sale bien, entonces el http response es:
 
@@ -77,279 +91,45 @@ Si todo sale bien, entonces el http response es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    {
-      "id": "L-E620",
-      "offline": false,
-      "sensors": {
-        "1": true,
-        "2": false,
-        "3": false,
-        "4": false
-      },
-      "save": true,
-      "connection": true,
-      "server": true
-    }
+    Configuración
+    =============
+    id: L-378C
+    RTC ref.:
+      2023-11-28-12-00-00
+    RTC int.:
+      2023-11-28-14-06-54
+    RTC ext.:
+      2023-11-28-14-06-54
+    Salidas:
+     · 1: ok
+     · 2: -
+     · 3: -
+     · 4: -
+     · 5: -
+    Firm. Vers.: V7.6.0
+    Offline: Sí
+    Guardado: ok
+    Subido: -
 
 Donde: 
 
-- ``<id>``: identificador del equipo.
-- ``<offline>``: indica si el modo offline está des/activado.
-- ``<sensors>``: resultado de la configuración de los sensores.
-    - **false**: hubo un problema con algún sensor y no se configuró.
-    - **true**: los sensores se configurarion correctamente.
-- ``<save>``: resultado del guardado de la configuración.
-    - **false**: no se guardó la configuración.
-    - **true**: se guardó la configuración.
-- ``<sent>``: resultado del envío de la configuración.
-    - **0**: módulo offline activado, no se envía la configuración.
-    - **1**: la configuración se envió correctamente.
-    - **2**: el módulo SIM no responde.
-    - **3**: no se pudo obtener conexión a internet.
-    - **4**: el servidor no respondió con 200 ok.
-
-
-
-
-
-.. Donde ``{json_app}`` es el json que el ESP32 usa para 
-.. configurar el equipo. El ``{json_app}`` tiene la forma:
-
-.. .. literalinclude:: variables/json_app.json
-..    :language: json
-
-.. En el ejemplo las salidas tienen los siguientes sensores:
-
-.. - Salida 1: sensor THE.
-.. - Salida 2: sensor NPK.
-.. - Salida 3: sensor de nivel.
-.. - Salida 4: sensor Stevens.
-
-.. La trama tiene a lo sumo 4 elementos, numerados del 0 al 3, que 
-.. corresponden a cada una de las salidas configuradas.
-
-.. .. literalinclude:: variables/json_app.json
-..    :language: json
-..    :emphasize-lines: 2, 5, 9, 12
-
-.. Cada salida tiene a su vez elementos numerados del 0 al 9 a lo
-.. sumo, que corresponden a los comandos que se le debe enviar al 
-.. sensor en dicha salida.
-
-.. .. literalinclude:: variables/json_app.json
-..    :language: json
-..    :emphasize-lines: 3, 6-7, 10, 13-15
-
-.. Estos comandos tienen como campo un array que tiene la forma:
-
-.. .. code-block:: console
-..    :class: centered
-
-..    [<type>, <command>, <max>, <power>, <response>]
-
-.. - ``type``: es el tipo de variable del contenido del comando. 
-..   Puede ser ``hex`` o ``ascii``.
-.. - ``command``: es el comando en sí.
-.. - ``max``: es el número de caracteres que se debe esperar como 
-..   respuesta del sensor. Si es 0, significa que no se espera 
-..   respuesta.
-.. - ``power``: es el tiempo que hay que esperar después de 
-..   haber alimentado la salida antes de mandarle un comando.
-.. - ``response``: es el tiempo límite que se debe esperar la 
-..   respuesta. De nuevo, si es 0 es que no se espera respuesta. 
-..   Si ``max = 0`` entonces ``response = 0`` también.
-
-.. .. note:: 
-..    Para más información de estos parámetros, 
-..    ver ::ref:`array_param`
-
-.. .. note:: 
-..   Los dos últimos parámetros podrían llevar el nombre de 
-..   ``timeout`` al principio, pero la librería ``Preferences.h`` 
-..   limita la longitud del nombre de la llave para guardar un valor 
-..   en la eeprom. En realidad, deberían llamarse 
-..   ``timeout_power`` y ``timeout_response``.
-
-.. Con esta información, el equipo chequea si los sensores de ese
-.. json están en las salidas correspondientes y si coinciden en
-.. el tipo.
-
-.. El HTTP response es un json con las respuestas que devolvieron 
-.. las salidas a cada uno de los parámetros pasados. 
-
-.. .. code-block:: bash
-
-..    HTTP/1.1 200 OK
-..    Content-Type:text/plain;charset=UTF-8
-
-..    {
-..       "0": {
-..         "0": "010306012C02921D4CECA6"
-..       },
-..       "1": {
-..         "0": "010306012C02921D4CECA6",
-..         "1": "010306012C02921D4CECA6"
-..       },
-..       "2": {
-..         "0": "010306012C02921D4CECA6"
-..       },
-..       "3": {
-..         "0": "",
-..         "1": "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n",
-..         "2": "062+0.535,+0.060,+29.2\r\n",
-..       }
-..    }
-
-.. .. warning:: 
-
-..     El equipo no verifica la trama de respuesta (longitud, tiempo 
-..     de respuesta, caracteres válidos, etc.) de cada parámetros, 
-..     simplemente devuelve lo que respondió. La app se tiene que 
-..     encargar de verificar si cada trama de respuesta es coherente 
-..     con su comando. 
-    
-.. Los casos en que haya un posible fallo en la configuración son:
-
-.. 1. No hay sensor conectado.
-.. 2. No hay respuesta a un comando.
-.. 3. Se cuela ruido en la respuesta a un comando.
- 
-.. No hay sensor conectado
-.. =======================
-
-.. Si en el caso del ejemplo el sensor de la salida 1 está 
-.. desconectado, entonces el json de respuesta es como sigue:
-
-.. .. code-block:: bash
-..    :emphasize-lines: 9-10
-
-..    HTTP/1.1 200 OK
-..    Content-Type:text/plain;charset=UTF-8
-
-..    {
-..       "0": {
-..         "0": "010306012C02921D4CECA6"
-..       },
-..       "1": {
-..         "0": "",
-..         "1": ""
-..       },
-..       "2": {
-..         "0": "010306012C02921D4CECA6"
-..       },
-..       "3": {
-..         "0": "",
-..         "1": "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n",
-..         "2": "062+0.535,+0.060,+29.2\r\n",
-..       }
-..    }
-
-.. En donde las líneas resaltadas tienen tramas de respuesta nulas 
-.. porque no hay sensor que responda. Como el parámetro ``<max>`` 
-.. no es 0, esto se interpreta como un error y los comandos para 
-.. esta salida **NO** van a ser guardados en la configuración. El 
-.. resto de las salidas sí se van a guardar.
-
-.. No hay respuesta a un comando
-.. =============================
-
-.. Si ahora en la salida 1 se tiene conectado un sensor THE y la 
-.. app manda comandos para un sensor NPK, el sensor THE sólo
-.. responderá al primer comando, como sigue.
-
-.. .. code-block:: bash
-..    :emphasize-lines: 10
-
-..    HTTP/1.1 200 OK
-..    Content-Type:text/plain;charset=UTF-8
-
-..    {
-..       "0": {
-..         "0": "010306012C02921D4CECA6"
-..       },
-..       "1": {
-..         "0": "010306012C02921D4CECA6",
-..         "1": ""
-..       },
-..       "2": {
-..         "0": "010306012C02921D4CECA6"
-..       },
-..       "3": {
-..         "0": "",
-..         "1": "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n",
-..         "2": "062+0.535,+0.060,+29.2\r\n",
-..       }
-..    }
-
-.. En donde la línea resaltada representa la respuesta del sensor 
-.. al segundo comando. En este caso pasa como en el caso anterior:
-.. **NO** se guarda la configuración para esta salida.
-
-.. Se cuela ruido en la respuesta a un comando
-.. ===========================================
-
-.. Ha sucedido un caso en una placa en que el sensor responde con 
-.. unos bytes aleatorios antes de responder la trama esperada. 
-.. Siguiendo con el ejemplo anterior, se esperan 11 bytes
-
-.. .. code-block:: bash
-    
-..     0   1   2   3   4   5   6   7   8   9   10
-..     ------------------------------------------
-..     01  03  06  01  2C  02  92  1D  4C  EC  A6
-
-.. Pero en su lugar, se reciben 4 bytes antes de la respuesta 
-.. esperada:
-
-.. .. code-block:: bash
-    
-..     0   1   2   3   4   5   6   7   8   9   10  11  12  13  14
-..     ----------------------------------------------------------
-..     00  00  00  00  01  03  06  01  2C  02  92  1D  4C  EC  A6
-
-.. En donde los bytes 0 al 3 son basura o respuesta inálida, ya 
-.. que la trama de respuesta debería comenzar con 01, que es la 
-.. dirección por defecto de los sensores chinos. Como ``max=11``, 
-.. el equipo espera 11 bytes y corta ahí la respuesta, por lo que 
-.. lo devuelto a la app sería: 
-
-.. .. code-block:: bash
-    
-..     0   1   2   3   4   5   6   7   8   9   10
-..     ------------------------------------------
-..     00  00  00  00  01  03  06  01  2C  02  92
-
-.. Lo cual no tiene sentido y si se le aplica CRC no lo va a cumplir, 
-.. pero el equipo no está configurado para hacer esta tarea, de eso
-.. se tiene que encargar la app. Lo que sí va a pasar es que se van 
-.. a guardar los comandos para esa salida y lo que se devuelve a 
-.. la app es lo siguiente:
-
-.. .. code-block:: bash
-..    :emphasize-lines: 10
-
-..    HTTP/1.1 200 OK
-..    Content-Type:text/plain;charset=UTF-8
-
-..    {
-..       "0": {
-..         "0": "010306012C02921D4CECA6"
-..       },
-..       "1": {
-..         "0": "010306012C02921D4CECA6",
-..         "1": "00000000010306012C0292"
-..       },
-..       "2": {
-..         "0": "010306012C02921D4CECA6"
-..       },
-..       "3": {
-..         "0": "",
-..         "1": "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n",
-..         "2": "062+0.535,+0.060,+29.2\r\n",
-..       }
-..    }
-
-.. Donde la línea resaltada es la respuesta inválida del sensor.
+- ``id``: identificador del equipo.
+- ``RTC ref.``: es la hora de referencia guardada en la eeprom del equipo: 
+    - *Con modo 12*: es la fecha con la hora en punto anterior.
+    - *Con modo normal*: es la fecha con la hora en 00 o 12 anterior.
+- ``RTC int.``: es la hora con la que se carga el equipo; si sale todo 
+  ok, coincide con la RTC ext.
+- ``RTC ext.``: es la hora que se recupera del RTC externo (DS3231).
+  Si esta hora no coincide con la fecha en que se esté haciendo la 
+  configuración, entonces el RTC externo no se inicializó correctamente.
+- ``Salidas:``: es el resultado del chequeo de cada salida. Está conformado con el número de salida (que va desde 1 a 5) y lo siguiente:
+    - **ok**: el sensor respondió como debe ser.
+    - **-**: el sensor no respondió o no está configurado.
+- ``Firm. Vers.``: versión del firmware.
+- ``offline``: indica si el modo offline está des/activado.
+- ``Guardado``: indica si la configuración se guardó en el equipo.
+- ``Subido``: indica si la configuración se subió al servidor; si 
+  el equipo está en modo offline: entonces .
 
 Palabras clave
 **************
@@ -392,45 +172,38 @@ El http_response es:
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    {
-        "message": "La configuración ha sido borrada"
-    }
+    La configuración ha sido borrada
 
 eeprom
 ======
 
-Devuelve un json con la configuración del equipo en 
-formato json.
+Devuelve la configuración del equipo. Es la misma respuesta que en el
+caso de una configuración bien hecha.
 
 .. code-block:: http
-
+    
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    {
-      "id": "L-7BF4",
-      "product": "THSST",
-      "soil_type": "",
-      "location_name": "",
-      "location": {
-        "latitude": 0,
-        "longitude": 0
-      },
-      "sensors": {},
-      "otro": {
-        "apn": "",
-        "user": "",
-        "pwd": "",
-        "pending_config": false,
-        "offline": true,
-        "modo 12": true
-      }
-    }
-
-Donde el json devuelto es igual al ``json_pp``, excepto que 
-a los campos de las salidas se le agrega un campo llamado
-``other`` que contiene información adicional. El tiempo que 
-demora la respuesta es **258 ms** aproximadamente.
+    Configuración
+    =============
+    id: L-378C
+    RTC ref.:
+      2023-11-28-12-00-00
+    RTC int.:
+      2023-11-28-14-06-54
+    RTC ext.:
+      2023-11-28-14-06-54
+    Salidas:
+     · 1: ok
+     · 2: -
+     · 3: -
+     · 4: -
+     · 5: -
+    Firm. Vers.: V7.6.0
+    Offline: Sí
+    Guardado: ok
+    Subido: -
 
 chequeo
 =======
@@ -444,39 +217,32 @@ resultado del chequeo.
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
-    {
-      "SD card": true,
-      "extern RTC": true,
-      "SIM module": true,
-      "sensors": {
-        "1": true,
-        "1": false
-      },
-      "others": {
-        "offline": false,
-        "modo 12": false,
-        "json in SD": 3
-      }
-    }
+    Chequeo:
+    ========
+    - Tarjeta SD: Ok
+    - RTC externo: Ok
+    - Módulo SIM: No
+      se chequea. Modo offline activado
+    - Salidas:
+       · 1: Ok
+    - Paquetes en SD: 0
    
-- ``SD card``: instala el módulo SD y crea las carpetas necesarias para trabajar si no estaban creadas.
-    - false: no se pudo obtener respuesta.
-    - true: chequeo ok.
-- ``extern RTC``: instala el módulo DS3231. Si no responde a la primera llamada, se desalimenta, se espera 100 ms, se vuelve a alimentar y se chequea de nuevo
-    - false: no se pudo obtener respuesta.
-    - true: chequeo ok.
-- ``SIM module``: se alimenta el módulo SIM y se intenta mandar un paquete al server.
-    - false: no se pudo enviar el paquete.
-    - true: paquete enviado.
-- ``sensors``: json que contiene los sensores configurados.
-    - false: no se obtuvo respuesta del sensor.
-    - true: chequeo ok.
-- ``others``: json que contiene otras configuraciones.
-    - ``offline``: false si el modo offline está desactivado, true si está activado.
-    - ``modo 12``: ídem para el modo 12.
-    - ``json in SD``: cantidad de paquetes guardados en la SD.
+Donde:
 
-
+- ``Tarjeta SD``: instala el módulo SD y crea los archivos necesarios para trabajar si no estaban creados.
+    - **ok**: la tarjeta responde bien.
+    - **falla**: la tarjeta no responde.
+- ``RTC externo``: instala el módulo DS3231. Si no responde a la primera llamada, se desalimenta, se espera 100 ms, se vuelve a alimentar y se chequea de nuevo:
+    - **ok**: el DS3231 responde bien.
+    - **falla**: el módulo no responde.
+- ``Módulo SIM``: se alimenta el módulo SIM y se intenta mandar un paquete al server.
+    - **No se chequea. Modo offline activado**: no se hace el chequeo porque el equipo está en modo offline.
+    - **ok**: el módulo SIM responde bien.
+    - **falla**: el módulo no responde.
+- ``Salidas``: chequeo de las salidas (las salidas no configuradas NO se muestran):
+    - **ok**: el sensor responde bien.
+    - **falla**: el sensor no responde.
+- ``Paquetes en SD``: cantidad de paquetes guardados en la SD que no se puedieron enviar.
 
 voltaje,<volt>
 ==============
@@ -772,82 +538,123 @@ La HTTP request es:
 
    {}
 
-Suponiendo la siguiente configuración:
-
-- Salida 1: sensor THE;
-- Salida 2: sensor NPK;
-- Salida 3: sensor LEVEL;
-- Salida 4: sensor PH;
-
-la ``HTTP_response`` es:
+la ``http_response`` es:
 
 .. code-block:: http
-
+  
     HTTP/1.1 200 OK
     Content-Type:text/plain;charset=UTF-8
 
+    [
+        {json_measure_0},
+        {json_measure_1},
+        {json_measure_2},
+        {json_measure_3},
+        {json_measure_4}
+    ]
+
+Donde cada json_measure es:
+
+  .. code-block:: json
+
     {
-      "offline": true,
-      "sensors": {
-        "1": {
-          "status": true,
-          "T": 20.50,
-          "H": 0.11,
-          "E": 0,
-          "sent": false,
-          "save": true
-        },
-        "2": {
-          "status": true,
-          "T": 20.50,
-          "H": 0.11,
-          "E": 0,
-          "N": 0,
-          "P": 0,
-          "K": 0,
-          "sent": false,
-          "save": true
-        },
-        "3": {
-          "status": true,
-          "L": 0.798,
-          "sent": false,
-          "save": true
-        },
-        "4": {
-          "status": true,
-          "T": 20.50,
-          "H": 0.11,
-          "E": 0,
-          "N": 5,
-          "P": 42,
-          "K": 56,
-          "PH": 7.52
-          "sent": false,
-          "save": true
-        },
+      "enabled": true,
+      "id": "L-1004",
+      "product": "THSST",
+      "timestamp": "2022-12-31-21-00-00",
+      "location": {
+          "latitude": -31.39164543,
+          "longitude": -64.22100067
       },
-      "sent_from_sd": 0,
-      "rest_on_sd": 16
+      "value": {
+        "sn": "00000000001",
+        "humidity": 1.59,
+        "temperature": 24.98,
+        "location_name": "BRISTE",
+        "tag_depth": 200,
+        "loss_tangent": 0.000,
+        "electrical_conductivity": 0,
+        "electrical_conductivity_tc": 0,
+        "real_dielectric_permittivity": 0,
+        "real_dielectric_permittivity_tc": 0,
+        "imag_dielectric_permittivity": 0.00,
+        "imag_dielectric_permittivity_tc": 0.00,
+        "ph": 0.00,
+        "level_bat": 6.643
+      },
+      "verFirm": "V5.1.0",
+      "verHard": "V1.0.0",
+      "number_sent": 0
     }
 
-Donde :
 
-- ``offline``: indica si el modo offline está activado o no.
-- ``Sensors``: contiene json de los sensores configurados.
-    - ``status``: indica si la medición se hizo o falló.
-    - ``T, H, E``: parámetros del sensor THE. 
-    - ``T, H, E, N, P, K``: parámetros del sensor NPK. 
-    - ``L``: parámetros del sensor LEVEL. 
-    - ``sent``: indica si el paquete se envió con éxito al server. 
-    - ``save``: indica si el paquete se guardó con éxito si el envío falló. 
-- ``sent_from_sd``: número de paquetes enviados desde la sd.
-- ``rest_on_sd``: número de paquetes que quedan en la sd.
+.. .. code-block:: http
 
-.. warning:: 
+..     HTTP/1.1 200 OK
+..     Content-Type:text/plain;charset=UTF-8
 
-    Los paquetes en la SD con más de 3 envíos fallidos se 
-    borrarán de la misma.
+..     {
+..       "offline": true,
+..       "sensors": {
+..         "1": {
+..           "status": true,
+..           "T": 20.50,
+..           "H": 0.11,
+..           "E": 0,
+..           "sent": false,
+..           "save": true
+..         },
+..         "2": {
+..           "status": true,
+..           "T": 20.50,
+..           "H": 0.11,
+..           "E": 0,
+..           "N": 0,
+..           "P": 0,
+..           "K": 0,
+..           "sent": false,
+..           "save": true
+..         },
+..         "3": {
+..           "status": true,
+..           "L": 0.798,
+..           "sent": false,
+..           "save": true
+..         },
+..         "4": {
+..           "status": true,
+..           "T": 20.50,
+..           "H": 0.11,
+..           "E": 0,
+..           "N": 5,
+..           "P": 42,
+..           "K": 56,
+..           "PH": 7.52
+..           "sent": false,
+..           "save": true
+..         },
+..       },
+..       "sent_from_sd": 0,
+..       "rest_on_sd": 16
+..     }
+
+.. Donde :
+
+.. - ``offline``: indica si el modo offline está activado o no.
+.. - ``Sensors``: contiene json de los sensores configurados.
+..     - ``status``: indica si la medición se hizo o falló.
+..     - ``T, H, E``: parámetros del sensor THE. 
+..     - ``T, H, E, N, P, K``: parámetros del sensor NPK. 
+..     - ``L``: parámetros del sensor LEVEL. 
+..     - ``sent``: indica si el paquete se envió con éxito al server. 
+..     - ``save``: indica si el paquete se guardó con éxito si el envío falló. 
+.. - ``sent_from_sd``: número de paquetes enviados desde la sd.
+.. - ``rest_on_sd``: número de paquetes que quedan en la sd.
+
+.. .. warning:: 
+
+..     Los paquetes en la SD con más de 3 envíos fallidos se 
+..     borrarán de la misma.
 
 Pedido del historial
 ********************

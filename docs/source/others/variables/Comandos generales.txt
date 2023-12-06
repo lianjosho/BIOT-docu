@@ -1,0 +1,239 @@
+.. Donde ``{json_app}`` es el json que el ESP32 usa para 
+.. configurar el equipo. El ``{json_app}`` tiene la forma:
+
+.. .. literalinclude:: variables/json_app.json
+..    :language: json
+
+.. En el ejemplo las salidas tienen los siguientes sensores:
+
+.. - Salida 1: sensor THE.
+.. - Salida 2: sensor NPK.
+.. - Salida 3: sensor de nivel.
+.. - Salida 4: sensor Stevens.
+
+.. La trama tiene a lo sumo 4 elementos, numerados del 0 al 3, que 
+.. corresponden a cada una de las salidas configuradas.
+
+.. .. literalinclude:: variables/json_app.json
+..    :language: json
+..    :emphasize-lines: 2, 5, 9, 12
+
+.. Cada salida tiene a su vez elementos numerados del 0 al 9 a lo
+.. sumo, que corresponden a los comandos que se le debe enviar al 
+.. sensor en dicha salida.
+
+.. .. literalinclude:: variables/json_app.json
+..    :language: json
+..    :emphasize-lines: 3, 6-7, 10, 13-15
+
+.. Estos comandos tienen como campo un array que tiene la forma:
+
+.. .. code-block:: console
+..    :class: centered
+
+..    [<type>, <command>, <max>, <power>, <response>]
+
+.. - ``type``: es el tipo de variable del contenido del comando. 
+..   Puede ser ``hex`` o ``ascii``.
+.. - ``command``: es el comando en sí.
+.. - ``max``: es el número de caracteres que se debe esperar como 
+..   respuesta del sensor. Si es 0, significa que no se espera 
+..   respuesta.
+.. - ``power``: es el tiempo que hay que esperar después de 
+..   haber alimentado la salida antes de mandarle un comando.
+.. - ``response``: es el tiempo límite que se debe esperar la 
+..   respuesta. De nuevo, si es 0 es que no se espera respuesta. 
+..   Si ``max = 0`` entonces ``response = 0`` también.
+
+.. .. note:: 
+..    Para más información de estos parámetros, 
+..    ver ::ref:`array_param`
+
+.. .. note:: 
+..   Los dos últimos parámetros podrían llevar el nombre de 
+..   ``timeout`` al principio, pero la librería ``Preferences.h`` 
+..   limita la longitud del nombre de la llave para guardar un valor 
+..   en la eeprom. En realidad, deberían llamarse 
+..   ``timeout_power`` y ``timeout_response``.
+
+.. Con esta información, el equipo chequea si los sensores de ese
+.. json están en las salidas correspondientes y si coinciden en
+.. el tipo.
+
+.. El HTTP response es un json con las respuestas que devolvieron 
+.. las salidas a cada uno de los parámetros pasados. 
+
+.. .. code-block:: bash
+
+..    HTTP/1.1 200 OK
+..    Content-Type:text/plain;charset=UTF-8
+
+..    {
+..       "0": {
+..         "0": "010306012C02921D4CECA6"
+..       },
+..       "1": {
+..         "0": "010306012C02921D4CECA6",
+..         "1": "010306012C02921D4CECA6"
+..       },
+..       "2": {
+..         "0": "010306012C02921D4CECA6"
+..       },
+..       "3": {
+..         "0": "",
+..         "1": "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n",
+..         "2": "062+0.535,+0.060,+29.2\r\n",
+..       }
+..    }
+
+.. .. warning:: 
+
+..     El equipo no verifica la trama de respuesta (longitud, tiempo 
+..     de respuesta, caracteres válidos, etc.) de cada parámetros, 
+..     simplemente devuelve lo que respondió. La app se tiene que 
+..     encargar de verificar si cada trama de respuesta es coherente 
+..     con su comando. 
+    
+.. Los casos en que haya un posible fallo en la configuración son:
+
+.. 1. No hay sensor conectado.
+.. 2. No hay respuesta a un comando.
+.. 3. Se cuela ruido en la respuesta a un comando.
+ 
+.. No hay sensor conectado
+.. =======================
+
+.. Si en el caso del ejemplo el sensor de la salida 1 está 
+.. desconectado, entonces el json de respuesta es como sigue:
+
+.. .. code-block:: bash
+..    :emphasize-lines: 9-10
+
+..    HTTP/1.1 200 OK
+..    Content-Type:text/plain;charset=UTF-8
+
+..    {
+..       "0": {
+..         "0": "010306012C02921D4CECA6"
+..       },
+..       "1": {
+..         "0": "",
+..         "1": ""
+..       },
+..       "2": {
+..         "0": "010306012C02921D4CECA6"
+..       },
+..       "3": {
+..         "0": "",
+..         "1": "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n",
+..         "2": "062+0.535,+0.060,+29.2\r\n",
+..       }
+..    }
+
+.. En donde las líneas resaltadas tienen tramas de respuesta nulas 
+.. porque no hay sensor que responda. Como el parámetro ``<max>`` 
+.. no es 0, esto se interpreta como un error y los comandos para 
+.. esta salida **NO** van a ser guardados en la configuración. El 
+.. resto de las salidas sí se van a guardar.
+
+.. No hay respuesta a un comando
+.. =============================
+
+.. Si ahora en la salida 1 se tiene conectado un sensor THE y la 
+.. app manda comandos para un sensor NPK, el sensor THE sólo
+.. responderá al primer comando, como sigue.
+
+.. .. code-block:: bash
+..    :emphasize-lines: 10
+
+..    HTTP/1.1 200 OK
+..    Content-Type:text/plain;charset=UTF-8
+
+..    {
+..       "0": {
+..         "0": "010306012C02921D4CECA6"
+..       },
+..       "1": {
+..         "0": "010306012C02921D4CECA6",
+..         "1": ""
+..       },
+..       "2": {
+..         "0": "010306012C02921D4CECA6"
+..       },
+..       "3": {
+..         "0": "",
+..         "1": "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n",
+..         "2": "062+0.535,+0.060,+29.2\r\n",
+..       }
+..    }
+
+.. En donde la línea resaltada representa la respuesta del sensor 
+.. al segundo comando. En este caso pasa como en el caso anterior:
+.. **NO** se guarda la configuración para esta salida.
+
+.. Se cuela ruido en la respuesta a un comando
+.. ===========================================
+
+.. Ha sucedido un caso en una placa en que el sensor responde con 
+.. unos bytes aleatorios antes de responder la trama esperada. 
+.. Siguiendo con el ejemplo anterior, se esperan 11 bytes
+
+.. .. code-block:: bash
+    
+..     0   1   2   3   4   5   6   7   8   9   10
+..     ------------------------------------------
+..     01  03  06  01  2C  02  92  1D  4C  EC  A6
+
+.. Pero en su lugar, se reciben 4 bytes antes de la respuesta 
+.. esperada:
+
+.. .. code-block:: bash
+    
+..     0   1   2   3   4   5   6   7   8   9   10  11  12  13  14
+..     ----------------------------------------------------------
+..     00  00  00  00  01  03  06  01  2C  02  92  1D  4C  EC  A6
+
+.. En donde los bytes 0 al 3 son basura o respuesta inálida, ya 
+.. que la trama de respuesta debería comenzar con 01, que es la 
+.. dirección por defecto de los sensores chinos. Como ``max=11``, 
+.. el equipo espera 11 bytes y corta ahí la respuesta, por lo que 
+.. lo devuelto a la app sería: 
+
+.. .. code-block:: bash
+    
+..     0   1   2   3   4   5   6   7   8   9   10
+..     ------------------------------------------
+..     00  00  00  00  01  03  06  01  2C  02  92
+
+.. Lo cual no tiene sentido y si se le aplica CRC no lo va a cumplir, 
+.. pero el equipo no está configurado para hacer esta tarea, de eso
+.. se tiene que encargar la app. Lo que sí va a pasar es que se van 
+.. a guardar los comandos para esa salida y lo que se devuelve a 
+.. la app es lo siguiente:
+
+.. .. code-block:: bash
+..    :emphasize-lines: 10
+
+..    HTTP/1.1 200 OK
+..    Content-Type:text/plain;charset=UTF-8
+
+..    {
+..       "0": {
+..         "0": "010306012C02921D4CECA6"
+..       },
+..       "1": {
+..         "0": "010306012C02921D4CECA6",
+..         "1": "00000000010306012C0292"
+..       },
+..       "2": {
+..         "0": "010306012C02921D4CECA6"
+..       },
+..       "3": {
+..         "0": "",
+..         "1": "062+0.535,+0.060,+29.2,+84.6,+0.064,+42.952,+23.095,+44.388,+21.661\r\n",
+..         "2": "062+0.535,+0.060,+29.2\r\n",
+..       }
+..    }
+
+.. Donde la línea resaltada es la respuesta inválida del sensor.
+
