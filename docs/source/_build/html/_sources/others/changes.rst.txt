@@ -3,7 +3,7 @@ Cambios o propuestas de mejora
 
 .. sectnum:: 
    :suffix: .-
-   :start: 11
+   :start: 7
    :depth: 2
 
 .. contents::

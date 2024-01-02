@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.- Guardado en memoria SD &mdash; BIOT 0.1 documentation</title>
+  <title>5.- Guardado en memoria SD &mdash; BIOT 0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,9 +18,7 @@
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.- Comunicación con el servidor" href="server.html" />
-    <link rel="prev" title="5.- Comunicación con la APP" href="app.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,24 +44,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="firmware.html"><span class="sectnum">3.- </span>Información sobre el firmware</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sensors.html"><span class="sectnum">4.- </span>Tipos de sensores soportados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="app.html"><span class="sectnum">5.- </span>Comunicación con la APP</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">6.- </span>Guardado en memoria SD</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#archivo-regall-txt"><span class="sectnum">6.1.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#archivo-register-txt"><span class="sectnum">6.2.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#archivo-battery-txt"><span class="sectnum">6.3.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#archivos-monitor-year-month-day-txt"><span class="sectnum">6.4.- </span>Archivos <code class="docutils literal notranslate"><span class="pre">monitor/&lt;year&gt;&lt;month&gt;&lt;day&gt;.txt</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="server.html"><span class="sectnum">7.- </span>Comunicación con el servidor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer.html"><span class="sectnum">8.- </span>Desarrollador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc_test.html"><span class="sectnum">9.- </span>Pruebas varias</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bugs.html"><span class="sectnum">10.- </span>Bugs reportados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changes.html"><span class="sectnum">11.- </span>Cambios o propuestas de mejora</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Versionado</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">5.- </span>Guardado en memoria SD</a></li>
 </ul>
 
         </div>
@@ -80,7 +61,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="sectnum">6.- </span>Guardado en memoria SD</li>
+      <li class="breadcrumb-item active"><span class="sectnum">5.- </span>Guardado en memoria SD</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/others/sd.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -91,16 +72,16 @@
            <div itemprop="articleBody">
              
   <section id="guardado-en-memoria-sd">
-<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="sectnum">6.- </span>Guardado en memoria SD</a><a class="headerlink" href="#guardado-en-memoria-sd" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id1" role="doc-backlink"><span class="sectnum">5.- </span>Guardado en memoria SD</a><a class="headerlink" href="#guardado-en-memoria-sd" title="Permalink to this heading"></a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="auto-toc simple">
-<li><p><a class="reference internal" href="#guardado-en-memoria-sd" id="id1"><span class="sectnum">6.- </span>Guardado en memoria SD</a></p>
+<li><p><a class="reference internal" href="#guardado-en-memoria-sd" id="id1"><span class="sectnum">5.- </span>Guardado en memoria SD</a></p>
 <ul class="auto-toc">
-<li><p><a class="reference internal" href="#archivo-regall-txt" id="id2"><span class="sectnum">6.1.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code></a></p></li>
-<li><p><a class="reference internal" href="#archivo-register-txt" id="id3"><span class="sectnum">6.2.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code></a></p></li>
-<li><p><a class="reference internal" href="#archivo-battery-txt" id="id4"><span class="sectnum">6.3.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code></a></p></li>
-<li><p><a class="reference internal" href="#archivos-monitor-year-month-day-txt" id="id5"><span class="sectnum">6.4.- </span>Archivos <code class="docutils literal notranslate"><span class="pre">monitor/&lt;year&gt;&lt;month&gt;&lt;day&gt;.txt</span></code></a></p></li>
+<li><p><a class="reference internal" href="#archivo-regall-txt" id="id2"><span class="sectnum">5.1.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code></a></p></li>
+<li><p><a class="reference internal" href="#archivo-register-txt" id="id3"><span class="sectnum">5.2.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code></a></p></li>
+<li><p><a class="reference internal" href="#archivo-battery-txt" id="id4"><span class="sectnum">5.3.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code></a></p></li>
+<li><p><a class="reference internal" href="#archivos-monitor-year-month-day-txt" id="id5"><span class="sectnum">5.4.- </span>Archivos <code class="docutils literal notranslate"><span class="pre">monitor/&lt;year&gt;&lt;month&gt;&lt;day&gt;.txt</span></code></a></p></li>
 </ul>
 </li>
 </ul>
@@ -168,7 +149,7 @@ respuestas a cada comando.</p></li>
 </pre></div>
 </div>
 <section id="archivo-regall-txt">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="sectnum">6.1.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code></a><a class="headerlink" href="#archivo-regall-txt" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="sectnum">5.1.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">regall.txt</span></code></a><a class="headerlink" href="#archivo-regall-txt" title="Permalink to this heading"></a></h2>
 <p class="linemarker linemarker-76">Se guardan los paquetes de forma lineal y con un salto
 de línea:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{json_measure_0}</span>
@@ -182,13 +163,13 @@ de línea:</p>
 abre el archivo en un procesador de texto.</p>
 </section>
 <section id="archivo-register-txt">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">6.2.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code></a><a class="headerlink" href="#archivo-register-txt" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">5.2.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code></a><a class="headerlink" href="#archivo-register-txt" title="Permalink to this heading"></a></h2>
 <p class="linemarker linemarker-93">Ídem al archivo anterior, pero <strong>SOLO</strong> se guardan los paquetes
 que no se han podido enviar al servidor un número igual o
 menor a 3 intentos; luego de eso se borra.</p>
 </section>
 <section id="archivo-battery-txt">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">6.3.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code></a><a class="headerlink" href="#archivo-battery-txt" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">5.3.- </span>Archivo <code class="docutils literal notranslate"><span class="pre">battery.txt</span></code></a><a class="headerlink" href="#archivo-battery-txt" title="Permalink to this heading"></a></h2>
 <p class="linemarker linemarker-100">Se guarda en este archivo toda la actividad del equipo, se
 conforma también de paquetes json como los otros dos
 archivos, pero se conforman de la siguiente manera:</p>
@@ -218,7 +199,7 @@ archivos, pero se conforman de la siguiente manera:</p>
 </div>
 </section>
 <section id="archivos-monitor-year-month-day-txt">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">6.4.- </span>Archivos <code class="docutils literal notranslate"><span class="pre">monitor/&lt;year&gt;&lt;month&gt;&lt;day&gt;.txt</span></code></a><a class="headerlink" href="#archivos-monitor-year-month-day-txt" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">5.4.- </span>Archivos <code class="docutils literal notranslate"><span class="pre">monitor/&lt;year&gt;&lt;month&gt;&lt;day&gt;.txt</span></code></a><a class="headerlink" href="#archivos-monitor-year-month-day-txt" title="Permalink to this heading"></a></h2>
 <p class="linemarker linemarker-111">En estos archivos se planea por todo lo que se imprime
 en el monitor serial en un día.</p>
 </section>
@@ -227,10 +208,7 @@ en el monitor serial en un día.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="app.html" class="btn btn-neutral float-left" title="5.- Comunicación con la APP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="server.html" class="btn btn-neutral float-right" title="7.- Comunicación con el servidor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

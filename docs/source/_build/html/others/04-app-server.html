@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.- 4.- Comunicación con la APP &mdash; BIOT 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.- Desarrollador" href="05-developer.html" />
+    <link rel="prev" title="3.- Tipos de sensores soportados" href="03-sensors.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            BIOT
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">5.- </span>Guardado en memoria SD</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BIOT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="sectnum">6.- </span><span class="sectnum">4.- </span>Comunicación con la APP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/others/04-app-server.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="comunicacion-con-la-app">
+<h1><a class="toc-backref" href="#id41" role="doc-backlink"><span class="sectnum">6.- </span><span class="sectnum">4.- </span>Comunicación con la APP</a><a class="headerlink" href="#comunicacion-con-la-app" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#comunicacion-con-la-app" id="id3"><span class="sectnum">6.- </span><span class="sectnum">4.- </span>Comunicación con la APP</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#actualizacion-del-rtc-interno" id="id4"><span class="sectnum">4.1.- </span>Actualización del RTC interno</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-del-equipo" id="id5"><span class="sectnum">4.2.- </span>Configuración del equipo</a></p></li>
+<li><p><a class="reference internal" href="#palabras-clave" id="id6"><span class="sectnum">4.3.- </span>Palabras clave</a></p>
+<ul>
+<li><p><a class="reference internal" href="#erase" id="id7">erase</a></p></li>
+<li><p><a class="reference internal" href="#eeprom" id="id8">eeprom</a></p></li>
+<li><p><a class="reference internal" href="#chequeo" id="id9">chequeo</a></p></li>
+<li><p><a class="reference internal" href="#voltaje-volt" id="id10">voltaje,&lt;volt&gt;</a></p></li>
+<li><p><a class="reference internal" href="#modo12" id="id11">modo12</a></p></li>
+<li><p><a class="reference internal" href="#offline" id="id12">offline</a></p></li>
+<li><p><a class="reference internal" href="#modulo" id="id13">modulo</a></p></li>
+<li><p><a class="reference internal" href="#reset" id="id14">reset</a></p></li>
+<li><p><a class="reference internal" href="#invalid-sn" id="id15">invalid sn</a></p></li>
+<li><p><a class="reference internal" href="#invalid-time" id="id16">invalid time</a></p></li>
+<li><p><a class="reference internal" href="#log" id="id17">log</a></p></li>
+<li><p><a class="reference internal" href="#apn-valor-de-apn" id="id18">apn,&lt;valor de apn&gt;</a></p></li>
+<li><p><a class="reference internal" href="#user-valor-de-user" id="id19">user,&lt;valor de user&gt;</a></p></li>
+<li><p><a class="reference internal" href="#pwd-valor-de-pwd" id="id20">pwd,&lt;valor de pwd&gt;</a></p></li>
+<li><p><a class="reference internal" href="#erase-cred" id="id21">erase cred</a></p></li>
+<li><p><a class="reference internal" href="#erase-log" id="id22">erase log</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#medicion-manual" id="id23"><span class="sectnum">4.4.- </span>Medición manual</a></p></li>
+<li><p><a class="reference internal" href="#pedido-del-historial" id="id24"><span class="sectnum">4.5.- </span>Pedido del historial</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#comunicacion-con-el-servidor" id="id25"><span class="sectnum">7.- </span><span class="sectnum">5.- </span>Comunicación con el servidor</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#dada-de-alta-de-un-punto" id="id26"><span class="sectnum">5.1.- </span>Dada de alta de un punto</a></p></li>
+<li><p><a class="reference internal" href="#actualizacion-de-las-mediciones" id="id27"><span class="sectnum">5.2.- </span>Actualización de las mediciones</a></p>
+<ul>
+<li><p><a class="reference internal" href="#peticion-ok" id="id28">200: Petición ok</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-json" id="id29">400: Problema con el JSON</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-product" id="id30">404: Problema con PRODUCT</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-id" id="id31">405: Problema con ID</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-sn" id="id32">406: Problema con SN</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-location" id="id33">407: Problema con LOCATION</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-tag-depth" id="id34">408: Problema con el TAG_DEPTH</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-la-latitude" id="id35">460: Problema con la LATITUDE</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-longitude" id="id36">461: Problema con LONGITUDE</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id37">462: Problema con LOCATION</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-timestamp-mal-formado" id="id38">463: Problema con el TIMESTAMP (mal formado)</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-timestamp-fuera-de-rango" id="id39">464: Problema con el TIMESTAMP (fuera de rango)</a></p></li>
+<li><p><a class="reference internal" href="#problema-del-servidor" id="id40">500: Problema del servidor</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<p class="linemarker linemarker-11">Cuando el celular está conectado al equipo, éste puede
+atender las siguientes peticiones:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-14">Actualización del RTC interno</p></li>
+<li><p class="linemarker linemarker-15">Configuración del equipo</p></li>
+<li><p class="linemarker linemarker-16">Palabras clave</p></li>
+<li><p class="linemarker linemarker-17">Medición manual</p></li>
+<li><p class="linemarker linemarker-18">Pedido del historial</p></li>
+</ul>
+<section id="actualizacion-del-rtc-interno">
+<h2><a class="toc-backref" href="#id42" role="doc-backlink"><span class="sectnum">4.1.- </span>Actualización del RTC interno</a><a class="headerlink" href="#actualizacion-del-rtc-interno" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-23">El HTTP request es el siguiente:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/updateDate</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">text/plain; charset=utf-8</span>
+<span class="na">accept-encoding</span><span class="o">:</span> <span class="l">gzip</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">36</span>
+<span class="na">host</span><span class="o">:</span> <span class="l">192.168.4.1</span>
+
+
+&quot;{date: 2022-12-13T21:07:33.803604}&quot;
+</pre></div>
+</div>
+<p class="linemarker linemarker-37">Con esta información, se actualiza el RTC externo y se pone
+en hora también el RTC interno. Después de esto, le manda a
+la app el siguiente HTTP response:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+V5.0.1
+</pre></div>
+</div>
+<p class="linemarker linemarker-48">Donde va la información de la versión del firmware.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-52">Cada vez que el ESP32 se queda sin suministro eléctrico,
+el RTC vuelve al epoch time (1 de enero de 1970 a las 0hs),
+es por eso que se sincroniza con el RTC externo (DS3231)
+cada vez que se despierta.</p>
+</div>
+</section>
+<section id="configuracion-del-equipo">
+<h2><a class="toc-backref" href="#id43" role="doc-backlink"><span class="sectnum">4.2.- </span>Configuración del equipo</a><a class="headerlink" href="#configuracion-del-equipo" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-60">El HTTP request es el siguiente:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/setConfig</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">accept-encoding</span><span class="o">:</span> <span class="l">gzip</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">158</span>
+<span class="na">host</span><span class="o">:</span> <span class="l">192.168.4.1</span>
+
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;soil_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arcillo arenoso&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;holas&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;sensors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Salida1(o1)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;the&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.4402331</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.2040826</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-87">Si todo sale bien, entonces el http response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+Configuración
+=============
+id: L-378C
+RTC ref.:
+  2023-11-28-12-00-00
+RTC int.:
+  2023-11-28-14-06-54
+RTC ext.:
+  2023-11-28-14-06-54
+Salidas:
+ · 1: ok
+ · 2: -
+ · 3: -
+ · 4: -
+ · 5: -
+Firm. Vers.: V7.6.0
+Offline: Sí
+Guardado: ok
+Subido: -
+</pre></div>
+</div>
+<p class="linemarker linemarker-114">Donde:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-116"><code class="docutils literal notranslate"><span class="pre">id</span></code>: identificador del equipo.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RTC</span> <span class="pre">ref.</span></code>: es la hora de referencia guardada en la eeprom del equipo:</dt><dd><ul>
+<li><p class="linemarker linemarker-118"><em>Con modo 12</em>: es la fecha con la hora en punto anterior.</p></li>
+<li><p class="linemarker linemarker-119"><em>Con modo normal</em>: es la fecha con la hora en 00 o 12 anterior.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="linemarker linemarker-120"><code class="docutils literal notranslate"><span class="pre">RTC</span> <span class="pre">int.</span></code>: es la hora con la que se carga el equipo; si sale todo
+ok, coincide con la RTC ext.</p></li>
+<li><p class="linemarker linemarker-122"><code class="docutils literal notranslate"><span class="pre">RTC</span> <span class="pre">ext.</span></code>: es la hora que se recupera del RTC externo (DS3231).
+Si esta hora no coincide con la fecha en que se esté haciendo la
+configuración, entonces el RTC externo no se inicializó correctamente.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Salidas:</span></code>: es el resultado del chequeo de cada salida. Está conformado con el número de salida (que va desde 1 a 5) y lo siguiente:</dt><dd><ul>
+<li><p class="linemarker linemarker-126"><strong>ok</strong>: el sensor respondió como debe ser.</p></li>
+<li><p class="linemarker linemarker-127"><strong>-</strong>: el sensor no respondió o no está configurado.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="linemarker linemarker-128"><code class="docutils literal notranslate"><span class="pre">Firm.</span> <span class="pre">Vers.</span></code>: versión del firmware.</p></li>
+<li><p class="linemarker linemarker-129"><code class="docutils literal notranslate"><span class="pre">offline</span></code>: indica si el modo offline está des/activado.</p></li>
+<li><p class="linemarker linemarker-130"><code class="docutils literal notranslate"><span class="pre">Guardado</span></code>: indica si la configuración se guardó en el equipo.</p></li>
+<li><p class="linemarker linemarker-131"><code class="docutils literal notranslate"><span class="pre">Subido</span></code>: indica si la configuración se subió al servidor; si
+el equipo está en modo offline: entonces .</p></li>
+</ul>
+</section>
+<section id="palabras-clave">
+<h2><a class="toc-backref" href="#id44" role="doc-backlink"><span class="sectnum">4.3.- </span>Palabras clave</a><a class="headerlink" href="#palabras-clave" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-137">Si el campo <code class="docutils literal notranslate"><span class="pre">location_name</span></code> tiene alguna de las siguientes
+palabras reservadas, entonces el equipo no hace la
+configuración y atiende ese caso especial.</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-141">erase</p></li>
+<li><p class="linemarker linemarker-142">eeprom</p></li>
+<li><p class="linemarker linemarker-143">chequeo</p></li>
+<li><p class="linemarker linemarker-144">voltaje,&lt;bat_level&gt;</p></li>
+<li><p class="linemarker linemarker-145">modo12</p></li>
+<li><p class="linemarker linemarker-146">offline</p></li>
+<li><p class="linemarker linemarker-147">modulo</p></li>
+<li><p class="linemarker linemarker-148">reset</p></li>
+<li><p class="linemarker linemarker-149">invalid sn</p></li>
+<li><p class="linemarker linemarker-150">invalid time</p></li>
+<li><p class="linemarker linemarker-151">log</p></li>
+<li><p class="linemarker linemarker-152">apn,&lt;valor de apn&gt;</p></li>
+<li><p class="linemarker linemarker-153">user,&lt;valor de user&gt;</p></li>
+<li><p class="linemarker linemarker-154">pwd,&lt;valor de pwd&gt;</p></li>
+<li><p class="linemarker linemarker-155">erase cred</p></li>
+<li><p class="linemarker linemarker-156">erase log</p></li>
+</ul>
+<section id="erase">
+<h3><a class="toc-backref" href="#id45" role="doc-backlink">erase</a><a class="headerlink" href="#erase" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-161">Borra la configuración del equipo, excepto:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-163"><code class="docutils literal notranslate"><span class="pre">mac</span></code>;</p></li>
+<li><p class="linemarker linemarker-164"><code class="docutils literal notranslate"><span class="pre">firm_vers</span></code>;</p></li>
+<li><p class="linemarker linemarker-165"><code class="docutils literal notranslate"><span class="pre">volt_coeff</span></code> y</p></li>
+<li><p class="linemarker linemarker-166"><code class="docutils literal notranslate"><span class="pre">unix_time</span></code>.</p></li>
+</ul>
+<p class="linemarker linemarker-168">El http_response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+La configuración ha sido borrada
+</pre></div>
+</div>
+</section>
+<section id="eeprom">
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">eeprom</a><a class="headerlink" href="#eeprom" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-180">Devuelve la configuración del equipo. Es la misma respuesta que en el
+caso de una configuración bien hecha.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+Configuración
+=============
+id: L-378C
+RTC ref.:
+  2023-11-28-12-00-00
+RTC int.:
+  2023-11-28-14-06-54
+RTC ext.:
+  2023-11-28-14-06-54
+Salidas:
+ · 1: ok
+ · 2: -
+ · 3: -
+ · 4: -
+ · 5: -
+Firm. Vers.: V7.6.0
+Offline: Sí
+Guardado: ok
+Subido: -
+</pre></div>
+</div>
+</section>
+<section id="chequeo">
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">chequeo</a><a class="headerlink" href="#chequeo" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-211">Hace un chequeo de los módulos RTC externo y SD y las
+salidas. Luego le envía a la app un mensaje con el
+resultado del chequeo.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+Chequeo:
+========
+- Tarjeta SD: Ok
+- RTC externo: Ok
+- Módulo SIM: No
+  se chequea. Modo offline activado
+- Salidas:
+   · 1: Ok
+- Paquetes en SD: 0
+</pre></div>
+</div>
+<p class="linemarker linemarker-230">Donde:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Tarjeta</span> <span class="pre">SD</span></code>: instala el módulo SD y crea los archivos necesarios para trabajar si no estaban creados.</dt><dd><ul>
+<li><p class="linemarker linemarker-233"><strong>ok</strong>: la tarjeta responde bien.</p></li>
+<li><p class="linemarker linemarker-234"><strong>falla</strong>: la tarjeta no responde.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RTC</span> <span class="pre">externo</span></code>: instala el módulo DS3231. Si no responde a la primera llamada, se desalimenta, se espera 100 ms, se vuelve a alimentar y se chequea de nuevo:</dt><dd><ul>
+<li><p class="linemarker linemarker-236"><strong>ok</strong>: el DS3231 responde bien.</p></li>
+<li><p class="linemarker linemarker-237"><strong>falla</strong>: el módulo no responde.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Módulo</span> <span class="pre">SIM</span></code>: se alimenta el módulo SIM y se intenta mandar un paquete al server.</dt><dd><ul>
+<li><p class="linemarker linemarker-239"><strong>No se chequea. Modo offline activado</strong>: no se hace el chequeo porque el equipo está en modo offline.</p></li>
+<li><p class="linemarker linemarker-240"><strong>ok</strong>: el módulo SIM responde bien.</p></li>
+<li><p class="linemarker linemarker-241"><strong>falla</strong>: el módulo no responde.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">Salidas</span></code>: chequeo de las salidas (las salidas no configuradas NO se muestran):</dt><dd><ul>
+<li><p class="linemarker linemarker-243"><strong>ok</strong>: el sensor responde bien.</p></li>
+<li><p class="linemarker linemarker-244"><strong>falla</strong>: el sensor no responde.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="linemarker linemarker-245"><code class="docutils literal notranslate"><span class="pre">Paquetes</span> <span class="pre">en</span> <span class="pre">SD</span></code>: cantidad de paquetes guardados en la SD que no se puedieron enviar.</p></li>
+</ul>
+</section>
+<section id="voltaje-volt">
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">voltaje,&lt;volt&gt;</a><a class="headerlink" href="#voltaje-volt" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-250">Configura el coeficiente de voltaje, donde &lt;volt&gt; es el
+valor de voltaje de la batería en ese momento. La HTTP response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;Coeficiente de voltaje seteado en 1.00&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="modo12">
+<h3><a class="toc-backref" href="#id49" role="doc-backlink">modo12</a><a class="headerlink" href="#modo12" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-265">Activa o desactiva el modo 12. Si el modo 12 estaba desactivado, el
+<code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+  &quot;message&quot;: &quot;modo normal&quot;,
+  &quot;measures&quot;: &quot;12:00&quot;,
+  &quot;send&quot;: &quot;12:00&quot;,
+  &quot;unix_eeprom&quot;: &quot;2023-11-21-12-00-00&quot;,
+  &quot;timeStamp RTC externo&quot;: &quot;2023-11-21-13-10-23&quot;,
+  &quot;timestamp equipo&quot;: &quot;2023-11-21-13-10-23&quot;
+}
+</pre></div>
+</div>
+<p class="linemarker linemarker-282">Si se vuelve a mandar la palabra clave, entonces el
+<code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+  &quot;message&quot;: &quot;modo 12&quot;,
+  &quot;measures&quot;: &quot;c/1 hs&quot;,
+  &quot;send&quot;: &quot;00:00 y 12:00&quot;,
+  &quot;unix_eeprom&quot;: &quot;2023-11-21-13-00-00&quot;,
+  &quot;timeStamp RTC externo&quot;: &quot;2023-11-21-13-15-51&quot;,
+  &quot;timestamp equipo&quot;: &quot;2023-11-21-13-15-51&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="offline">
+<h3><a class="toc-backref" href="#id50" role="doc-backlink">offline</a><a class="headerlink" href="#offline" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-302">Des/activa modo offline. Si el equipo estaba con el modo offline
+desactivado, lo activa y devuelve:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;Modo offline ACTIVADO&quot;
+}
+</pre></div>
+</div>
+<p class="linemarker linemarker-314">Si se vuelve a enviar la palabra clave, entonces responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;Modo offline desactivado&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="modulo">
+<h3><a class="toc-backref" href="#id51" role="doc-backlink">modulo</a><a class="headerlink" href="#modulo" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-328">Borra el contenido del archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>, que es en donde se
+guardan las mediciones fallidas. El http_response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;Memoria SD formateada. Mediciones guardadas eliminadas&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="reset">
+<h3><a class="toc-backref" href="#id52" role="doc-backlink">reset</a><a class="headerlink" href="#reset" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-343">Reinicia el equipo. El esp32 se apaga y se vuelve a encender.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-347">Para seguir configurando el equipo, se debe volver a generar la red wifi.</p>
+</div>
+</section>
+<section id="invalid-sn">
+<h3><a class="toc-backref" href="#id53" role="doc-backlink">invalid sn</a><a class="headerlink" href="#invalid-sn" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-352">Se quita los 0 en el campo “sn” del json de medición que se va a
+enviar al servidor. Esto se hace para testear la respuesta del
+mismo a un json formado con un sn inválido.</p>
+<p class="linemarker linemarker-356">El http_response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;json_measure con SN inválido&quot;
+}
+</pre></div>
+</div>
+<p class="linemarker linemarker-367">Y si se vuelve a mandar la palabra clave, devuelve:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;json_measure normal&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="invalid-time">
+<h3><a class="toc-backref" href="#id54" role="doc-backlink">invalid time</a><a class="headerlink" href="#invalid-time" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-381">Se manda un timestamp con el año 2025 en el json de medición que
+se va a enviar al servidor. Esto se hace para testear la respuesta
+del mismo a un json formado con un timestamp inválido.</p>
+<p class="linemarker linemarker-385">El http_response es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;json_measure con timestamp inválido&quot;
+}
+</pre></div>
+</div>
+<p class="linemarker linemarker-396">Y si se vuelve a mandar la palabra clave, devuelve:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;json_measure normal&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="log">
+<h3><a class="toc-backref" href="#id55" role="doc-backlink">log</a><a class="headerlink" href="#log" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-410">Devuelve a la app el archivo <code class="docutils literal notranslate"><span class="pre">activity.txt</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-414">Con esta palabra se debe hacer la petición con Packet Sender o
+programa similar, pues el archivo es muy extensos para que la
+app los muestre.</p>
+</div>
+</section>
+<section id="apn-valor-de-apn">
+<h3><a class="toc-backref" href="#id56" role="doc-backlink">apn,&lt;valor de apn&gt;</a><a class="headerlink" href="#apn-valor-de-apn" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-421">Configura la APN que va a usar el equipo para conectarse a
+internet. El <cite>http_response</cite> es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;APN configurado&quot;,
+    &quot;apn&quot;: &quot;&lt;valor de apn&gt;&quot;,
+    &quot;user&quot;: &quot;&lt;valor de user&gt;&quot;,
+    &quot;pwd&quot;: &quot;&lt;valor de pwd&gt;&quot;
+}
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-438">El valor de apn se debe ingresar sin los símbolos &lt;&gt;;
+así, si APN es igual a <cite>datos.personal.com</cite>, entonces
+la palabra clave a usar es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apn,datos.personal.com</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-446">Lo mismo sucede con USER y PWD.</p>
+</div>
+</section>
+<section id="user-valor-de-user">
+<h3><a class="toc-backref" href="#id57" role="doc-backlink">user,&lt;valor de user&gt;</a><a class="headerlink" href="#user-valor-de-user" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-451">Configura el USER que va a usar el equipo para conectarse a
+internet. El <code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;APN configurado&quot;,
+    &quot;apn&quot;: &quot;&lt;valor de apn&gt;&quot;,
+    &quot;user&quot;: &quot;&lt;valor de user&gt;&quot;,
+    &quot;pwd&quot;: &quot;&lt;valor de pwd&gt;&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="pwd-valor-de-pwd">
+<h3><a class="toc-backref" href="#id58" role="doc-backlink">pwd,&lt;valor de pwd&gt;</a><a class="headerlink" href="#pwd-valor-de-pwd" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-469">Configura el PWD que va a usar el equipo para conectarse a
+internet. El <code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;PWD configurado&quot;,
+    &quot;apn&quot;: &quot;&lt;valor de apn&gt;&quot;,
+    &quot;user&quot;: &quot;&lt;valor de user&gt;&quot;,
+    &quot;pwd&quot;: &quot;&lt;valor de pwd&gt;&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="erase-cred">
+<h3><a class="toc-backref" href="#id59" role="doc-backlink">erase cred</a><a class="headerlink" href="#erase-cred" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-487">Borra la APN, USER y PWD que están guardados. El
+<code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;Credenciales borradas&quot;,
+    &quot;apn&quot;: &quot;&lt;valor de apn&gt;&quot;,
+    &quot;user&quot;: &quot;&lt;valor de user&gt;&quot;,
+    &quot;pwd&quot;: &quot;&lt;valor de pwd&gt;&quot;
+}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-504">Cuando no hay credenciales configuradas, el equipo
+consulta al módulo SIM800 para saber a qué prestadora
+de servicio de internet permenece el chip insertado y
+coloca las credenciales guardadas por defecto.</p>
+</div>
+</section>
+<section id="erase-log">
+<h3><a class="toc-backref" href="#id60" role="doc-backlink">erase log</a><a class="headerlink" href="#erase-log" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-512">Borra el archivo <code class="docutils literal notranslate"><span class="pre">/activity.txt</span></code> y lo vuelve a crear. El
+<code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+{
+    &quot;message&quot;: &quot;Archivo &quot;/activity.txt&quot; borrado&quot;
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="medicion-manual">
+<h2><a class="toc-backref" href="#id61" role="doc-backlink"><span class="sectnum">4.4.- </span>Medición manual</a><a class="headerlink" href="#medicion-manual" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-527">La HTTP request es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/requestMeasuring</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">accept-encoding</span><span class="o">:</span> <span class="l">gzip</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">2</span>
+<span class="na">host</span><span class="o">:</span> <span class="l">192.168.4.1</span>
+
+
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-541">la <code class="docutils literal notranslate"><span class="pre">http_response</span></code> es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span><span class="l">text/plain;charset=UTF-8</span>
+
+[
+    {json_measure_0},
+    {json_measure_1},
+    {json_measure_2},
+    {json_measure_3},
+    {json_measure_4}
+]
+</pre></div>
+</div>
+<p class="linemarker linemarker-556">Donde cada json_measure es:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;L-1004&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;product&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;THSST&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-12-31-21-00-00&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-31.39164543</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;longitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-64.22100067</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00000000001&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;humidity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.59</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">24.98</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BRISTE&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tag_depth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;loss_tangent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.000</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;electrical_conductivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;electrical_conductivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;real_dielectric_permittivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;real_dielectric_permittivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;imag_dielectric_permittivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;imag_dielectric_permittivity_tc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ph&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;level_bat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">6.643</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;verFirm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V5.1.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;verHard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;V1.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;number_sent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="pedido-del-historial">
+<h2><a class="toc-backref" href="#id62" role="doc-backlink"><span class="sectnum">4.5.- </span>Pedido del historial</a><a class="headerlink" href="#pedido-del-historial" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-662">El HTTP request es:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/getHistory</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">user-agent</span><span class="o">:</span> <span class="l">Dart/2.16 (dart:io)</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">accept-encoding</span><span class="o">:</span> <span class="l">gzip</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">2</span>
+<span class="na">host</span><span class="o">:</span> <span class="l">192.168.4.1</span>
+
+
+<span class="p">{}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-676">Y la HTTP response es un array de json:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
+Content-type:<span class="w"> </span>application/json
+
+<span class="o">[</span>
+<span class="w">  </span>json_measure_0,
+<span class="w">  </span>json_measure_1,
+<span class="w">  </span>...,
+<span class="w">  </span>json_measure_n
+<span class="o">]</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-690">El ESP32 manda un json cada vez porque tiene un límite de
+alrededor de 1400 caracteres por envío al cliente.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="linemarker linemarker-695">Después de descargar los datos, el archivo <code class="docutils literal notranslate"><span class="pre">register.txt</span></code>
+no se elimina, sólo lo hará cuando el equipo pueda mandar
+con éxito dichas mediciones vía sim800 o se hayan
+intentado mandar 3 veces sin éxito.</p>
+</div>
+</section>
+</section>
+<section id="comunicacion-con-el-servidor">
+<h1><a class="toc-backref" href="#id63" role="doc-backlink"><span class="sectnum">7.- </span><span class="sectnum">5.- </span>Comunicación con el servidor</a><a class="headerlink" href="#comunicacion-con-el-servidor" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id1">
+<p class="topic-title">Contents</p>
+<ul class="auto-toc simple">
+<li><p><a class="reference internal" href="#comunicacion-con-la-app" id="id41"><span class="sectnum">6.- </span><span class="sectnum">4.- </span>Comunicación con la APP</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#actualizacion-del-rtc-interno" id="id42"><span class="sectnum">4.1.- </span>Actualización del RTC interno</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-del-equipo" id="id43"><span class="sectnum">4.2.- </span>Configuración del equipo</a></p></li>
+<li><p><a class="reference internal" href="#palabras-clave" id="id44"><span class="sectnum">4.3.- </span>Palabras clave</a></p>
+<ul>
+<li><p><a class="reference internal" href="#erase" id="id45">erase</a></p></li>
+<li><p><a class="reference internal" href="#eeprom" id="id46">eeprom</a></p></li>
+<li><p><a class="reference internal" href="#chequeo" id="id47">chequeo</a></p></li>
+<li><p><a class="reference internal" href="#voltaje-volt" id="id48">voltaje,&lt;volt&gt;</a></p></li>
+<li><p><a class="reference internal" href="#modo12" id="id49">modo12</a></p></li>
+<li><p><a class="reference internal" href="#offline" id="id50">offline</a></p></li>
+<li><p><a class="reference internal" href="#modulo" id="id51">modulo</a></p></li>
+<li><p><a class="reference internal" href="#reset" id="id52">reset</a></p></li>
+<li><p><a class="reference internal" href="#invalid-sn" id="id53">invalid sn</a></p></li>
+<li><p><a class="reference internal" href="#invalid-time" id="id54">invalid time</a></p></li>
+<li><p><a class="reference internal" href="#log" id="id55">log</a></p></li>
+<li><p><a class="reference internal" href="#apn-valor-de-apn" id="id56">apn,&lt;valor de apn&gt;</a></p></li>
+<li><p><a class="reference internal" href="#user-valor-de-user" id="id57">user,&lt;valor de user&gt;</a></p></li>
+<li><p><a class="reference internal" href="#pwd-valor-de-pwd" id="id58">pwd,&lt;valor de pwd&gt;</a></p></li>
+<li><p><a class="reference internal" href="#erase-cred" id="id59">erase cred</a></p></li>
+<li><p><a class="reference internal" href="#erase-log" id="id60">erase log</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#medicion-manual" id="id61"><span class="sectnum">4.4.- </span>Medición manual</a></p></li>
+<li><p><a class="reference internal" href="#pedido-del-historial" id="id62"><span class="sectnum">4.5.- </span>Pedido del historial</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#comunicacion-con-el-servidor" id="id63"><span class="sectnum">7.- </span><span class="sectnum">5.- </span>Comunicación con el servidor</a></p>
+<ul class="auto-toc">
+<li><p><a class="reference internal" href="#dada-de-alta-de-un-punto" id="id64"><span class="sectnum">5.1.- </span>Dada de alta de un punto</a></p></li>
+<li><p><a class="reference internal" href="#actualizacion-de-las-mediciones" id="id65"><span class="sectnum">5.2.- </span>Actualización de las mediciones</a></p>
+<ul>
+<li><p><a class="reference internal" href="#peticion-ok" id="id66">200: Petición ok</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-json" id="id67">400: Problema con el JSON</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-product" id="id68">404: Problema con PRODUCT</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-id" id="id69">405: Problema con ID</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-sn" id="id70">406: Problema con SN</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-location" id="id71">407: Problema con LOCATION</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-tag-depth" id="id72">408: Problema con el TAG_DEPTH</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-la-latitude" id="id73">460: Problema con la LATITUDE</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-longitude" id="id74">461: Problema con LONGITUDE</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id75">462: Problema con LOCATION</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-timestamp-mal-formado" id="id76">463: Problema con el TIMESTAMP (mal formado)</a></p></li>
+<li><p><a class="reference internal" href="#problema-con-el-timestamp-fuera-de-rango" id="id77">464: Problema con el TIMESTAMP (fuera de rango)</a></p></li>
+<li><p><a class="reference internal" href="#problema-del-servidor" id="id78">500: Problema del servidor</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="dada-de-alta-de-un-punto">
+<h2><a class="toc-backref" href="#id64" role="doc-backlink"><span class="sectnum">5.1.- </span>Dada de alta de un punto</a><a class="headerlink" href="#dada-de-alta-de-un-punto" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-714">Para configurar un punto, el equipo manda a la siguiente dirección:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">https://us-central1-briste-biot.cloudfunctions.net/setMetadata</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-720">el siguiente metadata en una HTTP POST request:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/setMetadata</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/plain</span>
+<span class="na">User-Agent</span><span class="o">:</span> <span class="l">Insomnia/2023.5.7</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">us-central1-briste-biot.cloudfunctions.net</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">354</span>
+
+{
+    &quot;id&quot;: &quot;L-7BF4&quot;,
+    &quot;product&quot;: &quot;THSST&quot;,
+    &quot;soil_type&quot;: &quot;Franco arcillo arenoso&quot;,
+    &quot;location_name&quot;: &quot;hola&quot;,
+    &quot;location&quot;: {
+        &quot;latitude&quot;: -31.39163971,
+        &quot;longitude&quot;: -64.22101593
+    },
+    &quot;sensors&quot;: {
+        &quot;00000000001&quot;: {
+            &quot;type&quot;: &quot;the&quot;,
+            &quot;tag_depth&quot;: &quot;10.00&quot;
+        }
+    },
+    &quot;cred&quot;: {
+        &quot;apn&quot;: &quot;datos.personal.com&quot;,
+        &quot;user&quot;: &quot;datos&quot;,
+        &quot;pwd&quot;: &quot;datos&quot;
+    }
+}
+</pre></div>
+</div>
+<p class="linemarker linemarker-752">Si está todo ok, el servidor responde lo siguiente:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">200</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">xlnu4p0lt2ec</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">8f5c53493268a963fecda8353c1d7583;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Thu, 21 Sep 2023 14:00:12 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">49</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Se actualizaron los datos de L-7BF4&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-769">Entonces el equipo no pone el bool <code class="docutils literal notranslate"><span class="pre">pending_config</span></code> en alto y
+le responde a la app que la configuración se realizó
+exitosamente.</p>
+</section>
+<section id="actualizacion-de-las-mediciones">
+<h2><a class="toc-backref" href="#id65" role="doc-backlink"><span class="sectnum">5.2.- </span>Actualización de las mediciones</a><a class="headerlink" href="#actualizacion-de-las-mediciones" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-776">Una vez que los paquetes de mediciones están hechas, se mandan al
+servidor cuya dirección es:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">https://us-central1-briste-biot.cloudfunctions.net/updateProduct</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-783">Se hace una petición POST con cada paquete con el módulo
+SIM808 como el del siguiente ejemplo:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/updateProduct</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">text/plain</span>
+<span class="na">User-Agent</span><span class="o">:</span> <span class="l">Insomnia/2023.5.7</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">us-central1-briste-biot.cloudfunctions.net</span>
+<span class="na">Content-Length</span><span class="o">:</span> <span class="l">679</span>
+
+{
+  &quot;enabled&quot;: true,
+  &quot;id&quot;: &quot;L-1004&quot;,
+  &quot;product&quot;: &quot;THSST&quot;,
+  &quot;timestamp&quot;: &quot;2022-12-31-21-00-00&quot;,
+  &quot;location&quot;: {
+      &quot;latitude&quot;: -31.39164543,
+      &quot;longitude&quot;: -64.22100067
+  },
+  &quot;value&quot;: {
+    &quot;sn&quot;: &quot;00000000001&quot;,
+    &quot;humidity&quot;: 1.59,
+    &quot;temperature&quot;: 24.98,
+    &quot;location_name&quot;: &quot;BRISTE&quot;,
+    &quot;tag_depth&quot;: 200,
+    &quot;loss_tangent&quot;: 0.000,
+    &quot;electrical_conductivity&quot;: 0,
+    &quot;electrical_conductivity_tc&quot;: 0,
+    &quot;real_dielectric_permittivity&quot;: 0,
+    &quot;real_dielectric_permittivity_tc&quot;: 0,
+    &quot;imag_dielectric_permittivity&quot;: 0.00,
+    &quot;imag_dielectric_permittivity_tc&quot;: 0.00,
+    &quot;ph&quot;: 0.00,
+    &quot;level_bat&quot;: 6.643
+  },
+  &quot;verFirm&quot;: &quot;V5.1.0&quot;,
+  &quot;verHard&quot;: &quot;V1.0.0&quot;,
+  &quot;number_sent&quot;: 0
+}
+</pre></div>
+</div>
+<p class="linemarker linemarker-824">El servidor puede contestar con los siguientes códigos de
+error.</p>
+<section id="peticion-ok">
+<h3><a class="toc-backref" href="#id66" role="doc-backlink">200: Petición ok</a><a class="headerlink" href="#peticion-ok" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-830">Petición procesada exitosamente. Si se le envía el <code class="docutils literal notranslate"><span class="pre">http</span>
+<span class="pre">request</span></code> del ejemplo, entonces el servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span> HTTP/2 200
+ content-type: application/json; charset=utf-8
+ function-execution-id: 4327ufhdlkwk
+ x-cloud-trace-context: 979ccf0190118773a1eea5b3ecf09a2d
+ date: Fri, 29 Sep 2023 14:24:35 GMT
+ server: Google Frontend
+ content-length: 83
+ alt-svc: h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000
+
+{
+   &quot;message&quot;: &quot;Se actualizaron los datos de L-7BF4&quot;,
+   &quot;timestamp&quot;: &quot;2023-07-16T23:26:06&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="problema-con-el-json">
+<h3><a class="toc-backref" href="#id67" role="doc-backlink">400: Problema con el JSON</a><a class="headerlink" href="#problema-con-el-json" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-852">El paquete json entero posiblemente esté mal formado. Si
+se le envía el <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo con algún error,
+entonces el servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span> HTTP/2 400
+ content-type: application/json; charset=utf-8
+ function-execution-id: 4327ad9l5bl2
+ x-cloud-trace-context: d6c3aacad50eff5163d7da9a5951f2ea;o=1
+ date: Fri, 29 Sep 2023 14:25:07 GMT
+ server: Google Frontend
+ content-length: 691
+ alt-svc: h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000
+
+{
+ &quot;message&quot;: &quot;Error al parsear el body: {\r\n
+ \&quot;enabled\&quot;: true,\r\n  \r\n  \&quot;product\&quot;: \&quot;THSST\&quot;,
+ \r\n  \&quot;timestamp\&quot;: \&quot;2023-04-20-12-18-42\&quot;,\r\n
+ \&quot;location\&quot;: {\r\n    \&quot;latitude\&quot;: -31.39167023,\r\n
+\&quot;longitude\&quot;: -64.22102356\r\n  },\r\n
+\&quot;value\&quot;: {\r\n    \&quot;sn\&quot;: \&quot;00000000001\&quot;,\r\n
+\&quot;humidity\&quot;: 0.00,\r\n    \&quot;temperature\&quot;:
+22.08,\r\n    \&quot;location_name\&quot;: \&quot;BIOT-\&quot;,\r\n
+\&quot;tag_depth\&quot;: 10,\r\n    \&quot;loss_tangent\&quot;: 0.00,\r\n
+\&quot;electrical_conductivity\&quot;: 0,\r\n
+\&quot;electrical_conductivity_tc\&quot;: 0.00,\r\n
+\&quot;real_dielectric_permittivity\&quot;: 0.00,\r\n
+\&quot;real_dielectric_permittivity_tc\&quot;: 0.00,\r\n
+\&quot;imag_dielectric_permittivity\&quot;: 0.00,\r\n
+\&quot;imag_dielectric_permittivity_tc\&quot;: 0.00,\r\n
+\&quot;level_bat\&quot;: 0.000\r\n  },\r\n  \&quot;verFirm\&quot;:
+\&quot;V1.0.15\&quot;,\r\n  \&quot;verHard\&quot;: \&quot;V1.0.0\&quot;,\r\n
+\&quot;number_sent\&quot;: 0\r\n}&quot;
+}
+</pre></div>
+</div>
+</section>
+<section id="problema-con-product">
+<h3><a class="toc-backref" href="#id68" role="doc-backlink">404: Problema con PRODUCT</a><a class="headerlink" href="#problema-con-product" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-891">El campo <code class="docutils literal notranslate"><span class="pre">product</span></code> no es válido. Si se le envía el mismo
+<code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el siguiente campo
+modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;product&quot;: &quot;TdddHSST&quot;</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-899">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">404</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">43276bbpevjg</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">0dd0a36ff048bebced564210d3b47720;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:26:16 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">49</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error PRODUCT: TdddHSST no válido.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-con-id">
+<h3><a class="toc-backref" href="#id69" role="doc-backlink">405: Problema con ID</a><a class="headerlink" href="#problema-con-id" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-919">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">id</span></code>, no es válido. Si se le
+envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
+siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;id&quot;: &quot;&quot;,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-927">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">405</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327iobihsgs</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">38fcb81db56be11f4755c004f82af3d5;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:27:08 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">32</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error ID no valido&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-con-sn">
+<h3><a class="toc-backref" href="#id70" role="doc-backlink">406: Problema con SN</a><a class="headerlink" href="#problema-con-sn" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-947">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">sn</span></code>, la longitud es menor a
+4 caracteres. Si se le envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code>
+del ejemplo, pero con el siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;sn&quot;: &quot;01&quot;,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-955">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">406</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327phq6x3pu</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">4bda6dc1b80f87f11d724dee1aafe24c;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:29:09 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">32</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error SN no valido&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-con-location">
+<h3><a class="toc-backref" href="#id71" role="doc-backlink">407: Problema con LOCATION</a><a class="headerlink" href="#problema-con-location" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-975">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">location</span></code>, tiene valores nulos. Si se
+le envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
+siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;location&quot;: {</span>
+<span class="go">    &quot;latitude&quot;: 0,</span>
+<span class="go">    &quot;longitude&quot;: 0</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-986">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">407</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">43275yhfqgp3</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">0f1e3a8038c542871411b216cdcb6420;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:30:16 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">38</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error LOCATION no valido&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-con-el-tag-depth">
+<h3><a class="toc-backref" href="#id72" role="doc-backlink">408: Problema con el TAG_DEPTH</a><a class="headerlink" href="#problema-con-el-tag-depth" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-1006">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">tag_depth</span></code>, está fuera de rango. Si se
+le envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
+siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;tag_depth&quot;: -1 (o 1001)</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-1014">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">408</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327fjv706qh</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">c073c93c7b38e7fd887ca80b5567ebdf</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:31:18 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">60</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error TAG_DEPTH fuera de rango en cm. [0,1000]&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-con-la-latitude">
+<h3><a class="toc-backref" href="#id73" role="doc-backlink">460: Problema con la LATITUDE</a><a class="headerlink" href="#problema-con-la-latitude" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-1034">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, está fuera del rango
+[-90; 90]. Si se envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo,
+pero con el siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;latitude&quot;: -121.39164543</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-1042">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">460</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327styqcgqb</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">0cef79a5a2f24ce400d58f2711933b53;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 13:58:02 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">70</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error LATITUDE: -121.39164543 fuera del rango [-90, 90].&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-con-longitude">
+<h3><a class="toc-backref" href="#id74" role="doc-backlink">461: Problema con LONGITUDE</a><a class="headerlink" href="#problema-con-longitude" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-1062">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, está fuera del rango
+[-180; 180]. Si se envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo,
+pero con el siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;longitude&quot;: -264.22100067</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-1070">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">461</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327ypc89obe</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">02409f5d3ff5c00d0db21e2abdd20452;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:04:12 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">73</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error LONGITUDE: -264.22100067 fuera del rango [-180, 180].&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3><a class="toc-backref" href="#id75" role="doc-backlink">462: Problema con LOCATION</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-1090">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">location</span></code>, está mal formado. Si se
+envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
+siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;location&quot;: {</span>
+<span class="go">    &quot;le&quot;: -31.39164543,</span>
+<span class="go">    &quot;longitude&quot;: -64.22100067</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-1101">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">462</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327uzdwybk9</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">c0b28411578ea5badab2d2867b5fb1ba;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:06:45 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">45</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error al convertir la location.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-con-el-timestamp-mal-formado">
+<h3><a class="toc-backref" href="#id76" role="doc-backlink">463: Problema con el TIMESTAMP (mal formado)</a><a class="headerlink" href="#problema-con-el-timestamp-mal-formado" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-1121">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, está mal formado, debe
+seguir con el formato YYYY-mm-DD-HH-MM-SS. Si se envía el
+mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el siguiente campo
+modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;timestamp&quot;: &quot;2023-08-31T14:10:36&quot;,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-1130">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">463</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327qpic95yf</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">2f668064b1d64e371a0053a0363ee908;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:09:08 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">43</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error al convertir timestamp.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-con-el-timestamp-fuera-de-rango">
+<h3><a class="toc-backref" href="#id77" role="doc-backlink">464: Problema con el TIMESTAMP (fuera de rango)</a><a class="headerlink" href="#problema-con-el-timestamp-fuera-de-rango" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-1150">Problemas con el campo <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, está fuera de rango.</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-1152">Valor mínimo: 2021-12-31-21-00-00</p></li>
+<li><p class="linemarker linemarker-1153">Valor máximo: la hora actual del servidor</p></li>
+</ul>
+<p class="linemarker linemarker-1155">Si se envía el mismo <code class="docutils literal notranslate"><span class="pre">http</span> <span class="pre">request</span></code> del ejemplo, pero con el
+siguiente campo modificado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&quot;timestamp&quot;: &quot;2024-08-31T14:10:36&quot;,</span>
+</pre></div>
+</div>
+<p class="linemarker linemarker-1162">El servidor responde:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">2</span> <span class="m">464</span>
+<span class="na">content-type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+<span class="na">function-execution-id</span><span class="o">:</span> <span class="l">4327wilgms5n</span>
+<span class="na">x-cloud-trace-context</span><span class="o">:</span> <span class="l">f931fa672659f33450be1d334dd1697c;o=1</span>
+<span class="na">date</span><span class="o">:</span> <span class="l">Fri, 29 Sep 2023 14:22:11 GMT</span>
+<span class="na">server</span><span class="o">:</span> <span class="l">Google Frontend</span>
+<span class="na">content-length</span><span class="o">:</span> <span class="l">76</span>
+<span class="na">alt-svc</span><span class="o">:</span> <span class="l">h3=&quot;:443&quot;; ma=2592000,h3-29=&quot;:443&quot;; ma=2592000</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Error fecha fuera de rango.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;29/09/2023, 11:22:11&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="problema-del-servidor">
+<h3><a class="toc-backref" href="#id78" role="doc-backlink">500: Problema del servidor</a><a class="headerlink" href="#problema-del-servidor" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-1183">Problema interno del servidor a la hora de guardar los datos. No
+se muestra un ejemplo de lo que responde el servidor porque al
+momento de ahcer esta documentación no se ha podido simular esa
+falla.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="03-sensors.html" class="btn btn-neutral float-left" title="3.- Tipos de sensores soportados" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="05-developer.html" class="btn btn-neutral float-right" title="5.- Desarrollador" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, BristeFirmware.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

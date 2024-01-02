@@ -1,6 +1,11 @@
 Versionado
 ##########
 
+.. sectnum:: 
+   :suffix: .-
+   :start: 8
+   :depth: 1
+
 - Todos los cambios notables en este proyecto van a ser documentados aquí. 
 - Las entradas más recientes se colocan arriba.
 - Este proyecto adhiere a `Semantic Versioning 
@@ -29,6 +34,18 @@ Tipos de cambios
 
 Versión 7
 *********
+
+V7.5.1 - 22/12/2023
+===================
+
+Fixed
+-----
+
+- **Versión de hardware:** corregida la indicación de la versión de hardware cuando se especifica que la placa es nueva. Si la siguiente línea está descomentada:
+
+  .. code-block:: console
+
+    #define BOARD_1_1
 
 V7.5.0 - 06/12/2023
 ===================

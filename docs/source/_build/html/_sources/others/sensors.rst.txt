@@ -4,7 +4,7 @@ Tipos de sensores soportados
 
 .. sectnum:: 
    :suffix: .-
-   :start: 4
+   :start: 3
    :depth: 2
 
 .. contents::

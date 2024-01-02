@@ -3,7 +3,7 @@ Pruebas varias
 
 .. sectnum:: 
    :suffix: .-
-   :start: 9
+   :start: 6
    :depth: 2
 
 .. contents::

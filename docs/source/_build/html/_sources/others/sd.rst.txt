@@ -3,7 +3,7 @@ Guardado en memoria SD
 
 .. sectnum::
    :suffix: .-
-   :start: 6
+   :start: 5
 
 .. contents:: 
     

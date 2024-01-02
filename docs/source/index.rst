@@ -69,16 +69,12 @@ Contenido
 .. toctree::
    :maxdepth: 2
 
-   others/description
+   others/01-description
    others/components
-   others/firmware
    others/sensors
-   others/app
-   others/sd
-   others/server
+   others/app-server
    others/developer
-   others/misc_test
-   others/bugs
+   others/testing
    others/changes
    others/changelog
 

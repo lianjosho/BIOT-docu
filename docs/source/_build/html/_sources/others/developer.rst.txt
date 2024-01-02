@@ -3,7 +3,7 @@ Desarrollador
 
 .. sectnum::
    :suffix: .-
-   :start: 8
+   :start: 5
    :depth: 2
 
 .. contents:: 
@@ -179,14 +179,9 @@ regall
 Muestra el contenido de ``regall.txt``, que es en donde están 
 todas las mediciones hechas, enviadas o no.
 
-Reporte de testing
-******************
+Parámetros del proyecto
+***********************
 
-Aquí se detallan los casos de prueba subidos a `Testomat 
-<https://app.testomat.io/projects/biot/>`_.
-
-Problemas e inconvenientes en el desarrollo 
-*******************************************
 
 
 
