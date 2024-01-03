@@ -70,13 +70,13 @@ Contenido
    :maxdepth: 2
 
    others/01-description
-   others/components
-   others/sensors
-   others/app-server
-   others/developer
-   others/testing
-   others/changes
-   others/changelog
+   others/02-components
+   others/03-sensors
+   others/04-app-server
+   others/05-developer
+   others/06-testing
+   others/07-changes
+   others/08-changelog
 
 
 

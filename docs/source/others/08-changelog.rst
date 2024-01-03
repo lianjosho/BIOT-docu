@@ -32,6 +32,21 @@ Tipos de cambios
 - ``Removed`` para las características en desuso que se eliminaron en esta versión.
 - ``Fixed`` para corrección de errores.
 
+Versión 8
+*********
+
+V8.0.0 - 03/01/2024
+===================
+
+Changed
+-------
+
+- **Intervalos de medición y de subida como parámetros:** el intervalo de medición y 
+  el de subida pasan a ser parámetros, esto es, pasan a ser variables gloabales 
+  que se pueden modificar por los valores deseados. En versiones anteriores el 
+  intervalo de medición era de 1 o 12 horas y el de subida era de 12 o 24 horas, 
+  dependiendo de si el modo 12 estaba activado o no, respectivamente.
+
 Versión 7
 *********
 

@@ -45,11 +45,14 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="others/components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="others/sensors.html"><span class="sectnum">3.- </span>Tipos de sensores soportados</a></li>
-<li class="toctree-l1"><a class="reference internal" href="others/developer.html"><span class="sectnum">5.- </span>Desarrollador</a></li>
-<li class="toctree-l1"><a class="reference internal" href="others/changes.html"><span class="sectnum">7.- </span>Cambios o propuestas de mejora</a></li>
-<li class="toctree-l1"><a class="reference internal" href="others/changelog.html"><span class="sectnum">8.- </span>Versionado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/01-description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/02-components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/03-sensors.html"><span class="sectnum">3.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/04-app-server.html"><span class="sectnum">4.- </span>Comunicación con la APP y con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/05-developer.html"><span class="sectnum">5.- </span>Desarrollador</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/06-testing.html"><span class="sectnum">6.- </span>Plan de pruebas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/07-changes.html"><span class="sectnum">7.- </span>Cambios o propuestas de mejora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/08-changelog.html"><span class="sectnum">8.- </span>Versionado</a></li>
 </ul>
 
         </div>
@@ -135,47 +138,65 @@ monitorización y la investigación científica.</p>
 </figure>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="others/components.html"><span class="sectnum">2.- </span>Componentes del equipo</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="others/components.html#esp32"><span class="sectnum">2.1.- </span>ESP32</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/components.html#modulo-sd"><span class="sectnum">2.2.- </span>Módulo SD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/components.html#modulo-485"><span class="sectnum">2.3.- </span>Módulo 485</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/components.html#rtc-externo"><span class="sectnum">2.4.- </span>RTC externo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/components.html#modulo-sim808"><span class="sectnum">2.5.- </span>Módulo SIM808</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/01-description.html"><span class="sectnum">1.- </span>Descripción del equipo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others/01-description.html#diagrama-de-bloques"><span class="sectnum">1.1.- </span>Diagrama de bloques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/01-description.html#componentes"><span class="sectnum">1.2.- </span>Componentes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/01-description.html#funcionamiento"><span class="sectnum">1.3.- </span>Funcionamiento</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="others/sensors.html"><span class="sectnum">3.- </span>Tipos de sensores soportados</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#soil-temperature-humidity-and-ec-sensor-gemho"><span class="sectnum">3.1.- </span>Soil Temperature Humidity And EC Sensor (Gemho)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#rs485-4-20ma-soil-npk-sensor-gemho"><span class="sectnum">3.2.- </span>RS485/4-20mA Soil NPK Sensor (Gemho)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#rs485-4-20ma-soil-ph-sensor-gemho"><span class="sectnum">3.3.- </span>RS485/4-20mA Soil PH Sensor (Gemho)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#lt-cg-s-d-001-m1120-12-the-npk-ph-sensor"><span class="sectnum">3.4.- </span>LT-CG-S/D-001-M1120-12 THE, NPK, PH sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#sup-zp-ultrasonic-level-transmitter-supmea"><span class="sectnum">3.5.- </span>SUP-ZP Ultrasonic level transmitter (Supmea)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#the-hydra-probe-soil-sensor-stevens"><span class="sectnum">3.6.- </span>The Hydra Probe® Soil Sensor (Stevens)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#contrastacion-entre-sensor-chino-y-stevens"><span class="sectnum">3.7.- </span>Contrastación entre sensor chino y Stevens</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#parametros-del-array"><span class="sectnum">3.8.- </span>Parámetros del array</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/sensors.html#material-descargable"><span class="sectnum">3.9.- </span>Material descargable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/02-components.html"><span class="sectnum">2.- </span>Componentes del equipo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others/02-components.html#esp32"><span class="sectnum">2.1.- </span>ESP32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/02-components.html#modulo-sd"><span class="sectnum">2.2.- </span>Módulo SD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/02-components.html#modulo-485"><span class="sectnum">2.3.- </span>Módulo 485</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/02-components.html#rtc-externo"><span class="sectnum">2.4.- </span>RTC externo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/02-components.html#modulo-sim808"><span class="sectnum">2.5.- </span>Módulo SIM808</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="others/developer.html"><span class="sectnum">5.- </span>Desarrollador</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="others/developer.html#interrupcion"><span class="sectnum">5.1.- </span>Interrupción</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/developer.html#ordenes-por-terminal"><span class="sectnum">5.2.- </span>Órdenes por terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/developer.html#parametros-del-proyecto"><span class="sectnum">5.3.- </span>Parámetros del proyecto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/03-sensors.html"><span class="sectnum">3.- </span>Tipos de sensores soportados</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#soil-temperature-humidity-and-ec-sensor-gemho"><span class="sectnum">3.1.- </span>Soil Temperature Humidity And EC Sensor (Gemho)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#rs485-4-20ma-soil-npk-sensor-gemho"><span class="sectnum">3.2.- </span>RS485/4-20mA Soil NPK Sensor (Gemho)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#rs485-4-20ma-soil-ph-sensor-gemho"><span class="sectnum">3.3.- </span>RS485/4-20mA Soil PH Sensor (Gemho)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#lt-cg-s-d-001-m1120-12-the-npk-ph-sensor"><span class="sectnum">3.4.- </span>LT-CG-S/D-001-M1120-12 THE, NPK, PH sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#sup-zp-ultrasonic-level-transmitter-supmea"><span class="sectnum">3.5.- </span>SUP-ZP Ultrasonic level transmitter (Supmea)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#the-hydra-probe-soil-sensor-stevens"><span class="sectnum">3.6.- </span>The Hydra Probe® Soil Sensor (Stevens)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#contrastacion-entre-sensor-chino-y-stevens"><span class="sectnum">3.7.- </span>Contrastación entre sensor chino y Stevens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#parametros-del-array"><span class="sectnum">3.8.- </span>Parámetros del array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/03-sensors.html#material-descargable"><span class="sectnum">3.9.- </span>Material descargable</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="others/changes.html"><span class="sectnum">7.- </span>Cambios o propuestas de mejora</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="others/changes.html#actualizacion-del-json-meta"><span class="sectnum">7.1.- </span>Actualización del <code class="docutils literal notranslate"><span class="pre">json_meta</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changes.html#actualizacion-del-json-measure"><span class="sectnum">7.2.- </span>Actualización del <code class="docutils literal notranslate"><span class="pre">json_measure</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/04-app-server.html"><span class="sectnum">4.- </span>Comunicación con la APP y con el servidor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others/04-app-server.html#comunicacion-con-la-app"><span class="sectnum">4.1.- </span>Comunicación con la app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/04-app-server.html#comunicacion-con-el-servidor"><span class="sectnum">4.2.- </span>Comunicación con el servidor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="others/changelog.html"><span class="sectnum">8.- </span>Versionado</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#nomenclatura">Nomenclatura</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#tipos-de-cambios">Tipos de cambios</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#version-7">Versión 7</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#version-6">Versión 6</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#version-5">Versión 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#version-4">Versión 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#version-3">Versión 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#version-2">Versión 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="others/changelog.html#version-1">Versión 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="others/05-developer.html"><span class="sectnum">5.- </span>Desarrollador</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others/05-developer.html#interrupcion"><span class="sectnum">5.1.- </span>Interrupción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/05-developer.html#ordenes-por-terminal"><span class="sectnum">5.2.- </span>Órdenes por terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/05-developer.html#parametros-del-proyecto"><span class="sectnum">5.3.- </span>Parámetros del proyecto</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="others/06-testing.html"><span class="sectnum">6.- </span>Plan de pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others/06-testing.html#introduccion"><span class="sectnum">6.1.- </span>Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/06-testing.html#plan-de-prueba-del-proyecto"><span class="sectnum">6.2.- </span>Plan de prueba del proyecto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/06-testing.html#mediciones-de-autonomia"><span class="sectnum">6.3.- </span>Mediciones de autonomía</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="others/07-changes.html"><span class="sectnum">7.- </span>Cambios o propuestas de mejora</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others/07-changes.html#actualizacion-del-json-meta"><span class="sectnum">7.1.- </span>Actualización del <code class="docutils literal notranslate"><span class="pre">json_meta</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/07-changes.html#actualizacion-del-json-measure"><span class="sectnum">7.2.- </span>Actualización del <code class="docutils literal notranslate"><span class="pre">json_measure</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="others/08-changelog.html"><span class="sectnum">8.- </span>Versionado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#nomenclatura">Nomenclatura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#tipos-de-cambios">Tipos de cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#version-8">Versión 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#version-7">Versión 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#version-6">Versión 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#version-5">Versión 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#version-4">Versión 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#version-3">Versión 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#version-2">Versión 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="others/08-changelog.html#version-1">Versión 1</a></li>
 </ul>
 </li>
 </ul>

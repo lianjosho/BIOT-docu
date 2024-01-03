@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.- Pruebas varias &mdash; BIOT 0.1 documentation</title>
+  <title>6.- Plan de pruebas &mdash; BIOT 0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -45,8 +45,42 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="sd.html"><span class="sectnum">5.- </span>Guardado en memoria SD</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01-description.html"><span class="sectnum">1.- </span>Descripción del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-components.html"><span class="sectnum">2.- </span>Componentes del equipo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-sensors.html"><span class="sectnum">3.- </span>Tipos de sensores soportados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-app-server.html"><span class="sectnum">4.- </span>Comunicación con la APP y con el servidor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-developer.html"><span class="sectnum">5.- </span>Desarrollador</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><span class="sectnum">6.- </span>Plan de pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduccion"><span class="sectnum">6.1.- </span>Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plan-de-prueba-del-proyecto"><span class="sectnum">6.2.- </span>Plan de prueba del proyecto</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#objetivo">Objetivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alcance">Alcance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estrategias-de-pruebas">Estrategias de pruebas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prioridades-de-los-casos-de-pruebas">Prioridades de los casos de pruebas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disponibilidad-de-recursos">Disponibilidad de recursos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proceso-empleado">Proceso empleado</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#registros-de-prueba">Registros de prueba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reporte-de-bugs">Reporte de bugs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ambiente-de-prueba">Ambiente de prueba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#criterio-de-suspension">Criterio de suspensión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#casos-de-prueba">Casos de prueba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cronograma-de-entregables">Cronograma de entregables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#especificacion-de-casos-de-pruebas">Especificación de casos de pruebas</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#salida">1 salida</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#palabras-clave">Palabras clave</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mediciones-automaticas">Mediciones automáticas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mediciones-de-autonomia"><span class="sectnum">6.3.- </span>Mediciones de autonomía</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="07-changes.html"><span class="sectnum">7.- </span>Cambios o propuestas de mejora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-changelog.html"><span class="sectnum">8.- </span>Versionado</a></li>
 </ul>
 
         </div>
@@ -63,7 +97,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="sectnum">6.- </span>Pruebas varias</li>
+      <li class="breadcrumb-item active"><span class="sectnum">6.- </span>Plan de pruebas</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/others/06-testing.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -73,210 +107,502 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="pruebas-varias">
-<h1><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">6.- </span>Pruebas varias</a><a class="headerlink" href="#pruebas-varias" title="Permalink to this heading"></a></h1>
+  <section id="plan-de-pruebas">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink"><span class="sectnum">6.- </span>Plan de pruebas</a><a class="headerlink" href="#plan-de-pruebas" title="Permalink to this heading"></a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="auto-toc simple">
-<li><p><a class="reference internal" href="#pruebas-varias" id="id3"><span class="sectnum">6.- </span>Pruebas varias</a></p>
+<li><p><a class="reference internal" href="#plan-de-pruebas" id="id3"><span class="sectnum">6.- </span>Plan de pruebas</a></p>
 <ul class="auto-toc">
-<li><p><a class="reference internal" href="#sensor-ph-gemho" id="id4"><span class="sectnum">6.1.- </span>Sensor PH Gemho</a></p></li>
-<li><p><a class="reference internal" href="#promediado-de-las-mediciones" id="id5"><span class="sectnum">6.2.- </span>Promediado de las mediciones</a></p></li>
+<li><p><a class="reference internal" href="#introduccion" id="id4"><span class="sectnum">6.1.- </span>Introducción</a></p></li>
+<li><p><a class="reference internal" href="#plan-de-prueba-del-proyecto" id="id5"><span class="sectnum">6.2.- </span>Plan de prueba del proyecto</a></p>
+<ul>
+<li><p><a class="reference internal" href="#objetivo" id="id6">Objetivo</a></p></li>
+<li><p><a class="reference internal" href="#alcance" id="id7">Alcance</a></p></li>
+<li><p><a class="reference internal" href="#estrategias-de-pruebas" id="id8">Estrategias de pruebas</a></p></li>
+<li><p><a class="reference internal" href="#prioridades-de-los-casos-de-pruebas" id="id9">Prioridades de los casos de pruebas</a></p></li>
+<li><p><a class="reference internal" href="#disponibilidad-de-recursos" id="id10">Disponibilidad de recursos</a></p></li>
+<li><p><a class="reference internal" href="#proceso-empleado" id="id11">Proceso empleado</a></p>
+<ul>
+<li><p><a class="reference internal" href="#registros-de-prueba" id="id12">Registros de prueba</a></p></li>
+<li><p><a class="reference internal" href="#reporte-de-bugs" id="id13">Reporte de bugs</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ambiente-de-prueba" id="id14">Ambiente de prueba</a></p></li>
+<li><p><a class="reference internal" href="#criterio-de-suspension" id="id15">Criterio de suspensión</a></p></li>
+<li><p><a class="reference internal" href="#casos-de-prueba" id="id16">Casos de prueba</a></p></li>
+<li><p><a class="reference internal" href="#cronograma-de-entregables" id="id17">Cronograma de entregables</a></p></li>
+<li><p><a class="reference internal" href="#especificacion-de-casos-de-pruebas" id="id18">Especificación de casos de pruebas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#salida" id="id19">1 salida</a></p></li>
+<li><p><a class="reference internal" href="#palabras-clave" id="id20">Palabras clave</a></p></li>
+<li><p><a class="reference internal" href="#mediciones-automaticas" id="id21">Mediciones automáticas</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mediciones-de-autonomia" id="id22"><span class="sectnum">6.3.- </span>Mediciones de autonomía</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
-<section id="sensor-ph-gemho">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">6.1.- </span>Sensor PH Gemho</a><a class="headerlink" href="#sensor-ph-gemho" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-14">Se realizó la siguiente prueba para ver cómo funciona el sensor PH:</p>
+<section id="introduccion">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="sectnum">6.1.- </span>Introducción</a><a class="headerlink" href="#introduccion" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-21">Se expone aquí la documentación y herramientas usadas para las pruebas de
+desarrollo. Se especifica el plan de pruebas, los casos de prueba y como se
+debe reportar los resultados (métricas y bugs) que resume los resultados
+obtenidos de la ejecución de los ciclos de pruebas.</p>
+<p class="linemarker linemarker-26">El trabajo se ha organizado en cuatro etapas:</p>
 <ul class="simple">
-<li><p class="linemarker linemarker-16">Se aliemnta el sensor.</p></li>
-<li><p class="linemarker linemarker-17">Se manda la trama 01 03 00 06 00 07 E4 09 cada 2 segundos apox.</p></li>
-<li><p class="linemarker linemarker-18">Se recolecta la respuesata y analiza.</p></li>
+<li><p class="linemarker linemarker-28">Planificación,</p></li>
+<li><p class="linemarker linemarker-29">Ciclo de prueba,</p></li>
+<li><p class="linemarker linemarker-30">Verificación de bugs y</p></li>
+<li><p class="linemarker linemarker-31">Evaluación del proyecto.</p></li>
 </ul>
-<style>
-   .gbg {background-color:#00ff00;}
-</style><table class="docutils align-default" id="id1">
-<caption><span class="caption-text">Prueba sensor PH</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 29%" />
-<col style="width: 57%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Intento</p></th>
-<th class="head"><p class="linemarker linemarker-1">Trama de respuesta</p></th>
-<th class="head"><p class="linemarker linemarker-1">Tiempo (seg.)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p class="linemarker linemarker-1">1</p></td>
-<td><p class="linemarker linemarker-1">01 03 0E 00 00 00 00 00 00 02 F7 00 00 00 00 00 00 E8 03</p></td>
-<td><p class="linemarker linemarker-1">2</p></td>
-</tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1">2</p></td>
-<td><p class="linemarker linemarker-1">01 03 0E 00 00 00 00 00 00 03 16 00 00 00 00 00 00 D8 C1</p></td>
-<td><p class="linemarker linemarker-1">4</p></td>
-</tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1">3</p></td>
-<td><p class="linemarker linemarker-1">01 03 0E <span class="gbg">08 31 0B B0 01 A1</span> 03 19 <span class="gbg">00 0D 00 3C 00 46</span> 16 0C</p></td>
-<td><p class="linemarker linemarker-1">6</p></td>
-</tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1">4</p></td>
-<td><p class="linemarker linemarker-1">01 03 0E <span class="gbg">08 34 0B C9 01 8E</span> 03 19 <span class="gbg">00 0C 00 38 00 43</span> FA 67</p></td>
-<td><p class="linemarker linemarker-1">8</p></td>
-</tr>
-</tbody>
-</table>
-<p class="linemarker linemarker-37"><strong>Conclusión</strong>: se puede ver que después de ser alimentado, tiene que pasar
-aproximadamente 6 segundos antes de que el sensor devuelva una trama con los
-parámetros THE y NPK no nulos.</p>
 </section>
-<section id="promediado-de-las-mediciones">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">6.2.- </span>Promediado de las mediciones</a><a class="headerlink" href="#promediado-de-las-mediciones" title="Permalink to this heading"></a></h2>
-<p class="linemarker linemarker-44">Se tomó un sensor ph y se extrajeron varios valores de los 7
-parámetros para tomar su promedio.</p>
-<table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Valores de sensor PH</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<section id="plan-de-prueba-del-proyecto">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="sectnum">6.2.- </span>Plan de prueba del proyecto</a><a class="headerlink" href="#plan-de-prueba-del-proyecto" title="Permalink to this heading"></a></h2>
+<section id="objetivo">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Objetivo</a><a class="headerlink" href="#objetivo" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-39">El objetivo del plan de pruebas es reunir toda la informacion necesaria para
+planificar, gestionar y controlar el esfuerzo de las tareas que involucran
+testear las funcionalidades que mas abajo serán detalladas.</p>
+<p class="linemarker linemarker-43">Describe la propuesta de las pruebas del firmware. Es un plan a alto nivel
+generado y usado por los responsables para validar el producto BIOT.</p>
+<p class="linemarker linemarker-46">El documento proporciona los siguientes objetivos:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-48">Identificar las funciones que deben ser probadas y las que no.</p></li>
+<li><p class="linemarker linemarker-49">Realizar el tipo de prueba (caso de prueba).</p></li>
+<li><p class="linemarker linemarker-50">Especificar las estrategias a usar.</p></li>
+<li><p class="linemarker linemarker-51">Identificar los recursos necesarios y el esfuerzo estimado para las pruebas.</p></li>
+<li><p class="linemarker linemarker-52">Listar los elementos entregables del proyecto de pruebas.</p></li>
+</ul>
+</section>
+<section id="alcance">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Alcance</a><a class="headerlink" href="#alcance" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-57">Se enfoca en los requerimientos funcionales y no funcionales de los modulos
+que forman el firmware a verificar. Se detalla a continuacion el tipo de
+prueba a realizarse.</p>
+</section>
+<section id="estrategias-de-pruebas">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Estrategias de pruebas</a><a class="headerlink" href="#estrategias-de-pruebas" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-64">Cantidad de Recursos: 2.</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-66">1 tester al 100%</p></li>
+<li><p class="linemarker linemarker-67">1 tester al 50% tester, 20% Liderazgo)</p></li>
+</ul>
+<p class="linemarker linemarker-69">Etapas de pruebas:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Etapas</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 13%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Intento</p></th>
-<th class="head"><p class="linemarker linemarker-1">T</p></th>
-<th class="head"><p class="linemarker linemarker-1">H</p></th>
-<th class="head"><p class="linemarker linemarker-1">E</p></th>
-<th class="head"><p class="linemarker linemarker-1">PH</p></th>
-<th class="head"><p class="linemarker linemarker-1">N</p></th>
-<th class="head"><p class="linemarker linemarker-1">P</p></th>
-<th class="head"><p class="linemarker linemarker-1">K</p></th>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Diseño de casos</p></th>
+<th class="head"><p class="linemarker linemarker-1">Ciclo 1</p></th>
+<th class="head"><p class="linemarker linemarker-1">Ciclo 2</p></th>
+<th class="head"><p class="linemarker linemarker-1">Cierre</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p class="linemarker linemarker-1">0</p></td>
-<td><p class="linemarker linemarker-1">0</p></td>
-<td><p class="linemarker linemarker-1">0</p></td>
-<td><p class="linemarker linemarker-1">7.04</p></td>
-<td><p class="linemarker linemarker-1">0</p></td>
-<td><p class="linemarker linemarker-1">0</p></td>
-<td><p class="linemarker linemarker-1">0</p></td>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Escribir casos de pruebas</p></td>
+<td><p class="linemarker linemarker-1">Testing funcional</p></td>
+<td><p class="linemarker linemarker-1">Verificación de bugs</p></td>
+<td><p class="linemarker linemarker-1">Métricas, reportes</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p class="linemarker linemarker-1">Registro de bugs</p></td>
+<td><p class="linemarker linemarker-1">Testing de regresión (opcional)</p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1">1</p></td>
-<td><p class="linemarker linemarker-1">23.04</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">417</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">13</p></td>
-<td><p class="linemarker linemarker-1">60</p></td>
-<td><p class="linemarker linemarker-1">70</p></td>
+</tbody>
+</table>
+<ul class="simple">
+<li><p class="linemarker linemarker-78"><strong>Diseño de casos de prueba:</strong> se asignan los recursos al analisis y
+diseño de casos de pruebas basados en los requerimientos aprobados.
+El tipo de pruebas son funcionales de caja negra.</p></li>
+<li><p class="linemarker linemarker-81"><strong>Ciclo 1:</strong> recursos asignados a ejecutar los casos de prueba.
+También se registran los fallos (bugs) que aparezcan.</p></li>
+<li><p class="linemarker linemarker-83"><strong>Ciclo 2:</strong> recursos asignados a:</p>
+<ul>
+<li><p class="linemarker linemarker-85">verificar bugs reportados según severidad.</p></li>
+<li><p class="linemarker linemarker-86">Testing de regresión, selectivo. Solo los casos de prueba de prioridad alta.</p></li>
+<li><p class="linemarker linemarker-87">Gestionar defectos.</p></li>
+<li><p class="linemarker linemarker-88">Contestar consultas sobre los defectos reportados tan rápido como sea posible.</p></li>
+</ul>
+</li>
+<li><p class="linemarker linemarker-90"><strong>Cierre:</strong> una vez arreglado los bugs y habiendo cumplido con los criterios de
+aceptación, se realiza el reporte final y se concluye el testing.</p></li>
+</ul>
+</section>
+<section id="prioridades-de-los-casos-de-pruebas">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Prioridades de los casos de pruebas</a><a class="headerlink" href="#prioridades-de-los-casos-de-pruebas" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-96">Se definen dos (2) niveles de prioridad:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-98">Prioridad 1 (alta): los casos que se consideran importantes para la experiencia
+de usuario.</p></li>
+<li><p class="linemarker linemarker-100">Prioridad 2 (baja): designado para el resto de los casos</p></li>
+</ul>
+</section>
+<section id="disponibilidad-de-recursos">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Disponibilidad de recursos</a><a class="headerlink" href="#disponibilidad-de-recursos" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-105">Se cuentan con 4 recursos:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-107">1 tester asignados al 100%. Donde 100% equivale a 3 hs. por dia productivo.</p></li>
+<li><p class="linemarker linemarker-108">1 tester asignados al 50%.</p></li>
+<li><p class="linemarker linemarker-109">1 líder de proyecto asignado al 20% a tareas de liderazgo.</p></li>
+<li><p class="linemarker linemarker-110">1 desarrollador asignado al 100% a tareas de verificación de bugs y lectura de reportes .</p></li>
+<li><p class="linemarker linemarker-111">Se cuentan con cinco dias a la semana, sin feriados.</p></li>
+<li><p class="linemarker linemarker-112">No se requieren de capacitaciones previas.</p></li>
+</ul>
+<p class="linemarker linemarker-114">El equipo está conformado por:</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Equipo</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-1">Rol</p></th>
+<th class="head"><p class="linemarker linemarker-1">Nombre</p></th>
+<th class="head"><p class="linemarker linemarker-1">Tarea</p></th>
 </tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1">2</p></td>
-<td><p class="linemarker linemarker-1">23.04</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">394</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">56</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Líder de proyecto</p></td>
+<td><p class="linemarker linemarker-1">Guillermo o Fernando</p></td>
+<td><p class="linemarker linemarker-1">Supervisador de avance del proyecto</p></td>
 </tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1">3</p></td>
-<td><p class="linemarker linemarker-1">23.07</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">394</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">56</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
+<tr class="row-odd"><td><p class="linemarker linemarker-1">Desarrollador</p></td>
+<td><p class="linemarker linemarker-1">Sebas</p></td>
+<td><p class="linemarker linemarker-1">Confección plan de pruebas y supervisión de bugs</p></td>
 </tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1">4</p></td>
-<td><p class="linemarker linemarker-1">23.10</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">392</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">55</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
-</tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1">5</p></td>
-<td><p class="linemarker linemarker-1">23.07</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">391</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">55</p></td>
-<td><p class="linemarker linemarker-1">65</p></td>
-</tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1">6</p></td>
-<td><p class="linemarker linemarker-1">23.07</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">393</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">55</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
-</tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1">7</p></td>
-<td><p class="linemarker linemarker-1">23.07</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">393</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">55</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
-</tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1">8</p></td>
-<td><p class="linemarker linemarker-1">23.07</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">392</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">55</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
-</tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1">9</p></td>
-<td><p class="linemarker linemarker-1">23.07</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">393</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">55</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
-</tr>
-<tr class="row-even"><td><p class="linemarker linemarker-1">10</p></td>
-<td><p class="linemarker linemarker-1">23.13</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">395</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">56</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
-</tr>
-<tr class="row-odd"><td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">23.07</p></td>
-<td><p class="linemarker linemarker-1">100.00</p></td>
-<td><p class="linemarker linemarker-1">393</p></td>
-<td><p class="linemarker linemarker-1">7.32</p></td>
-<td><p class="linemarker linemarker-1">11</p></td>
-<td><p class="linemarker linemarker-1">55</p></td>
-<td><p class="linemarker linemarker-1">66</p></td>
+<tr class="row-even"><td><p class="linemarker linemarker-1">Testers</p></td>
+<td><p class="linemarker linemarker-1">Luis y Martín</p></td>
+<td><p class="linemarker linemarker-1">Ejecucuión de plan de pruebas y confección de reporte de bugs</p></td>
 </tr>
 </tbody>
 </table>
-<p class="linemarker linemarker-64"><strong>Conclusión:</strong> se toman distintas mediciones y se ve que los valores
-se quedan dentro de las tolerancias especificadas por la hoja de
-datos del sensor PH. Por lo tanto, no se necesita tomar varias
-mediciones para promediarlas después.</p>
-<p class="linemarker linemarker-69"><strong>Nota:</strong> lo que sí sucede es que cuando se toman mediciones desde
-distintos sensores en un mismo entorno, las mediciones no
-coiciden y se alejan de las tolerancias.</p>
+</section>
+<section id="proceso-empleado">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Proceso empleado</a><a class="headerlink" href="#proceso-empleado" title="Permalink to this heading"></a></h3>
+<section id="registros-de-prueba">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Registros de prueba</a><a class="headerlink" href="#registros-de-prueba" title="Permalink to this heading"></a></h4>
+<p class="linemarker linemarker-130">Tanto para escribir, ejecutar y registrar los resultados de los casos de pruebas
+se usa la herramienta online Testomat.io. El estado de cada caso de prueba son:
+por hacer, pasó, falló, no aplica.</p>
+<p class="linemarker linemarker-134">Para ejecutar un nuevo conjunto de pruebas, se debe ir a la sección “Runs” de
+Testomat, hacer click en “Manual Run”.</p>
+<p class="linemarker linemarker-137">En el campo “Title (optional)” usar el siguiente título:</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&lt;Versión de firmware&gt; - &lt;Proveedor de internet&gt; - &lt;Versión de la app&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p class="linemarker linemarker-143">En el campo “Set enviroment for execution” elegir el nombre de la placa, las
+cuales ya deberían estar pre cargadas.</p>
+<p class="linemarker linemarker-146">Luego hacer click en “Launch” para ejecutar el conjunto de pruebas, hacerlo y
+finalizarlo. Cuando se acabe, el reporte quedará registrado en la misma herramienta,
+que se puede descargar en formato “.xlsx” si es requerido.</p>
+</section>
+<section id="reporte-de-bugs">
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">Reporte de bugs</a><a class="headerlink" href="#reporte-de-bugs" title="Permalink to this heading"></a></h4>
+<p class="linemarker linemarker-153">En caso de que se genere un bugs, poner en dicho caso de prueba “FAILED” y luego
+usar las etiquetas “falla crítica” o “falla” y escribir una breve descripción
+del bugs. En caso de ser necesario, se pueden subir archivos para una mejor
+descripción.</p>
+</section>
+</section>
+<section id="ambiente-de-prueba">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Ambiente de prueba</a><a class="headerlink" href="#ambiente-de-prueba" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-161">Cada tester debe contar con:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-163">Versión de firmware instalada en la placa a testear.</p></li>
+<li><p class="linemarker linemarker-164">Celular con app BIOT instalada, y conectada a la placa.</p></li>
+<li><p class="linemarker linemarker-165">Notebook con el software Insomnia para hacer peticiones http a la placa.</p></li>
+<li><p class="linemarker linemarker-166">Acceso al proyecto BIOT en la cuenta de Testomat.io.</p></li>
+<li><p class="linemarker linemarker-167">Chip con datos activados en el módulo SIM.</p></li>
+<li><p class="linemarker linemarker-168">Memoria SD colocada en el módulo de memoria de la placa.</p></li>
+</ul>
+</section>
+<section id="criterio-de-suspension">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Criterio de suspensión</a><a class="headerlink" href="#criterio-de-suspension" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-173">En caso de encontrar un bug o defecto que impacte en el progreso de las tareas
+planificadas el lider de testing puede suspender las pruebas usando los
+siguientes criterior:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-177">No se cuenta con los requerimientos mencionados antes al momento del testing.</p></li>
+<li><p class="linemarker linemarker-178">El éxito en un caso de prueba es condición para los siguientes. Ejemplo:
+no se pueden realizar mediciones manuales si no se logró configurar el equipo.</p></li>
+</ul>
+</section>
+<section id="casos-de-prueba">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Casos de prueba</a><a class="headerlink" href="#casos-de-prueba" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-184">La herramienta Testomat puede crear casos de prueba fácilmente y lucen como
+en la imagen:</p>
+<img alt="../_images/06-testing-01-test_case.png" src="../_images/06-testing-01-test_case.png" />
+</section>
+<section id="cronograma-de-entregables">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Cronograma de entregables</a><a class="headerlink" href="#cronograma-de-entregables" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 10%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-196">Entregable</p></th>
+<th class="head"><p class="linemarker linemarker-197">Asignado</p></th>
+<th class="head"><p class="linemarker linemarker-198">Fecha de inicio</p></th>
+<th class="head"><p class="linemarker linemarker-199">Fecha de entrega</p></th>
+<th class="head"><p class="linemarker linemarker-200">Responsable de recepción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-201">Diseño de plan de pruebas</p></td>
+<td><p class="linemarker linemarker-202">Desarrollador</p></td>
+<td><p class="linemarker linemarker-203">29 de diciembre de 2023</p></td>
+<td><p class="linemarker linemarker-204">2 de enero de 2024</p></td>
+<td><p class="linemarker linemarker-205">Testers</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-206">Ejecución de ciclo 1</p></td>
+<td><p class="linemarker linemarker-207">Testers</p></td>
+<td><p class="linemarker linemarker-208">&lt;insertar fecha&gt;</p></td>
+<td><p class="linemarker linemarker-209">&lt;insertar fecha&gt;</p></td>
+<td><p class="linemarker linemarker-210">Desarrollador</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-211">Ejecución de ciclo 2</p></td>
+<td><p class="linemarker linemarker-212">Testers</p></td>
+<td><p class="linemarker linemarker-213">&lt;insertar fecha&gt;</p></td>
+<td><p class="linemarker linemarker-214">&lt;insertar fecha&gt;</p></td>
+<td><p class="linemarker linemarker-215">Desarrollador</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-216">Cierre</p></td>
+<td><p class="linemarker linemarker-217">Desarrollador</p></td>
+<td><p class="linemarker linemarker-218">&lt;insertar fecha&gt;</p></td>
+<td><p class="linemarker linemarker-219">&lt;insertar fecha&gt;</p></td>
+<td><p class="linemarker linemarker-220">Líder de proyecto</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="especificacion-de-casos-de-pruebas">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Especificación de casos de pruebas</a><a class="headerlink" href="#especificacion-de-casos-de-pruebas" title="Permalink to this heading"></a></h3>
+<p class="linemarker linemarker-225">Los casos de prueba se enlistan en 3 subgrupos o módulos:</p>
+<ul class="simple">
+<li><p class="linemarker linemarker-227">1 salida</p></li>
+<li><p class="linemarker linemarker-228">Palabras clave</p></li>
+<li><p class="linemarker linemarker-229">Mediciones automáticas</p></li>
+</ul>
+<section id="salida">
+<h4><a class="toc-backref" href="#id19" role="doc-backlink">1 salida</a><a class="headerlink" href="#salida" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-234"><strong>Descripción:</strong> detalla las pruebas que se pueden realizar cuando un solo sensor se conecta a una sola salida.</p></li>
+<li><p class="linemarker linemarker-235"><strong>Posibles agregados:</strong>
+- Varias salidas.
+- Las 5 salidas conectadas.
+- Medición en modo offline y/o sin chip.
+- Pedido de historial cuando no hay datos en la SD.
+- Configuración en modo offline.</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-246">Id</p></th>
+<th class="head"><p class="linemarker linemarker-247">Nombre</p></th>
+<th class="head"><p class="linemarker linemarker-248">Descripción</p></th>
+<th class="head"><p class="linemarker linemarker-249">Resultado esperado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-250">&#64;T2c711d2f</p></td>
+<td><p class="linemarker linemarker-251">Configuración del RTC</p></td>
+<td><p class="linemarker linemarker-252">Setear la hora del RTC externo (DS3231).</p></td>
+<td><p class="linemarker linemarker-253">Setea la hora del RTC externo (DS3231) y devuelve la versión del firmware.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-254">&#64;T68ad08c3</p></td>
+<td><p class="linemarker linemarker-255">Configuración con otro tipo de sensor</p></td>
+<td><p class="linemarker linemarker-256">Se configura el equipo con un sensor cuyo tipo no coincide con el tipo de sensor conectado</p></td>
+<td><p class="linemarker linemarker-257">La respuesta  debe indicar falla en la respectiva salida, que no se guardó y que no se envió.</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-258">&#64;T0ed703f7</p></td>
+<td><p class="linemarker linemarker-259">Configuración sin sensor</p></td>
+<td><p class="linemarker linemarker-260">Se configura un sensor cuando en la placa no hay ningún sensor conectado</p></td>
+<td><p class="linemarker linemarker-261">La respuesta  debe indicar falla en la respectiva salida, que no se guardó y que no se envió.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-262">&#64;Tb42fd51a</p></td>
+<td><p class="linemarker linemarker-263">Configuración sin chip</p></td>
+<td><p class="linemarker linemarker-264">Se configura sin chip en el módulo SIM808</p></td>
+<td><p class="linemarker linemarker-265">El equipo debe guardar la configuración pero indicar que falló el envío al servidor.</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-266">&#64;Tdf0541fb</p></td>
+<td><p class="linemarker linemarker-267">Configuración normal</p></td>
+<td><p class="linemarker linemarker-268">Se configura normalmente</p></td>
+<td><p class="linemarker linemarker-269">El equipo debe indicar que la configuración se guardó y que se envió al servidor</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-270">&#64;T72b2024f</p></td>
+<td><p class="linemarker linemarker-271">Medición manual</p></td>
+<td><p class="linemarker linemarker-272">Se pide al equipo que haga una medición manual en el momento</p></td>
+<td><p class="linemarker linemarker-273">El equipo debe medir y enviar el resultado al servidor y a la app.</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-274">&#64;Tb036b6ce</p></td>
+<td><p class="linemarker linemarker-275">Pedido de historial</p></td>
+<td><p class="linemarker linemarker-276">Se pide el historial de mediciones no enviadas guardadas en la SD</p></td>
+<td><p class="linemarker linemarker-277">El equipo debe devolver el historial en el formato correcto.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="palabras-clave">
+<h4><a class="toc-backref" href="#id20" role="doc-backlink">Palabras clave</a><a class="headerlink" href="#palabras-clave" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-282"><strong>Descripción:</strong> detalla las pruebas para las palabras clave; no es necesario conectar ningún sensor.</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-288">Id</p></th>
+<th class="head"><p class="linemarker linemarker-289">Nombre</p></th>
+<th class="head"><p class="linemarker linemarker-290">Descripción</p></th>
+<th class="head"><p class="linemarker linemarker-291">Resultado esperado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-292">&#64;Tbf5d2cbc</p></td>
+<td><p class="linemarker linemarker-293">erase</p></td>
+<td><p class="linemarker linemarker-294">Borra la configuración del equipo.</p></td>
+<td><p class="linemarker linemarker-295">Mensaje de que se ha borrado la configuración.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-296">&#64;T9f9e0457</p></td>
+<td><p class="linemarker linemarker-297">eeprom</p></td>
+<td><p class="linemarker linemarker-298">Pide la configuración.</p></td>
+<td><p class="linemarker linemarker-299">Muestra la configuración que tiene el equipo en ese momento.</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-300">&#64;T9a7191c4</p></td>
+<td><p class="linemarker linemarker-301">chequeo</p></td>
+<td><p class="linemarker linemarker-302">Pide chequear los módulos SIM, RTC y SD; y también chequea el estado de la comunicación con los sensores.</p></td>
+<td><p class="linemarker linemarker-303">Muestra el estado los módulos y sensores</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-304">&#64;Tf6811e5d</p></td>
+<td><p class="linemarker linemarker-305">voltaje</p></td>
+<td><p class="linemarker linemarker-306">Setear el coeficiente de voltaje.</p></td>
+<td><p class="linemarker linemarker-307">Mensaje avisando que se seteó el coeficiente de voltaje y su valor.</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-308">&#64;T393988ac</p></td>
+<td><p class="linemarker linemarker-309">modo12</p></td>
+<td><p class="linemarker linemarker-310">Des/activar el modo 12</p></td>
+<td><p class="linemarker linemarker-311">Mostrar el estado actual del modo 12.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-312">&#64;T50ac382e</p></td>
+<td><p class="linemarker linemarker-313">offline</p></td>
+<td><p class="linemarker linemarker-314">Des/activar el modo offline</p></td>
+<td><p class="linemarker linemarker-315">Mostrar el estado del modo offline</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-316">&#64;T633f43bb</p></td>
+<td><p class="linemarker linemarker-317">modulo</p></td>
+<td><p class="linemarker linemarker-318">Borrar la tarjeta SD</p></td>
+<td><p class="linemarker linemarker-319">Mostrar un mensaje que siga que se borraron las mediciones no enviadas  guardadas en la SD.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-320">&#64;T4750ac82</p></td>
+<td><p class="linemarker linemarker-321">reset</p></td>
+<td><p class="linemarker linemarker-322">Resetear el equipo</p></td>
+<td><p class="linemarker linemarker-323">Avisar que se va a apagar y volver a encender el equipo automáticamente en X segundos.</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-324">&#64;T9765f1a7</p></td>
+<td><p class="linemarker linemarker-325">apn</p></td>
+<td><p class="linemarker linemarker-326">Setear el APN de forma manual</p></td>
+<td><p class="linemarker linemarker-327">Informar las credenciales que se van a usar</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-328">&#64;T5d032083</p></td>
+<td><p class="linemarker linemarker-329">user</p></td>
+<td><p class="linemarker linemarker-330">Ídem para el USER</p></td>
+<td><p class="linemarker linemarker-331">Informar las credenciales que se van a usar</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-332">&#64;Tfd33ca75</p></td>
+<td><p class="linemarker linemarker-333">pwd</p></td>
+<td><p class="linemarker linemarker-334">Ídem para el PWD</p></td>
+<td><p class="linemarker linemarker-335">Informar las credenciales que se van a usar</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-336">&#64;T7a82f772</p></td>
+<td><p class="linemarker linemarker-337">erase cred</p></td>
+<td><p class="linemarker linemarker-338">Borrar las credenciales</p></td>
+<td><p class="linemarker linemarker-339">Informar que se borraron las credenciales</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mediciones-automaticas">
+<h4><a class="toc-backref" href="#id21" role="doc-backlink">Mediciones automáticas</a><a class="headerlink" href="#mediciones-automaticas" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p class="linemarker linemarker-344"><strong>Descripción:</strong> detalla las pruebas para que el equipo se deje x cantidad de días tomando mediciones de forma automática.</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 35%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p class="linemarker linemarker-350">Id</p></th>
+<th class="head"><p class="linemarker linemarker-351">Nombre</p></th>
+<th class="head"><p class="linemarker linemarker-352">Descripción</p></th>
+<th class="head"><p class="linemarker linemarker-353">Resultado esperado</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p class="linemarker linemarker-354">T25fe5f7e</p></td>
+<td><p class="linemarker linemarker-355">{offline; modo12} = {Sí, Sí}</p></td>
+<td><p class="linemarker linemarker-356">Se deja el equipo funcionando con el modo offline ACTIVADO y el modo12 ACTIVADO.</p></td>
+<td><p class="linemarker linemarker-357">Se deben haber quedado guardadas las mediciones en la SD con el timeStamp cada 1 hora.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-358">Td0787d31</p></td>
+<td><p class="linemarker linemarker-359">{offline; modo12} = {Sí, -}</p></td>
+<td><p class="linemarker linemarker-360">Se deja el equipo funcionando con el modo offline ACTIVADO y el modo12 desactivado.</p></td>
+<td><p class="linemarker linemarker-361">Se deben haber quedado guardadas las mediciones en la SD con el timeStamp cada 12 horas.</p></td>
+</tr>
+<tr class="row-even"><td><p class="linemarker linemarker-362">Tdd8bbeac</p></td>
+<td><p class="linemarker linemarker-363">{offline; modo12} = {-, Sí}</p></td>
+<td><p class="linemarker linemarker-364">Se deja el equipo funcionando con el modo offline desactivado y el modo12 ACTIVADO.</p></td>
+<td><p class="linemarker linemarker-365">No deben haber mediciones en la SD y las mediciones en el servidor deben ser cada 1 hora.</p></td>
+</tr>
+<tr class="row-odd"><td><p class="linemarker linemarker-366">T8774af73</p></td>
+<td><p class="linemarker linemarker-367">{offline; modo12} = {-, -}</p></td>
+<td><p class="linemarker linemarker-368">Se deja el equipo funcionando con el modo offline desactivado y el modo12 desactivado.</p></td>
+<td><p class="linemarker linemarker-369">No deben haber mediciones en la SD y las mediciones en el servidor deben ser cada 12 horas.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="mediciones-de-autonomia">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="sectnum">6.3.- </span>Mediciones de autonomía</a><a class="headerlink" href="#mediciones-de-autonomia" title="Permalink to this heading"></a></h2>
+<p class="linemarker linemarker-374">En esta sección se detalla una serie de pruebas para medir la
+autonomía de la batería de los equipos BIOT.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="linemarker linemarker-379">No forma parte de los testing, esos se hacen para corroborar
+o validar el comportamiento que ya se verificó en el desarrollo,
+y estas pruebas son para medir cuánto duran las baterías que
+alimentan al equipo.</p>
+</div>
 </section>
 </section>
 

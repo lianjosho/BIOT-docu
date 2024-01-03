@@ -1,12 +1,15 @@
-Comunicación con la APP
-#######################
+Comunicación con la APP y con el servidor
+#########################################
 
 .. sectnum:: 
    :suffix: .-
    :start: 4
-   :depth: 2
+   :depth: 3
 
 .. contents::
+
+Comunicación con la app
+***********************
 
 Cuando el celular está conectado al equipo, éste puede 
 atender las siguientes peticiones:
@@ -18,7 +21,7 @@ atender las siguientes peticiones:
 - Pedido del historial
 
 Actualización del RTC interno
-*****************************
+=============================
 
 El HTTP request es el siguiente:
 
@@ -55,7 +58,7 @@ Donde va la información de la versión del firmware.
    cada vez que se despierta.
 
 Configuración del equipo
-************************
+========================
 
 El HTTP request es el siguiente:
 
@@ -132,7 +135,7 @@ Donde:
   el equipo está en modo offline: entonces .
 
 Palabras clave
-**************
+==============
 
 Si el campo ``location_name`` tiene alguna de las siguientes 
 palabras reservadas, entonces el equipo no hace la
@@ -156,7 +159,7 @@ configuración y atiende ese caso especial.
 - erase log
 
 erase 
-=====
+-----
 
 Borra la configuración del equipo, excepto:
 
@@ -175,7 +178,7 @@ El http_response es:
     La configuración ha sido borrada
 
 eeprom
-======
+------
 
 Devuelve la configuración del equipo. Es la misma respuesta que en el
 caso de una configuración bien hecha.
@@ -206,7 +209,7 @@ caso de una configuración bien hecha.
     Subido: -
 
 chequeo
-=======
+-------
 
 Hace un chequeo de los módulos RTC externo y SD y las 
 salidas. Luego le envía a la app un mensaje con el 
@@ -245,7 +248,7 @@ Donde:
 - ``Paquetes en SD``: cantidad de paquetes guardados en la SD que no se puedieron enviar.
 
 voltaje,<volt>
-==============
+--------------
 
 Configura el coeficiente de voltaje, donde <volt> es el 
 valor de voltaje de la batería en ese momento. La HTTP response es:
@@ -260,7 +263,7 @@ valor de voltaje de la batería en ese momento. La HTTP response es:
     }
 
 modo12
-======
+------
 
 Activa o desactiva el modo 12. Si el modo 12 estaba desactivado, el 
 ``http_response`` es:
@@ -297,7 +300,7 @@ Si se vuelve a mandar la palabra clave, entonces el
     }
 
 offline
-=======
+-------
 
 Des/activa modo offline. Si el equipo estaba con el modo offline 
 desactivado, lo activa y devuelve:
@@ -323,7 +326,7 @@ Si se vuelve a enviar la palabra clave, entonces responde:
     }
 
 modulo 
-======
+------
 
 Borra el contenido del archivo ``register.txt``, que es en donde se 
 guardan las mediciones fallidas. El http_response es:
@@ -338,7 +341,7 @@ guardan las mediciones fallidas. El http_response es:
     }
 
 reset
-=====
+-----
 
 Reinicia el equipo. El esp32 se apaga y se vuelve a encender. 
 
@@ -347,7 +350,7 @@ Reinicia el equipo. El esp32 se apaga y se vuelve a encender.
     Para seguir configurando el equipo, se debe volver a generar la red wifi.
 
 invalid sn
-==========
+----------
 
 Se quita los 0 en el campo "sn" del json de medición que se va a 
 enviar al servidor. Esto se hace para testear la respuesta del 
@@ -376,7 +379,7 @@ Y si se vuelve a mandar la palabra clave, devuelve:
     }
 
 invalid time
-============
+------------
 
 Se manda un timestamp con el año 2025 en el json de medición que 
 se va a enviar al servidor. Esto se hace para testear la respuesta
@@ -405,7 +408,7 @@ Y si se vuelve a mandar la palabra clave, devuelve:
     }
 
 log
-===
+---
 
 Devuelve a la app el archivo ``activity.txt``.
 
@@ -416,7 +419,7 @@ Devuelve a la app el archivo ``activity.txt``.
    app los muestre.
 
 apn,<valor de apn>
-==================
+------------------
 
 Configura la APN que va a usar el equipo para conectarse a 
 internet. El `http_response` es:
@@ -446,7 +449,7 @@ internet. El `http_response` es:
     Lo mismo sucede con USER y PWD.
 
 user,<valor de user>
-====================
+--------------------
 
 Configura el USER que va a usar el equipo para conectarse a 
 internet. El ``http_response`` es:
@@ -464,7 +467,7 @@ internet. El ``http_response`` es:
     }
 
 pwd,<valor de pwd>
-==================
+------------------
 
 Configura el PWD que va a usar el equipo para conectarse a 
 internet. El ``http_response`` es:
@@ -482,7 +485,7 @@ internet. El ``http_response`` es:
     }
 
 erase cred
-==========
+----------
 
 Borra la APN, USER y PWD que están guardados. El 
 ``http_response`` es:
@@ -507,7 +510,7 @@ Borra la APN, USER y PWD que están guardados. El
     coloca las credenciales guardadas por defecto. 
 
 erase log 
-=========
+---------
 
 Borra el archivo ``/activity.txt`` y lo vuelve a crear. El 
 ``http_response`` es:
@@ -522,7 +525,7 @@ Borra el archivo ``/activity.txt`` y lo vuelve a crear. El
     }
 
 Medición manual
-***************
+===============
 
 La HTTP request es:
 
@@ -587,77 +590,8 @@ Donde cada json_measure es:
       "number_sent": 0
     }
 
-
-.. .. code-block:: http
-
-..     HTTP/1.1 200 OK
-..     Content-Type:text/plain;charset=UTF-8
-
-..     {
-..       "offline": true,
-..       "sensors": {
-..         "1": {
-..           "status": true,
-..           "T": 20.50,
-..           "H": 0.11,
-..           "E": 0,
-..           "sent": false,
-..           "save": true
-..         },
-..         "2": {
-..           "status": true,
-..           "T": 20.50,
-..           "H": 0.11,
-..           "E": 0,
-..           "N": 0,
-..           "P": 0,
-..           "K": 0,
-..           "sent": false,
-..           "save": true
-..         },
-..         "3": {
-..           "status": true,
-..           "L": 0.798,
-..           "sent": false,
-..           "save": true
-..         },
-..         "4": {
-..           "status": true,
-..           "T": 20.50,
-..           "H": 0.11,
-..           "E": 0,
-..           "N": 5,
-..           "P": 42,
-..           "K": 56,
-..           "PH": 7.52
-..           "sent": false,
-..           "save": true
-..         },
-..       },
-..       "sent_from_sd": 0,
-..       "rest_on_sd": 16
-..     }
-
-.. Donde :
-
-.. - ``offline``: indica si el modo offline está activado o no.
-.. - ``Sensors``: contiene json de los sensores configurados.
-..     - ``status``: indica si la medición se hizo o falló.
-..     - ``T, H, E``: parámetros del sensor THE. 
-..     - ``T, H, E, N, P, K``: parámetros del sensor NPK. 
-..     - ``L``: parámetros del sensor LEVEL. 
-..     - ``sent``: indica si el paquete se envió con éxito al server. 
-..     - ``save``: indica si el paquete se guardó con éxito si el envío falló. 
-.. - ``sent_from_sd``: número de paquetes enviados desde la sd.
-.. - ``rest_on_sd``: número de paquetes que quedan en la sd.
-
-.. .. warning:: 
-
-..     Los paquetes en la SD con más de 3 envíos fallidos se 
-..     borrarán de la misma.
-
 Pedido del historial
-********************
+====================
 
 El HTTP request es:
 
@@ -699,17 +633,10 @@ alrededor de 1400 caracteres por envío al cliente.
 
 
 Comunicación con el servidor
-############################
-
-.. sectnum::
-   :depth: 1
-   :suffix: .-
-   :start: 6
-
-.. contents:: 
+****************************
 
 Dada de alta de un punto
-************************
+========================
 
 Para configurar un punto, el equipo manda a la siguiente dirección:
 
@@ -771,7 +698,7 @@ le responde a la app que la configuración se realizó
 exitosamente.
 
 Actualización de las mediciones
-*******************************
+===============================
 
 Una vez que los paquetes de mediciones están hechas, se mandan al 
 servidor cuya dirección es:
@@ -825,7 +752,7 @@ El servidor puede contestar con los siguientes códigos de
 error.
 
 200: Petición ok
-================
+----------------
 
 Petición procesada exitosamente. Si se le envía el ``http 
 request`` del ejemplo, entonces el servidor responde:
@@ -847,7 +774,7 @@ request`` del ejemplo, entonces el servidor responde:
    }
 
 400: Problema con el JSON
-=========================
+-------------------------
 
 El paquete json entero posiblemente esté mal formado. Si 
 se le envía el ``http request`` del ejemplo con algún error, 
@@ -886,7 +813,7 @@ entonces el servidor responde:
    }
 
 404: Problema con PRODUCT
-=========================
+-------------------------
 
 El campo ``product`` no es válido. Si se le envía el mismo 
 ``http request`` del ejemplo, pero con el siguiente campo 
@@ -914,7 +841,7 @@ El servidor responde:
     }
 
 405: Problema con ID
-====================
+--------------------
 
 Problemas con el campo ``id``, no es válido. Si se le 
 envía el mismo ``http request`` del ejemplo, pero con el 
@@ -942,7 +869,7 @@ El servidor responde:
     }
 
 406: Problema con SN
-====================
+--------------------
 
 Problemas con el campo ``sn``, la longitud es menor a 
 4 caracteres. Si se le envía el mismo ``http request`` 
@@ -970,7 +897,7 @@ El servidor responde:
     }
 
 407: Problema con LOCATION
-==========================
+--------------------------
 
 Problemas con el campo ``location``, tiene valores nulos. Si se 
 le envía el mismo ``http request`` del ejemplo, pero con el 
@@ -1001,7 +928,7 @@ El servidor responde:
     }
 
 408: Problema con el TAG_DEPTH  
-==============================
+------------------------------
 
 Problemas con el campo ``tag_depth``, está fuera de rango. Si se 
 le envía el mismo ``http request`` del ejemplo, pero con el 
@@ -1029,7 +956,7 @@ El servidor responde:
     }
 
 460: Problema con la LATITUDE
-=============================
+-----------------------------
 
 Problemas con el campo ``latitude``, está fuera del rango 
 [-90; 90]. Si se envía el mismo ``http request`` del ejemplo, 
@@ -1057,7 +984,7 @@ El servidor responde:
     }
 
 461: Problema con LONGITUDE 
-===========================
+---------------------------
 
 Problemas con el campo ``latitude``, está fuera del rango 
 [-180; 180]. Si se envía el mismo ``http request`` del ejemplo, 
@@ -1085,7 +1012,7 @@ El servidor responde:
     }
 
 462: Problema con LOCATION  
-==========================
+--------------------------
 
 Problemas con el campo ``location``, está mal formado. Si se 
 envía el mismo ``http request`` del ejemplo, pero con el 
@@ -1116,7 +1043,7 @@ El servidor responde:
     }
 
 463: Problema con el TIMESTAMP (mal formado)
-============================================
+--------------------------------------------
 
 Problemas con el campo ``timestamp``, está mal formado, debe 
 seguir con el formato YYYY-mm-DD-HH-MM-SS. Si se envía el 
@@ -1145,7 +1072,7 @@ El servidor responde:
     }
 
 464: Problema con el TIMESTAMP (fuera de rango)
-===============================================
+-----------------------------------------------
 
 Problemas con el campo ``timestamp``, está fuera de rango.
 
@@ -1178,7 +1105,7 @@ El servidor responde:
     }
 
 500: Problema del servidor 
-==========================
+--------------------------
 
 Problema interno del servidor a la hora de guardar los datos. No 
 se muestra un ejemplo de lo que responde el servidor porque al 
