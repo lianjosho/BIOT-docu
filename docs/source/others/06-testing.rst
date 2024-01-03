@@ -4,7 +4,7 @@ Plan de pruebas
 .. sectnum:: 
    :suffix: .-
    :start: 6
-   :depth: 2
+   :depth: 3
 
 .. contents::
 
@@ -146,6 +146,14 @@ cuales ya deberían estar pre cargadas.
 Luego hacer click en "Launch" para ejecutar el conjunto de pruebas, hacerlo y 
 finalizarlo. Cuando se acabe, el reporte quedará registrado en la misma herramienta,
 que se puede descargar en formato ".xlsx" si es requerido.
+
+Para mantener al tanto al resto del equipo, el tester debe copiar el link del registro 
+de pruebas, tal como se ve en la siguiente imagen:
+
+.. image:: images/06-testing-02-reporte-link.png
+
+y pegarlo en el siguiente documento de Google.docs: `Registro de pruebas 
+  <https://docs.google.com/document/d/1BDQWDhOfA1EpYbVgoTN1ycC1H1rvaq6A6ADwkQKxt4M/edit>`_.
 
 Reporte de bugs
 ---------------
