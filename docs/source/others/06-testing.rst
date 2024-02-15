@@ -152,8 +152,9 @@ de pruebas, tal como se ve en la siguiente imagen:
 
 .. image:: images/06-testing-02-reporte-link.png
 
-y pegarlo en el siguiente documento de Google.docs: `Registro de pruebas 
-  <https://docs.google.com/document/d/1BDQWDhOfA1EpYbVgoTN1ycC1H1rvaq6A6ADwkQKxt4M/edit>`_.
+y pegarlo en el siguiente documento de Google.docs: 
+`Registro de pruebas <https://docs.google.com/document/d/1BDQWDhOfA1EpYbVgoTN1ycC1H1rvaq6A6ADwkQKxt4M/edit.html>`_.
+
 
 Reporte de bugs
 ---------------

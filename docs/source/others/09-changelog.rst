@@ -3,7 +3,7 @@ Versionado
 
 .. sectnum:: 
    :suffix: .-
-   :start: 8
+   :start: 9
    :depth: 1
 
 - Todos los cambios notables en este proyecto van a ser documentados aquí. 
@@ -35,17 +35,86 @@ Tipos de cambios
 Versión 8
 *********
 
+V8.0.2 - 06/02/2024
+===================
+
+Fixed
+-----
+
+- **Medición fallida de NPK:** en el refactoreo general que se hizo, se 
+  omitió el envío de la trama ``THE_request``; solo se envió la 
+  ``NPK_request``, y esto ocasionaba errores en la obtención de parámetros 
+  NPK.
+  
+  *Corregido:* cuando el sensor configurado es NPK, se envía ambas tramas 
+  para obtener los parámetros THE y NPK.
+
+- **Ruido en la obtención de la trama de respuesta:** algunos sensores 
+  presentan ruido en el primer byte que devuelve, lo que dificulta la lectura 
+  de los parámetros.
+  
+  *Corregido:* si el primer byte es distinto de ``0x01``, entonces no se lo 
+  tiene en cuenta en la trama de respuesta. 
+
+V8.0.1 - 26/01/2024
+===================
+
+Fixed
+-----
+
+- **Medición sin sensor devuelve último valor:** cuando se pide medición manual 
+  con un sensor desconectado, devuelve el último valor (o conjunto de valores) 
+  de medición manual y se tomaba por válido.
+  
+  *Corregido:* cuando el sensor no está conectado, da medición fallida y no se
+  guarda la SD.
+
 V8.0.0 - 03/01/2024
 ===================
 
-Changed
--------
+Added
+-----
 
-- **Intervalos de medición y de subida como parámetros:** el intervalo de medición y 
-  el de subida pasan a ser parámetros, esto es, pasan a ser variables gloabales 
-  que se pueden modificar por los valores deseados. En versiones anteriores el 
-  intervalo de medición era de 1 o 12 horas y el de subida era de 12 o 24 horas, 
-  dependiendo de si el modo 12 estaba activado o no, respectivamente.
+- **Modos para probar batería:** se agregan modos para probar la 
+  autonomía de la batería. En el archivo ``Global.h`` se definen 
+  las siguientes líneas.
+
+    .. code-block:: c++
+
+        #define PORTABLE_BAT_TESTING
+        #define INMOVABLE_BAT_TESTING
+        #define SHOW_REGALL
+
+  Si ``PORTABLE_BAT_TESTING`` NO está comentada, entonces el equipo sigue la siguiente rutina: 
+    - Se pone a dormir;
+    - Se despierta a los 5 minutos;
+    - Enciende wifi;
+    - Espera peticiones por 5 minutos;
+    - Realiza mediciones;
+    - Se pone a dormir por 5 minutos. 
+  
+  Si ``INMOVABLE_BAT_TESTING`` NO está comentada, entonces el equipo sigue la siguiente rutina: 
+    - Se pone a dormir;
+    - Se despierta a los 5 minutos;
+    - Realiza mediciones;
+    - Se pone a dormir por 5 minutos. 
+  
+  Es igual al caso anterior, solo que no enciende el wifi. El tiempo 
+  de 5 minutos que se pone a dormir se puede modificar cambiando 
+  la variable ``forced_measure_interval_in_minutes`` en el archivo
+  ``Global.cpp``.
+  
+  .. danger:: 
+
+    NO descomentar ambas líneas a la vez, sí o sí una debe estar 
+    comentada.
+
+  Si ``SHOW_REGALL`` NO está comentada, entonces se registran 
+  todas la mediciones. 
+
+- **Se guardan todas las mediciones**: si alguna de las líneas de 
+  arriba están descomentadas, entonces se realiza el guardado de 
+  todas las mediciones sí o sí en el archivo ``regall.txt``.
 
 Versión 7
 *********

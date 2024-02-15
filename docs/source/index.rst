@@ -76,7 +76,8 @@ Contenido
    others/05-developer
    others/06-testing
    others/07-changes
-   others/08-changelog
+   others/08-firmware
+   others/09-changelog
 
 
 
